@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>4-modul — Tarbiya turlari</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:linear-gradient(120deg,#020617,#0b1220,#020617);
+  color:#e5e7eb;
+  padding-bottom:190px;
+}
+
+/* HERO */
+.hero{
+  padding:100px 24px 70px;
+  text-align:center;
+}
+.hero h1{
+  font-size:clamp(38px,5.5vw,66px);
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  background:
+    linear-gradient(120deg,#fff,#22c55e,#38bdf8,#a855f7,#fff);
+  background-size:300% 300%;
+  animation:shine 8s linear infinite;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 40px rgba(56,189,248,.35);
+}
+@keyframes shine{
+  0%{background-position:0%}
+  100%{background-position:300%}
+}
+.hero p{
+  margin-top:18px;
+  font-size:18px;
+  opacity:.9;
+}
+
+/* LAYOUT */
+.layout{
+  max-width:1500px;
+  margin:auto;
+  padding:0 40px;
+  display:grid;
+  grid-template-columns:360px 1fr;
+  gap:56px;
+}
+
+/* LEFT PANEL */
+.panel{
+  position:sticky;
+  top:32px;
+  align-self:start;
+  padding:30px;
+  border-radius:34px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(22px);
+  box-shadow:0 30px 120px rgba(0,0,0,.85);
+}
+.panel h3{
+  margin-bottom:22px;
+  letter-spacing:.22em;
+  font-size:14px;
+  color:#22c55e;
+}
+.panel button{
+  width:100%;
+  padding:18px 20px;
+  margin-bottom:16px;
+  border-radius:20px;
+  border:none;
+  background:rgba(255,255,255,.05);
+  color:#e5e7eb;
+  font-size:16px;
+  text-align:left;
+  cursor:pointer;
+  transition:.35s;
+}
+.panel button:hover{
+  background:rgba(34,197,94,.22);
+}
+.panel button.active{
+  background:linear-gradient(135deg,rgba(34,197,94,.45),rgba(56,189,248,.28));
+  box-shadow:
+    inset 0 0 0 1px rgba(34,197,94,.6),
+    0 0 40px rgba(34,197,94,.35);
+}
+
+/* CONTENT */
+.content{
+  display:flex;
+  flex-direction:column;
+  gap:54px;
+}
+
+/* BLOCK */
+.block{
+  display:none;
+  padding:54px;
+  border-radius:40px;
+  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.03));
+  backdrop-filter:blur(28px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.16),
+    0 70px 180px rgba(0,0,0,.95);
+}
+.block.active{display:block}
+
+/* MAGIC TITLE */
+.block h2{
+  font-size:34px;
+  margin-bottom:30px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  background:
+    linear-gradient(120deg,#fff,#22c55e,#38bdf8,#fff);
+  background-size:200% 200%;
+  animation:shine 6s linear infinite;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 30px rgba(56,189,248,.35);
+}
+
+/* TEXT */
+.block p{
+  font-size:17px;
+  line-height:2.05;
+  margin-bottom:22px;
+  opacity:.96;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:20px 24px;
+  backdrop-filter:blur(18px);
+  background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.4),transparent);
+}
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1.4fr 1fr;
+  gap:22px;
+}
+.nav a{
+  padding:20px;
+  border-radius:26px;
+  text-align:center;
+  text-decoration:none;
+  color:#e5e7eb;
+  background:rgba(255,255,255,.08);
+  font-weight:500;
+}
+.nav a.center{
+  background:linear-gradient(135deg,rgba(34,197,94,.4),rgba(56,189,248,.3));
+  font-weight:800;
+  letter-spacing:.1em;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .panel{position:relative}
+  .nav-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>4-MODUL</h1>
+  <p>Xalq pedagogikasida tarbiya turlari va ularning pedagogik ahamiyati</p>
+</section>
+
+<div class="layout">
+
+<aside class="panel">
+  <h3>Tarbiya yo‘nalishlari</h3>
+  <button class="active" data-target="b1">Axloqiy tarbiya</button>
+  <button data-target="b2">Aqliy tarbiya</button>
+  <button data-target="b3">Mehnat tarbiyasi</button>
+  <button data-target="b4">Jismoniy tarbiya</button>
+  <button data-target="b5">Estetik tarbiya</button>
+</aside>
+
+<main class="content">
+
+<section id="b1" class="block active">
+<h2>Axloqiy tarbiya</h2>
+<p>
+Axloqiy tarbiya xalq pedagogikasining eng muhim va markaziy yo‘nalishi hisoblanadi.
+U orqali halollik, vijdon, adolat, kattaga hurmat, kichikka izzat, mas’uliyat
+va insonparvarlik kabi yuksak fazilatlar shakllantiriladi.
+</p>
+<p>
+Xalq maqollari, nasihatlar, pand-nasihatli hikoyalar axloqiy tarbiyaning asosiy
+vositalari bo‘lib, ular orqali yoshlar hayotda to‘g‘ri yo‘l tanlashga o‘rgatiladi.
+“Yaxshi so‘z – jon ozig‘i”, “Halol bo‘l – elga manzur bo‘l” kabi maqollar
+axloqiy tarbiyaning mazmunini ifodalaydi.
+</p>
+<p>
+Axloqiy tarbiya nafaqat oilada, balki maktab va jamiyat muhitida ham
+uzluksiz olib borilishi zarur.
+</p>
+</section>
+
+<section id="b2" class="block">
+<h2>Aqliy tarbiya</h2>
+<p>
+Aqliy tarbiya insonning tafakkurini, bilimga chanqoqligini va mustaqil fikrlash
+qobiliyatini rivojlantirishga qaratilgan. Xalq pedagogikasida bu jarayon
+topishmoqlar, savol-javoblar, kuzatishlar va hayotiy misollar orqali amalga oshirilgan.
+</p>
+<p>
+Topishmoqlar bolalarning mantiqiy fikrlashini kuchaytirib, tez va aniq xulosa
+chiqarishga o‘rgatgan. Xalq orasida “O‘ylab gapir, o‘ylab ish qil” degan
+tushuncha aqliy tarbiyaning mohiyatini ifodalaydi.
+</p>
+</section>
+
+<section id="b3" class="block">
+<h2>Mehnat tarbiyasi</h2>
+<p>
+Mehnat tarbiyasi yoshlarni hayotga tayyorlash, kasb-hunar egallash va jamiyatda
+foydali shaxs bo‘lib yetishishida muhim ahamiyatga ega. Xalq pedagogikasida
+bolani yoshligidan mehnatga o‘rgatish asosiy tamoyil bo‘lgan.
+</p>
+<p>
+“Mehnat qilgan to‘yadi”, “Ter to‘kkan — rohat ko‘radi” kabi maqollar
+mehnatsevarlik g‘oyasini mustahkamlaydi. Amaliy ishlar orqali
+bolada mas’uliyat va sabr shakllantirilgan.
+</p>
+</section>
+
+<section id="b4" class="block">
+<h2>Jismoniy tarbiya</h2>
+<p>
+Jismoniy tarbiya sog‘lom tanani shakllantirishga xizmat qiladi.
+Xalq pedagogikasida milliy o‘yinlar, kurash, ot chopish va harakatli
+mashg‘ulotlar jismoniy tarbiyaning asosiy vositalari bo‘lgan.
+</p>
+<p>
+“Sog‘lom tanada — sog‘lom aql” degan xalq hikmati jismoniy tarbiyaning
+aqliy va axloqiy tarbiya bilan uzviy bog‘liqligini ko‘rsatadi.
+</p>
+</section>
+
+<section id="b5" class="block">
+<h2>Estetik tarbiya</h2>
+<p>
+Estetik tarbiya insonda go‘zallikni his qilish, san’atni qadrlash va
+didni shakllantirishga qaratilgan. Xalq qo‘shiqlari, raqslar,
+naqshlar va amaliy san’at namunalari estetik tarbiyaning manbalari hisoblanadi.
+</p>
+<p>
+Estetik tarbiya orqali insonning ruhiy olami boyiydi, hayotga
+ijodiy va nozik did bilan qarash shakllanadi.
+</p>
+</section>
+
+</main>
+</div>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a href="modul-3.html">← Modul 3</a>
+    <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
+    <a href="modul-5.html">Modul 5 →</a>
+  </div>
+</div>
+
+<script>
+const buttons=document.querySelectorAll('.panel button');
+const blocks=document.querySelectorAll('.block');
+
+buttons.forEach(btn=>{
+  btn.onclick=()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    blocks.forEach(bl=>bl.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).classList.add('active');
+  }
+});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="uz">

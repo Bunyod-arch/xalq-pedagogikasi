@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>6-modul — Xalq pedagogikasi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#05080f;
+  color:#e5e7eb;
+  padding:90px 20px 160px;
+}
+
+/* ===== TOP NAV ===== */
+.top-nav{
+  position:fixed;
+  top:0;left:0;width:100%;
+  z-index:999;
+  background:rgba(5,8,15,.75);
+  backdrop-filter:blur(18px);
+}
+.top-nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.top-nav a{
+  text-decoration:none;
+  color:#e5e7eb;
+  padding:10px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  font-size:14px;
+}
+.top-nav a:hover{background:rgba(56,189,248,.3)}
+
+/* ===== LAYOUT ===== */
+.container{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:50px;
+}
+
+h1{
+  text-align:center;
+  font-size:clamp(28px,4vw,46px);
+  font-weight:900;
+  letter-spacing:.14em;
+  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== CARD ===== */
+.card{
+  padding:36px;
+  border-radius:32px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(22px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.15),
+    0 40px 120px rgba(0,0,0,.85);
+}
+
+.card h2{
+  font-size:24px;
+  margin-bottom:14px;
+}
+
+.card p{
+  font-size:16px;
+  line-height:1.9;
+  opacity:.95;
+  margin-bottom:16px;
+}
+
+/* ===== VIDEO ===== */
+.video-box{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  border-radius:22px;
+  overflow:hidden;
+  background:#000;
+}
+.video-box iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* ===== TEST ===== */
+.question{margin-top:20px}
+.question label{
+  display:block;
+  margin-bottom:10px;
+  font-weight:700;
+}
+.options label{
+  display:block;
+  margin-bottom:8px;
+  cursor:pointer;
+}
+
+textarea{
+  width:100%;
+  min-height:120px;
+  border-radius:18px;
+  padding:14px;
+  border:none;
+  font-size:15px;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  resize:vertical;
+}
+
+button{
+  margin-top:30px;
+  padding:16px 34px;
+  border:none;
+  border-radius:24px;
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  color:#000;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:30px;
+  font-size:20px;
+  font-weight:900;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;left:0;width:100%;
+  z-index:999;
+  background:linear-gradient(
+    to top,
+    rgba(5,8,15,.95),
+    rgba(5,8,15,.6),
+    rgba(5,8,15,0)
+  );
+  backdrop-filter:blur(16px);
+}
+.bottom-nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  gap:18px;
+}
+.bottom-nav a{
+  flex:1;
+  text-decoration:none;
+  color:#e5e7eb;
+  padding:18px 22px;
+  border-radius:24px;
+  text-align:center;
+  font-weight:700;
+  background:rgba(255,255,255,.08);
+}
+.bottom-nav a:hover{background:rgba(56,189,248,.3)}
+</style>
+</head>
+
+<body>
+
+<!-- TOP NAV -->
+<div class="top-nav">
+  <div class="top-nav-inner">
+    <a href="#video">🎥 Video</a>
+    <a href="#theory">📘 Nazariya</a>
+    <a href="#test">📝 Test</a>
+    <a href="#writing">✍️ Yozma savol</a>
+    <a href="dars.html">⬅ Darslar</a>
+  </div>
+</div>
+
+<div class="container">
+
+<h1>6-MODUL · XALQ PEDAGOGIKASI</h1>
+
+<!-- VIDEO -->
+<div class="card" id="video">
+  <h2>Video dars</h2>
+  <div class="video-box">
+    <iframe
+      src="https://www.youtube.com/embed/HbkbEwc9xZg"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- THEORY -->
+<div class="card" id="theory">
+  <h2>Nazariy tushuntirish</h2>
+  <p>
+    Xalq pedagogikasida tarbiya uzluksiz jarayon bo‘lib, u oila, mahalla,
+    ta’lim muassasalari va jamiyat bilan chambarchas bog‘liq holda olib boriladi.
+  </p>
+  <p>
+    Ushbu modulda xalq tajribasiga tayangan holda tarbiya metodlari,
+    ularning zamonaviy ta’lim bilan uyg‘unlashuvi yoritiladi.
+  </p>
+</div>
+
+<!-- TEST -->
+<div class="card" id="test">
+  <h2>Test savollari</h2>
+  <div class="question">
+    <label>1. Xalq pedagogikasida tarbiyaning asosiy manbai nima?</label>
+    <div class="options">
+      <label><input type="radio" name="q1" value="1"> Xalq tajribasi va qadriyatlari</label>
+      <label><input type="radio" name="q1" value="0"> Faqat darsliklar</label>
+    </div>
+  </div>
+</div>
+
+<!-- WRITING -->
+<div class="card" id="writing">
+  <h2>Yozma savol</h2>
+  <label>
+    Xalq pedagogikasining tarbiyadagi ahamiyatini o‘z fikringiz bilan yozing:
+  </label>
+  <textarea id="text1"></textarea>
+</div>
+
+<button onclick="checkAll()">Natijani tekshirish</button>
+<div class="result" id="result"></div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <a href="modul-5.html">⬅ modul 6</a>
+   <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
+    <a href="modul-7.html">➡ modul 7</a>
+  </div>
+</div>
+
+<script>
+function checkAll(){
+  let score=0;
+  if(document.querySelector('input[name="q1"]:checked')?.value=="1") score++;
+
+  let text=document.getElementById("text1").value.toLowerCase();
+  let keywords=["xalq","tarbiya","milliy","qadriyat","tajriba"];
+  let match=0;
+  keywords.forEach(k=>{ if(text.includes(k)) match++; });
+
+  let percent=Math.min(100,(score*50)+(match*10));
+  document.getElementById("result").innerHTML =
+    "Yakuniy baho: <strong>"+percent+"%</strong>";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="uz">

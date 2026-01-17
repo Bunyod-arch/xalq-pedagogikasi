@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>3-modul — Xalq pedagogikasi manbalari</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at top,#0f172a,#020617);
+  color:#e5e7eb;
+  padding-bottom:190px;
+}
+
+/* HERO */
+.hero{
+  padding:96px 24px 72px;
+  text-align:center;
+}
+.hero h1{
+  font-size:clamp(34px,5vw,58px);
+  font-weight:900;
+  letter-spacing:.12em;
+  background:linear-gradient(90deg,#f8fafc,#38bdf8,#a855f7,#f8fafc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{margin-top:14px;opacity:.8}
+
+/* LAYOUT */
+.layout{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+  display:grid;
+  grid-template-columns:240px 1fr;
+  gap:56px;
+}
+
+/* SIDE NAV (ICHKI) */
+.side-nav{
+  position:sticky;
+  top:32px;
+  align-self:start;
+  padding:22px;
+  border-radius:24px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+}
+.side-nav h3{
+  margin-bottom:16px;
+  letter-spacing:.18em;
+  font-size:14px;
+  color:#38bdf8;
+}
+.side-nav a{
+  display:block;
+  padding:12px 14px;
+  margin-bottom:10px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#e5e7eb;
+  background:rgba(255,255,255,.05);
+}
+.side-nav a:hover{
+  background:rgba(56,189,248,.25);
+}
+
+/* CONTENT */
+.content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:36px;
+}
+
+/* CARD */
+.card{
+  padding:36px;
+  border-radius:30px;
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02));
+  backdrop-filter:blur(24px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    0 40px 120px rgba(0,0,0,.85);
+}
+.card h2{
+  font-size:22px;
+  margin-bottom:16px;
+  background:linear-gradient(90deg,#fff,#38bdf8,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.card p{
+  font-size:15.5px;
+  line-height:1.85;
+}
+
+/* BOTTOM NAV — TO‘LIQ */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:20px 24px;
+  backdrop-filter:blur(18px);
+  background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.4),transparent);
+}
+.bottom-nav-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1.2fr 1fr;
+  gap:20px;
+}
+.bottom-nav a{
+  padding:20px;
+  border-radius:24px;
+  text-align:center;
+  text-decoration:none;
+  color:#e5e7eb;
+  background:rgba(255,255,255,.08);
+  font-weight:500;
+}
+.bottom-nav a.center{
+  font-weight:700;
+  letter-spacing:.08em;
+  background:linear-gradient(145deg,rgba(56,189,248,.25),rgba(255,255,255,.08));
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .side-nav{display:none}
+  .bottom-nav-inner{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>3-MODUL</h1>
+  <p>Xalq pedagogikasining asosiy manbalari</p>
+</section>
+
+<div class="layout">
+
+<aside class="side-nav">
+  <h3>Bo‘limlar</h3>
+  <a href="#b1">Xalq og‘zaki ijodi</a>
+  <a href="#b2">Urf-odat va an’analar</a>
+  <a href="#b3">Diniy manbalar</a>
+  <a href="#b4">Mutafakkirlar merosi</a>
+</aside>
+
+<main class="content">
+
+<section id="b1" class="card">
+<h2>Xalq og‘zaki ijodi</h2>
+<p>
+Xalq og‘zaki ijodi — xalq pedagogikasining eng qadimiy va eng boy manbasi bo‘lib,
+unda asrlar davomida shakllangan tarbiyaviy tajriba, axloqiy qarashlar va hayotiy
+xulosalar mujassamlangan. Maqollar, matallar, ertaklar, dostonlar, rivoyatlar,
+afsonalar va topishmoqlar xalqning yosh avlodni tarbiyalashdagi asosiy vositalari
+hisoblangan.
+</p>
+
+<p>
+Masalan, maqollar orqali qisqa va lo‘nda shaklda katta hayotiy haqiqatlar yetkazilgan:
+“Ko‘chat boshdan, bola yoshdan”, “Yaxshi so‘z – jon ozig‘i” kabi maqollar
+tarbiyaning erta boshlanishi va so‘zning kuchini ifodalaydi.
+</p>
+
+<p>
+Ertaklar va dostonlar esa yoshlarni jasorat, vatanparvarlik, halollik va adolat
+ruhida tarbiyalashda muhim rol o‘ynagan. Ularda ijobiy va salbiy obrazlar qarama-qarshi
+qo‘yilib, bolalarda yaxshilik va yomonlikni farqlash ko‘nikmasi shakllantirilgan.
+</p>
+
+<p>
+Xalq og‘zaki ijodi nafaqat bilim berish, balki tasavvur, tafakkur va mustaqil fikrlashni
+rivojlantirishda ham kuchli pedagogik ahamiyatga ega bo‘lgan.
+</p>
+
+</section>
+
+<section id="b2" class="card">
+<h2>Urf-odat va an’analar</h2>
+<p>
+Urf-odat va an’analar xalq pedagogikasining amaliy manbasi bo‘lib, ular orqali
+yosh avlod kundalik hayot jarayonida tarbiyalangan. Har bir marosim, udum yoki
+rasm-rusumning o‘ziga xos tarbiyaviy mazmuni mavjud.
+</p>
+
+<p>
+Masalan, beshikka solish, sunnat to‘yi, nikoh marosimlari orqali bolaga hurmat,
+mas’uliyat, kattaga itoat, kichikka g‘amxo‘rlik kabi fazilatlar singdirilgan.
+Navro‘z, Mehrjon kabi umumxalq bayramlari esa jamoaviylik, mehr-oqibat va
+mehnatsevarlik g‘oyalarini mustahkamlagan.
+</p>
+
+<p>
+Urf-odatlar orqali yoshlar jamiyat qoidalarini amalda o‘rganib, ijtimoiy hayotga
+tayyorlangan. Bu jarayon tarbiyaning eng samarali shakli sifatida avloddan-avlodga
+uzatilgan.
+</p>
+
+<p>
+Shu bois urf-odat va an’analar xalq pedagogikasining hayot bilan uzviy bog‘langan,
+doimiy harakatdagi manbasi hisoblanadi.
+</p>
+
+</section>
+
+<section id="b3" class="card">
+<h2>Diniy manbalar</h2>
+<p>
+Urf-odat va an’analar xalq pedagogikasining amaliy manbasi bo‘lib, ular orqali
+yosh avlod kundalik hayot jarayonida tarbiyalangan. Har bir marosim, udum yoki
+rasm-rusumning o‘ziga xos tarbiyaviy mazmuni mavjud.
+</p>
+
+<p>
+Masalan, beshikka solish, sunnat to‘yi, nikoh marosimlari orqali bolaga hurmat,
+mas’uliyat, kattaga itoat, kichikka g‘amxo‘rlik kabi fazilatlar singdirilgan.
+Navro‘z, Mehrjon kabi umumxalq bayramlari esa jamoaviylik, mehr-oqibat va
+mehnatsevarlik g‘oyalarini mustahkamlagan.
+</p>
+
+<p>
+Urf-odatlar orqali yoshlar jamiyat qoidalarini amalda o‘rganib, ijtimoiy hayotga
+tayyorlangan. Bu jarayon tarbiyaning eng samarali shakli sifatida avloddan-avlodga
+uzatilgan.
+</p>
+
+<p>
+Shu bois urf-odat va an’analar xalq pedagogikasining hayot bilan uzviy bog‘langan,
+doimiy harakatdagi manbasi hisoblanadi.
+</p>
+
+</section>
+
+<section id="b4" class="card">
+<h2>Mutafakkirlar merosi</h2>
+<p>
+Diniy manbalar xalq pedagogikasida axloqiy va ma’naviy tarbiyaning asosiy tayanchi
+hisoblanadi. Qur’oni karim va hadislar orqali halollik, adolat, sabr-toqat,
+insonparvarlik va mehr-shafqat kabi yuksak fazilatlar targ‘ib etilgan.
+</p>
+
+<p>
+Islomiy ta’limotlarda ilm olish eng oliy qadriyat sifatida e’tirof etilib,
+“Ilm izlash har bir musulmon uchun farzdir” degan g‘oya yoshlarni bilimga,
+tafakkurga va o‘z ustida ishlashga undagan.
+</p>
+
+<p>
+Diniy manbalar orqali nafaqat shaxsiy axloq, balki jamiyatdagi munosabatlar,
+ota-ona va farzand o‘rtasidagi mas’uliyat, halol mehnatga munosabat kabi
+pedagogik tamoyillar shakllangan.
+</p>
+
+<p>
+Shu jihatdan diniy manbalar xalq pedagogikasida ma’naviy kamolotning
+asosiy ustunlaridan biri bo‘lib kelgan.
+</p>
+
+</section>
+
+</main>
+</div>
+
+<!-- TO‘LIQ NAVIGATOR -->
+<div class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <a href="modul-2.html">← Modul 2</a>
+    <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
+    <a href="modul-4.html">Modul 4 →</a>
+  </div>
+</div>
+
+</body>
+</html>
+<section id="write" class="section"></section>

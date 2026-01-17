@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>8-modul — Xalq pedagogikasi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, #123 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, #062 0%, transparent 45%),
+    #04070d;
+  color:#e5e7eb;
+  padding:100px 20px 170px;
+}
+
+/* ===== TOP NAV ===== */
+.top-nav{
+  position:fixed;
+  top:0;left:0;width:100%;
+  z-index:999;
+  background:rgba(4,7,13,.7);
+  backdrop-filter:blur(18px);
+}
+.top-nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.top-nav a{
+  text-decoration:none;
+  color:#e5e7eb;
+  padding:10px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  font-size:14px;
+}
+.top-nav a:hover{background:rgba(34,197,94,.35)}
+
+/* ===== LAYOUT ===== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:70px;
+}
+
+h1{
+  text-align:center;
+  font-size:clamp(30px,4.5vw,50px);
+  font-weight:900;
+  letter-spacing:.18em;
+  background:linear-gradient(90deg,#fff,#22c55e,#38bdf8,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== TIMELINE ===== */
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:60px;
+  position:relative;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:linear-gradient(#22c55e,#38bdf8);
+  opacity:.3;
+}
+
+.step{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+.step:nth-child(even){
+  direction:rtl;
+}
+.step:nth-child(even) *{
+  direction:ltr;
+}
+
+.card{
+  padding:38px;
+  border-radius:36px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.12),
+    rgba(255,255,255,.03)
+  );
+  backdrop-filter:blur(26px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.18),
+    0 60px 160px rgba(0,0,0,.9);
+}
+
+.card h2{
+  font-size:26px;
+  margin-bottom:18px;
+  letter-spacing:.08em;
+}
+
+.card p{
+  font-size:16px;
+  line-height:1.95;
+  margin-bottom:16px;
+  opacity:.95;
+}
+
+/* ===== TEST ===== */
+.test-card{
+  margin-top:20px;
+}
+.question{
+  margin-top:18px;
+}
+.question label{
+  display:block;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.options label{
+  display:block;
+  margin-bottom:6px;
+}
+
+textarea{
+  width:100%;
+  min-height:160px;
+  border-radius:22px;
+  padding:16px;
+  border:none;
+  font-size:15px;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+}
+
+/* ===== BUTTON ===== */
+button{
+  margin-top:30px;
+  padding:18px 40px;
+  border:none;
+  border-radius:28px;
+  background:linear-gradient(90deg,#22c55e,#38bdf8);
+  color:#000;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* ===== RESULT ===== */
+.result{
+  margin-top:26px;
+  font-size:22px;
+  font-weight:900;
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav{
+  position:fixed;
+  bottom:0;left:0;width:100%;
+  z-index:999;
+  background:linear-gradient(
+    to top,
+    rgba(4,7,13,.95),
+    rgba(4,7,13,.6),
+    rgba(4,7,13,0)
+  );
+  backdrop-filter:blur(16px);
+}
+.bottom-nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  gap:18px;
+}
+.bottom-nav a{
+  flex:1;
+  text-decoration:none;
+  color:#e5e7eb;
+  padding:20px 22px;
+  border-radius:26px;
+  text-align:center;
+  font-weight:800;
+  background:rgba(255,255,255,.08);
+}
+.bottom-nav a:hover{background:rgba(34,197,94,.4)}
+
+@media(max-width:900px){
+  .timeline::before{left:10px}
+  .step{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP NAV -->
+<div class="top-nav">
+  <div class="top-nav-inner">
+    <a href="#s1">1-bosqich</a>
+    <a href="#s2">2-bosqich</a>
+    <a href="#s3">3-bosqich</a>
+    <a href="#test">📝 Test</a>
+    <a href="dars.html">⬅ Darslar</a>
+  </div>
+</div>
+
+<div class="container">
+
+<h1>8-MODUL · XALQ PEDAGOGIKASI</h1>
+
+<div class="timeline">
+
+<!-- STEP 1 -->
+<div class="step" id="s1">
+  <div class="card">
+    <h2>Xalq pedagogikasida tarbiya tizimi</h2>
+    <p>
+      Xalq pedagogikasida tarbiya uzluksiz va hayot bilan chambarchas bog‘liq jarayon
+      sifatida qaraladi. Tarbiya insonning tug‘ilishidan boshlab umrining oxirigacha
+      davom etadi va avloddan-avlodga o‘tib boradi.
+    </p>
+    <p>
+      Oila, mahalla, mehnat jamoasi va ta’lim muassasalari xalq pedagogikasining
+      asosiy tarbiya institutlari hisoblanadi.
+    </p>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step" id="s2">
+  <div class="card">
+    <h2>Tarbiya metodlari va usullari</h2>
+    <p>
+      Xalq pedagogikasida tarbiya hikmat, nasihat, ibrat, maqol, ertak,
+      mehnat jarayoni va marosimlar orqali amalga oshiriladi.
+    </p>
+    <p>
+      Bu metodlar o‘quvchining ongiga tabiiy ravishda singadi va
+      majburiyliksiz ta’sir ko‘rsatadi.
+    </p>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step" id="s3">
+  <div class="card">
+    <h2>Zamonaviy ta’lim bilan uyg‘unlik</h2>
+    <p>
+      Zamonaviy pedagogika xalq pedagogikasining boy tajribasini
+      innovatsion texnologiyalar bilan uyg‘unlashtirishi zarur.
+    </p>
+    <p>
+      Bu uyg‘unlik o‘quvchilarda milliy ong va global fikrlashni
+      bir vaqtda rivojlantiradi.
+    </p>
+  </div>
+</div>
+
+</div>
+
+<!-- TEST -->
+<div class="card test-card" id="test">
+  <h2>Mustahkamlash testi</h2>
+
+  <div class="question">
+    <label>1. Xalq pedagogikasida tarbiya qaysi jarayon sifatida qaraladi?</label>
+    <div class="options">
+      <label><input type="radio" name="q1" value="1"> Uzluksiz jarayon</label>
+      <label><input type="radio" name="q1" value="0"> Vaqtinchalik jarayon</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>2. Asosiy tarbiya institutlari qaysilar?</label>
+    <div class="options">
+      <label><input type="radio" name="q2" value="1"> Oila, mahalla, ta’lim muassasasi</label>
+      <label><input type="radio" name="q2" value="0"> Faqat maktab</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>Yozma savol: Xalq pedagogikasining bugungi ta’limdagi ahamiyatini izohlang.</label>
+    <textarea id="text"></textarea>
+  </div>
+
+  <button onclick="check()">Natijani aniqlash</button>
+  <div class="result" id="result"></div>
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <a href="modul-7.html">⬅ modul 7</a>
+      <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
+    <a href="modul-9.html">➡ modul 9</a>
+  </div>
+</div>
+
+<script>
+function check(){
+  let score=0;
+  if(document.querySelector('input[name="q1"]:checked')?.value=="1") score++;
+  if(document.querySelector('input[name="q2"]:checked')?.value=="1") score++;
+
+  let text=document.getElementById("text").value.toLowerCase();
+  let keys=["tarbiya","xalq","milliy","ta’lim","ma’naviy","tajriba"];
+  let match=0;
+  keys.forEach(k=>{ if(text.includes(k)) match++; });
+
+  let percent=Math.min(100,(score*40)+(match*8));
+  document.getElementById("result").innerHTML =
+    "Yakuniy baho: <strong>"+percent+"%</strong>";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="uz">

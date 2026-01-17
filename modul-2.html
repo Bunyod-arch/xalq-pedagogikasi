@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>2-modul — Didaktik imkoniyatlar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#070b14;
+  color:#e5e7eb;
+  padding-bottom:160px;
+}
+
+/* HERO */
+.hero{
+  padding:90px 24px 60px;
+  text-align:center;
+}
+.hero h1{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:.14em;
+  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{opacity:.8;margin-top:14px}
+
+/* LAYOUT */
+.layout{
+  max-width:1300px;
+  margin:0 auto;
+  padding:0 32px;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:48px;
+}
+
+/* SIDEBAR */
+.sidebar{
+  position:sticky;
+  top:24px;
+  align-self:start;
+  padding:26px;
+  border-radius:26px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(22px);
+}
+.sidebar h3{
+  margin-bottom:16px;
+  letter-spacing:.18em;
+  color:#38bdf8;
+}
+.sidebar a{
+  display:block;
+  padding:12px 14px;
+  margin-bottom:10px;
+  border-radius:14px;
+  color:#e5e7eb;
+  text-decoration:none;
+  background:rgba(255,255,255,.05);
+}
+.sidebar a:hover{background:rgba(56,189,248,.25)}
+
+/* CONTENT */
+.content{display:flex;flex-direction:column;gap:64px}
+
+/* SECTION */
+.section{
+  padding:44px;
+  border-radius:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02));
+  backdrop-filter:blur(24px);
+}
+.section h2{
+  font-size:28px;
+  margin-bottom:22px;
+  background:linear-gradient(90deg,#fff,#22c55e,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* EXPLAIN */
+.explain{
+  background:#0b1220;
+  padding:28px;
+  border-radius:20px;
+  line-height:1.9;
+}
+
+/* TEST */
+.test{
+  margin-top:20px;
+  padding:22px;
+  border-radius:22px;
+  background:rgba(255,255,255,.05);
+}
+.test h4{margin-bottom:12px}
+.test label{display:block;margin-bottom:8px;cursor:pointer}
+
+/* TEXTAREA */
+textarea{
+  width:100%;
+  min-height:140px;
+  padding:16px;
+  border-radius:18px;
+  background:#0b1220;
+  color:#e5e7eb;
+  border:1px solid rgba(255,255,255,.2);
+}
+textarea:focus{outline:none;border-color:#38bdf8}
+
+/* RESULT */
+.result{
+  margin-top:20px;
+  padding:20px;
+  border-radius:20px;
+  background:#0b1220;
+  font-size:16px;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:18px 24px;
+  backdrop-filter:blur(18px);
+  background:linear-gradient(to top,rgba(7,11,20,.9),rgba(7,11,20,.4),transparent);
+}
+.nav-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  gap:24px;
+}
+.nav a{
+  flex:1;
+  padding:20px;
+  border-radius:24px;
+  text-decoration:none;
+  color:#fff;
+  background:rgba(255,255,255,.08);
+  text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>2-MODUL</h1>
+  <p>Xalq pedagogikasining didaktik imkoniyatlari</p>
+</section>
+
+<div class="layout">
+
+<aside class="sidebar">
+  <h3>Bo‘limlar</h3>
+  <a href="#explain">Tushuntirish</a>
+  <a href="#test">Testlar</a>
+  <a href="#write">Yozma savollar</a>
+  <a href="#result">Natija</a>
+</aside>
+
+<main class="content">
+
+<section id="explain" class="section">
+<h2>Tushuntirish</h2>
+<div class="explain">
+Xalq pedagogikasining didaktik imkoniyatlari — xalq tajribasini zamonaviy ta’limga
+tadbiq etishdir. Maqollar, ertaklar, urf-odatlar bilimni mustahkamlaydi,
+mustaqil fikrlashni rivojlantiradi va milliy ongni shakllantiradi.
+</div>
+</section>
+
+<section id="test" class="section">
+<h2>Testlar</h2>
+
+<div class="test" data-q="t1">
+<h4>1. Xalq pedagogikasi nimaga asoslanadi?</h4>
+<label><input type="radio" name="t1" value="0"> Texnologiyaga</label>
+<label><input type="radio" name="t1" value="1"> Xalq tajribasiga</label>
+<label><input type="radio" name="t1" value="0"> Statistikaga</label>
+</div>
+
+<div class="test" data-q="t2">
+<h4>2. Didaktik imkoniyat deganda nima tushuniladi?</h4>
+<label><input type="radio" name="t2" value="1"> O‘qitish imkoniyatlari</label>
+<label><input type="radio" name="t2" value="0"> Nazorat tizimi</label>
+<label><input type="radio" name="t2" value="0"> Hisobot</label>
+</div>
+
+</section>
+
+<section id="write" class="section">
+<h2>Yozma savollar</h2>
+
+<div class="test">
+<h4>1. Xalq pedagogikasining ahamiyati</h4>
+<textarea data-key="w1"></textarea>
+</div>
+
+<div class="test">
+<h4>2. Maqollarning tarbiyadagi o‘rni</h4>
+<textarea data-key="w2"></textarea>
+</div>
+
+</section>
+
+<section id="result" class="section">
+<h2>Natijalar</h2>
+<button onclick="checkAll()" style="padding:14px 24px;border-radius:18px;">Tekshirish</button>
+<div class="result" id="out"></div>
+</section>
+
+</main>
+</div>
+
+<div class="nav">
+<div class="nav-inner">
+<a href="modul-1.html">← Oldingi modul</a>
+<a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
+<a href="modul-3.html">Keyingi modul →</a>
+</div>
+</div>
+
+<script>
+const keywords={
+  w1:["xalq","tarbiya","tajriba","milliy","ta’lim"],
+  w2:["maqol","tarbiya","odob","axloq","xalq"]
+};
+
+/* SAVE */
+document.querySelectorAll("textarea").forEach(t=>{
+  const k=t.dataset.key;
+  t.value=localStorage.getItem(k)||"";
+  t.oninput=()=>localStorage.setItem(k,t.value);
+});
+
+/* CHECK */
+function checkAll(){
+  let testScore=0,testTotal=0;
+  document.querySelectorAll("input[type=radio]:checked").forEach(r=>{
+    testScore+=Number(r.value);
+    testTotal++;
+  });
+  let testPercent=testTotal?Math.round(testScore/testTotal*100):0;
+
+  let writePercent=0,count=0;
+  document.querySelectorAll("textarea").forEach(t=>{
+    const text=t.value.toLowerCase();
+    let match=0;
+    keywords[t.dataset.key].forEach(k=>{
+      if(text.includes(k)) match++;
+    });
+    writePercent+=Math.round(match/keywords[t.dataset.key].length*100);
+    count++;
+  });
+  writePercent=count?Math.round(writePercent/count):0;
+
+  document.getElementById("out").innerHTML=
+    `Test: <b>${testPercent}%</b><br>
+     Yozma: <b>${writePercent}%</b><br>
+     Umumiy: <b>${Math.round((testPercent+writePercent)/2)}%</b>`;
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="uz">

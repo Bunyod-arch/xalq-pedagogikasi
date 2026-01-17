@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>1-modul — Xalq pedagogikasi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#070b14;
+  color:#e5e7eb;
+  padding-bottom:170px;
+}
+
+/* ===== HERO ===== */
+.hero{
+  padding:90px 24px 70px;
+  text-align:center;
+}
+.hero h1{
+  font-size:clamp(30px,4vw,52px);
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  margin-top:18px;
+  opacity:.85;
+  letter-spacing:.14em;
+}
+
+/* ===== LAYOUT (MARKAZLASHTIRILDI) ===== */
+.layout{
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 36px;
+  display:grid;
+  grid-template-columns:340px minmax(0,760px);
+  justify-content:center;
+  gap:56px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:sticky;
+  top:32px;
+  align-self:start;
+  padding:28px;
+  border-radius:30px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(24px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    0 40px 120px rgba(0,0,0,.75);
+}
+.sidebar h3{
+  margin-bottom:18px;
+  font-size:15px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#38bdf8;
+}
+.sidebar a{
+  display:block;
+  padding:12px 14px;
+  margin-bottom:10px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#e5e7eb;
+  font-size:14px;
+  line-height:1.5;
+  background:rgba(255,255,255,.04);
+  transition:.3s;
+}
+.sidebar a:hover{
+  background:rgba(56,189,248,.18);
+}
+.sidebar a.active{
+  background:rgba(56,189,248,.35);
+  box-shadow:0 0 0 1px rgba(56,189,248,.6);
+}
+
+/* ===== CONTENT (MARKAZDA) ===== */
+.content{
+  display:flex;
+  flex-direction:column;
+  gap:64px;
+  align-items:center;
+}
+
+/* ===== BLOCK ===== */
+.block{
+  width:100%;
+  padding:44px;
+  border-radius:36px;
+  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.02));
+  backdrop-filter:blur(26px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    0 60px 160px rgba(0,0,0,.8);
+  transition:.45s;
+}
+.block h2{
+  margin-bottom:26px;
+  font-size:clamp(22px,2.8vw,36px);
+  font-weight:800;
+  letter-spacing:.1em;
+  background:linear-gradient(90deg,#fff,#22c55e,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.block p{
+  font-size:16px;
+  line-height:1.95;
+  letter-spacing:.02em;
+  margin-bottom:18px;
+  opacity:.96;
+}
+
+/* ===== CONTENT BLUR ===== */
+.block.dim{
+  filter:blur(6px);
+  opacity:.35;
+}
+.block.active{
+  filter:none;
+  opacity:1;
+  transform:scale(1.02);
+  box-shadow:
+    inset 0 0 0 1px rgba(56,189,248,.6),
+    0 90px 240px rgba(0,0,0,.95);
+}
+
+/* ===== FIXED NAV ===== */
+.module-nav{
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  z-index:999;
+  padding:18px 24px;
+  background:linear-gradient(
+    to top,
+    rgba(7,11,20,.9),
+    rgba(7,11,20,.5),
+    rgba(7,11,20,0)
+  );
+  backdrop-filter:blur(18px);
+}
+.module-nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:26px;
+}
+.nav-btn{
+  flex:1;
+  padding:22px 28px;
+  border-radius:26px;
+  text-decoration:none;
+  color:#e5e7eb;
+  background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
+  backdrop-filter:blur(26px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    0 30px 90px rgba(0,0,0,.85);
+  letter-spacing:.1em;
+  transition:.35s;
+}
+.nav-btn span{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  opacity:.75;
+}
+.nav-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    inset 0 0 0 1px rgba(56,189,248,.6),
+    0 50px 140px rgba(0,0,0,.95);
+}
+.nav-btn.next{text-align:right}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1000px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+  .content{
+    align-items:stretch;
+  }
+  .module-nav-inner{
+    flex-direction:column;
+  }
+  .nav-btn.next{text-align:left}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>1-MODUL</h1>
+  <p>Xalq pedagogikasi fanining maqsad va vazifalari, mazmuni</p>
+</section>
+
+<div class="layout">
+
+<aside class="sidebar">
+  <h3>Reja</h3>
+  <a href="#r1" data-target="r1">1. Pedagogika tizimidagi o‘rni</a>
+  <a href="#r2" data-target="r2">2. Fan predmeti va vazifalari</a>
+  <a href="#r3" data-target="r3">3. Tarixiy taraqqiyot bosqichlari</a>
+  <a href="#r4" data-target="r4">4. Sharq mutafakkirlari</a>
+</aside>
+
+<main class="content">
+
+<section id="r1" class="block">
+<h2>Pedagogika tizimidagi o‘rni</h2>
+<p>Insonni har tomonlama tarbiyalash xalq pedagogikasining asosiy maqsadidir.</p>
+</section>
+
+<section id="r2" class="block">
+<h2>Fan predmeti va vazifalari</h2>
+<p>Xalq pedagogikasi — xalqning tarbiyaviy tajribasiga asoslangan fan.</p>
+</section>
+
+<section id="r3" class="block">
+<h2>Tarixiy taraqqiyot bosqichlari</h2>
+<p>Xalq pedagogikasi tarix bilan uzviy bog‘liq holda rivojlangan.</p>
+</section>
+
+<section id="r4" class="block">
+<h2>Sharq mutafakkirlari</h2>
+<p>Forobiy, Ibn Sino, Navoiy pedagogik fikr rivojiga ulkan hissa qo‘shgan.</p>
+</section>
+
+</main>
+</div>
+
+<div class="module-nav">
+  <div class="module-nav-inner">
+    <a href="dars.html" class="nav-btn">← Darslar ro‘yxatiga qaytish</a>
+    <a href="modul-2.html" class="nav-btn next">
+      Keyingi modul →
+      <span>2-modul. Xalq pedagogikasining manbalari</span>
+    </a>
+  </div>
+</div>
+
+<script>
+const links=document.querySelectorAll('.sidebar a');
+const blocks=document.querySelectorAll('.block');
+
+links.forEach(link=>{
+  link.addEventListener('click',()=>{
+    const id=link.dataset.target;
+
+    links.forEach(l=>l.classList.remove('active'));
+    link.classList.add('active');
+
+    blocks.forEach(b=>{
+      b.classList.add('dim');
+      b.classList.remove('active');
+    });
+
+    const active=document.getElementById(id);
+    if(active){
+      active.classList.remove('dim');
+      active.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="uz">

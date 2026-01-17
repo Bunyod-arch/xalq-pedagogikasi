@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>14-modul — Yakuniy baholash</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+/* ===== DYNAMIC IOS26 BACKGROUND ===== */
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  min-height:100vh;
+  color:#f8fafc;
+  background:
+    radial-gradient(1200px 600px at 10% 10%,rgba(0,255,255,.18),transparent),
+    radial-gradient(1000px 500px at 90% 20%,rgba(168,85,247,.22),transparent),
+    radial-gradient(800px 400px at 50% 90%,rgba(34,197,94,.22),transparent),
+    #020617;
+  animation:bgMove 18s ease-in-out infinite alternate;
+  padding:120px 20px 200px;
+}
+
+@keyframes bgMove{
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(25deg)}
+}
+
+/* ===== HEADER ===== */
+.header{
+  max-width:1100px;
+  margin:0 auto 90px;
+  text-align:center;
+}
+.header h1{
+  font-size:clamp(42px,6vw,82px);
+  font-weight:900;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  background:linear-gradient(120deg,#22d3ee,#a855f7,#22c55e,#22d3ee);
+  background-size:300% 300%;
+  animation:neonFlow 8s linear infinite;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+@keyframes neonFlow{
+  0%{background-position:0% 50%}
+  100%{background-position:100% 50%}
+}
+.header p{
+  margin-top:28px;
+  font-size:19px;
+  line-height:2;
+  opacity:.92;
+}
+
+/* ===== GLASS CARD ===== */
+.card{
+  max-width:980px;
+  margin:0 auto 90px;
+  padding:54px;
+  border-radius:44px;
+  background:
+    linear-gradient(145deg,
+      rgba(255,255,255,.16),
+      rgba(255,255,255,.04)
+    );
+  backdrop-filter:blur(30px) saturate(160%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.18),
+    0 80px 220px rgba(0,0,0,.85);
+}
+.card h2{
+  font-size:32px;
+  margin-bottom:28px;
+}
+.card p{
+  font-size:16.8px;
+  line-height:2;
+  margin-bottom:18px;
+  opacity:.95;
+}
+
+/* ===== QUESTIONS ===== */
+.question{
+  margin-bottom:34px;
+}
+.question h3{
+  font-size:18px;
+  margin-bottom:14px;
+}
+.question label{
+  display:block;
+  padding:12px 18px;
+  margin-bottom:10px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  cursor:pointer;
+  transition:.25s;
+}
+.question label:hover{
+  background:rgba(34,211,238,.18);
+}
+
+/* ===== TEXTAREA ===== */
+textarea{
+  width:100%;
+  min-height:240px;
+  border-radius:30px;
+  padding:22px;
+  border:none;
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  font-size:16.5px;
+  outline:none;
+}
+
+/* ===== BUTTON ===== */
+button{
+  margin-top:40px;
+  padding:22px 64px;
+  border:none;
+  border-radius:44px;
+  background:
+    linear-gradient(120deg,#22d3ee,#a855f7,#22c55e);
+  background-size:200% 200%;
+  animation:neonFlow 6s linear infinite;
+  color:#020617;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:.12em;
+  cursor:pointer;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.6);
+}
+
+/* ===== RESULT ===== */
+.result{
+  margin-top:34px;
+  font-size:28px;
+  font-weight:900;
+}
+.cert{
+  margin-top:18px;
+  font-size:18px;
+  opacity:.9;
+}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;
+  bottom:0;left:0;
+  width:100%;
+  z-index:999;
+  padding:20px 26px;
+  background:linear-gradient(
+    to top,
+    rgba(2,6,23,.96),
+    rgba(2,6,23,.65),
+    rgba(2,6,23,0)
+  );
+  backdrop-filter:blur(22px);
+}
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:26px;
+}
+.nav-btn{
+  text-decoration:none;
+  color:#e5e7eb;
+  padding:22px 30px;
+  border-radius:30px;
+  background:rgba(255,255,255,.10);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    0 30px 90px rgba(0,0,0,.85);
+  letter-spacing:.14em;
+  font-size:14px;
+}
+.nav-center{
+  font-weight:900;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  background:linear-gradient(120deg,#22d3ee,#a855f7,#22c55e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  box-shadow:none;
+}
+.nav-prev{justify-self:start}
+.nav-next{justify-self:end}
+
+@media(max-width:900px){
+  .nav-inner{grid-template-columns:1fr;text-align:center}
+  .nav-prev,.nav-next{justify-self:center}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>14-MODUL</h1>
+  <p>
+    Xalq pedagogikasi kursining yakuniy bosqichi.
+    Ushbu sahifa sizning umumiy bilim darajangiz,
+    tahliliy fikrlashingiz va xulosangizni baholaydi.
+  </p>
+</div>
+
+<div class="card">
+  <h2>Yakuniy test</h2>
+
+  <div class="question">
+    <h3>1. Xalq pedagogikasining bosh maqsadi:</h3>
+    <label><input type="radio" name="q1">Faqat tarixni bilish</label>
+    <label><input type="radio" name="q1" data-correct>Komil insonni tarbiyalash</label>
+    <label><input type="radio" name="q1">Faqat urf-odatlarni saqlash</label>
+  </div>
+
+  <div class="question">
+    <h3>2. Xalq pedagogikasi qaysi manbaga tayangan?</h3>
+    <label><input type="radio" name="q2" data-correct>Xalq tajribasi va hayotiy amaliyot</label>
+    <label><input type="radio" name="q2">Faqat yozma manbalar</label>
+    <label><input type="radio" name="q2">Faqat diniy manbalar</label>
+  </div>
+
+  <div class="question">
+    <h3>3. Zamonaviy ta’limda xalq pedagogikasi:</h3>
+    <label><input type="radio" name="q3">Rad etiladi</label>
+    <label><input type="radio" name="q3" data-correct>Uyg‘un holda qo‘llanadi</label>
+    <label><input type="radio" name="q3">Faqat nazariyada qoladi</label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Yakuniy yozma xulosa</h2>
+  <p>
+    Kurs davomida olgan bilimlaringizni qisqacha tahlil qiling.
+    Xalq pedagogikasini kelajak faoliyatingizda qanday qo‘llaysiz?
+  </p>
+
+  <textarea id="essay"></textarea>
+
+  <button onclick="finish()">Kursni yakunlash</button>
+
+  <div class="result" id="result"></div>
+  <div class="cert" id="cert"></div>
+</div>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a href="modul-13.html" class="nav-btn nav-prev">← Modul 13</a>
+    <a href="dars.html" class="nav-btn nav-center">⬤ MODULLAR RO‘YXATI ⬤</a>
+    <a href="index.html" class="nav-btn nav-next">Kurs tugadi →</a>
+  </div>
+</div>
+
+<script>
+function finish(){
+  let score=0;
+  document.querySelectorAll("input[data-correct]").forEach(i=>{
+    if(i.checked) score+=25;
+  });
+
+  let text=document.getElementById("essay").value.toLowerCase();
+  let keys=["xalq","pedagogika","tarbiya","milliy","ta’lim","tajriba"];
+  let match=0;
+  keys.forEach(k=>{if(text.includes(k))match++;});
+  score+=match*5;
+  score=Math.min(100,score);
+
+  document.getElementById("result").innerHTML=
+    "Yakuniy natija: <strong>"+score+"%</strong>";
+
+  document.getElementById("cert").innerHTML=
+    score>=60
+    ? "🎓 Tabriklaymiz! Siz kursni muvaffaqiyatli yakunladingiz."
+    : "❗ Kursni qayta ko‘rib chiqish tavsiya etiladi.";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html><html lang="uz">
+<head>

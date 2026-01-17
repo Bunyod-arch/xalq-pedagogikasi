@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>5-modul — Komil inson modeli</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,sans-serif;
+  background:#020617;
+  color:#e5e7eb;
+}
+
+/* ===== INTRO ===== */
+.intro{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px;
+}
+.intro h1{
+  font-size:clamp(44px,6vw,92px);
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  background:linear-gradient(120deg,#22c55e,#38bdf8,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.intro p{
+  margin-top:34px;
+  max-width:900px;
+  font-size:22px;
+  line-height:1.9;
+  opacity:.92;
+}
+
+/* ===== SCENE ===== */
+.scene{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:90px 40px;
+  position:relative;
+}
+.scene::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center,
+    rgba(56,189,248,.22),
+    transparent 65%);
+  pointer-events:none;
+}
+
+.card{
+  max-width:980px;
+  padding:70px;
+  border-radius:46px;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(32px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.16),
+    0 90px 260px rgba(0,0,0,.98);
+}
+.card h2{
+  font-size:38px;
+  margin-bottom:28px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#fff,#22c55e,#38bdf8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.card p{
+  font-size:18.5px;
+  line-height:2.1;
+  margin-bottom:24px;
+  opacity:.97;
+}
+
+/* ===== QUOTE ===== */
+.quote{
+  margin-top:40px;
+  padding:28px 36px;
+  border-left:4px solid #22c55e;
+  background:rgba(0,0,0,.38);
+  font-style:italic;
+  font-size:18px;
+}
+
+/* ===== FINAL ===== */
+.final{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:90px 40px;
+}
+.final h2{
+  font-size:52px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:36px;
+}
+.final p{
+  max-width:1000px;
+  font-size:21px;
+  line-height:2.05;
+  opacity:.95;
+}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  padding:20px;
+  background:linear-gradient(to top,rgba(2,6,23,.95),transparent);
+}
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:22px;
+}
+.nav a{
+  padding:20px;
+  text-align:center;
+  text-decoration:none;
+  color:#e5e7eb;
+  border-radius:26px;
+  background:rgba(255,255,255,.09);
+}
+.nav a.center{
+  font-weight:800;
+  letter-spacing:.14em;
+  background:linear-gradient(135deg,#22c55e,#38bdf8);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section class="intro">
+  <div>
+    <h1>5–MODUL</h1>
+    <p>
+      Xalq pedagogikasida tarbiyaning eng oliy maqsadi —
+      <b>komil insonni shakllantirish</b>.
+      Ushbu modulda biz komil inson modelini xalq tafakkuri,
+      tarixiy tajriba va ma’naviy qadriyatlar asosida
+      chuqur va tizimli tarzda o‘rganamiz.
+    </p>
+  </div>
+</section>
+
+<!-- SCENE 1 -->
+<section class="scene">
+  <div class="card">
+    <h2>Axloqiy fazilatlar tizimi</h2>
+    <p>
+      Xalq pedagogikasida komil insonning axloqiy qiyofasi
+      alohida tizim sifatida shakllantiriladi. Bu tizim
+      tasodifiy emas, balki asrlar davomida hayot sinovidan
+      o‘tgan fazilatlar majmuasidir.
+    </p>
+    <p>
+      Halollik, to‘g‘rilik, va’daga vafo qilish, kattaga hurmat,
+      kichikka izzat, sabr-toqat va kechirimlilik —
+      xalq pedagogikasida axloqiy kamolotning asosiy mezonlari
+      sifatida qaraladi.
+    </p>
+    <p>
+      Ushbu fazilatlar bolaga buyruq orqali emas,
+      kattalarning shaxsiy namunasi orqali singdirilgan.
+      Shuning uchun xalq pedagogikasida “tarbiya — so‘z bilan
+      emas, amal bilan beriladi” degan qarash ustuvor bo‘lgan.
+    </p>
+    <div class="quote">
+      “Odamni odam qiladigan narsa — uning axloqidir.”
+    </div>
+  </div>
+</section>
+
+
+<!-- SCENE 2 -->
+<section class="scene">
+  <div class="card">
+    <h2>Axloqiy fazilatlar tizimi</h2>
+    <p>
+      Xalq pedagogikasida komil insonning axloqiy qiyofasi
+      alohida tizim sifatida shakllantiriladi. Bu tizim
+      tasodifiy emas, balki asrlar davomida hayot sinovidan
+      o‘tgan fazilatlar majmuasidir.
+    </p>
+    <p>
+      Halollik, to‘g‘rilik, va’daga vafo qilish, kattaga hurmat,
+      kichikka izzat, sabr-toqat va kechirimlilik —
+      xalq pedagogikasida axloqiy kamolotning asosiy mezonlari
+      sifatida qaraladi.
+    </p>
+    <p>
+      Ushbu fazilatlar bolaga buyruq orqali emas,
+      kattalarning shaxsiy namunasi orqali singdirilgan.
+      Shuning uchun xalq pedagogikasida “tarbiya — so‘z bilan
+      emas, amal bilan beriladi” degan qarash ustuvor bo‘lgan.
+    </p>
+    <div class="quote">
+      “Odamni odam qiladigan narsa — uning axloqidir.”
+    </div>
+  </div>
+</section>
+
+
+<!-- SCENE 3 -->
+<section class="scene">
+  <div class="card">
+    <h2>Oila va muhitning roli</h2>
+    <p>
+      Xalq pedagogikasida komil inson tarbiyasi
+      maktabdan oldin oilada boshlanadi.
+      Ota-onaning munosabati, so‘zi, harakati
+      bolaning butun hayotiga ta’sir ko‘rsatadi.
+    </p>
+    <p>
+      Ajdodlarimiz bejizga:
+      “Bola tarbiyasi beshikdan boshlanadi”
+      demaganlar. Oila muhitida ko‘rilgan
+      mehr, tartib va mas’uliyat
+      bolada ijtimoiy xulqning poydevorini yaratadi.
+    </p>
+    <p>
+      Mahalla, qo‘ni-qo‘shni, qarindosh-urug‘lar
+      bilan bo‘lgan munosabatlar ham
+      shaxs shakllanishida muhim rol o‘ynagan.
+      Bu muhit bola ongida jamiyat tushunchasini
+      erta shakllantirgan.
+    </p>
+  </div>
+</section>
+
+
+<!-- SCENE 4 -->
+<section class="scene">
+  <div class="card">
+    <h2>Komil inson va zamonaviy jamiyat</h2>
+    <p>
+      Xalq pedagogikasida shakllangan komil inson modeli
+      bugungi globallashuv sharoitida ham
+      o‘z dolzarbligini yo‘qotmagan.
+      Aksincha, zamonaviy jamiyatda
+      ushbu modelga bo‘lgan ehtiyoj yanada ortmoqda.
+    </p>
+    <p>
+      Texnologiya rivoji, axborot tezligi
+      insondan nafaqat bilim,
+      balki axloqiy mustahkamlik,
+      tanqidiy fikrlash va ijtimoiy mas’uliyatni talab qiladi.
+    </p>
+    <p>
+      Xalq pedagogikasida tarbiyalangan
+      komil inson modeli
+      zamonaviy ta’lim tizimi uchun
+      tayanch konsepsiya bo‘lib xizmat qilishi mumkin.
+    </p>
+  </div>
+</section>
+<section class="scene">
+  <div class="card">
+    <h2>Pedagogik xulosa</h2>
+    <p>
+      Xalq pedagogikasida komil insonni tarbiyalash
+      uzluksiz va izchil jarayon sifatida qaraladi.
+      Bu jarayonda oila, ta’lim muassasasi va jamiyat
+      bir-biri bilan uzviy bog‘liq holda faoliyat yuritadi.
+    </p>
+    <p>
+      Bugungi pedagoglar uchun xalq pedagogikasi
+      faqat tarixiy meros emas,
+      balki amaliy qo‘llanma vazifasini bajaradi.
+      Uni zamonaviy metodlar bilan uyg‘unlashtirish
+      ta’lim samaradorligini oshiradi.
+    </p>
+    <p>
+      Shunday ekan, komil inson modelini
+      yosh avlod ongiga singdirish
+      bugungi ta’lim tizimining ustuvor vazifalaridan biridir.
+    </p>
+  </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="final">
+  <h2>XULOSA</h2>
+  <p>
+    Xalq pedagogikasida komil inson —
+    ma’naviy yetuk, aqliy barkamol,
+    mehnatsevar va jamiyat oldidagi
+    mas’uliyatini chuqur anglagan shaxsdir.
+    Ushbu model bugungi zamonaviy ta’lim tizimi
+    uchun ham o‘z ahamiyatini yo‘qotmagan.
+  </p>
+</section>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <a href="modul-4.html">← Modul 4</a>
+    <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
+    <a href="modul-6.html">Modul 6 →</a>
+  </div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="uz">
