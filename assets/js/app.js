@@ -90,7 +90,7 @@
   /* MUHIM: threshold 0 bo'lishi shart. Ma'ruza matni 25 000 px dan baland
      bo'lgani uchun uning ko'rinadigan ulushi hech qachon 12 % ga yetmaydi —
      eski qiymatda matn butunlay ochilmay qolgan edi. */
-  var kirEl = document.querySelectorAll('.kir');
+  var kirEl = document.querySelectorAll('.kir, .jon-kir');
 
   function hammasiniOch() {
     kirEl.forEach(function (el) { el.classList.add('korin'); });

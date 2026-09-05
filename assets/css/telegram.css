@@ -1,0 +1,183 @@
+/* =========================================================
+   TELEGRAM WEB APP — panel, eslatma va xabar uslublari
+   Mavjud dizayn tizimidan (style.css) foydalanadi.
+
+   MUHIM: bu yerdagi hech bir element sukut bo'yicha yashirilmaydi.
+   opacity:0 qiluvchi qoida YO'Q — yangi elementlar darhol ko'rinadi.
+   ========================================================= */
+
+/* ---------- 1. Umumiy ---------- */
+.tg-panel,
+.tg-eslatma{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;                 /* telefonda satrga sig'masa pastga tushadi */
+  max-width:100%;
+  box-sizing:border-box;
+  font-family:var(--ui, 'Inter', sans-serif);
+  border-radius:var(--r-m, 14px);
+  overflow-wrap:anywhere;         /* uzun so'z gorizontal skroll bermasin */
+}
+
+.tg-nishon{
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--indigo, #1B3B6F);
+  color:#fff;
+  font-size:16px;
+  line-height:1;
+}
+
+/* ---------- 2. Telegram ichidagi salomlashuv paneli ---------- */
+/* Yopishqoq EMAS — sahifa tepasidagi oddiy blok. */
+.tg-panel{
+  position:static;
+  margin:14px auto 4px;
+  padding:12px 14px;
+  width:min(var(--maks, 1200px), calc(100% - 32px));
+  background:var(--qogoz, #FFFDF8);
+  color:var(--siyoh, #1A1614);
+  border:1px solid var(--chegara, rgba(26,22,20,.12));
+  border-left:4px solid var(--indigo, #1B3B6F);
+  box-shadow:var(--soya-1, 0 1px 2px rgba(26,22,20,.06));
+}
+
+.tg-matn{
+  flex:1 1 200px;
+  min-width:0;
+}
+
+.tg-salom{
+  margin:0;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.35;
+  color:var(--siyoh, #1A1614);
+}
+
+.tg-izoh{
+  margin:2px 0 0;
+  font-size:13.5px;
+  line-height:1.45;
+  color:var(--siyoh-3, #7A6F66);
+}
+
+/* Ulanish holati */
+.tg-holat{
+  flex:0 0 auto;
+  padding:5px 11px;
+  border-radius:999px;
+  background:rgba(47,125,79,.12);
+  color:var(--yashil, #2F7D4F);
+  font-size:12.5px;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.tg-holat-xato{
+  background:rgba(179,56,44,.12);
+  color:var(--qizil, #B3382C);
+}
+
+/* ---------- 3. Brauzerdagi eslatma ---------- */
+.tg-eslatma{
+  margin:18px auto;
+  padding:12px 14px;
+  width:100%;
+  background:var(--krem-2, #F3EBDD);
+  color:var(--siyoh-2, #4A423C);
+  border:1px dashed var(--oltin, #D4A24C);
+}
+
+.tg-eslatma .tg-nishon{
+  background:var(--oltin, #D4A24C);
+  color:var(--siyoh, #1A1614);
+}
+
+.tg-eslatma-matn{
+  flex:1 1 220px;
+  min-width:0;
+  margin:0;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.tg-havola{
+  flex:0 0 auto;
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:999px;
+  background:var(--indigo, #1B3B6F);
+  color:#fff;
+  font-size:13.5px;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .18s ease;
+}
+
+.tg-havola:hover,
+.tg-havola:focus-visible{
+  background:var(--indigo-2, #16305A);
+  color:#fff;
+}
+
+/* ---------- 4. Qisqa xabar ---------- */
+/* «Yuqoriga» tugmasi (bottom:20px, z-index:70) ustiga tushmasligi uchun
+   pastdan balandroq turadi va markazda joylashadi. */
+.tg-xabar{
+  position:fixed;
+  left:50%;
+  bottom:78px;
+  transform:translateX(-50%);
+  z-index:75;
+  max-width:min(320px, calc(100vw - 32px));
+  padding:10px 18px;
+  border-radius:999px;
+  background:var(--yashil, #2F7D4F);
+  color:#fff;
+  font-family:var(--ui, 'Inter', sans-serif);
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1.4;
+  text-align:center;
+  box-shadow:var(--soya-2, 0 2px 6px rgba(26,22,20,.08));
+  pointer-events:none;
+}
+
+.tg-xabar-xato{
+  background:var(--terrakota, #C1502E);
+}
+
+/* ---------- 5. Telefon ---------- */
+@media (max-width:640px){
+  .tg-panel{
+    width:calc(100% - 24px);
+    padding:11px 12px;
+    gap:10px;
+  }
+  .tg-holat{
+    order:3;
+    width:100%;
+    text-align:center;
+  }
+  .tg-eslatma{
+    padding:11px 12px;
+    gap:10px;
+  }
+  .tg-havola{
+    width:100%;
+    text-align:center;
+  }
+}
+
+/* ---------- 6. Harakatni kamaytirish ---------- */
+@media (prefers-reduced-motion: reduce){
+  .tg-havola{
+    transition:none;
+  }
+}

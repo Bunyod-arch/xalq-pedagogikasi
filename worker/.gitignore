@@ -1,0 +1,7 @@
+# Cloudflare Workers ish fayllari
+.wrangler/
+node_modules/
+
+# Mahalliy sirlar — HECH QACHON GitHub'ga tushmasin!
+.dev.vars
+.dev.vars.*

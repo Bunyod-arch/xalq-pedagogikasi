@@ -1,0 +1,266 @@
+/* =========================================================
+   JONLANISH — kuchli, ko‘zga tashlanadigan animatsiya qatlami
+   Har sahifada: jonli sarlavha, aylanuvchi milliy medalyon,
+   suzuvchi naqshlar, kartochkalarning hajmli chiqishi.
+
+   QOIDA: bu fayl HECH QACHON matnni yashirmaydi.
+   Yashirish faqat html.js bo‘lganda va faqat .jon-kir klassida.
+   ========================================================= */
+
+/* ================= 1. SARLAVHA PANELI ================= */
+.jonli-bosh{ position:relative; overflow:hidden; isolation:isolate; }
+
+/* Rang o‘ynab turuvchi asos */
+.jonli-bosh::before{
+  content:""; position:absolute; inset:-40%; z-index:0;
+  background:conic-gradient(from 0deg,
+    rgba(255,255,255,.00) 0deg,
+    rgba(255,255,255,.10) 70deg,
+    rgba(255,255,255,.00) 150deg,
+    rgba(255,255,255,.07) 250deg,
+    rgba(255,255,255,.00) 360deg);
+  animation:bosh-aylan 26s linear infinite;
+  pointer-events:none;
+}
+@keyframes bosh-aylan{ to{ rotate:360deg } }
+
+/* ---- Suzuvchi milliy naqsh shakllari ---- */
+.bosh-naqshlar{
+  position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden;
+}
+.bn{
+  position:absolute; display:block;
+  color:rgba(255,255,255,.30);
+  will-change:transform;
+}
+.bn-1{ width:120px; left:6%;  top:14%;  animation:suz-1 17s ease-in-out infinite; }
+.bn-2{ width:78px;  left:24%; bottom:12%; animation:suz-2 21s ease-in-out infinite; }
+.bn-3{ width:150px; right:14%; top:8%;   animation:suz-3 24s ease-in-out infinite; }
+.bn-4{ width:64px;  right:32%; bottom:16%; animation:suz-1 19s ease-in-out infinite reverse; }
+.bn-5{ width:96px;  left:46%; top:-6%;   animation:suz-2 27s ease-in-out infinite; }
+
+@keyframes suz-1{
+  0%,100%{ transform:translate3d(0,0,0) rotate(0deg) }
+  50%    { transform:translate3d(22px,-26px,0) rotate(24deg) }
+}
+@keyframes suz-2{
+  0%,100%{ transform:translate3d(0,0,0) rotate(0deg) scale(1) }
+  50%    { transform:translate3d(-26px,18px,0) rotate(-18deg) scale(1.14) }
+}
+@keyframes suz-3{
+  0%,100%{ transform:translate3d(0,0,0) rotate(0deg) }
+  33%    { transform:translate3d(-18px,20px,0) rotate(12deg) }
+  66%    { transform:translate3d(16px,-14px,0) rotate(-9deg) }
+}
+
+/* ---- Aylanuvchi medalyon (mavzu belgisi) ---- */
+.bosh-emblema{
+  position:absolute; right:7%; top:50%; translate:0 -50%; z-index:2;
+  width:min(28vmin,220px); aspect-ratio:1;
+  display:grid; place-items:center; pointer-events:none;
+}
+.emblema-halqa{
+  position:absolute; inset:0; border-radius:50%;
+  border:1.5px dashed rgba(255,255,255,.42);
+  animation:emb-ayl 34s linear infinite;
+}
+.emblema-halqa.ichki{
+  inset:14%; border-style:solid; border-color:rgba(255,255,255,.24);
+  animation:emb-ayl 24s linear infinite reverse;
+}
+.emblema-halqa.tashqi{
+  inset:-10%; border-color:rgba(255,255,255,.18);
+  animation:emb-ayl 48s linear infinite;
+}
+@keyframes emb-ayl{ to{ rotate:360deg } }
+
+/* Sakkiz qirrali yulduz — milliy motiv */
+.emblema-yulduz{
+  position:absolute; inset:22%;
+  background:rgba(255,255,255,.09);
+  clip-path:polygon(50% 0%,63% 24%,89% 12%,80% 39%,100% 50%,80% 61%,89% 88%,
+                    63% 76%,50% 100%,37% 76%,11% 88%,20% 61%,0% 50%,20% 39%,11% 12%,37% 24%);
+  animation:emb-nafas 7s ease-in-out infinite;
+}
+@keyframes emb-nafas{
+  0%,100%{ transform:scale(1)   rotate(0deg);  opacity:.9 }
+  50%    { transform:scale(1.08) rotate(22deg); opacity:1 }
+}
+.emblema-belgi{
+  position:relative; z-index:2; font-size:min(9vmin,60px); line-height:1;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));
+  animation:emb-tebran 6s ease-in-out infinite;
+}
+@keyframes emb-tebran{
+  0%,100%{ transform:translateY(0) rotate(0deg) }
+  50%    { transform:translateY(-9px) rotate(-5deg) }
+}
+
+/* Uchib turuvchi zarrachalar */
+.emblema-uchqun{
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  background:rgba(255,255,255,.75);
+}
+.emblema-uchqun:nth-of-type(1){ left:8%;  top:26%; animation:uchqun 5.5s ease-in-out infinite; }
+.emblema-uchqun:nth-of-type(2){ right:6%; top:58%; animation:uchqun 7s ease-in-out infinite 1.2s; }
+.emblema-uchqun:nth-of-type(3){ left:26%; bottom:8%; animation:uchqun 6.2s ease-in-out infinite 2.4s; }
+@keyframes uchqun{
+  0%,100%{ transform:translate(0,0) scale(.6); opacity:0 }
+  40%    { opacity:1 }
+  60%    { transform:translate(10px,-24px) scale(1.15); opacity:.9 }
+}
+
+/* Telefonda medalyon kichrayadi va matn ostiga tushmaydi */
+@media (max-width:900px){
+  .bosh-emblema{ width:min(30vmin,140px); right:4%; opacity:.55; }
+  .bn-2,.bn-4{ display:none; }
+}
+@media (max-width:600px){
+  .bosh-emblema{ display:none; }
+  .bn{ opacity:.55; }
+}
+
+/* ================= 2. SARLAVHA MATNI ================= */
+html.js .jonli-bosh .qobiq > *{ animation:bosh-chiq .85s cubic-bezier(.22,1,.36,1) both; }
+html.js .jonli-bosh .qobiq > *:nth-child(1){ animation-delay:.06s }
+html.js .jonli-bosh .qobiq > *:nth-child(2){ animation-delay:.16s }
+html.js .jonli-bosh .qobiq > *:nth-child(3){ animation-delay:.26s }
+html.js .jonli-bosh .qobiq > *:nth-child(4){ animation-delay:.36s }
+@keyframes bosh-chiq{
+  from{ opacity:0; transform:translateY(24px) }
+  to  { opacity:1; transform:none }
+}
+
+/* Sarlavha ostidagi oltin chiziq — pulslanadi */
+.jonli-bosh h1::after{
+  content:""; display:block; height:3px; width:0; margin-top:14px;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--oltin),var(--terrakota),transparent);
+  animation:chiziq-cho 1.4s cubic-bezier(.22,1,.36,1) .5s forwards;
+}
+@keyframes chiziq-cho{ to{ width:min(280px,60%) } }
+
+/* ================= 3. KARTOCHKALAR ================= */
+/* Ko‘rinishga kirganda hajmli chiqadi */
+html.js .jon-kir{
+  opacity:0;
+  transform:perspective(900px) translateY(34px) rotateX(9deg) scale(.965);
+}
+html.js .jon-kir.korin{
+  opacity:1;
+  transform:perspective(900px) translateY(0) rotateX(0) scale(1);
+  transition:opacity .7s ease, transform .75s cubic-bezier(.22,1,.36,1);
+  transition-delay:calc(var(--kechik,0) * 70ms);
+}
+
+/* Kartochkalar doim sekin «nafas oladi» */
+.mod-karta{ animation:karta-nafas 9s ease-in-out infinite; }
+.mod-karta:nth-child(3n+2){ animation-delay:-3s }
+.mod-karta:nth-child(3n+3){ animation-delay:-6s }
+@keyframes karta-nafas{
+  0%,100%{ transform:translateY(0) }
+  50%    { transform:translateY(-5px) }
+}
+.mod-karta:hover{ animation-play-state:paused; }
+
+/* Rangli chekka chizig‘i jonlanadi */
+.mod-karta::after{
+  background:linear-gradient(180deg,
+    var(--rang,var(--indigo)) 0%,
+    color-mix(in srgb, var(--rang,var(--indigo)) 55%, #fff) 50%,
+    var(--rang,var(--indigo)) 100%);
+  background-size:100% 220%;
+  animation:chekka-oq 5.5s ease-in-out infinite;
+}
+@keyframes chekka-oq{
+  0%,100%{ background-position:0% 0% }
+  50%    { background-position:0% 100% }
+}
+
+/* Raqam yonida pulslanuvchi nuqta */
+.mod-karta .raqam::before{
+  content:""; display:inline-block; width:7px; height:7px; border-radius:50%;
+  margin-right:7px; vertical-align:middle;
+  background:var(--rang,var(--indigo));
+  animation:nuqta-puls 2.4s ease-in-out infinite;
+}
+@keyframes nuqta-puls{
+  0%,100%{ transform:scale(1);   box-shadow:0 0 0 0 color-mix(in srgb,var(--rang,#1B3B6F) 45%,transparent) }
+  60%    { transform:scale(1.25); box-shadow:0 0 0 7px transparent }
+}
+
+/* ================= 4. BO‘LIM QUTILARI ================= */
+.quti{ position:relative; overflow:hidden; }
+.quti::before{
+  content:""; position:absolute; right:-40px; top:-40px;
+  width:150px; height:150px; border-radius:50%;
+  background:radial-gradient(circle, color-mix(in srgb,var(--oltin) 16%,transparent), transparent 70%);
+  animation:quti-suz 14s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes quti-suz{
+  0%,100%{ transform:translate(0,0) scale(1) }
+  50%    { transform:translate(-22px,26px) scale(1.22) }
+}
+
+/* Bo‘lim nishoni sekin tebranadi */
+.quti-sarl .nishon{ animation:nishon-jon 5s ease-in-out infinite; }
+@keyframes nishon-jon{
+  0%,92%,100%{ transform:none }
+  95%        { transform:rotate(-9deg) scale(1.08) }
+  98%        { transform:rotate(7deg)  scale(1.04) }
+}
+
+/* ================= 5. NAQSHLI AJRATGICH ================= */
+.ajratgich::after{ animation:ajr-ayl 12s linear infinite; }
+@keyframes ajr-ayl{ to{ transform:translate(-50%,-50%) rotate(360deg) } }
+
+/* ================= 6. STATISTIKA ================= */
+.stat{ animation:stat-nafas 8s ease-in-out infinite; }
+.stat:nth-child(even){ animation-delay:-4s }
+@keyframes stat-nafas{
+  0%,100%{ transform:translateY(0) }
+  50%    { transform:translateY(-6px) }
+}
+.stat .son{
+  background:linear-gradient(120deg,var(--indigo),var(--terrakota),var(--oltin),var(--indigo));
+  background-size:300% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:son-rang 8s linear infinite;
+}
+@keyframes son-rang{ to{ background-position:300% 0 } }
+
+/* ================= 7. TAYANCH SO‘ZLAR ================= */
+.tayanch li{ animation:soz-chiq .5s cubic-bezier(.34,1.56,.64,1) both; }
+.tayanch li:nth-child(n+1){ animation-delay:calc(.03s * var(--i,0)) }
+@keyframes soz-chiq{
+  from{ opacity:0; transform:scale(.82) }
+  to  { opacity:1; transform:scale(1) }
+}
+
+/* ================= 8. YON MENYU ================= */
+.yon-royxat a.faol{ position:relative; }
+.yon-royxat a.faol::after{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:2px;
+  background:var(--indigo);
+  animation:yon-puls 2s ease-in-out infinite;
+}
+@keyframes yon-puls{
+  0%,100%{ opacity:1;  transform:scaleY(1) }
+  50%    { opacity:.5; transform:scaleY(.72) }
+}
+
+/* ================= 9. HARAKATNI KAMAYTIRISH ================= */
+@media (prefers-reduced-motion: reduce){
+  .jonli-bosh::before,.bn,.emblema-halqa,.emblema-yulduz,.emblema-belgi,
+  .emblema-uchqun,.mod-karta,.mod-karta::after,.mod-karta .raqam::before,
+  .quti::before,.quti-sarl .nishon,.ajratgich::after,.stat,.stat .son,
+  .tayanch li,.yon-royxat a.faol::after,
+  html.js .jonli-bosh .qobiq > *,.jonli-bosh h1::after{
+    animation:none !important;
+  }
+  html.js .jon-kir{ opacity:1 !important; transform:none !important; }
+  .jonli-bosh h1::after{ width:min(280px,60%); }
+  .stat .son{ -webkit-text-fill-color:var(--indigo); }
+}

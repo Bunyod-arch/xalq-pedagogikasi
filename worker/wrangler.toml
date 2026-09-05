@@ -1,0 +1,47 @@
+# =====================================================================
+#  «Xalq pedagogikasi» Telegram boti — Cloudflare Workers sozlamasi
+#
+#  DIQQAT: bu faylga bot tokeni, GitHub tokeni yoki webhook siri
+#  YOZILMAYDI. Ular «sir» (secret) sifatida alohida qo'yiladi:
+#      wrangler secret put TG_TOKEN
+#      wrangler secret put SECRET
+#      wrangler secret put GH_TOKEN
+#  Batafsil: O'RNATISH.md
+# =====================================================================
+
+name = "xalq-pedagogikasi-bot"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Konsoldagi jurnal (log) yoqilgan — «wrangler tail» bilan ko'riladi.
+[observability]
+enabled = true
+
+# ---------------------------------------------------------------------
+#  Ma'lumotlar bazasi — Cloudflare KV.
+#  «wrangler kv namespace create BAZA» buyrug'i bergan id ni
+#  quyidagi id = "..." o'rniga qo'ying.
+# ---------------------------------------------------------------------
+[[kv_namespaces]]
+binding = "BAZA"
+id = "SHU_YERGA_KV_ID_NI_QOYING"
+
+# ---------------------------------------------------------------------
+#  Oddiy o'zgaruvchilar (sir emas — ochiq ma'lumot).
+# ---------------------------------------------------------------------
+[vars]
+# Muallifning Telegram ID raqami — natijalar shunga yuboriladi.
+MUALLIF_ID = "703407068"
+
+# Super adminning Telegram ID raqami.
+ADMIN_ID = "1118923120"
+
+# Saytni muzlatish uchun GitHub repozitoriysi.
+GH_REPO = "Bunyod-arch/xalq-pedagogikasi"
+
+# GitHub Actions ish oqimi va shoxi (odatda o'zgartirilmaydi).
+GH_OQIM = "muzlat.yml"
+GH_SHOX = "main"
+
+# Darslik manzili — Telegram Mini App shu manzilni ochadi.
+WEBAPP_URL = "https://bunyod-arch.github.io/xalq-pedagogikasi/"

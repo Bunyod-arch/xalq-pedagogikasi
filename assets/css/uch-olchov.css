@@ -1,0 +1,632 @@
+/* =========================================================
+   UCH O'LCHOV — o'yinlarga hajm va chuqurlik
+   Xalq pedagogikasi · faqat CSS 3D (WebGL yo'q, kutubxona yo'q)
+   ---------------------------------------------------------
+   Bu fayl `style.css` dan KEYIN ulanadi va undagi hech bir
+   qoidani o'chirmaydi — faqat ustiga hajm qo'shadi:
+   soya qatlamlari, perspektiva, kichik burilish va bosilish.
+
+   Qoidalar:
+   · hech qachon opacity:0 / visibility:hidden / display:none —
+     bu fayl hech bir elementni yashirmaydi;
+   · burilish kichik (3–10°), matn o'qilishi buzilmaydi,
+     filter:blur ishlatilmaydi;
+   · faqat `transform` va `box-shadow` animatsiya qilinadi (GPU),
+     left/top/width/height hech qachon animatsiya qilinmaydi;
+   · telefonda burilish o'chadi — faqat soya qoladi;
+   · prefers-reduced-motion da barcha 3D va animatsiya o'chadi.
+
+   MUNDARIJA
+     1. Chuqurlik tokenlari
+     2. Sahna — o'yin bloklariga perspektiva
+     3. Sudraladigan kartochka  .dona
+     4. Idishlar — .savat · .t-ustun · .klaster-uya
+     5. Test varianti  .variant
+     6. Juftlash tugmasi  .juft-dona
+     7. Milliy cholg'u  .parda · .cholgu-tugma
+     8. Do'ppi  .doppi
+     9. Topishmoq · qo'g'irchoq teatri · modul kartochkasi
+    10. To'g'ri / xato uchun 3D kadrlar
+    11. Telefon — yengillashtirish
+    12. Harakatni kamaytirish rejimi
+   ========================================================= */
+
+
+/* ---------- 1. CHUQURLIK TOKENLARI ---------- */
+/* Soyalar bir necha qatlamdan iborat: yaqin qatlam qattiq,
+   uzoq qatlam yumshoq — shunda predmet «yer ustida turadi». */
+:root{
+  --uo-yer-1: 0 1px 1px rgba(26,22,20,.05),
+              0 2px 3px rgba(26,22,20,.05),
+              0 5px 10px rgba(26,22,20,.055);
+  --uo-yer-2: 0 1px 1px rgba(26,22,20,.05),
+              0 3px 6px rgba(26,22,20,.07),
+              0 10px 22px rgba(26,22,20,.09),
+              0 20px 38px rgba(26,22,20,.07);
+  --uo-yer-3: 0 1px 2px rgba(26,22,20,.06),
+              0 5px 12px rgba(26,22,20,.09),
+              0 16px 32px rgba(26,22,20,.12),
+              0 28px 56px rgba(26,22,20,.10);
+
+  /* Bosilgan holat — soya ichkariga kiradi */
+  --uo-bosildi: 0 1px 1px rgba(26,22,20,.05),
+                inset 0 2px 5px rgba(26,22,20,.10);
+
+  /* Yuqori qirradagi yorug'lik chizig'i — hajm illyuziyasi */
+  --uo-yorug:  inset 0 1px 0 rgba(255,255,255,.85);
+
+  /* Ichkariga botgan idish */
+  --uo-chuqur:  inset 0 2px 5px rgba(26,22,20,.07),
+                inset 0 -1px 0 rgba(255,255,255,.6);
+  --uo-chuqur-2:inset 0 3px 11px rgba(26,22,20,.11),
+                inset 0 -1px 0 rgba(255,255,255,.5);
+
+  /* Rangli nurlar — palitradagi ranglardan */
+  --uo-indigo-nur:    0 0 0 1px rgba(27,59,111,.24),
+                      0 6px 16px rgba(27,59,111,.18),
+                      0 14px 28px rgba(27,59,111,.12);
+  --uo-yashil-nur:    0 0 0 1px rgba(47,125,79,.28),
+                      0 6px 16px rgba(47,125,79,.22),
+                      0 14px 30px rgba(47,125,79,.15);
+  --uo-qizil-nur:     0 0 0 1px rgba(179,56,44,.28),
+                      0 6px 16px rgba(179,56,44,.20),
+                      0 14px 30px rgba(179,56,44,.13);
+  --uo-oltin-nur:     0 0 0 1px rgba(212,162,76,.35),
+                      0 6px 16px rgba(212,162,76,.26),
+                      0 14px 30px rgba(212,162,76,.16);
+  --uo-terrakota-ich: inset 0 3px 13px rgba(193,80,46,.16),
+                      0 0 0 3px rgba(193,80,46,.15);
+
+  /* Egri chiziqlar */
+  --uo-egri:    cubic-bezier(.22,1,.36,1);
+  --uo-sakrash: cubic-bezier(.34,1.56,.64,1);
+}
+
+
+/* ---------- 2. SAHNA — O'YIN BLOKLARIGA PERSPEKTIVA ---------- */
+/* Perspektiva ota-elementga qo'yiladi, bolalar esa unda «turadi».
+   perspective-origin biroz yuqorida — predmetga tepadan qaraymiz. */
+.oyin,
+.oyin2,
+.cholgu{
+  perspective: 1100px;
+  perspective-origin: 50% 28%;
+  box-shadow: var(--uo-yer-2);
+}
+
+/* O'yin blokining o'zi ham qalin «laganda» bo'lib ko'rinsin */
+.oyin,
+.oyin2{
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+.cholgu{
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+
+/* Sarlavhadagi nishon — kichik hajmli kubcha */
+.oyin-bosh .nishon{
+  box-shadow: 0 2px 3px rgba(26,22,20,.14),
+              0 6px 14px rgba(26,22,20,.16),
+              inset 0 1px 0 rgba(255,255,255,.34),
+              inset 0 -2px 5px rgba(26,22,20,.18);
+}
+
+/* Ichki idishlar 3D fazoni saqlaydi va o'z perspektivasini beradi.
+   Har bir interaktiv elementning bevosita otasida perspective bor —
+   shunda burilish chuqurlikda to'g'ri ko'rinadi. */
+.oyin-maydon,
+.saralash,
+.t-jadval,
+.juftlash,
+.klaster-tarmoq{
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+.savat .ichi,
+.dona-bank{
+  transform-style: preserve-3d;
+  perspective: 820px;
+}
+.test-variantlar,
+.juft-ustun,
+.sahna-tanlov,
+.cholgu-tanlov,
+.topishmoq-karta{
+  perspective: 1000px;
+}
+.parda-panel{ perspective: 760px; }
+.doppi-qator{ perspective: 820px; }
+.tur-panjara{ perspective: 1400px; }
+
+
+/* ---------- 3. SUDRALADIGAN KARTOCHKA  .dona ---------- */
+/* Tinch holat: yerdan biroz ko'tarilgan tosh.
+   Ustiga kelganda oldinga chiqib, pastki qirrasi ko'rinadi. */
+.dona{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 88%;
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+  transition: transform .24s var(--uo-egri),
+              box-shadow .24s var(--uo-egri),
+              border-color .16s,
+              background .16s;
+}
+.dona:hover{
+  transform: translate3d(0,-4px,16px) rotateX(8deg);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+.dona:active{
+  transform: translate3d(0,1px,-6px) rotateX(3deg) scale(.985);
+  box-shadow: var(--uo-bosildi);
+  transition-duration: .09s;
+}
+.dona:focus-visible{
+  transform: translate3d(0,-3px,14px);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+
+/* Tanlangan dona — indigo nur bilan oldinga chiqadi */
+.dona.tanlangan{
+  transform: translate3d(0,-3px,18px);
+  box-shadow: var(--uo-indigo-nur), var(--uo-yorug);
+}
+
+/* O'yindan chiqqan dona tekis yotadi (ko'rinishi style.css dan) */
+.dona.ketdi,
+.dona.ketdi:hover{
+  transform: none;
+  box-shadow: var(--uo-yer-1);
+}
+
+/* Topishmoq javoblari ham xuddi shunday hajmli */
+.topishmoq-karta .dona:disabled:hover{
+  transform: translate3d(0,0,0);
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+}
+
+
+/* ---------- 4. IDISHLAR — botgan yuzalar ---------- */
+/* Savat, ustun va klaster uyasi «o'yilgan» bo'lishi kerak:
+   kartochka ular ichiga tushadi, ustida turmaydi. */
+.savat{
+  box-shadow: var(--uo-chuqur);
+  transition: border-color .18s, background .18s,
+              box-shadow .22s var(--uo-egri),
+              transform .22s var(--uo-egri);
+}
+/* Kartochka olib kelinganda yorishadi va chuqurligi ko'rinadi */
+.savat.ustida{
+  box-shadow: var(--uo-terrakota-ich);
+  transform: scale(1.012);
+}
+
+.klaster-uya{
+  box-shadow: var(--uo-chuqur);
+  transform: translate3d(0,0,0);
+}
+.klaster-uya.ustida{
+  box-shadow: var(--uo-terrakota-ich);
+  transform: scale(1.02);
+}
+/* To'lgan uya endi bo'shliq emas — yuzaga chiqadi */
+.klaster-uya.toldi{
+  box-shadow: var(--uo-yashil-nur), var(--uo-yorug);
+  transform: translate3d(0,-2px,14px);
+}
+
+/* T-jadval ustuni: sarlavha qavariq, tanasi botiq */
+.t-ustun{
+  box-shadow: var(--uo-yer-1), var(--uo-chuqur-2);
+}
+.t-ustun > h4{
+  box-shadow: 0 2px 6px rgba(26,22,20,.16),
+              inset 0 1px 0 rgba(255,255,255,.24);
+  position: relative;
+}
+.t-ustun .savat{ box-shadow: none; }
+.t-ustun .savat.ustida{ box-shadow: var(--uo-terrakota-ich); }
+
+
+/* ---------- 5. TEST VARIANTI  .variant ---------- */
+/* Variant keng qator — matn tiniq qolishi uchun burilish kichik. */
+.variant{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 90%;
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+  transition: transform .22s var(--uo-egri),
+              box-shadow .22s var(--uo-egri),
+              border-color .16s,
+              background .16s;
+}
+.variant:hover{
+  transform: translate3d(0,-3px,14px) rotateX(3deg);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+.variant:active{
+  transform: translate3d(0,1px,-5px) scale(.994);
+  box-shadow: var(--uo-bosildi);
+  transition-duration: .09s;
+}
+.variant:has(input:focus-visible){
+  transform: translate3d(0,-3px,14px);
+  box-shadow: var(--uo-indigo-nur), var(--uo-yorug);
+}
+.variant.tanlangan{
+  transform: translate3d(0,-2px,12px);
+  box-shadow: var(--uo-indigo-nur), var(--uo-yorug);
+}
+/* Javob berilgandan keyin qator qimirlamaydi */
+.variant:has(input:disabled):hover{
+  transform: translate3d(0,0,0);
+}
+.variant .belgi{ text-shadow: 0 1px 0 rgba(255,255,255,.8); }
+
+
+/* ---------- 6. JUFTLASH TUGMASI  .juft-dona ---------- */
+.juft-dona{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 90%;
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+  transition: transform .22s var(--uo-egri),
+              box-shadow .22s var(--uo-egri),
+              border-color .16s,
+              background .16s;
+}
+.juft-dona:hover{
+  transform: translate3d(0,-4px,18px) rotateX(4deg);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+.juft-dona:active{
+  transform: translate3d(0,1px,-6px) scale(.99);
+  box-shadow: var(--uo-bosildi);
+  transition-duration: .09s;
+}
+.juft-dona.tanlangan{
+  transform: translate3d(0,-3px,20px);
+  box-shadow: var(--uo-indigo-nur), var(--uo-yorug);
+}
+/* Bog'langan juft — oltin nur bilan qalqib turadi */
+.juft-dona.bogli{
+  transform: translate3d(0,-2px,14px);
+  box-shadow: var(--uo-oltin-nur), var(--uo-yorug);
+}
+/* Yumaloq belgi tugma yuzasidan qavarib chiqadi */
+.juft-dona.bogli::after,
+.juft-dona.togri::after,
+.juft-dona.xato::after{
+  box-shadow: 0 2px 4px rgba(26,22,20,.22),
+              0 5px 10px rgba(26,22,20,.16),
+              inset 0 1px 0 rgba(255,255,255,.32);
+}
+
+
+/* ---------- 7. MILLIY CHOLG'U  .parda ---------- */
+/* Parda — chertiladigan klavish: yuqori qirrasi yorug',
+   pastki qirrasi qalin, bosilganda ichkariga botadi. */
+.parda{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 100%;
+  box-shadow: 0 1px 0 rgba(26,22,20,.10),
+              0 3px 0 rgba(26,22,20,.07),
+              0 5px 12px rgba(26,22,20,.10),
+              var(--uo-yorug);
+  transition: transform .14s var(--uo-egri),
+              box-shadow .18s,
+              border-color .18s,
+              background .18s;
+}
+.parda:hover{
+  transform: translate3d(0,-3px,18px) rotateX(9deg);
+  box-shadow: 0 2px 0 rgba(26,22,20,.10),
+              0 6px 0 rgba(26,22,20,.07),
+              var(--uo-oltin-nur),
+              var(--uo-yorug);
+}
+.parda:active{
+  transform: translate3d(0,3px,-12px) rotateX(4deg) scale(.97);
+  box-shadow: var(--uo-bosildi);
+  transition-duration: .07s;
+}
+.parda:focus-visible{
+  transform: translate3d(0,-2px,14px);
+}
+.parda .p-nom{ text-shadow: 0 1px 0 rgba(255,255,255,.7); }
+
+/* Zarbli cholg'u pardalari qalinroq — chuqurroq soya */
+.parda-panel.zarb .parda{
+  box-shadow: 0 2px 0 rgba(26,22,20,.12),
+              0 5px 0 rgba(26,22,20,.08),
+              0 8px 18px rgba(26,22,20,.12),
+              var(--uo-yorug);
+}
+
+/* Cholg'u tanlash tugmalari */
+.cholgu-tugma{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 92%;
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+  transition: transform .2s var(--uo-sakrash),
+              box-shadow .2s,
+              border-color .2s,
+              background .2s;
+}
+.cholgu-tugma:hover{
+  transform: translate3d(0,-4px,20px) rotateX(8deg);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+.cholgu-tugma:active{
+  transform: translate3d(0,1px,-6px) scale(.98);
+  box-shadow: var(--uo-bosildi);
+  transition-duration: .09s;
+}
+.cholgu-tugma.faol{
+  transform: translate3d(0,-3px,20px);
+  box-shadow: var(--uo-indigo-nur), var(--uo-yorug);
+}
+.cholgu-sahna{ box-shadow: var(--uo-chuqur); }
+
+
+/* ---------- 8. DO'PPI  .doppi ---------- */
+/* Do'ppi haqiqiy buyumdek: yerda soyasi bor, ustiga kelganda
+   biroz qiyshayadi, ochilganda 3D aylanish bilan ko'tariladi.
+   Diqqat: .doppi ga preserve-3d QO'YILMAYDI — ichidagi olma
+   va rasmning qatlam tartibi buzilmasligi uchun. */
+.doppi-qator{ padding-top: 30px; }
+
+.doppi{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 100%;
+  transition: transform .34s var(--uo-sakrash);
+}
+.doppi:hover{
+  transform: translate3d(0,-2px,14px) rotateX(7deg);
+}
+.doppi:active{
+  transform: translate3d(0,2px,-8px) scale(.97);
+  transition-duration: .1s;
+}
+.doppi:focus-visible{
+  transform: translate3d(0,-3px,14px);
+}
+/* Ochilgan do'ppi — ko'tarilib, yon tomonga burilib qaraydi */
+.doppi.ochiq{
+  transform: translate3d(0,-4px,18px) rotateX(-10deg) rotateY(7deg);
+}
+/* Do'ppining o'z soyasi — hajmni SVG ga ham beradi (blur emas, drop-shadow) */
+.doppi-rasm{
+  filter: drop-shadow(0 4px 5px rgba(26,22,20,.20))
+          drop-shadow(0 10px 14px rgba(26,22,20,.14));
+}
+.doppi.ochiq .doppi-rasm{
+  filter: drop-shadow(0 12px 10px rgba(26,22,20,.16))
+          drop-shadow(0 22px 26px rgba(26,22,20,.12));
+}
+.doppi .olma{
+  text-shadow: 0 3px 6px rgba(26,22,20,.28),
+               0 8px 14px rgba(26,22,20,.18);
+}
+
+
+/* ---------- 9. TOPISHMOQ · TEATR · MODUL KARTOCHKASI ---------- */
+/* Topishmoq kartasi — qalin qog'oz varaq. Uzun kursiv matn
+   bo'lgani uchun burilmaydi, faqat ko'tariladi. */
+.topishmoq-karta{
+  transform: translate3d(0,0,0);
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+  transition: transform .26s var(--uo-egri), box-shadow .26s var(--uo-egri);
+}
+.topishmoq-karta:hover{
+  transform: translate3d(0,-2px,12px);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+
+/* Qo'g'irchoq teatri tanlovi — yumaloq tugma */
+.sahna-dona{
+  transform: translate3d(0,0,0);
+  transform-origin: 50% 90%;
+  box-shadow: var(--uo-yer-1), var(--uo-yorug);
+  transition: transform .18s var(--uo-sakrash),
+              box-shadow .18s,
+              border-color .18s,
+              background .18s;
+}
+.sahna-dona:hover{
+  transform: translate3d(0,-4px,18px) rotateX(8deg);
+  box-shadow: var(--uo-yer-2), var(--uo-yorug);
+}
+.sahna-dona:active{
+  transform: translate3d(0,1px,-6px) scale(.98);
+  box-shadow: var(--uo-bosildi);
+  transition-duration: .09s;
+}
+.sahna-dona.tanlangan{
+  transform: translate3d(0,-3px,20px);
+  box-shadow: var(--uo-indigo-nur), var(--uo-yorug);
+}
+.sahna-dona .sd-nishon{
+  text-shadow: 0 2px 3px rgba(26,22,20,.18);
+}
+
+/* Modul kartochkasi — DIQQAT: bu yerda `transform` QO'YILMAYDI.
+   `jonlanish.css` da `.mod-karta` ga cheksiz `karta-nafas` animatsiyasi
+   bor; CSS da animatsiya transformi har qanday oddiy transform
+   deklaratsiyasidan kuchli, ya'ni bu yerdagi burilish baribir ishlamas,
+   faqat kartaning «nafas olishi» sakrab buzilardi. Shuning uchun
+   kartochkaga hajm faqat qatlamli soya orqali beriladi — u animatsiya
+   bilan mukammal birga ishlaydi. Perspektiva `.tur-panjara` da turibdi,
+   demak kartaning o'z 3D kirish effekti ham joyida qoladi. */
+.mod-karta{
+  box-shadow: var(--uo-yer-1);
+  transition: box-shadow .3s var(--uo-egri), border-color .3s;
+}
+.mod-karta:hover,
+.mod-karta:focus-visible{
+  box-shadow: var(--uo-yer-3);
+}
+.mod-karta:active{
+  box-shadow: var(--uo-yer-1);
+  transition-duration: .1s;
+}
+/* Chetdagi rangli chiziq qavariq ko'rinsin (bu yerda ziddiyat yo'q:
+   jonlanish.css u yerda faqat `background` ni jonlantiradi) */
+.mod-karta::after{
+  box-shadow: 2px 0 6px rgba(26,22,20,.14);
+}
+
+
+/* ---------- 10. TO'G'RI / XATO — 3D URG'U ---------- */
+/* To'g'ri javob o'quvchi tomon oldinga chiqadi va o'sha yerda qoladi;
+   xato javob chuqurlikda chayqalib, o'z joyiga qaytadi. */
+@keyframes uo-oldinga{
+  0%  { transform: translate3d(0,0,0) rotateX(0deg); }
+  40% { transform: translate3d(0,-9px,46px) rotateX(-7deg); }
+  70% { transform: translate3d(0,-2px,16px) rotateX(2deg); }
+  100%{ transform: translate3d(0,-3px,20px) rotateX(0deg); }
+}
+@keyframes uo-chayqal{
+  0%  { transform: translate3d(0,0,0) rotateY(0deg); }
+  16% { transform: translate3d(-6px,0,10px) rotateY(-9deg); }
+  36% { transform: translate3d(5px,0,10px) rotateY(8deg); }
+  56% { transform: translate3d(-4px,0,8px) rotateY(-6deg); }
+  76% { transform: translate3d(3px,0,5px) rotateY(4deg); }
+  100%{ transform: translate3d(0,0,0) rotateY(0deg); }
+}
+
+.dona.togri,
+.variant.togri,
+.juft-dona.togri,
+.klaster-uya.togri,
+.sahna-dona.togri{
+  animation: uo-oldinga .52s var(--uo-egri) both;
+  box-shadow: var(--uo-yashil-nur), var(--uo-yorug);
+}
+.dona.xato,
+.variant.xato,
+.juft-dona.xato,
+.klaster-uya.xato,
+.sahna-dona.xato{
+  animation: uo-chayqal .46s ease-out both;
+  box-shadow: var(--uo-qizil-nur), var(--uo-yorug);
+}
+
+/* Javob berilgach ustiga kelish rangli nurni o'chirmasin */
+.dona.togri:hover,
+.variant.togri:hover,
+.juft-dona.togri:hover,
+.sahna-dona.togri:hover{
+  box-shadow: var(--uo-yashil-nur), var(--uo-yorug);
+}
+.dona.xato:hover,
+.variant.xato:hover,
+.juft-dona.xato:hover,
+.sahna-dona.xato:hover{
+  box-shadow: var(--uo-qizil-nur), var(--uo-yorug);
+}
+
+/* Ha/yo'q savoli ham chuqurlik oladi */
+.hayoq-savol{ box-shadow: var(--uo-yer-1), var(--uo-yorug); }
+.hayoq-savol.togri{ box-shadow: var(--uo-yashil-nur), var(--uo-yorug); }
+.hayoq-savol.xato { box-shadow: var(--uo-qizil-nur),  var(--uo-yorug); }
+
+/* Natija xabari qalqib chiqadigan tasma */
+.oyin-xabar.korin{ box-shadow: var(--uo-yer-2); }
+.tm-izoh.korin{ box-shadow: var(--uo-chuqur); }
+
+
+/* ---------- 11. TELEFON — YENGILLASHTIRISH ---------- */
+/* Kichik ekranda burilish o'chadi: faqat soya va kichik ko'tarilish
+   qoladi. Bu ham FPS ni saqlaydi, ham gorizontal skrollni oldini oladi. */
+@media (max-width: 820px){
+  .oyin, .oyin2, .cholgu,
+  .oyin-maydon, .saralash, .t-jadval, .juftlash, .klaster-tarmoq,
+  .savat .ichi, .dona-bank, .test-variantlar, .juft-ustun,
+  .sahna-tanlov, .cholgu-tanlov, .topishmoq-karta,
+  .parda-panel, .doppi-qator, .tur-panjara{
+    perspective: none;
+  }
+
+  .dona, .variant, .juft-dona, .parda, .cholgu-tugma,
+  .sahna-dona, .doppi, .topishmoq-karta,
+  .klaster-uya, .savat{
+    transform: none;
+  }
+
+  .dona:hover, .variant:hover, .juft-dona:hover,
+  .cholgu-tugma:hover, .sahna-dona:hover, .doppi:hover{
+    transform: translate3d(0,-2px,0);
+  }
+  .parda:hover{ transform: translate3d(0,-2px,0); }
+
+  .dona:active, .variant:active, .juft-dona:active,
+  .cholgu-tugma:active, .sahna-dona:active, .doppi:active{
+    transform: translate3d(0,1px,0) scale(.985);
+  }
+  .parda:active{ transform: translate3d(0,3px,0) scale(.97); }
+
+  .dona.tanlangan, .variant.tanlangan, .juft-dona.tanlangan,
+  .juft-dona.bogli, .cholgu-tugma.faol, .sahna-dona.tanlangan,
+  .klaster-uya.toldi{
+    transform: translate3d(0,-2px,0);
+  }
+
+  .savat.ustida, .klaster-uya.ustida{ transform: none; }
+
+  /* Ochilgan do'ppi faqat ko'tariladi, burilmaydi */
+  .doppi.ochiq{ transform: translate3d(0,-3px,0); }
+  .doppi-qator{ padding-top: 22px; }
+
+  /* Telefonda kadrlar ham tekislikda ishlaydi */
+  @keyframes uo-oldinga{
+    0%  { transform: translate3d(0,0,0); }
+    45% { transform: translate3d(0,-6px,0) scale(1.03); }
+    100%{ transform: translate3d(0,-2px,0); }
+  }
+  @keyframes uo-chayqal{
+    0%,100%{ transform: translate3d(0,0,0); }
+    20%{ transform: translate3d(-5px,0,0); }
+    45%{ transform: translate3d(4px,0,0); }
+    70%{ transform: translate3d(-3px,0,0); }
+  }
+}
+
+
+/* ---------- 12. HARAKATNI KAMAYTIRISH REJIMI ---------- */
+/* Foydalanuvchi tizimda animatsiyani o'chirgan bo'lsa —
+   3D butunlay yopiladi. Soyalar qoladi, chunki ular harakat emas.
+   .doppi-rasm ga TEGILMAYDI: uning ko'tarilishi o'yin mantig'i. */
+@media (prefers-reduced-motion: reduce){
+  .oyin, .oyin2, .cholgu,
+  .oyin-maydon, .saralash, .t-jadval, .juftlash, .klaster-tarmoq,
+  .savat .ichi, .dona-bank, .test-variantlar, .juft-ustun,
+  .sahna-tanlov, .cholgu-tanlov, .topishmoq-karta,
+  .parda-panel, .doppi-qator, .tur-panjara{
+    perspective: none !important;
+    transform-style: flat !important;
+  }
+
+  .dona, .dona:hover, .dona:active, .dona:focus-visible, .dona.tanlangan,
+  .variant, .variant:hover, .variant:active, .variant.tanlangan,
+  .juft-dona, .juft-dona:hover, .juft-dona:active,
+  .juft-dona.tanlangan, .juft-dona.bogli,
+  .parda, .parda:hover, .parda:active, .parda:focus-visible,
+  .cholgu-tugma, .cholgu-tugma:hover, .cholgu-tugma:active, .cholgu-tugma.faol,
+  .sahna-dona, .sahna-dona:hover, .sahna-dona:active, .sahna-dona.tanlangan,
+  .topishmoq-karta, .topishmoq-karta:hover,
+  .doppi, .doppi:hover, .doppi:active, .doppi:focus-visible,
+  .savat, .savat.ustida, .klaster-uya, .klaster-uya.ustida, .klaster-uya.toldi{
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .dona.togri, .dona.xato,
+  .variant.togri, .variant.xato,
+  .juft-dona.togri, .juft-dona.xato,
+  .klaster-uya.togri, .klaster-uya.xato,
+  .sahna-dona.togri, .sahna-dona.xato{
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Ochilgan do'ppi burilmaydi, lekin holati saqlanadi */
+  .doppi.ochiq{ transform: none !important; }
+}

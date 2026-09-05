@@ -29,6 +29,28 @@
     return yol > 0 ? h.scrollTop / yol : 0;
   }
 
+  /* ---------- Sarlavha panelidagi parallaks ---------- */
+  var bosh = document.querySelector('.jonli-bosh');
+  if (bosh && !kamHarakat) {
+    var naqshlar = bosh.querySelector('.bosh-naqshlar');
+    var emblema  = bosh.querySelector('.bosh-emblema');
+    var qobiq    = bosh.querySelector('.qobiq');
+    var ishla = false;
+    window.addEventListener('scroll', function () {
+      if (ishla) return;
+      ishla = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        var b = bosh.offsetHeight || 1;
+        var n = Math.min(y / b, 1.4);
+        if (naqshlar) naqshlar.style.transform = 'translate3d(0,' + (n * 70) + 'px,0)';
+        if (emblema)  emblema.style.transform  = 'translate3d(0,' + (n * -46) + 'px,0) scale(' + (1 - n * 0.12) + ')';
+        if (qobiq)    qobiq.style.transform    = 'translate3d(0,' + (n * 34) + 'px,0)';
+        ishla = false;
+      });
+    }, { passive: true });
+  }
+
   if (kamHarakat) { yoz(0); return; }
 
   /* ---------- GSAP mavjud bo'lsa ---------- */
