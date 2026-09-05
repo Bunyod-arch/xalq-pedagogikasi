@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/animatsiya.css">
 </head>
 <body>
 
@@ -24,21 +25,23 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="bosh-menyu" aria-label="Asosiy menyu">
-      <a href="index.html">Bosh sahifa</a>
-      <a href="modullar.html">Modullar</a>
-      <a href="glossariy.html">Glossariy</a>
-      <a href="adabiyotlar.html" aria-current="page">Adabiyotlar</a>
+      <a href="index.html"><span class="nav-nishon" aria-hidden="true">🏠</span>Bosh sahifa</a>
+      <a href="modullar.html"><span class="nav-nishon" aria-hidden="true">📚</span>Modullar</a>
+      <a href="dastur.html"><span class="nav-nishon" aria-hidden="true">🎭</span>Dastur</a>
+      <a href="glossariy.html"><span class="nav-nishon" aria-hidden="true">🔤</span>Glossariy</a>
+      <a href="adabiyotlar.html" aria-current="page"><span class="nav-nishon" aria-hidden="true">📖</span>Adabiyotlar</a>
     </nav>
   </div>
 </header>
 
 <main id="asosiy">
 
-<section class="oddiy-bosh">
+<section class="oddiy-bosh jonli-bosh">
   <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="nur-fon" aria-hidden="true"></div>
   <div class="qobiq">
-    <h1>Foydalanilgan adabiyotlar</h1>
-    <p>Darslikni tayyorlashda foydalanilgan 95 ta manba.</p>
+    <h1 class="kir">Foydalanilgan adabiyotlar</h1>
+    <p class="kir">Darslikni tayyorlashda foydalanilgan 95 ta manba.</p>
   </div>
 </section>
 
@@ -59,10 +62,12 @@
       <div>
         <h4>Darslik</h4>
         <ul>
-          <li><a href="modullar.html">Barcha modullar</a></li>
-          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
-          <li><a href="glossariy.html">Glossariy</a></li>
-          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+          <li><a href="darslik-haqida.html"><span aria-hidden="true">📘</span> Darslik haqida</a></li>
+          <li><a href="modullar.html"><span aria-hidden="true">📚</span> Barcha modullar</a></li>
+          <li><a href="yakuniy.html"><span aria-hidden="true">🎯</span> Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html"><span aria-hidden="true">🔤</span> Glossariy</a></li>
+          <li><a href="adabiyotlar.html"><span aria-hidden="true">📖</span> Foydalanilgan adabiyotlar</a></li>
+          <li><a href="dastur.html"><span aria-hidden="true">🎭</span> Maxsus kurs dasturi</a></li>
         </ul>
       </div>
       <div>
@@ -92,6 +97,7 @@
 <button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
 <script src="assets/data/modullar.js"></script>
+<script src="assets/js/animatsiya.js"></script>
 <script src="assets/js/app.js"></script>
 
 <script src="assets/js/qidiruv.js"></script>

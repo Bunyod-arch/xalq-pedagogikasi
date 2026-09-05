@@ -1,0 +1,266 @@
+/* =========================================================
+   ANIMATSIYA QATLAMI — barcha sahifalar uchun
+   Harakatni kamaytirish sozlamasi yoqilgan bo'lsa, hammasi o'chadi.
+   ========================================================= */
+
+/* ---------- 1. SAHIFA OCHILISHI ---------- */
+body{ animation:sahifa-kir .5s ease both; }
+@keyframes sahifa-kir{ from{ opacity:0 } to{ opacity:1 } }
+
+/* Ichki havolaga o'tishda yumshoq so'nish */
+body.chiqmoqda{ opacity:0; transition:opacity .22s ease; }
+
+/* ---------- 2. JONLI SARLAVHA FONI ---------- */
+.jonli-bosh{ position:relative; overflow:hidden; }
+
+/* Sekin suzuvchi yorug'lik dog'i */
+.jonli-bosh .nur-fon{
+  position:absolute; inset:-30%; z-index:1; pointer-events:none;
+  background:
+    radial-gradient(38% 46% at 22% 30%, rgba(255,255,255,.20), transparent 60%),
+    radial-gradient(34% 42% at 76% 66%, rgba(255,255,255,.14), transparent 62%),
+    radial-gradient(30% 38% at 52% 88%, rgba(255,255,255,.12), transparent 64%);
+  filter:blur(6px);
+  animation:nur-suz 19s ease-in-out infinite;
+}
+@keyframes nur-suz{
+  0%,100%{ transform:translate3d(0,0,0) scale(1) }
+  33%    { transform:translate3d(4%,-3%,0) scale(1.07) }
+  66%    { transform:translate3d(-3%,3%,0) scale(1.03) }
+}
+
+/* Naqsh sekin siljiydi */
+.jonli-bosh .naqsh-fon{ animation:naqsh-siljish 42s linear infinite; }
+@keyframes naqsh-siljish{ to{ background-position:340px 340px } }
+
+/* Sarlavha ostidagi oltin chiziq o'sib chiqadi */
+.jonli-bosh::after{
+  content:""; position:absolute; left:0; bottom:0; height:3px; width:0;
+  background:linear-gradient(90deg,var(--oltin),var(--terrakota),transparent);
+  animation:chiziq-osish 1.5s cubic-bezier(.22,1,.36,1) .35s forwards;
+  z-index:3;
+}
+@keyframes chiziq-osish{ to{ width:100% } }
+
+/* ---------- 3. KIRISH (skroll bilan paydo bo'lish) ---------- */
+.kir{ opacity:0; transform:translateY(20px); }
+.kir.korin{
+  opacity:1; transform:none;
+  transition:opacity .65s ease, transform .65s cubic-bezier(.22,1,.36,1);
+}
+/* Ketma-ket kechikish — ro'yxatlar bir-biriga ergashib chiqadi */
+.kir.korin{ transition-delay:calc(var(--kechik, 0) * 55ms); }
+
+/* Sarlavhadagi bloklar sahifa ochilishi bilanoq chiqadi */
+.jonli-bosh .kir{ opacity:0; transform:translateY(16px); animation:bosh-kir .7s cubic-bezier(.22,1,.36,1) forwards; }
+.jonli-bosh .yorliq.kir{ animation-delay:.10s }
+.jonli-bosh h1.kir   { animation-delay:.20s }
+.jonli-bosh p.kir    { animation-delay:.30s }
+.jonli-bosh .meta.kir,
+.jonli-bosh .bosh-meta.kir{ animation-delay:.40s }
+@keyframes bosh-kir{ to{ opacity:1; transform:none } }
+
+/* ---------- 4. IKONKALAR ---------- */
+/* Bo'lim sarlavhasidagi bosiladigan nishon */
+.nishon-havola{
+  text-decoration:none; cursor:pointer;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1), background .2s, box-shadow .2s;
+  position:relative;
+}
+.nishon-havola:hover{
+  transform:scale(1.12) rotate(-7deg);
+  background:var(--oltin); box-shadow:0 6px 16px rgba(212,162,76,.4);
+}
+.nishon-havola:active{ transform:scale(.96) rotate(0deg); }
+
+/* Bosilgach nishonlangan bo'lim qisqa vaqt yonib turadi */
+@keyframes bolim-chaqnash{
+  0%  { box-shadow:0 0 0 0 rgba(212,162,76,.55); }
+  70% { box-shadow:0 0 0 14px rgba(212,162,76,0); }
+  100%{ box-shadow:0 0 0 0 rgba(212,162,76,0); }
+}
+.chaqnadi{ animation:bolim-chaqnash 1.1s ease-out 2; }
+
+/* Menyu ikonkalari */
+.nav-nishon{
+  display:inline-block; margin-right:7px; font-size:14px;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.panel nav a:hover .nav-nishon{ transform:translateY(-2px) scale(1.18); }
+.panel nav a[aria-current="page"] .nav-nishon{ animation:nishon-tebran 2.6s ease-in-out infinite; }
+@keyframes nishon-tebran{
+  0%,88%,100%{ transform:none }
+  92%        { transform:rotate(-11deg) }
+  96%        { transform:rotate(11deg) }
+}
+
+/* Yon menyudagi ikonkalar */
+.yon-nishon{
+  display:inline-block; width:19px; margin-right:8px; font-size:13px;
+  opacity:.75; transition:transform .25s, opacity .25s;
+}
+.yon-royxat a:hover .yon-nishon{ transform:scale(1.2); opacity:1; }
+.yon-royxat a.faol .yon-nishon{ opacity:1; transform:scale(1.12); }
+
+/* Oyoq panelidagi ikonkalar */
+.oyoq-panel li a span[aria-hidden]{ display:inline-block; transition:transform .25s; }
+.oyoq-panel li a:hover span[aria-hidden]{ transform:translateX(3px) scale(1.15); }
+
+/* ---------- 5. MENYU ---------- */
+.panel nav a{ position:relative; overflow:hidden; }
+.panel nav a::after{
+  content:""; position:absolute; left:50%; right:50%; bottom:4px; height:2px;
+  background:var(--terrakota); border-radius:2px;
+  transition:left .28s cubic-bezier(.22,1,.36,1), right .28s cubic-bezier(.22,1,.36,1);
+}
+.panel nav a:hover::after{ left:14px; right:14px; }
+.panel nav a[aria-current="page"]::after{ display:none; }
+
+.logo .gul{ display:inline-block; transition:transform .5s cubic-bezier(.34,1.56,.64,1); }
+.logo:hover .gul{ transform:rotate(180deg) scale(1.18); }
+
+/* ---------- 6. TUGMALAR ---------- */
+.tug{ position:relative; overflow:hidden; }
+.tug::after{                       /* bosilganda tarqaladigan halqa */
+  content:""; position:absolute; left:50%; top:50%;
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,.5); transform:translate(-50%,-50%) scale(0);
+  opacity:0; pointer-events:none;
+}
+.tug.bosildi::after{ animation:tolqin .6s ease-out; }
+@keyframes tolqin{
+  0%  { transform:translate(-50%,-50%) scale(0);  opacity:.65 }
+  100%{ transform:translate(-50%,-50%) scale(26); opacity:0 }
+}
+
+/* ---------- 7. KARTOCHKALAR ---------- */
+.karta{ will-change:transform; }
+.mod-karta .oq-belgi{ transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
+.mod-karta:hover .oq-belgi{ transform:translateX(6px); }
+.mod-karta::before{                /* yuqoridan pastga yuguruvchi yorug'lik */
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:0;
+  background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,.5) 50%, transparent 62%);
+  transform:translateX(-100%);
+}
+.mod-karta:hover::before{ opacity:1; animation:yaltira .85s ease; }
+@keyframes yaltira{ to{ transform:translateX(100%) } }
+
+.stat{ transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s; }
+.stat:hover{ transform:translateY(-5px); box-shadow:var(--soya-2); }
+.stat .son{ font-variant-numeric:tabular-nums; }
+
+.muqova-karta,.qoshimcha-karta{ transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s; }
+.muqova-karta:hover{ transform:translateY(-4px); box-shadow:var(--soya-2); }
+.qoshimcha-karta .nishon{ display:inline-block; transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
+.qoshimcha-karta:hover .nishon{ transform:scale(1.22) rotate(-8deg); }
+
+/* ---------- 8. TAYANCH SO'ZLAR ---------- */
+.tayanch li{
+  transition:transform .22s cubic-bezier(.34,1.56,.64,1), background .22s, border-color .22s;
+  cursor:default;
+}
+.tayanch li:hover{
+  transform:translateY(-3px); background:var(--oltin); color:#fff;
+  border-color:var(--oltin-2);
+}
+
+/* ---------- 9. REJA / SAVOL RO'YXATLARI ---------- */
+.reja-royxat li::before,.savol-royxat li::before{
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1), background .28s;
+}
+.reja-royxat li:hover::before{ transform:scale(1.18) rotate(-8deg); background:var(--terrakota); color:#fff; }
+.savol-royxat li:hover::before{ transform:scale(1.14); background:var(--terrakota); }
+
+/* ---------- 10. O'YIN VA TEST ---------- */
+.dona,.juft-dona,.variant{ will-change:transform; }
+.dona.togri,.juft-dona.togri,.variant.togri,.klaster-uya.togri{ animation:sakra .45s cubic-bezier(.34,1.56,.64,1); }
+@keyframes sakra{ 0%{transform:scale(1)} 45%{transform:scale(1.07)} 100%{transform:scale(1)} }
+.dona.xato,.juft-dona.xato,.variant.xato,.klaster-uya.xato{ animation:silkin .4s ease; }
+@keyframes silkin{
+  0%,100%{ transform:translateX(0) }
+  20%,60%{ transform:translateX(-5px) }
+  40%,80%{ transform:translateX(5px) }
+}
+.oyin-hisob{ transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
+.oyin-hisob.ozgardi{ animation:sakra .5s cubic-bezier(.34,1.56,.64,1); }
+.test-natija .foiz{ animation:foiz-kir .6s cubic-bezier(.22,1,.36,1); }
+@keyframes foiz-kir{ from{ opacity:0; transform:scale(.7) } to{ opacity:1; transform:none } }
+
+/* ---------- 11. YUQORIGA TUGMASI ---------- */
+.yuqoriga{ transition:opacity .3s, transform .3s cubic-bezier(.34,1.56,.64,1), background .2s; }
+.yuqoriga:hover{ transform:translateY(-4px) scale(1.08); }
+.yuqoriga:active{ transform:translateY(0) scale(.95); }
+
+/* ---------- 12. QIDIRUV ---------- */
+.qidiruv-qutisi input{ transition:border-color .22s, box-shadow .22s, transform .22s; }
+.qidiruv-qutisi input:focus{ box-shadow:0 0 0 4px rgba(27,59,111,.12); }
+.atama-royxat li,.adab-royxat li{ transition:background .2s, padding-left .22s; }
+.atama-royxat li:hover,.adab-royxat li:hover{ background:rgba(212,162,76,.08); }
+.adab-royxat li:hover{ padding-left:42px; }
+
+/* ---------- 13. MUNDARIJA ---------- */
+.mundarija{ list-style:none; margin:0; padding:0; }
+.mundarija li{
+  display:flex; align-items:baseline; gap:10px;
+  padding:9px 0; border-top:1px dotted var(--chegara);
+  font-size:15px; line-height:1.5; color:var(--siyoh-2);
+  transition:background .2s, padding-left .22s;
+}
+.mundarija li:first-child{ border-top:0; }
+.mundarija li:hover{ background:rgba(212,162,76,.08); padding-left:8px; }
+.mundarija li > span{ flex:1 1 auto; min-width:0; }
+.mundarija li > b{ flex:0 0 auto; color:var(--siyoh-3); font-size:13px; font-weight:600; }
+.mundarija .mund-modul{
+  font-family:var(--ust); font-weight:700; font-size:16px;
+  color:var(--indigo); margin-top:6px;
+}
+
+/* ---------- 14. DASTUR SAHIFASI ---------- */
+.dastur-sarl{
+  display:flex; align-items:flex-start; gap:10px;
+  font-family:var(--ust); font-size:19px; margin:1.6em 0 .5em;
+  scroll-margin-top:88px;
+}
+.dastur-sarl .sarl-nishon{
+  flex:0 0 auto; text-decoration:none; font-size:15px;
+  width:28px; height:28px; border-radius:8px; display:grid; place-items:center;
+  background:var(--krem-2); color:var(--terrakota);
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1), background .2s;
+}
+.dastur-sarl .sarl-nishon:hover{ transform:scale(1.14) rotate(-8deg); background:var(--oltin); color:#fff; }
+
+/* ---------- 15. SARLAVHA META CHIPLARI ---------- */
+.modul-bosh .meta a,.bosh-meta span,.bosh-meta a{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:7px 14px; border-radius:999px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:rgba(255,255,255,.92);
+  font-size:13.5px; border:1px solid rgba(255,255,255,.14);
+  transition:background .22s, transform .22s cubic-bezier(.34,1.56,.64,1), border-color .22s;
+}
+.modul-bosh .meta a:hover,.bosh-meta a:hover{
+  background:rgba(255,255,255,.26); transform:translateY(-3px);
+  border-color:rgba(255,255,255,.3);
+}
+.bosh-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+
+/* ---------- 16. MODUL KARTOCHKASI ICHIDAGI HAVOLALAR ---------- */
+.mod-karta .oyoq a{
+  display:inline-flex; align-items:center; gap:5px;
+  text-decoration:none; color:var(--siyoh-3);
+  padding:3px 9px; border-radius:999px; border:1px solid transparent;
+  transition:background .2s, color .2s, border-color .2s, transform .2s;
+}
+.mod-karta .oyoq a:hover{
+  background:var(--krem-2); color:var(--siyoh);
+  border-color:var(--chegara); transform:translateY(-2px);
+}
+
+/* ---------- 17. HARAKATNI KAMAYTIRISH ---------- */
+@media (prefers-reduced-motion: reduce){
+  body,.jonli-bosh .nur-fon,.jonli-bosh .naqsh-fon,.jonli-bosh::after,
+  .jonli-bosh .kir,.chaqnadi,.tug.bosildi::after,.mod-karta:hover::before{
+    animation:none !important;
+  }
+  .kir{ opacity:1 !important; transform:none !important; }
+  .jonli-bosh::after{ width:100%; }
+}

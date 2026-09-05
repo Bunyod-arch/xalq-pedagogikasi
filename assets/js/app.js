@@ -99,40 +99,20 @@
     kirEl.forEach(function (el) { el.classList.add('korin'); });
   }
 
-  /* ---------- Modullar ro'yxatini chizish ---------- */
+  /* ---------- Modullar ro'yxati ---------- */
+  /* Kartochkalar HTML ichida tayyor turadi (JS o'chiq bo'lsa ham ko'rinadi).
+     Bu yerda faqat saqlangan test natijasi qo'shiladi. */
   var idish = document.getElementById('modul-royxati');
-  if (idish && window.MODULLAR) {
-    var html = window.MODULLAR.map(function (m) {
-      var holat = Xotira.modul(m.n);
-      var bajarildi = holat.test != null;
-      var qism = bajarildi
-        ? '<span>Test: ' + holat.test + '%</span>'
-        : '<span>' + m.test + ' savol</span>';
-      return '' +
-        '<a class="karta mod-karta kir' + (bajarildi ? ' bajarildi' : '') + '" ' +
-        'href="modul-' + m.n + '.html" style="--rang:' + m.a + '">' +
-          '<span class="raqam">' + m.n + '-modul</span>' +
-          '<span class="sarl">' + m.nom + '</span>' +
-          '<span class="tavsif">' + m.qisqa + '</span>' +
-          '<span class="oyoq">' +
-            '<span>🎮 ' + m.oyin + '</span>' + qism +
-            '<span class="oq-belgi" aria-hidden="true">→</span>' +
-          '</span>' +
-        '</a>';
-    }).join('');
-    idish.innerHTML = html;
-
-    // Yangi qo'shilgan .kir elementlarni ham kuzatish
-    if ('IntersectionObserver' in window) {
-      var ko2 = new IntersectionObserver(function (yozuvlar) {
-        yozuvlar.forEach(function (y) {
-          if (y.isIntersecting) { y.target.classList.add('korin'); ko2.unobserve(y.target); }
-        });
-      }, { threshold: 0.08 });
-      idish.querySelectorAll('.kir').forEach(function (el) { ko2.observe(el); });
-    } else {
-      idish.querySelectorAll('.kir').forEach(function (el) { el.classList.add('korin'); });
-    }
+  if (idish) {
+    idish.querySelectorAll('.mod-karta[data-modul]').forEach(function (k) {
+      var n = k.getAttribute('data-modul');
+      var holat = Xotira.modul(n);
+      if (holat.test == null) return;
+      k.classList.add('bajarildi');
+      var t = k.querySelector('.oyoq a[href*="#test"]');
+      if (t) t.innerHTML = '<span aria-hidden="true">📝</span> Test: ' + holat.test + '%';
+    });
+    if (window.Tartibla) window.Tartibla(idish);
   }
 
   /* ---------- Modul sahifasidagi yon menyu (faol bo'lim) ---------- */

@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/animatsiya.css">
 </head>
 <body>
 
@@ -24,27 +25,29 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="bosh-menyu" aria-label="Asosiy menyu">
-      <a href="index.html">Bosh sahifa</a>
-      <a href="modullar.html" aria-current="page">Modullar</a>
-      <a href="glossariy.html">Glossariy</a>
-      <a href="adabiyotlar.html">Adabiyotlar</a>
+      <a href="index.html"><span class="nav-nishon" aria-hidden="true">🏠</span>Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page"><span class="nav-nishon" aria-hidden="true">📚</span>Modullar</a>
+      <a href="dastur.html"><span class="nav-nishon" aria-hidden="true">🎭</span>Dastur</a>
+      <a href="glossariy.html"><span class="nav-nishon" aria-hidden="true">🔤</span>Glossariy</a>
+      <a href="adabiyotlar.html"><span class="nav-nishon" aria-hidden="true">📖</span>Adabiyotlar</a>
     </nav>
   </div>
 </header>
 
 <main id="asosiy">
 
-<section class="modul-bosh" style="--rang-a:#46357A;--rang-b:#2F2354">
+<section class="modul-bosh jonli-bosh" style="--rang-a:#46357A;--rang-b:#2F2354">
   <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="nur-fon" aria-hidden="true"></div>
   <div class="qobiq">
-    <span class="yorliq">12-modul</span>
-    <h1>Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida</h1>
-    <p class="ost">Alla, yor-yor, lapar, askiya va qiziqchilik san’atining tarbiyaviy imkoniyatlari.</p>
-    <div class="meta">
-      <span>📖 1,054 so‘z</span>
-      <span>🎮 Juftlash</span>
-      <span>📝 Test</span>
-      <span>🎬 Video dars</span>
+    <span class="yorliq kir">12-modul</span>
+    <h1 class="kir">Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida</h1>
+    <p class="ost kir">Alla, yor-yor, lapar, askiya va qiziqchilik san’atining tarbiyaviy imkoniyatlari.</p>
+    <div class="meta kir">
+      <a href="#matn"><span aria-hidden="true">📖</span> 1,054 so‘z</a>
+      <a href="#oyin"><span aria-hidden="true">🎮</span> Juftlash</a>
+      <a href="#test"><span aria-hidden="true">📝</span> Test</a>
+      <a href="#video"><span aria-hidden="true">🎬</span> Video dars</a>
     </div>
   </div>
 </section>
@@ -55,15 +58,21 @@
 </aside>
 <div class="modul-ozak">
 <section class="quti quti-reja kir" id="reja">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#reja" aria-label="Reja bo‘limiga havola">📋</a> Reja</h2>
   <ol class="reja-royxat"><li>1. Milliy musiqa, qo’shiqchilik va milliy teatrlar xalq pedagogikasining</li><li>tarbiya vositasi sifatida</li></ol>
 </section>
+<section class="quti quti-mazmun kir" id="mazmun">
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#mazmun"
+      aria-label="Qisqacha mazmun bo‘limiga havola">💡</a> Qisqacha mazmun</h2>
+  <p class="quti-izoh">Uzun ma’ruzani o‘qishdan oldin mavzuning asosiy fikrlari bilan tanishing.</p>
+  <ul class="mazmun-royxat"><li>Xalq qo‘shig‘i janrlari: alla, yor-yor, lapar, ulan, yig‘i-yo‘qlov va mehnat qo‘shiqlari.</li><li>Har bir janr o‘z o‘rnida ijro etiladi: alla — beshik boshida, yor-yor — to‘yda.</li><li>Askiya arabcha «zakiy» (o‘tkir, zehnli) so‘zidan olingan; Farg‘ona vodiysida keng tarqalgan.</li><li>Milliy cholg‘ular: dutor, rubob, doira, chang, do‘mbira.</li><li>Milliy teatr qiziqchilik va masxarabozlik san’atidan o‘sib chiqqan.</li></ul>
+</section>
 <section class="quti kir" id="tayanch">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#tayanch" aria-label="Tayanch so‘zlar bo‘limiga havola">🔑</a> Tayanch so‘zlar</h2>
   <ul class="tayanch"><li>Qo’shiq janri</li><li>«Yor- yor» lar</li><li>«Alla» lar</li><li>yig’i-yo’qlovlar</li><li>sog’in</li><li>o’rim</li><li>yanchiq</li><li>bayram- sayillar</li><li>qo’shiqlari</li><li>bolalar folklori</li><li>go’zallik</li><li>samimiyat</li><li>mehr- shavqat</li><li>orzu- umid</li><li>quvonch- shodlik</li><li>g’am-g’ussa</li><li>armon</li><li>ma’sum tuyg’ulari</li><li>musiqa asboblari</li><li>teatr</li><li>xalq musiqasi va ashulalari</li></ul>
 </section>
 <section class="quti kir" id="video">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#video" aria-label="Video dars bo‘limiga havola">🎬</a> Video dars</h2>
   <div class="video-ramka">
   <iframe src="https://www.youtube-nocookie.com/embed/3xQH_2Pprgg"
     title="O‘zbek musiqa durdonalari: an’anaviy ansambl tarixi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
@@ -110,7 +119,7 @@
 <p>5. Safarga chiqish, ovga borish, kino, teatr, istiroxat bog’i, ommaviy yig’inu tomoshalarga borish, Ro’za xayit, qurbon hayit, Navruz bayramlari.</p>
 </section>
 <section class="quti kir" id="audio">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎧</span> Audio materiallar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#audio" aria-label="Audio materiallar bo‘limiga havola">🎧</a> Audio materiallar</h2>
   <p class="quti-izoh">Alla, ertak va lirik qo‘shiqlar — darsda tinglash uchun.</p>
   <div class="audio-karta">
   <span class="nota" aria-hidden="true">♪</span>
@@ -151,27 +160,27 @@
   <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="topshiriq">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#topshiriq" aria-label="Topshiriq bo‘limiga havola">✍️</a> Topshiriq</h2>
   <div class="maqola maqola-ichki"><p>“Asalari galasi” strategiyasi.”Milliy musiqa, qo’shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida” mavzu bo‘yicha muammoning auditoriyada umumiy yoki kichik guruhlarda alohida tahlil qilinishiga beriladigan topshiriqlar bir xil yoki turlicha bo‘lishi mumkin. Guruhlarga berilgan topshiriq muayyan muddat ichida muhokama qilinib, natija barchaga ma’lum qilinadi. Mashg‘ulot yakunida masalaning eng maqbul yechimi tanlab olinadi.</p>
 <blockquote>Mashg‘ulot jarayonida strategiyani qo‘llashda quyidagicha yo‘l tutiladi:<br>1-guruh<br>2-guruh<br>3-guruh<br>4-guruh<br>5-guruh<br>Mavzu bo‘yicha muammo aniqlanadi<br>Talabalar kichik guruhlarga biriktiriladi<br>Kichik guruhlarga alohida yoki umumiy topshiriqlar beriladi<br>Eng maqbul yechim tanlab olinadi<br>1-guruh yechimi<br>2-guruh yechimi<br>3-guruh yechimi<br>4-guruh yechimi<br>5-guruh yechimi<br>Topshiriqni bajarish uchun vaqt belgilanadi<br>(maksimal vaqt 10 daqiqa)<br>Belgilangan vaqt nihoyasiga yetgach, guruhlar o‘z<br>echimlarini navbatma-navbat namoyish etadi<br>“Milliy musiqa, qo’shiqchilik va milliy teatrlar xalq pedagogikasining<br>tarbiya vositasi sifatida” mavzusini “Asalari galasi” strategiyasi yordamida o‘rganish</blockquote>
 <div class="jadval-o"><table><thead><tr><th>Guruhlar</th><th>Mavzular</th><th>Ishlanmalar</th></tr></thead><tbody><tr><td>1-guruh</td><td>Milliy musiqa</td><td>Taqdimot</td></tr><tr><td>2-guruh</td><td>Qo’shiqchilik</td><td>Plakat</td></tr><tr><td>3-guruh</td><td>Milliy teatrlar</td><td>Klaster</td></tr></tbody></table></div></div>
 </section>
 <section class="quti quti-nazorat kir" id="nazorat">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#nazorat" aria-label="Nazorat savollari bo‘limiga havola">❓</a> Nazorat savollari</h2>
   <ol class="savol-royxat"><li>Xalq pedagogikasida qo’shiq janiri masalalari qanday yoritilgan?</li><li>Ma’rosim qo’shiqlariga qaysilar kiradi ?</li><li>Milliy teatr qanday bo’lishi kerak?</li><li>Kino va televideniya tarixini bilasizmi?</li><li>Milliy madaniyatga ega san’atkorlar ijodini qanday tarbiyaviy axamiyati bor?</li></ol>
 </section>
 <section class="quti kir" id="test" data-test="12">
   <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="adabiyot">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#adabiyot" aria-label="Adabiyotlar bo‘limiga havola">📚</a> Mavzuga oid adabiyotlar</h2>
   <ol class="adab-royxat"><li>Sh. M. Mirziyoyev: “O’zbekiston respublikasini yanada rivojlantirish bo’yicha harakatlar strategiyasi” Xalq so’zi. 2017-yil 9-fevral</li><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,” Ta’lim tarixi” T;Talqin 2013 y</li><li>O.Xaydarova «Xalq pedagogikasi»,Navoiy 2008</li></ol>
 </section>
 <nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-11.html"><span class="yon">← 11-modul</span><span class="nom">O‘zbek xalqining muomala madaniyati, axloqiy me’yorlari, turmush kechirish tartib-qoidalarining tarbiyaviy ahamiyati</span></a><a class="keyingi" href="modul-13.html"><span class="yon">13-modul →</span><span class="nom">Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</span></a></nav>
 </div>
 <aside class="yon-ong" aria-label="Sahifa bo‘limlari">
   <p class="yon-sarl">Sahifada</p>
-  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#audio">Audio materiallar</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+  <ul class="yon-royxat"><li><a href="#reja"><span class="yon-nishon" aria-hidden="true">📋</span>Reja</a></li><li><a href="#mazmun"><span class="yon-nishon" aria-hidden="true">💡</span>Qisqacha mazmun</a></li><li><a href="#tayanch"><span class="yon-nishon" aria-hidden="true">🔑</span>Tayanch so‘zlar</a></li><li><a href="#video"><span class="yon-nishon" aria-hidden="true">🎬</span>Video dars</a></li><li><a href="#matn"><span class="yon-nishon" aria-hidden="true">📖</span>Ma’ruza matni</a></li><li><a href="#audio"><span class="yon-nishon" aria-hidden="true">🎧</span>Audio materiallar</a></li><li><a href="#oyin"><span class="yon-nishon" aria-hidden="true">🎮</span>Interaktiv o‘yin</a></li><li><a href="#topshiriq"><span class="yon-nishon" aria-hidden="true">✍️</span>Topshiriq</a></li><li><a href="#nazorat"><span class="yon-nishon" aria-hidden="true">❓</span>Nazorat savollari</a></li><li><a href="#test"><span class="yon-nishon" aria-hidden="true">📝</span>Test</a></li><li><a href="#adabiyot"><span class="yon-nishon" aria-hidden="true">📚</span>Adabiyotlar</a></li></ul>
 </aside>
 </div>
 </main>
@@ -182,10 +191,12 @@
       <div>
         <h4>Darslik</h4>
         <ul>
-          <li><a href="modullar.html">Barcha modullar</a></li>
-          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
-          <li><a href="glossariy.html">Glossariy</a></li>
-          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+          <li><a href="darslik-haqida.html"><span aria-hidden="true">📘</span> Darslik haqida</a></li>
+          <li><a href="modullar.html"><span aria-hidden="true">📚</span> Barcha modullar</a></li>
+          <li><a href="yakuniy.html"><span aria-hidden="true">🎯</span> Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html"><span aria-hidden="true">🔤</span> Glossariy</a></li>
+          <li><a href="adabiyotlar.html"><span aria-hidden="true">📖</span> Foydalanilgan adabiyotlar</a></li>
+          <li><a href="dastur.html"><span aria-hidden="true">🎭</span> Maxsus kurs dasturi</a></li>
         </ul>
       </div>
       <div>
@@ -215,6 +226,7 @@
 <button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
 <script src="assets/data/modullar.js"></script>
+<script src="assets/js/animatsiya.js"></script>
 <script src="assets/js/app.js"></script>
 
 <script src="assets/data/oyinlar.js"></script>

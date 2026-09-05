@@ -11,16 +11,22 @@
 
 | | |
 |---|---|
-| **14 modul** | Darslikning to‘liq ilmiy-nazariy matni (~42 000 so‘z) |
+| **14 modul** | Darslikning to‘liq ilmiy-nazariy matni |
+| **Maxsus kurs dasturi** | Tajriba-sinov dasturi: 9 ta trening, interaktiv metodlar, anketalar |
+| **Darslik haqida** | Annotatsiya, kirish va to‘liq mundarija (o‘zbek + rus) |
 | **98 test savoli** | Har modulga 7 tadan, avtomatik baholanadi, izohi bilan |
 | **14 interaktiv o‘yin** | Klaster, T-jadval, saralash, maqol davomi, juftlash, ha/yo‘q |
-| **83 atama** | Qidiruvli glossariy |
+| **85 atama** | Qidiruvli glossariy |
 | **95 manba** | Foydalanilgan adabiyotlar ro‘yxati |
 | **44 yakuniy savol** | Kurs bo‘yicha yakuniy nazorat |
 | **Video va audio** | Har modulda video dars; 5- va 12-modulda alla va lirik qo‘shiqlar |
 
-Har bir modul sahifasida: reja · tayanch so‘zlar · video dars · to‘liq ma’ruza matni ·
-interaktiv o‘yin · topshiriq · nazorat savollari · test · izohlar · mavzuga oid adabiyotlar.
+Har bir modul sahifasida: reja · **qisqacha mazmun** · tayanch so‘zlar · video dars ·
+to‘liq ma’ruza matni · interaktiv o‘yin · topshiriq · nazorat savollari · test ·
+izohlar · mavzuga oid adabiyotlar.
+
+Manba hujjatlarning **99,5 %** matni saytga joylashtirilgan (qolgani — sarlavha
+takrorlari va sahifa raqamlari).
 
 ## Modullar
 
@@ -48,20 +54,27 @@ Faylni brauzerda ochish yoki GitHub Pages orqali ishlatish kifoya.
 index.html            Skroll-hikoya: bezori boladan komil insongacha
 modullar.html         14 modul ro‘yxati
 modul-1..14.html      Modul sahifalari (generatsiya qilingan)
+dastur.html           Maxsus kurs dasturi (treninglar, metodlar)
+darslik-haqida.html   Annotatsiya, kirish, mundarija
 glossariy.html        Qidiruvli atamalar lug‘ati
 adabiyotlar.html      Foydalanilgan adabiyotlar
 yakuniy.html          Yakuniy nazorat savollari
 
-assets/css/style.css      Yagona dizayn tizimi
-assets/css/hikoya.css     Bosh sahifadagi skroll-hikoya
-assets/css/tailwind.css   Tailwind (oldindan build qilingan, ~4 KB)
-assets/js/app.js          Menyu, progress, localStorage
-assets/js/hikoya.js       Skroll-hikoya boshqaruvi
-assets/js/oyin.js         O‘yin dvigateli (5 tur)
-assets/js/test.js         Test dvigateli
-assets/js/qidiruv.js      Glossariy/adabiyot qidiruvi
-assets/data/*.js          Modullar, o‘yinlar va testlar ma’lumoti
+assets/css/style.css       Yagona dizayn tizimi
+assets/css/animatsiya.css  Animatsiyalar va ikonkalar
+assets/css/hikoya.css      Bosh sahifadagi skroll-hikoya
+assets/css/tailwind.css    Tailwind (oldindan build qilingan, ~4 KB)
+assets/js/app.js           Menyu, progress, localStorage
+assets/js/animatsiya.js    Bo‘limga o‘tish, ikonkalar, raqam sanash
+assets/js/hikoya.js        Skroll-hikoya boshqaruvi
+assets/js/oyin.js          O‘yin dvigateli (5 tur)
+assets/js/test.js          Test dvigateli
+assets/js/qidiruv.js       Glossariy/adabiyot qidiruvi
+assets/data/*.js           Modullar, o‘yinlar va testlar ma’lumoti
 ```
+
+Modul kartochkalari va barcha matn HTML ichida tayyor turadi — JavaScript
+o‘chirilgan bo‘lsa ham sahifalar bo‘sh qolmaydi.
 
 ### Tailwind'ni qayta qurish
 

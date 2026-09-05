@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/animatsiya.css">
 </head>
 <body>
 
@@ -24,27 +25,29 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="bosh-menyu" aria-label="Asosiy menyu">
-      <a href="index.html">Bosh sahifa</a>
-      <a href="modullar.html" aria-current="page">Modullar</a>
-      <a href="glossariy.html">Glossariy</a>
-      <a href="adabiyotlar.html">Adabiyotlar</a>
+      <a href="index.html"><span class="nav-nishon" aria-hidden="true">🏠</span>Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page"><span class="nav-nishon" aria-hidden="true">📚</span>Modullar</a>
+      <a href="dastur.html"><span class="nav-nishon" aria-hidden="true">🎭</span>Dastur</a>
+      <a href="glossariy.html"><span class="nav-nishon" aria-hidden="true">🔤</span>Glossariy</a>
+      <a href="adabiyotlar.html"><span class="nav-nishon" aria-hidden="true">📖</span>Adabiyotlar</a>
     </nav>
   </div>
 </header>
 
 <main id="asosiy">
 
-<section class="modul-bosh" style="--rang-a:#5B2E63;--rang-b:#3E1F45">
+<section class="modul-bosh jonli-bosh" style="--rang-a:#5B2E63;--rang-b:#3E1F45">
   <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="nur-fon" aria-hidden="true"></div>
   <div class="qobiq">
-    <span class="yorliq">4-modul</span>
-    <h1>Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</h1>
-    <p class="ost">Ibrat, o‘git, rag‘bat, jazo. Aqliy, axloqiy, jismoniy va mehnat tarbiyasi.</p>
-    <div class="meta">
-      <span>📖 5,775 so‘z</span>
-      <span>🎮 Saralash</span>
-      <span>📝 Test</span>
-      <span>🎬 Video dars</span>
+    <span class="yorliq kir">4-modul</span>
+    <h1 class="kir">Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</h1>
+    <p class="ost kir">Ibrat, o‘git, rag‘bat, jazo. Aqliy, axloqiy, jismoniy va mehnat tarbiyasi.</p>
+    <div class="meta kir">
+      <a href="#matn"><span aria-hidden="true">📖</span> 5,775 so‘z</a>
+      <a href="#oyin"><span aria-hidden="true">🎮</span> Saralash</a>
+      <a href="#test"><span aria-hidden="true">📝</span> Test</a>
+      <a href="#video"><span aria-hidden="true">🎬</span> Video dars</a>
     </div>
   </div>
 </section>
@@ -55,15 +58,21 @@
 </aside>
 <div class="modul-ozak">
 <section class="quti quti-reja kir" id="reja">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#reja" aria-label="Reja bo‘limiga havola">📋</a> Reja</h2>
   <ol class="reja-royxat"><li>.1. Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</li><li>.2. Tarbiyalash metodlaridan yoshlarni tarbiyalashda foydalanish yo’llari</li><li>Xalq pedagogikasida aqliy va axloqiy tarbiya masalalari</li><li>Xalq pedagogikasida jismoniy va mehnat tarbiyasi</li></ol>
 </section>
+<section class="quti quti-mazmun kir" id="mazmun">
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#mazmun"
+      aria-label="Qisqacha mazmun bo‘limiga havola">💡</a> Qisqacha mazmun</h2>
+  <p class="quti-izoh">Uzun ma’ruzani o‘qishdan oldin mavzuning asosiy fikrlari bilan tanishing.</p>
+  <ul class="mazmun-royxat"><li>Asosiy tarbiya metodlari: ibrat-namuna, o‘git-nasihat, rag‘batlantirish va jazolash.</li><li>Eng samarali usul — kattalarning o‘z xatti-harakati bilan namuna bo‘lishi.</li><li>Mehnat tarbiyasi oiladagi kichik yumushlardan boshlanadi.</li><li>Aqliy tarbiya topishmoq, jumboq va masal orqali beriladi.</li><li>Jismoniy tarbiya milliy o‘yin va sport mashqlariga tayanadi.</li><li>Yakuniy maqsad — o‘z-o‘zini tarbiyalay oladigan shaxsni shakllantirish.</li></ul>
+</section>
 <section class="quti kir" id="tayanch">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#tayanch" aria-label="Tayanch so‘zlar bo‘limiga havola">🔑</a> Tayanch so‘zlar</h2>
   <ul class="tayanch"><li>tarbiya metodlari</li><li>ta’sir ko‘rsatish</li><li>na’muna ko‘rsatish</li><li>ibrat ko‘rsatish</li><li>rag‘batlantirish</li><li>jazolash metodi</li><li>o‘z-o‘zini tarbiyalash</li><li>insoniy fazilatlar</li><li>o‘git-nasihat</li><li>xalq donishmandligi</li><li>o‘zbekona axloq</li><li>tarbiya vositalari jismoniy tarbiya</li><li>barkamollik</li><li>mehnat tarbiyasi</li><li>mehnatsevarlik</li><li>mehnat qurollari</li><li>mehnat ahli</li><li>mehnat vositasi</li><li>mehnatsevarlikning ulug‘lanishi</li><li>hayoliy mehnat</li><li>mehnat qurollari</li><li>mehnat ahli</li><li>ijtimoiy taraqqiyot</li></ul>
 </section>
 <section class="quti kir" id="video">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#video" aria-label="Video dars bo‘limiga havola">🎬</a> Video dars</h2>
   <div class="video-ramka">
   <iframe src="https://www.youtube-nocookie.com/embed/OJpWJerFYn4"
     title="Tohir Malik. «Odamiylik mulki» — axloq kitobi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
@@ -229,31 +238,31 @@
   <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="topshiriq">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#topshiriq" aria-label="Topshiriq bo‘limiga havola">✍️</a> Topshiriq</h2>
   <div class="maqola maqola-ichki"><p>I. Quyidagi ish qog‘ozi yordamida “Venn diagrammasi” metodi bo‘yicha ta’limning og‘zaki, ko‘rgazmali va amaliy metodlarini sintezlang.</p>
 <blockquote>Ish qog‘ozi<br>Og‘zaki metodlar:<br>Amaliy metodlar:<br>Ko‘rgazmali metodlar:<br>Umumiy jihatlari:</blockquote>
 <p>II. Quyidagi ish qog‘ozi yordamida “Venn diagrammasi” metodi bo‘yicha ta’limning og‘zaki, ko‘rgazmali va amaliy metodlarini sintezlang.</p></div>
 </section>
 <section class="quti quti-nazorat kir" id="nazorat">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#nazorat" aria-label="Nazorat savollari bo‘limiga havola">❓</a> Nazorat savollari</h2>
   <ol class="savol-royxat"><li>Xalq tajribalarida qo‘llanilgan tarbiya metodlari qaysilar?</li><li>Tarixiy tajribalardan pedagogik jarayonda qanday maqsadlarda foydalaniladi?</li><li>Tushuntirish metodi kanday metod?</li><li>Na’muna, ibrat ko‘rsatish metodlari haqida gapirib bering.</li><li>Rag‘bat metodidan tarbiya jarayonida foydalanish yo‘llarini tushuntiring.</li><li>Jazolash metodidan qanday maqsadda foydalaniladi?</li><li>Etnopedagogika manbalarida yoshlar o‘z-o‘zini tarbiyalash va qayta tarbiyalashining qanday usullari mavjud?</li><li>Tarbiya tajribalarida jismoniy barkamollikning ijtimoiy ahamiyati qanday ifodalangan?</li></ol>
 </section>
 <section class="quti kir" id="test" data-test="4">
   <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="izohlar">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#izohlar" aria-label="Izohlar bo‘limiga havola">§</a> Izohlar</h2>
   <ol class="izoh-royxat"><li id="izoh-3"><a href="#ref-3" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Шавкат Мирзиёев"Ижтимоий барқарорликни таъминлаш, муқаддас динимизнинг софлигини асраш – давр талаби"нутқи 15.06.2017й</li><li id="izoh-4"><a href="#ref-4" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Қодирова М. Халқ педагогикаси ёш авлодни тарбиялаш манбаидир. // Педагогика таълим, 2007 йил 1-сон, 20-22-бетлар</li><li id="izoh-5"><a href="#ref-5" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Хоразм эртаклари. –Т.: Ўз давнашир, 1961, 29-бет</li><li id="izoh-6"><a href="#ref-6" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Хоразм эртаклари. –Т.: Ўз давнашир, 1961, 38-бет</li><li id="izoh-7"><a href="#ref-7" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Хоразм эртаклари. –Т.: Ўз давнашир, 1961, 121-бет</li><li id="izoh-8"><a href="#ref-8" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ш.Зуннун. Оз-оз ўрганиб доно бўлур. Ғафур Ғулом номидаги адабиёт ва санъат нашриёти, -Т.: 1988, 191-193-бетлар</li></ol>
 </section>
 <section class="quti kir" id="adabiyot">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#adabiyot" aria-label="Adabiyotlar bo‘limiga havola">📚</a> Mavzuga oid adabiyotlar</h2>
   <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>4,A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,” Ta’lim tarixi”T;Talqin 2014 y</li></ol>
 </section>
 <nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-3.html"><span class="yon">← 3-modul</span><span class="nom">Xalq pedagogikasida oila va oilaviy tarbiyaning aks etishi</span></a><a class="keyingi" href="modul-5.html"><span class="yon">5-modul →</span><span class="nom">Xalq pedagogikasi va o‘zbek xalq og‘zaki ijodi</span></a></nav>
 </div>
 <aside class="yon-ong" aria-label="Sahifa bo‘limlari">
   <p class="yon-sarl">Sahifada</p>
-  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+  <ul class="yon-royxat"><li><a href="#reja"><span class="yon-nishon" aria-hidden="true">📋</span>Reja</a></li><li><a href="#mazmun"><span class="yon-nishon" aria-hidden="true">💡</span>Qisqacha mazmun</a></li><li><a href="#tayanch"><span class="yon-nishon" aria-hidden="true">🔑</span>Tayanch so‘zlar</a></li><li><a href="#video"><span class="yon-nishon" aria-hidden="true">🎬</span>Video dars</a></li><li><a href="#matn"><span class="yon-nishon" aria-hidden="true">📖</span>Ma’ruza matni</a></li><li><a href="#oyin"><span class="yon-nishon" aria-hidden="true">🎮</span>Interaktiv o‘yin</a></li><li><a href="#topshiriq"><span class="yon-nishon" aria-hidden="true">✍️</span>Topshiriq</a></li><li><a href="#nazorat"><span class="yon-nishon" aria-hidden="true">❓</span>Nazorat savollari</a></li><li><a href="#test"><span class="yon-nishon" aria-hidden="true">📝</span>Test</a></li><li><a href="#adabiyot"><span class="yon-nishon" aria-hidden="true">📚</span>Adabiyotlar</a></li></ul>
 </aside>
 </div>
 </main>
@@ -264,10 +273,12 @@
       <div>
         <h4>Darslik</h4>
         <ul>
-          <li><a href="modullar.html">Barcha modullar</a></li>
-          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
-          <li><a href="glossariy.html">Glossariy</a></li>
-          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+          <li><a href="darslik-haqida.html"><span aria-hidden="true">📘</span> Darslik haqida</a></li>
+          <li><a href="modullar.html"><span aria-hidden="true">📚</span> Barcha modullar</a></li>
+          <li><a href="yakuniy.html"><span aria-hidden="true">🎯</span> Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html"><span aria-hidden="true">🔤</span> Glossariy</a></li>
+          <li><a href="adabiyotlar.html"><span aria-hidden="true">📖</span> Foydalanilgan adabiyotlar</a></li>
+          <li><a href="dastur.html"><span aria-hidden="true">🎭</span> Maxsus kurs dasturi</a></li>
         </ul>
       </div>
       <div>
@@ -297,6 +308,7 @@
 <button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
 <script src="assets/data/modullar.js"></script>
+<script src="assets/js/animatsiya.js"></script>
 <script src="assets/js/app.js"></script>
 
 <script src="assets/data/oyinlar.js"></script>

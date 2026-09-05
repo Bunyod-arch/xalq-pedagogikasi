@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/animatsiya.css">
 </head>
 <body>
 
@@ -24,27 +25,29 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="bosh-menyu" aria-label="Asosiy menyu">
-      <a href="index.html">Bosh sahifa</a>
-      <a href="modullar.html" aria-current="page">Modullar</a>
-      <a href="glossariy.html">Glossariy</a>
-      <a href="adabiyotlar.html">Adabiyotlar</a>
+      <a href="index.html"><span class="nav-nishon" aria-hidden="true">🏠</span>Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page"><span class="nav-nishon" aria-hidden="true">📚</span>Modullar</a>
+      <a href="dastur.html"><span class="nav-nishon" aria-hidden="true">🎭</span>Dastur</a>
+      <a href="glossariy.html"><span class="nav-nishon" aria-hidden="true">🔤</span>Glossariy</a>
+      <a href="adabiyotlar.html"><span class="nav-nishon" aria-hidden="true">📖</span>Adabiyotlar</a>
     </nav>
   </div>
 </header>
 
 <main id="asosiy">
 
-<section class="modul-bosh" style="--rang-a:#8C3A2B;--rang-b:#63251A">
+<section class="modul-bosh jonli-bosh" style="--rang-a:#8C3A2B;--rang-b:#63251A">
   <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="nur-fon" aria-hidden="true"></div>
   <div class="qobiq">
-    <span class="yorliq">13-modul</span>
-    <h1>Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</h1>
-    <p class="ost">Ustoz odobi, shogird burchi va murabbiylik san’ati haqida ajdodlar merosi.</p>
-    <div class="meta">
-      <span>📖 5,124 so‘z</span>
-      <span>🎮 Klaster</span>
-      <span>📝 Test</span>
-      <span>🎬 Video dars</span>
+    <span class="yorliq kir">13-modul</span>
+    <h1 class="kir">Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</h1>
+    <p class="ost kir">Ustoz odobi, shogird burchi va murabbiylik san’ati haqida ajdodlar merosi.</p>
+    <div class="meta kir">
+      <a href="#matn"><span aria-hidden="true">📖</span> 5,124 so‘z</a>
+      <a href="#oyin"><span aria-hidden="true">🎮</span> Klaster</a>
+      <a href="#test"><span aria-hidden="true">📝</span> Test</a>
+      <a href="#video"><span aria-hidden="true">🎬</span> Video dars</a>
     </div>
   </div>
 </section>
@@ -55,15 +58,21 @@
 </aside>
 <div class="modul-ozak">
 <section class="quti quti-reja kir" id="reja">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#reja" aria-label="Reja bo‘limiga havola">📋</a> Reja</h2>
   <ol class="reja-royxat"><li>Xalq pedagogikasi manbalarida ustoz- o’qituvchi kasbining</li><li>ulug’lanishi</li></ol>
 </section>
+<section class="quti quti-mazmun kir" id="mazmun">
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#mazmun"
+      aria-label="Qisqacha mazmun bo‘limiga havola">💡</a> Qisqacha mazmun</h2>
+  <p class="quti-izoh">Uzun ma’ruzani o‘qishdan oldin mavzuning asosiy fikrlari bilan tanishing.</p>
+  <ul class="mazmun-royxat"><li>Ustoz kasbi xalq pedagogikasida eng ulug‘ kasblardan biri sanaladi.</li><li>«Ota mehridin afzal jabri ustod» — ustozning talabchanligi mehrdan qolishmaydi.</li><li>Ustoz fazilatlari: samimiylik, haqiqatlilik, mehribonlik, mardlik, sabr va intizom.</li><li>Pedagogik faoliyat, avvalo, odobli bo‘lishni talab qiladi — o‘qituvchining har bir so‘zi ibrat.</li><li>Shogirdning burchi — ustozni hurmat qilish va olgan bilimini davom ettirish.</li></ul>
+</section>
 <section class="quti kir" id="tayanch">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#tayanch" aria-label="Tayanch so‘zlar bo‘limiga havola">🔑</a> Tayanch so‘zlar</h2>
   <ul class="tayanch"><li>ustoz</li><li>intizom</li><li>o’qituvchi odobi</li><li>milliy tarbiya</li><li>izzat-hurmatda bo’lish</li><li>qadr-qimmatni anglash</li><li>samimiylik</li><li>iltifotlilik</li><li>haqiqatlilik</li><li>mardlik</li><li>jasurlik</li><li>mehribonlik kabi insoniy fazilatlar</li></ul>
 </section>
 <section class="quti kir" id="video">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#video" aria-label="Video dars bo‘limiga havola">🎬</a> Video dars</h2>
   <div class="video-ramka">
   <iframe src="https://www.youtube-nocookie.com/embed/JJ484wp0oVw"
     title="Yoshlar xohlagan ustoz — o‘qituvchi kasbi haqida suhbat" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
@@ -168,7 +177,7 @@
   <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="topshiriq">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#topshiriq" aria-label="Topshiriq bo‘limiga havola">✍️</a> Topshiriq</h2>
   <div class="maqola maqola-ichki"><p>Mavzuni o‘zlashtirishda qaysi omillar hisobga olindi? Mavzuni o‘zlashtirishda qanday omillar hisobga olinmadi? Ro‘yxatga yana qanday omillarni kiritish mumkin? Masalaning yana qaysi jihatlariga e’tibor berish zarur?</p>
 <p>O‘qituvchi mehnatini tashkil etishga ta’sir etuvchi omillarni “Barcha omillarni hisobga ol!” (BOHO) metodi yordamida aniqlanishi (namuna)</p>
 <blockquote>O‘qituvchi mehnatini tashkil etish<br>Har tomonlama rivojlanish<br>Vaqtni tejash<br>Vaqtdan unumli foydalanish<br>Salomatlik<br>to‘g‘risida<br>qayg‘urish<br>Qulay mehnat sharoitini yaratish<br>Mehnat sharoitidan oqilona foydalanish<br>Dam olish<br>sharoitidan oqilona foydalanish<br>Qulay dam olish sharoiti<br>Izoh: talabalar tomonidan tanlangan har bir gugurt donasi yoki oddiy cho‘p</blockquote>
@@ -177,25 +186,25 @@
 <div class="jadval-o"><table><thead><tr><th>1-guruh</th><th>2-guruh</th><th>3-guruh)</th></tr></thead><tbody><tr><td>Mehnat –O‘qituvchi mehnati –O‘qituvchi mehnatini tashkil etish – Pedagogik tajriba – O‘z ustida ishlash –</td><td>1.O‘z-o‘zini rivojlantirish –2. O‘z ustida ishlash –4. Pedagogik tajriba –</td><td>Pedagogik tajriba to‘plash –Faoliyat –Pedagogik faoliyat –Pedagogik faoliyatni rejalashtirish – O‘zini o‘zi baholash –O‘zini o‘zi tahlil qilish –</td></tr></tbody></table></div></div>
 </section>
 <section class="quti quti-nazorat kir" id="nazorat">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#nazorat" aria-label="Nazorat savollari bo‘limiga havola">❓</a> Nazorat savollari</h2>
   <ol class="savol-royxat"><li>Xalq pedagogikasida ustoz- shogirt masalalari qanday yoritilgan?</li><li>O’qituvchini jamiyatda tutgan o’rni qanday?</li><li>O’qituvchini milliy odob axloqi qanday bo’lishi kerak?</li><li>O’qituvchi axloqida halollik to’g’rilikni, rostgo’ylikni, mafkuraviylikni, printsipialligini nima bilan bog’laysiz?</li><li>O’qituvchi madaniyati boshqalar madaniyatidan farqi nimada?</li></ol>
 </section>
 <section class="quti kir" id="test" data-test="13">
   <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="izohlar">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#izohlar" aria-label="Izohlar bo‘limiga havola">§</a> Izohlar</h2>
   <ol class="izoh-royxat"><li id="izoh-32"><a href="#ref-32" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> “SHohnoma” 1-kitob, Toshkent., 1975 yil. 35-36 betlar</li><li id="izoh-33"><a href="#ref-33" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-34"><a href="#ref-34" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> “O’zbek pedagogikasi antologiyasi”. Toshkent, “O’qituvchi”, 1995, 39-46 betlar</li><li id="izoh-35"><a href="#ref-35" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Pisarinko V. I.,Pisarinko I. Ya. Pedagogicheskaya etika. Minsk, 1977, 10-11 betlar</li><li id="izoh-36"><a href="#ref-36" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> (Hadis. Birinchi kitob. Toshkent, 1991, 28-51-betlar)</li><li id="izoh-37"><a href="#ref-37" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’zbek pedagogikasi antalogiyasi. Toshkent, “O’qituvchi”, 1995,108-109-betlar)</li><li id="izoh-38"><a href="#ref-38" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Qobusnoma.Toshkent, “Meros”, 1992, 83-bet</li><li id="izoh-39"><a href="#ref-39" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’zbek pedagogikasi antalogiyasi Toshkent, “O’qituvchi”, 1995 206-bet</li><li id="izoh-40"><a href="#ref-40" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> SH. Shomuhamedov. “Bir dasta gul” maqolasiga qarang: Sa‘diy “Guliston”, Toshkent, 1968, 5-bet</li><li id="izoh-41"><a href="#ref-41" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’sha asar, 143-bet</li><li id="izoh-42"><a href="#ref-42" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-43"><a href="#ref-43" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-44"><a href="#ref-44" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’sha asar, 148-bet</li><li id="izoh-45"><a href="#ref-45" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’sha asar, 149-bet</li><li id="izoh-46"><a href="#ref-46" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> M.Ochilov Qarshi 2005y Nasaf 67b</li></ol>
 </section>
 <section class="quti kir" id="adabiyot">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#adabiyot" aria-label="Adabiyotlar bo‘limiga havola">📚</a> Mavzuga oid adabiyotlar</h2>
   <ol class="adab-royxat"><li>Sh. M. Mirziyoyev: “O’zbekiston respublikasini yanada rivojlantirish bo’yicha harakatlar strategiyasi” Xalq so’zi. 2017-yil 9-fevral</li><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,M.Nishonov ” Pedagogika”T;Talqin 2008 y</li><li>O.Xaydarova «Xalq pedagogikasi»,Navoiy 2008</li></ol>
 </section>
 <nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-12.html"><span class="yon">← 12-modul</span><span class="nom">Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida</span></a><a class="keyingi" href="modul-14.html"><span class="yon">14-modul →</span><span class="nom">Xalq tarbiya nazariyasida tabiatni muhofaza qilish va sog‘lom turmush masalalari</span></a></nav>
 </div>
 <aside class="yon-ong" aria-label="Sahifa bo‘limlari">
   <p class="yon-sarl">Sahifada</p>
-  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+  <ul class="yon-royxat"><li><a href="#reja"><span class="yon-nishon" aria-hidden="true">📋</span>Reja</a></li><li><a href="#mazmun"><span class="yon-nishon" aria-hidden="true">💡</span>Qisqacha mazmun</a></li><li><a href="#tayanch"><span class="yon-nishon" aria-hidden="true">🔑</span>Tayanch so‘zlar</a></li><li><a href="#video"><span class="yon-nishon" aria-hidden="true">🎬</span>Video dars</a></li><li><a href="#matn"><span class="yon-nishon" aria-hidden="true">📖</span>Ma’ruza matni</a></li><li><a href="#oyin"><span class="yon-nishon" aria-hidden="true">🎮</span>Interaktiv o‘yin</a></li><li><a href="#topshiriq"><span class="yon-nishon" aria-hidden="true">✍️</span>Topshiriq</a></li><li><a href="#nazorat"><span class="yon-nishon" aria-hidden="true">❓</span>Nazorat savollari</a></li><li><a href="#test"><span class="yon-nishon" aria-hidden="true">📝</span>Test</a></li><li><a href="#adabiyot"><span class="yon-nishon" aria-hidden="true">📚</span>Adabiyotlar</a></li></ul>
 </aside>
 </div>
 </main>
@@ -206,10 +215,12 @@
       <div>
         <h4>Darslik</h4>
         <ul>
-          <li><a href="modullar.html">Barcha modullar</a></li>
-          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
-          <li><a href="glossariy.html">Glossariy</a></li>
-          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+          <li><a href="darslik-haqida.html"><span aria-hidden="true">📘</span> Darslik haqida</a></li>
+          <li><a href="modullar.html"><span aria-hidden="true">📚</span> Barcha modullar</a></li>
+          <li><a href="yakuniy.html"><span aria-hidden="true">🎯</span> Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html"><span aria-hidden="true">🔤</span> Glossariy</a></li>
+          <li><a href="adabiyotlar.html"><span aria-hidden="true">📖</span> Foydalanilgan adabiyotlar</a></li>
+          <li><a href="dastur.html"><span aria-hidden="true">🎭</span> Maxsus kurs dasturi</a></li>
         </ul>
       </div>
       <div>
@@ -239,6 +250,7 @@
 <button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
 <script src="assets/data/modullar.js"></script>
+<script src="assets/js/animatsiya.js"></script>
 <script src="assets/js/app.js"></script>
 
 <script src="assets/data/oyinlar.js"></script>

@@ -786,3 +786,34 @@ sup.izoh-ref a:hover{ background:var(--krem-2); }
 .qoshimcha-karta .nishon{ font-size:26px; line-height:1; margin-bottom:4px; }
 .qoshimcha-karta b{ font-family:var(--ust); font-size:19px; }
 .qoshimcha-karta span:last-child{ font-size:14.5px; color:var(--siyoh-3); }
+
+/* ---------- 23. MODUL KARTOCHKASI (havolali variant) ---------- */
+.mod-karta{ display:flex; flex-direction:column; }
+.mod-asos{
+  display:flex; flex-direction:column; gap:12px;
+  text-decoration:none; color:inherit; flex:1 1 auto;
+}
+.mod-karta .oyoq{ flex-wrap:wrap; }
+.mod-karta .oyoq .oq-belgi{
+  margin-left:auto; text-decoration:none;
+  width:30px; height:30px; border-radius:50%;
+  display:grid; place-items:center; font-size:16px;
+  background:var(--krem-2); color:var(--rang,var(--indigo));
+}
+.mod-karta .oyoq .oq-belgi:hover{ background:var(--rang,var(--indigo)); color:#fff; }
+
+/* ---------- 24. QISQACHA MAZMUN ---------- */
+.quti-mazmun{ background:linear-gradient(180deg,#FFFDF8,#FBF5E8); border-color:rgba(212,162,76,.35); }
+.mazmun-royxat{ list-style:none; margin:0; padding:0; }
+.mazmun-royxat li{
+  position:relative; padding:11px 0 11px 34px;
+  border-top:1px solid var(--chegara);
+  font-family:var(--oq); font-size:16.5px; line-height:1.65; color:var(--siyoh-2);
+}
+.mazmun-royxat li:first-child{ border-top:0; }
+.mazmun-royxat li::before{
+  content:"◆"; position:absolute; left:6px; top:12px;
+  color:var(--oltin); font-size:13px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), color .25s;
+}
+.mazmun-royxat li:hover::before{ transform:scale(1.35) rotate(45deg); color:var(--terrakota); }

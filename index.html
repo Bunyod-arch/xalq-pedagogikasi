@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/animatsiya.css">
 <link rel="stylesheet" href="assets/css/hikoya.css">
 </head>
 <body>
@@ -29,10 +30,11 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="bosh-menyu" aria-label="Asosiy menyu">
-      <a href="index.html" aria-current="page">Bosh sahifa</a>
-      <a href="modullar.html">Modullar</a>
-      <a href="glossariy.html">Glossariy</a>
-      <a href="adabiyotlar.html">Adabiyotlar</a>
+      <a href="index.html" aria-current="page"><span class="nav-nishon" aria-hidden="true">🏠</span>Bosh sahifa</a>
+      <a href="modullar.html"><span class="nav-nishon" aria-hidden="true">📚</span>Modullar</a>
+      <a href="dastur.html"><span class="nav-nishon" aria-hidden="true">🎭</span>Dastur</a>
+      <a href="glossariy.html"><span class="nav-nishon" aria-hidden="true">🔤</span>Glossariy</a>
+      <a href="adabiyotlar.html"><span class="nav-nishon" aria-hidden="true">📖</span>Adabiyotlar</a>
     </nav>
   </div>
 </header>
@@ -287,6 +289,7 @@
       <div class="flex flex-wrap gap-3 justify-center mt-8">
         <a href="modullar.html" class="tug tug-asos">14 modulni boshlash →</a>
         <a href="modul-1.html" class="tug tug-ramka">1-moduldan o‘qish</a>
+        <a href="darslik-haqida.html" class="tug tug-ramka">Darslik haqida</a>
       </div>
     </div>
 
@@ -295,6 +298,8 @@
       <div class="stat"><div class="son">98</div><div class="nom">test savoli</div></div>
       <div class="stat"><div class="son">14</div><div class="nom">interaktiv o‘yin</div></div>
       <div class="stat"><div class="son">183</div><div class="nom">bet darslik</div></div>
+      <div class="stat"><div class="son">85</div><div class="nom">glossariy atamasi</div></div>
+      <div class="stat"><div class="son">9</div><div class="nom">trening mashg‘uloti</div></div>
     </div>
 
     <hr class="ajratgich">
@@ -320,13 +325,188 @@
         <p>Har modulda: reja, tayanch so‘zlar, to‘liq ma’ruza matni, interaktiv o‘yin,
            nazorat savollari va avtomatik baholanadigan test.</p>
       </div>
+      <div class="muqova-karta">
+        <h4>Maxsus kurs dasturi</h4>
+        <p>«Bo‘lajak o‘qituvchilarning milliy xarakter xususiyatlarini rivojlantirish
+           metodikasi» tajriba-sinov dasturi: 9 ta trening va interaktiv metodlar.
+           <a href="dastur.html">Ochish →</a></p>
+      </div>
     </div>
 
     <hr class="ajratgich">
 
     <h2 class="text-center mb-2">Modullar</h2>
     <p class="text-center text-[color:var(--siyoh-3)] mb-8">Istalgan moduldan boshlashingiz mumkin</p>
-    <div class="tur-panjara" id="modul-royxati"></div>
+    <div class="tur-panjara" id="modul-royxati">
+<div class="karta mod-karta kir" style="--rang:#1B3B6F" data-modul="1">
+  <a class="mod-asos" href="modul-1.html">
+    <span class="raqam">1-modul</span>
+    <span class="sarl">Xalq pedagogikasi fanining maqsad va vazifalari, mazmuni</span>
+    <span class="tavsif">Fanning pedagogika tizimidagi o‘rni, predmeti, ob’ekti va tarixiy taraqqiyot bosqichlari.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-1.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Klaster</a>
+    <a href="modul-1.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-1.html" aria-label="1-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#A8442A" data-modul="2">
+  <a class="mod-asos" href="modul-2.html">
+    <span class="raqam">2-modul</span>
+    <span class="sarl">Xalq pedagogikasining didaktik imkoniyatlarini o‘quv-tarbiyaviy jarayonga tadbiq etish</span>
+    <span class="tavsif">Milliy qadriyatlar va xalq tajribasini zamonaviy dars jarayoniga olib kirish yo‘llari.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-2.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> T-jadval</a>
+    <a href="modul-2.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-2.html" aria-label="2-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#165C5C" data-modul="3">
+  <a class="mod-asos" href="modul-3.html">
+    <span class="raqam">3-modul</span>
+    <span class="sarl">Xalq pedagogikasida oila va oilaviy tarbiyaning aks etishi</span>
+    <span class="tavsif">Oila — birinchi maktab. Sharq mutafakkirlarining oila haqidagi qarashlari.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-3.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Saralash</a>
+    <a href="modul-3.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-3.html" aria-label="3-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#5B2E63" data-modul="4">
+  <a class="mod-asos" href="modul-4.html">
+    <span class="raqam">4-modul</span>
+    <span class="sarl">Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</span>
+    <span class="tavsif">Ibrat, o‘git, rag‘bat, jazo. Aqliy, axloqiy, jismoniy va mehnat tarbiyasi.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-4.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Saralash</a>
+    <a href="modul-4.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-4.html" aria-label="4-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#4E5B29" data-modul="5">
+  <a class="mod-asos" href="modul-5.html">
+    <span class="raqam">5-modul</span>
+    <span class="sarl">Xalq pedagogikasi va o‘zbek xalq og‘zaki ijodi</span>
+    <span class="tavsif">Etnopedagogik manbalar, ertak, afsona, rivoyat, maqol va allalarning tarbiyaviy kuchi.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-5.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Maqol davomi</a>
+    <a href="modul-5.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-5.html" aria-label="5-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#96501F" data-modul="6">
+  <a class="mod-asos" href="modul-6.html">
+    <span class="raqam">6-modul</span>
+    <span class="sarl">Xalq pedagogikasi va xalq og‘zaki ijodida dostonlar</span>
+    <span class="tavsif">«Alpomish», «Go‘ro‘g‘li» va boshqa dostonlarning tarbiyaviy ahamiyati.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-6.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Juftlash</a>
+    <a href="modul-6.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-6.html" aria-label="6-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#1F3A5F" data-modul="7">
+  <a class="mod-asos" href="modul-7.html">
+    <span class="raqam">7-modul</span>
+    <span class="sarl">Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni</span>
+    <span class="tavsif">Milliy qadriyatlar tizimi va ularning ma’naviy tarbiyadagi o‘rni.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-7.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Saralash</a>
+    <a href="modul-7.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-7.html" aria-label="7-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#2F6B45" data-modul="8">
+  <a class="mod-asos" href="modul-8.html">
+    <span class="raqam">8-modul</span>
+    <span class="sarl">Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati</span>
+    <span class="tavsif">Milliy o‘yinlar orqali jismoniy, aqliy va jamoaviy fazilatlarni shakllantirish.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-8.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Juftlash</a>
+    <a href="modul-8.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-8.html" aria-label="8-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#7A2436" data-modul="9">
+  <a class="mod-asos" href="modul-9.html">
+    <span class="raqam">9-modul</span>
+    <span class="sarl">Xalq pedagogikasida diniy ta’limotlar</span>
+    <span class="tavsif">Qur’oni Karim va Hadislardagi tarbiyaviy g‘oyalar; g‘oyaviy tahdidlardan himoya.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-9.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Ha yoki yo‘q</a>
+    <a href="modul-9.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-9.html" aria-label="9-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#7A5A21" data-modul="10">
+  <a class="mod-asos" href="modul-10.html">
+    <span class="raqam">10-modul</span>
+    <span class="sarl">Xalq pedagogikasida xalq amaliy san’ati va madaniyatining o‘rni</span>
+    <span class="tavsif">Hunarmandchilik maktablari, usta-shogird an’anasi va amaliy san’at turlari.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-10.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Juftlash</a>
+    <a href="modul-10.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-10.html" aria-label="10-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#3B4A5A" data-modul="11">
+  <a class="mod-asos" href="modul-11.html">
+    <span class="raqam">11-modul</span>
+    <span class="sarl">O‘zbek xalqining muomala madaniyati, axloqiy me’yorlari, turmush kechirish tartib-qoidalarining tarbiyaviy ahamiyati</span>
+    <span class="tavsif">Salomlashish, mehmondo‘stlik, kattaga hurmat — kundalik odob me’yorlari.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-11.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Saralash</a>
+    <a href="modul-11.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-11.html" aria-label="11-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#46357A" data-modul="12">
+  <a class="mod-asos" href="modul-12.html">
+    <span class="raqam">12-modul</span>
+    <span class="sarl">Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida</span>
+    <span class="tavsif">Alla, yor-yor, lapar, askiya va qiziqchilik san’atining tarbiyaviy imkoniyatlari.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-12.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Juftlash</a>
+    <a href="modul-12.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-12.html" aria-label="12-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#8C3A2B" data-modul="13">
+  <a class="mod-asos" href="modul-13.html">
+    <span class="raqam">13-modul</span>
+    <span class="sarl">Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</span>
+    <span class="tavsif">Ustoz odobi, shogird burchi va murabbiylik san’ati haqida ajdodlar merosi.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-13.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Klaster</a>
+    <a href="modul-13.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-13.html" aria-label="13-modulni ochish">→</a>
+  </span>
+</div>
+<div class="karta mod-karta kir" style="--rang:#23583E" data-modul="14">
+  <a class="mod-asos" href="modul-14.html">
+    <span class="raqam">14-modul</span>
+    <span class="sarl">Xalq tarbiya nazariyasida tabiatni muhofaza qilish va sog‘lom turmush masalalari</span>
+    <span class="tavsif">Tabiatga ehtiyotkor munosabat, ekologik ong va sog‘lom turmush tarzi.</span>
+  </a>
+  <span class="oyoq">
+    <a href="modul-14.html#oyin" title="Interaktiv o‘yinga o‘tish"><span aria-hidden="true">🎮</span> Chiqindilarni saralash</a>
+    <a href="modul-14.html#test" title="Testga o‘tish"><span aria-hidden="true">📝</span> 7 savol</a>
+    <a class="oq-belgi" href="modul-14.html" aria-label="14-modulni ochish">→</a>
+  </span>
+</div>
+    </div>
 
   </div>
 </section>
@@ -339,9 +519,12 @@
       <div>
         <h4>Darslik</h4>
         <ul>
-          <li><a href="modullar.html">Barcha modullar</a></li>
-          <li><a href="glossariy.html">Glossariy</a></li>
-          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+          <li><a href="darslik-haqida.html"><span aria-hidden="true">📘</span> Darslik haqida</a></li>
+          <li><a href="modullar.html"><span aria-hidden="true">📚</span> Barcha modullar</a></li>
+          <li><a href="yakuniy.html"><span aria-hidden="true">🎯</span> Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html"><span aria-hidden="true">🔤</span> Glossariy</a></li>
+          <li><a href="adabiyotlar.html"><span aria-hidden="true">📖</span> Foydalanilgan adabiyotlar</a></li>
+          <li><a href="dastur.html"><span aria-hidden="true">🎭</span> Maxsus kurs dasturi</a></li>
         </ul>
       </div>
       <div>
@@ -371,6 +554,7 @@
 <button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
 <script src="assets/data/modullar.js"></script>
+<script src="assets/js/animatsiya.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/hikoya.js"></script>
 </body>

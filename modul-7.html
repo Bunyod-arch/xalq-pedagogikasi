@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/animatsiya.css">
 </head>
 <body>
 
@@ -24,27 +25,29 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="bosh-menyu" aria-label="Asosiy menyu">
-      <a href="index.html">Bosh sahifa</a>
-      <a href="modullar.html" aria-current="page">Modullar</a>
-      <a href="glossariy.html">Glossariy</a>
-      <a href="adabiyotlar.html">Adabiyotlar</a>
+      <a href="index.html"><span class="nav-nishon" aria-hidden="true">🏠</span>Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page"><span class="nav-nishon" aria-hidden="true">📚</span>Modullar</a>
+      <a href="dastur.html"><span class="nav-nishon" aria-hidden="true">🎭</span>Dastur</a>
+      <a href="glossariy.html"><span class="nav-nishon" aria-hidden="true">🔤</span>Glossariy</a>
+      <a href="adabiyotlar.html"><span class="nav-nishon" aria-hidden="true">📖</span>Adabiyotlar</a>
     </nav>
   </div>
 </header>
 
 <main id="asosiy">
 
-<section class="modul-bosh" style="--rang-a:#1F3A5F;--rang-b:#16283F">
+<section class="modul-bosh jonli-bosh" style="--rang-a:#1F3A5F;--rang-b:#16283F">
   <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="nur-fon" aria-hidden="true"></div>
   <div class="qobiq">
-    <span class="yorliq">7-modul</span>
-    <h1>Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni</h1>
-    <p class="ost">Milliy qadriyatlar tizimi va ularning ma’naviy tarbiyadagi o‘rni.</p>
-    <div class="meta">
-      <span>📖 2,548 so‘z</span>
-      <span>🎮 Saralash</span>
-      <span>📝 Test</span>
-      <span>🎬 Video dars</span>
+    <span class="yorliq kir">7-modul</span>
+    <h1 class="kir">Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni</h1>
+    <p class="ost kir">Milliy qadriyatlar tizimi va ularning ma’naviy tarbiyadagi o‘rni.</p>
+    <div class="meta kir">
+      <a href="#matn"><span aria-hidden="true">📖</span> 2,548 so‘z</a>
+      <a href="#oyin"><span aria-hidden="true">🎮</span> Saralash</a>
+      <a href="#test"><span aria-hidden="true">📝</span> Test</a>
+      <a href="#video"><span aria-hidden="true">🎬</span> Video dars</a>
     </div>
   </div>
 </section>
@@ -55,15 +58,21 @@
 </aside>
 <div class="modul-ozak">
 <section class="quti quti-reja kir" id="reja">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#reja" aria-label="Reja bo‘limiga havola">📋</a> Reja</h2>
   <ol class="reja-royxat"><li>Milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o’rni</li><li>Ma’naviy tarbiya jarayonida milliy qadriyatlarning ahamiyati</li></ol>
 </section>
+<section class="quti quti-mazmun kir" id="mazmun">
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#mazmun"
+      aria-label="Qisqacha mazmun bo‘limiga havola">💡</a> Qisqacha mazmun</h2>
+  <p class="quti-izoh">Uzun ma’ruzani o‘qishdan oldin mavzuning asosiy fikrlari bilan tanishing.</p>
+  <ul class="mazmun-royxat"><li>An’ana — avloddan avlodga o‘tuvchi barqaror ijtimoiy tajriba.</li><li>Marosim — belgilangan tartibda o‘tkaziladigan rasm-rusum (beshik to‘yi, nikoh to‘yi).</li><li>Mavsumiy bayramlar — Navro‘z, sumalak sayli, hosil bayrami — tabiat bilan bog‘liq.</li><li>Qadriyatlar moddiy, ma’naviy, estetik, milliy va umuminsoniy turlarga bo‘linadi.</li><li>Globallashuv sharoitida qadriyatlar milliy o‘zlikni saqlab qolish vositasi bo‘ladi.</li></ul>
+</section>
 <section class="quti kir" id="tayanch">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#tayanch" aria-label="Tayanch so‘zlar bo‘limiga havola">🔑</a> Tayanch so‘zlar</h2>
   <ul class="tayanch"><li>milliy istiqlol</li><li>ma’naviy qadriyatlar</li><li>urf-odat</li><li>an’ana</li><li>marosim</li><li>udumlar</li><li>sharq mutafakkirlari</li><li>uyg‘onish davri</li><li>ma’naviy barkamollik</li><li>madaniy-ma’rifiy qarashlar</li><li>ma’naviy meros</li><li>globallashuv jarayoni</li><li>tabiiy qadriyatlar</li><li>moddiy qadriyatlar</li><li>ma’naviy qadriyatlar</li><li>estetik qadriyatlar</li><li>milliy qadriyatlar</li><li>umuminsoniy qadriyatlar</li></ul>
 </section>
 <section class="quti kir" id="video">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#video" aria-label="Video dars bo‘limiga havola">🎬</a> Video dars</h2>
   <div class="video-ramka">
   <iframe src="https://www.youtube-nocookie.com/embed/7VP8DpCQmXo"
     title="Xalqimizning milliy urf-odat, qadriyat va an’analari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
@@ -160,29 +169,29 @@
   <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="topshiriq">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#topshiriq" aria-label="Topshiriq bo‘limiga havola">✍️</a> Topshiriq</h2>
   <div class="maqola maqola-ichki"><blockquote>I. Quyidagi ish qog‘ozi asosida “Sinkveyn” metodi yordamida zamonaviy dars mohiyatini yoriting.<br>Ish qog‘ozi<br>1-qator. 1 ta ot<br>2-qator. 2 ta sifat<br>3-qator. 3 ta fe’l<br>4-qator. 4 ta so‘z<br>5-qator. 1-qatordagi otga sinonim</blockquote></div>
 </section>
 <section class="quti quti-nazorat kir" id="nazorat">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#nazorat" aria-label="Nazorat savollari bo‘limiga havola">❓</a> Nazorat savollari</h2>
   <ol class="savol-royxat"><li>Ma’naviy qadriyatlarning qayta tiklanishi jarayonlari haqida nimalarni bilasiz?</li><li>Milliy qadryatlar deb nimaga aytiladi?</li><li>YOshlarda qadryatlarga nisbatan munosabatni shakllantirishda tarixiy manbalardan foydalanishning axamiyati.</li><li>O‘zbek xalqi an’analari, marosimlari, urf-odatlarining tarbiyaviy axamiyati qanday?</li><li>YOshlarda qadryatlarni qadrlash jihatlari qanday shakllantiriladi?</li><li>YOshlar dunyoqarashida milliy – ma’naviy qadriyatlarga tayanish qanday maqsad va vazifalarni o‘z ichiga oladi?</li></ol>
 </section>
 <section class="quti kir" id="test" data-test="7">
   <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
 </section>
 <section class="quti kir" id="izohlar">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#izohlar" aria-label="Izohlar bo‘limiga havola">§</a> Izohlar</h2>
   <ol class="izoh-royxat"><li id="izoh-13"><a href="#ref-13" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Karimov I.A. Ilm-fan imkoniyatlaridan to’laroq foydalanaylik. “O’qituvchilar gazetasi”. 1989 yil,2 dekabr</li><li id="izoh-14"><a href="#ref-14" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> G.M.Ergasheva.Milliy qadriyatlar va shaxs ijtimoiy ximoyasining huquqiy mexanizmlarini takomil-lashtirish. Respublika ilmiy-amaliy konferensiyasi materiallari.- T.: “Akademiya”, 2007. 211-212 betlar</li><li id="izoh-15"><a href="#ref-15" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Karimov I.A. Ozod va obod Vatan, erkin va farovon hayot- pirovard maqsadimiz. –T.:2000. 26- bet</li><li id="izoh-16"><a href="#ref-16" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Madalieva Z. Huquqiy madaniyat va yoshlar.- T.: “Akademiya”, 2008. 5- bet</li><li id="izoh-17"><a href="#ref-17" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Karimov I.A. biz kelajagimizni o‘z qo‘limiz bilan quramiz.7- jild. –T.: “O‘zbekiston”, 1999. 304-bet</li><li id="izoh-18"><a href="#ref-18" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-19"><a href="#ref-19" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ergashev I. Yoshlarning ijtimoiy faolligi. –T.: “Akademiya”, 2008. 15-16- betlar</li><li id="izoh-20"><a href="#ref-20" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ergashev I. Yoshlarning ijtimoiy faolligi. –T.: “Akademiya”, 2008. 15- bet</li></ol>
 </section>
 <section class="quti kir" id="adabiyot">
-  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <h2 class="quti-sarl"><a class="nishon nishon-havola" href="#adabiyot" aria-label="Adabiyotlar bo‘limiga havola">📚</a> Mavzuga oid adabiyotlar</h2>
   <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>4,A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,M.Nishonov ” Pedagogika”T;Talqin 2008 y</li></ol>
 </section>
 <nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-6.html"><span class="yon">← 6-modul</span><span class="nom">Xalq pedagogikasi va xalq og‘zaki ijodida dostonlar</span></a><a class="keyingi" href="modul-8.html"><span class="yon">8-modul →</span><span class="nom">Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati</span></a></nav>
 </div>
 <aside class="yon-ong" aria-label="Sahifa bo‘limlari">
   <p class="yon-sarl">Sahifada</p>
-  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+  <ul class="yon-royxat"><li><a href="#reja"><span class="yon-nishon" aria-hidden="true">📋</span>Reja</a></li><li><a href="#mazmun"><span class="yon-nishon" aria-hidden="true">💡</span>Qisqacha mazmun</a></li><li><a href="#tayanch"><span class="yon-nishon" aria-hidden="true">🔑</span>Tayanch so‘zlar</a></li><li><a href="#video"><span class="yon-nishon" aria-hidden="true">🎬</span>Video dars</a></li><li><a href="#matn"><span class="yon-nishon" aria-hidden="true">📖</span>Ma’ruza matni</a></li><li><a href="#oyin"><span class="yon-nishon" aria-hidden="true">🎮</span>Interaktiv o‘yin</a></li><li><a href="#topshiriq"><span class="yon-nishon" aria-hidden="true">✍️</span>Topshiriq</a></li><li><a href="#nazorat"><span class="yon-nishon" aria-hidden="true">❓</span>Nazorat savollari</a></li><li><a href="#test"><span class="yon-nishon" aria-hidden="true">📝</span>Test</a></li><li><a href="#adabiyot"><span class="yon-nishon" aria-hidden="true">📚</span>Adabiyotlar</a></li></ul>
 </aside>
 </div>
 </main>
@@ -193,10 +202,12 @@
       <div>
         <h4>Darslik</h4>
         <ul>
-          <li><a href="modullar.html">Barcha modullar</a></li>
-          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
-          <li><a href="glossariy.html">Glossariy</a></li>
-          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+          <li><a href="darslik-haqida.html"><span aria-hidden="true">📘</span> Darslik haqida</a></li>
+          <li><a href="modullar.html"><span aria-hidden="true">📚</span> Barcha modullar</a></li>
+          <li><a href="yakuniy.html"><span aria-hidden="true">🎯</span> Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html"><span aria-hidden="true">🔤</span> Glossariy</a></li>
+          <li><a href="adabiyotlar.html"><span aria-hidden="true">📖</span> Foydalanilgan adabiyotlar</a></li>
+          <li><a href="dastur.html"><span aria-hidden="true">🎭</span> Maxsus kurs dasturi</a></li>
         </ul>
       </div>
       <div>
@@ -226,6 +237,7 @@
 <button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
 <script src="assets/data/modullar.js"></script>
+<script src="assets/js/animatsiya.js"></script>
 <script src="assets/js/app.js"></script>
 
 <script src="assets/data/oyinlar.js"></script>
