@@ -2,322 +2,224 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>12-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(1200px 600px at 50% -200px,#1f2937,#020617);
-  color:#e5e7eb;
-  padding:120px 20px 190px;
-}
-
-/* ===== HEADER ===== */
-.header{
-  max-width:1000px;
-  margin:0 auto 90px;
-  text-align:center;
-}
-.header h1{
-  font-size:clamp(34px,5vw,64px);
-  font-weight:900;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#f8fafc,#f59e0b,#22c55e,#f8fafc);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.header p{
-  margin-top:22px;
-  font-size:18px;
-  line-height:2;
-  opacity:.85;
-}
-
-/* ===== TIMELINE ===== */
-.timeline{
-  max-width:900px;
-  margin:0 auto 120px;
-  position:relative;
-  padding-left:60px;
-}
-.timeline::before{
-  content:"";
-  position:absolute;
-  left:24px;
-  top:0;
-  width:4px;
-  height:100%;
-  background:linear-gradient(
-    to bottom,
-    #f59e0b,
-    rgba(245,158,11,.4),
-    transparent
-  );
-  border-radius:4px;
-}
-
-.step{
-  position:relative;
-  margin-bottom:90px;
-}
-.step::before{
-  content:"";
-  position:absolute;
-  left:-44px;
-  top:8px;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#f59e0b;
-  box-shadow:0 0 0 6px rgba(245,158,11,.25);
-}
-
-.step h2{
-  font-size:26px;
-  margin-bottom:18px;
-  letter-spacing:.08em;
-}
-.step p{
-  font-size:16px;
-  line-height:1.95;
-  margin-bottom:16px;
-  opacity:.96;
-}
-
-/* ===== INSIGHT ===== */
-.insight{
-  max-width:900px;
-  margin:0 auto 120px;
-  padding:44px;
-  border-radius:36px;
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(22px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 50px 140px rgba(0,0,0,.85);
-}
-.insight h3{
-  font-size:26px;
-  margin-bottom:18px;
-}
-.insight p{
-  font-size:17px;
-  line-height:2;
-}
-
-/* ===== TASK ===== */
-.task{
-  max-width:900px;
-  margin:0 auto;
-  padding:46px;
-  border-radius:38px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.12),
-    rgba(255,255,255,.04)
-  );
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.18),
-    0 60px 160px rgba(0,0,0,.9);
-}
-.task h3{
-  font-size:26px;
-  margin-bottom:18px;
-}
-.task p{
-  font-size:16px;
-  line-height:1.9;
-  margin-bottom:18px;
-}
-textarea{
-  width:100%;
-  min-height:200px;
-  border-radius:24px;
-  padding:18px;
-  border:none;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-  font-size:16px;
-}
-
-/* ===== CHECK ===== */
-button{
-  margin-top:28px;
-  padding:18px 44px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(90deg,#f59e0b,#22c55e);
-  color:#020617;
-  font-size:17px;
-  font-weight:900;
-  cursor:pointer;
-}
-.result{
-  margin-top:22px;
-  font-size:22px;
-  font-weight:900;
-}
-
-/* ===== BOTTOM NAV (STANDART) ===== */
-.nav{
-  position:fixed;
-  bottom:0;left:0;
-  width:100%;
-  z-index:999;
-  padding:18px 24px;
-  background:linear-gradient(
-    to top,
-    rgba(2,6,23,.95),
-    rgba(2,6,23,.6),
-    rgba(2,6,23,0)
-  );
-  backdrop-filter:blur(18px);
-}
-.nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:26px;
-}
-.nav-btn{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:20px 28px;
-  border-radius:26px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.14),
-    rgba(255,255,255,.04)
-  );
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 30px 90px rgba(0,0,0,.85);
-  letter-spacing:.14em;
-  font-size:14px;
-  transition:.35s;
-}
-.nav-btn:hover{transform:translateY(-4px)}
-.nav-center{
-  font-weight:900;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#f59e0b,#22c55e,#f59e0b);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  box-shadow:none;
-}
-.nav-prev{justify-self:start}
-.nav-next{justify-self:end}
-
-@media(max-width:900px){
-  .timeline{padding-left:40px}
-  .nav-inner{grid-template-columns:1fr;text-align:center}
-  .nav-prev,.nav-next{justify-self:center}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12-modul. Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida | Xalq pedagogikasi</title>
+<meta name="description" content="Alla, yor-yor, lapar, askiya va qiziqchilik san’atining tarbiyaviy imkoniyatlari.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<div class="header">
-  <h1>12-MODUL</h1>
-  <p>
-    Ushbu modulda xalq pedagogikasining tarixiy shakllanishi,
-    bosqichma-bosqich rivoji va zamonaviy ta’limdagi davomiyligi
-    tahlil qilinadi.
-  </p>
-</div>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="timeline">
-
-  <div class="step">
-    <h2>Qadimgi davr</h2>
-    <p>
-      Xalq pedagogikasining ildizlari qadimgi jamiyatlarga borib taqaladi.
-      Urf-odatlar, marosimlar, og‘zaki ijod namunalari orqali
-      yoshlarga hayotiy tajriba berilgan.
-    </p>
-    <p>
-      Tarbiya asosan oila va jamoa doirasida olib borilgan.
-    </p>
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
+</header>
 
-  <div class="step">
-    <h2>O‘rta asrlar</h2>
-    <p>
-      Bu davrda xalq pedagogikasi diniy va axloqiy qarashlar bilan boyidi.
-      Mutafakkirlar, allomalar orqali tarbiyaviy g‘oyalar
-      tizimlashtirila boshladi.
-    </p>
-    <p>
-      Ilm, odob va mehnatga munosabat muhim o‘rin egalladi.
-    </p>
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#46357A;--rang-b:#2F2354">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">12-modul</span>
+    <h1>Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida</h1>
+    <p class="ost">Alla, yor-yor, lapar, askiya va qiziqchilik san’atining tarbiyaviy imkoniyatlari.</p>
+    <div class="meta">
+      <span>📖 1,054 so‘z</span>
+      <span>🎮 Juftlash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
   </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html" class="faol">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>1. Milliy musiqa, qo’shiqchilik va milliy teatrlar xalq pedagogikasining</li><li>tarbiya vositasi sifatida</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>Qo’shiq janri</li><li>«Yor- yor» lar</li><li>«Alla» lar</li><li>yig’i-yo’qlovlar</li><li>sog’in</li><li>o’rim</li><li>yanchiq</li><li>bayram- sayillar</li><li>qo’shiqlari</li><li>bolalar folklori</li><li>go’zallik</li><li>samimiyat</li><li>mehr- shavqat</li><li>orzu- umid</li><li>quvonch- shodlik</li><li>g’am-g’ussa</li><li>armon</li><li>ma’sum tuyg’ulari</li><li>musiqa asboblari</li><li>teatr</li><li>xalq musiqasi va ashulalari</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/3xQH_2Pprgg"
+    title="O‘zbek musiqa durdonalari: an’anaviy ansambl tarixi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">O‘zbek musiqa durdonalari: an’anaviy ansambl tarixi · <span>Radio xazina</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Qo’shiqlar (lirik, marosim, mavsum qo’shiqlari, «Yor- yor» lar, «Alla» lar, yig’i-yo’qlovlar, sog’in, o’rim, yanchiq, bayram- sayillar, qo’shiqlari, bolalar folklorining namunalari va boshqalar) go’zallik, samimiyat, mehr- shavqat, orzu- umid, quvonch- shodlik, g’am-g’ussa, armon, ma’zunva ma’sum tuyg’ularni tarannum etish orqali har qanday kishida chuqur insoniy tuyg’ularni o’stiradi, hayotga, tabiatga, insonga cheksiz muhabbatni kamol toptiradi.</p>
+<p>Qo’shiq janri yoshlarning nafosat tarbiyasida aloxida o’rin tutadi. O’zbek xalq qo’shiqlari asosan “Alla”, “Yor-yor”, “Ulan”, “Azayigi” kabi bir necha turda shakllangan. Bola dastavval ona “Alla” sini eshitadi. Binobarin, bola ko’rish baxtiga muyassar bo’lgan onalarning qay darajada bo’lmasin, “Alla”-aytolmasliklarini tasavvur qilish mumkin emas. Xatto, qo’g’irchoq o’ynashni uddalay olgan jajji qizlar ham “alla” aytish bilan go’yo qo’g’irchoqlarini ovuntiradilar va shu orqali qo’shiq olamiga ilk bor qadam qo’yadilar.</p>
+<p>Ona “alla” sining tarbiyaviy roli muximdir. X asr Markaziy Osiyo xalqlarining mashxur mutafakkiri va tibbiyotning buyuk siymosi Abu Ali Ibn Sino ona “alla” sining tarbiyaviy ahamiyati xaqida tarbiyalanuvchilarning talabini qondirmoq uchun unga ikki narsani qo’llamoq kerakligi, chunonchi: biri-bolani sekin-sekin tebratish, ikkinchisi-uni uxlatish uchun odat bo’lib qolgan musiqa-allalashdir, degan fikrni ilgari surgan.</p>
+<p>San’atping asosiy sohalari. Musiqa san’atidan xabardor bo’lish. Musiqa inson madaniyatining eng yuksak ko’rinishlaridan,muhim sohalaridan, ijtimoiy ong, mafkura shakllaridan biridir.Musiqa hayotni bilib olish va unga ta’sir etish vositasi hisoblanadi. Musiqa badiiy obrazlarining latifligi bilan kishiga zavq va huzur bag’ishlaydi.</p>
+<p>Musiqa asboblari: fortopiano, skripka, bayan, do’mbra, dutor, rubob, doira, chang, klarnet, violonchel, kontrabas, flepta, arfa. Instrumental ansamblь va orkestrlar.</p>
+<p>Ovoz turlari; bas, tenor, soprano, metstso-soprano (o’rta soprano). Vokal ansamblь ea xorlar. Musitsaning janrlari, turlari, ifodalash vositalari. Melodiya ea jo’r bo’lish. Makrm, estrada va xalts qo’shikpari, instrumgntal musitsa. Taronalar, ballada, fanpgaziya, sonato (har xil temp va xarakterga ega bo’lgan bir necha tsismdan iborat musitsa asari), kontsert, opera, balet, simfoniya, kantata (tantali ruhda yozilgan musitsa asari), oratoriya (umumiy xor, yakka ashulachi va orkestr uchun yozilgan musitsali dramatik asar).</p>
+<p>Xalq musiqasi va ashulalari. Mumtoz kompozitorlar ijodi, o’zbek kompozitorlari, hozirgi zamon chet el musiqasidan xabardor bo’lish.</p>
+<p>Teatr Inson hayotida teatrning ahamiyati va o’rnikatga. Teatr tarixi, teatrning janrlari va turlari, teatrning taniqli arboblari, atoqli san’atkorlarni bilish. Pьesa (sahna asari), mazmuni, pьesa tanlash va staktaklь ko’yishni, sahna asari ustida ishlash metodikasini, qo’g’irchoq teatri, drama to’garagini, teatrga borish, spektaklni ko’rish va muhokama qilshpni o’rganish lozim.</p>
+<p>Tarbiya vositalari biron-bir tarbiyaviy masalani maqsadga muvofiq yo’l bilan hal qilishni tashkil etish uchun ishlatiladi (ko’rsatmali qo’llanmalar, kitoblar, radio, televidenie). Yana o’quvchilar jalb qilingan faoliyat turlari ham tarbiya vositasi bo’lishi mumkin. Kinofilьmlar, san’at asarlari, o’qituvchining jonli so’zi, bolalar o’yini, mehnat, sport, badiiy havaskorlik, ijtimoiy va boshqa faoliyat turlari tarbiya vositalari bo’lishi mumkin. Tarbiya vositalari tarbiyaviy maqsadlarni amalga oshirish uchun o’qituvchi-tarbiyachining tarbiya tizimiga kiritilishi lozim. Masalan, maktab kutubxonasi tarbiya vositasi bo’lishi uchun o’qituvchi va kutubxonachi ¸zuvchilar bilan uchrashuv, o’qilgan kitoblarni muhokamasini uyushtirishlari lozim.</p>
+<p>Tarbiya natijasi tarbiyaviy jarayonning usullari, uslubi, vositalari va shakllaridan mohirona foydalanishga bog’liq.</p>
+<p>Tarbiyachilar ta’sir etishning bola shaxsiyatiga maqbul metodni, tanlab olishlari, uning shaxsini o’zgartirish uchun kerakli sharoit yaratishlari lozim.</p>
+<p>Tarbiya metodlari har bir bolaga, bolalalar jamoasiga alohida munosabatda bo’lishni nazarda tutadi.</p>
+<p>SHunday qilib, tarbiya jarayonida o’qituvchi yakka o’quvchi yoki sinf jamoasi manfaati yo’lida biron-bir tarbiyaviy masalani hal qilish uchun o’quvchilarning yosh va individual xususiyatlarini, tarbiyalanganlik darajalarini, pedagogik vaziyat xarakterini hisobga olgan holda ta’sir etishning turli-tuman metod, uslub va shakllarini majmuasiga tarbiya usuli deyiladi. Tarbiyaning metodlari, vositalari asrlar davomida shakllanib takomillashadi, o’zini oqlagan urf-odatlar an’anaga aylanadi. Binobarin, tarbiyada har bir xalqning o’z udumi, usuli tarixan shakllangan va tajribada sinalgan dun¸qarashi, tarbiya vositalari bo’ladi, shuning uchun tarbiya milliy va tarixiy zamindan uzilmasligi kerak.</p>
+<p>Xalq pedagogikasining tarbiya metodlari</p>
+<p>Xalq pedagogikasi chinakam o’zbekcha axloq, odob va tarbiyaning barcha qirralarini o’zida mujassamlashtirgan. Unda turli xil tarbiya metodlari va vositalaridan foydalaniladi, bu metod, vositalar nihoyatda rang-barang bo’lib, ko’p tomonlari bilan ilmiy pedagogikadan ustunlik qiladi. Chunki bu metodlar ilmiy pedagogikaning shakllanishida ham o’z ta’sirini o’tkazgan.</p>
+<p>Xalq pedagogikasida qo’llanilgan juda xima-xil tarbiya metodlari quyidagi tarzda umumlashtirish mumkin.</p>
+<p>1. Tushuntirish (o’rganish, odatlantirish, mashq qildirish).</p>
+<p>2. Namuna (maslahat berish, uzr so’rash, yaxshiliklar haqida so’zlash, o’rnak bo’lish).</p>
+<p>3. Nasihat berish, o’git (undash, ko’ndirish, iltimos qilish, yolvorish, tilak- istak bildirish, ma’qullash, raxmat aytish, duo qilish, oq yo’l tilash va hokazolar).</p>
+<p>4. qoralash va jazo (ta’qiqlash, ta’na, gina, tanbeh berish, majbur qilish, koyish, ayblash, uyaltirish, qo’rqitish, nafratlantirish, ont-qasam ichirish, urish, kaltaklash va hokazolar).</p>
+<p>Agar sinchiklab qaralsa, yuqorida keltirilgan to’rt xil metod umum bir yaxlitlikni ifodalaydi. Oldin bolaga umumiy manzara tushuntiriladi. Bolalar narsa va hodisalarga tushunmaganlarida tarbiyachi namuna metodidan foydalanadi, yoshlarning mustaqil kuzatuvchanligiga e’tibor beriladi. Unda ham tushunmaganlar kattalarning nasihati, o’giti orqali narsa va hodisalarning mohiyatiga yetadigan bo’lishadi. Bordi-yu unda ham bolalar tushunishmasa, yoki tushunishni istashmasa, unda qoralash va jazolash metodlaridan foydalanishga to’g’ri kelgan. Lekin bu so’ngi chora ekanligini xalq yaxshi tushungan. Hozirgi zamon ilmiy pedagogikasi qoralash va jazoni so’nggi chora, aniqrog’i kam samara beradigan chora ekanligini isbotlagan.</p>
+<p>Xalq pedagogikasining nodir namunalari, tarbiya metodlari va tarbiyaviy ta’sirlar muayyan vositalar orqali amalga oshirilgan. Mehmon kutish, mehmonga borish, turli mehnat jarayonlari, xasharlar, turli gurunglar (choyxona, to’y marosimlari) sayllar, turli nishonlashlar (tug’ilgan kunni nishonlash, yigitlar bazmi, qizlar bazmi), musobaqalar, turli marosim va boshqalar o’ziga xos tarbiya vositasi vazifasini bajargan.</p>
+<p>Inson qalbiga bugun ekilgan yaxshilik urug’i oradan o’n yillar o’tgach unib chiqadi, buni ilmiy asoslab oldindan ko’ra bilish kerak.</p>
+<p>Kino va televideniya. Ular san’atning keng tarqalgan ommaviy turi, siyosiy va ilmiy tashviqotning, shuningdek, kundalik voqealar haqida axborot olishning muhim vositasi, mafkuraning ta’sirchan qurollaridan biri.</p>
+<p>Kino va televideniya tarixi. Kino-telefilmlarning muhim turlari: ilmiy-ommabop filmlar, o’quv filmlari, xujjatli filmlar, badiiy filmlar, O’zbekiston va chet el kino san’atining mashxur vakillarini bilib olish. Kinoteatrlarga borish, kino-telefilmlarni ko’rish va muhokama qilish, o’quvchi-talabalarga kino-telefilmlarni ko’rsatish metodikasini o’rganish.</p>
+<p>Badiiy ijod. Badiiy tarbiya to’garaklaridan (drama to’garagi, xor to’garagi, raqs to’garagi, rasm to’garagi, amaliy san’at to’garagi) birida qatnashish. Badiiy havaskorlik to’garaklarining kontsertlarida, «Jonli gazeta»da ishtirok etish. Musiqa asboblaridan kuy chalishni o’rganii, folklor namunalari tug’ridan – to’g’ri tarbiya vositasi sifatida xizmat qiladi. Bular bilan bir qatorda tarbiyalanuvchi yashab turgan muxit - sharoitning vositachi roli mavjudki, ular yoshlarning ma’naviy fazilatlarini shakllantirishda katta va samarali tarbiya vositasi xisoblanadi.</p>
+<p>Ular quyidagilardan iboratdir: Bolalar o’yinlari, choyxo’rlik (choyxona gurungi), tarbiyalanuvchilar gapi (gap aytish), tarbiyalanuvchilar majlisi, mehmondorchilik, xashar va xokazo.</p>
+<p>Tarbiyalanuvchi tarbiyasida xalq pedagogikasining namunalari hisoblangan xalqning milliy urf-odatlari, turli milliy marosimlari, an’analari, milliy bayramlar muxim rolь o’ynaydi. Ular qo’yidagilardan iborat:</p>
+<p>1. To’y - beshik to’yi, sunnat to’yi, nikoh to’yi, xovli to’yi;</p>
+<p>2. Sayllar - dala sayli, gul sayli, qovun sayli;</p>
+<p>3. Yig’in(tomosha, tug’ilgan kunni nishonlash), yig’it bazmi, qiz bazmi, kelin salom, uloq, poyga, kurash, turli shakldagi musobaqalar;</p>
+<p>4. Aza marosimi, aza marakasi;</p>
+<p>5. Safarga chiqish, ovga borish, kino, teatr, istiroxat bog’i, ommaviy yig’inu tomoshalarga borish, Ro’za xayit, qurbon hayit, Navruz bayramlari.</p>
+</section>
+<section class="quti kir" id="audio">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎧</span> Audio materiallar</h2>
+  <p class="quti-izoh">Alla, ertak va lirik qo‘shiqlar — darsda tinglash uchun.</p>
+  <div class="audio-karta">
+  <span class="nota" aria-hidden="true">♪</span>
+  <span class="info"><b>Milliy qo‘shiqlar — laparlar</b><span>Universal Media UZ</span></span>
+  <a class="tug tug-kichik tug-ramka" target="_blank" rel="noopener"
+     href="https://www.youtube.com/watch?v=nr4gV0I7PbA">Tinglash ↗</a>
+</div>
+<div class="video-ramka audio-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/nr4gV0I7PbA"
+    title="Milliy qo‘shiqlar — laparlar" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div><div class="audio-karta">
+  <span class="nota" aria-hidden="true">♪</span>
+  <span class="info"><b>Bolalar uchun o‘zbek xalq qo‘shiqlari</b><span>MyDay TV UZB</span></span>
+  <a class="tug tug-kichik tug-ramka" target="_blank" rel="noopener"
+     href="https://www.youtube.com/watch?v=BW2rSD70A1k">Tinglash ↗</a>
+</div>
+<div class="video-ramka audio-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/BW2rSD70A1k"
+    title="Bolalar uchun o‘zbek xalq qo‘shiqlari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div><div class="audio-karta">
+  <span class="nota" aria-hidden="true">♪</span>
+  <span class="info"><b>Alla qo‘shiqlari to‘plami</b><span>Xurshid Davron Kutubxonasi</span></span>
+  <a class="tug tug-kichik tug-ramka" target="_blank" rel="noopener"
+     href="https://www.youtube.com/watch?v=yjuKgM_hpZ8">Tinglash ↗</a>
+</div>
+<div class="video-ramka audio-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/yjuKgM_hpZ8"
+    title="Alla qo‘shiqlari to‘plami" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="12">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>“Asalari galasi” strategiyasi.”Milliy musiqa, qo’shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida” mavzu bo‘yicha muammoning auditoriyada umumiy yoki kichik guruhlarda alohida tahlil qilinishiga beriladigan topshiriqlar bir xil yoki turlicha bo‘lishi mumkin. Guruhlarga berilgan topshiriq muayyan muddat ichida muhokama qilinib, natija barchaga ma’lum qilinadi. Mashg‘ulot yakunida masalaning eng maqbul yechimi tanlab olinadi.</p>
+<blockquote>Mashg‘ulot jarayonida strategiyani qo‘llashda quyidagicha yo‘l tutiladi:<br>1-guruh<br>2-guruh<br>3-guruh<br>4-guruh<br>5-guruh<br>Mavzu bo‘yicha muammo aniqlanadi<br>Talabalar kichik guruhlarga biriktiriladi<br>Kichik guruhlarga alohida yoki umumiy topshiriqlar beriladi<br>Eng maqbul yechim tanlab olinadi<br>1-guruh yechimi<br>2-guruh yechimi<br>3-guruh yechimi<br>4-guruh yechimi<br>5-guruh yechimi<br>Topshiriqni bajarish uchun vaqt belgilanadi<br>(maksimal vaqt 10 daqiqa)<br>Belgilangan vaqt nihoyasiga yetgach, guruhlar o‘z<br>echimlarini navbatma-navbat namoyish etadi<br>“Milliy musiqa, qo’shiqchilik va milliy teatrlar xalq pedagogikasining<br>tarbiya vositasi sifatida” mavzusini “Asalari galasi” strategiyasi yordamida o‘rganish</blockquote>
+<div class="jadval-o"><table><thead><tr><th>Guruhlar</th><th>Mavzular</th><th>Ishlanmalar</th></tr></thead><tbody><tr><td>1-guruh</td><td>Milliy musiqa</td><td>Taqdimot</td></tr><tr><td>2-guruh</td><td>Qo’shiqchilik</td><td>Plakat</td></tr><tr><td>3-guruh</td><td>Milliy teatrlar</td><td>Klaster</td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Xalq pedagogikasida qo’shiq janiri masalalari qanday yoritilgan?</li><li>Ma’rosim qo’shiqlariga qaysilar kiradi ?</li><li>Milliy teatr qanday bo’lishi kerak?</li><li>Kino va televideniya tarixini bilasizmi?</li><li>Milliy madaniyatga ega san’atkorlar ijodini qanday tarbiyaviy axamiyati bor?</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="12">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Sh. M. Mirziyoyev: “O’zbekiston respublikasini yanada rivojlantirish bo’yicha harakatlar strategiyasi” Xalq so’zi. 2017-yil 9-fevral</li><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,” Ta’lim tarixi” T;Talqin 2013 y</li><li>O.Xaydarova «Xalq pedagogikasi»,Navoiy 2008</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-11.html"><span class="yon">← 11-modul</span><span class="nom">O‘zbek xalqining muomala madaniyati, axloqiy me’yorlari, turmush kechirish tartib-qoidalarining tarbiyaviy ahamiyati</span></a><a class="keyingi" href="modul-13.html"><span class="yon">13-modul →</span><span class="nom">Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#audio">Audio materiallar</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-  <div class="step">
-    <h2>Zamonaviy davr</h2>
-    <p>
-      Bugungi kunda xalq pedagogikasi ilmiy pedagogika bilan
-      uyg‘unlashib, ta’lim-tarbiya jarayonining muhim tarkibiy qismiga aylandi.
-    </p>
-    <p>
-      Milliy va umuminsoniy qadriyatlar bir butun holda qo‘llanilmoqda.
-    </p>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
   </div>
+</footer>
 
-</div>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-<div class="insight">
-  <h3>Tahliliy xulosa</h3>
-  <p>
-    Xalq pedagogikasining kuchi uning uzluksizligida va moslashuvchanligidadir.
-    Har bir tarixiy bosqichda u jamiyat ehtiyojlariga mos ravishda
-    yangi shakl va mazmun kasb etgan.
-  </p>
-</div>
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-<div class="task">
-  <h3>Yozma topshiriq</h3>
-  <p>
-    Xalq pedagogikasining tarixiy rivojini bugungi ta’lim bilan
-    qanday bog‘lash mumkin? O‘z fikringizni asoslab yozing.
-  </p>
-  <textarea id="answer"></textarea>
-  <button onclick="check()">Baholash</button>
-  <div class="result" id="result"></div>
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="nav">
-  <div class="nav-inner">
-    <a href="modul-11.html" class="nav-btn nav-prev">← Modul 11</a>
-    <a href="dars.html" class="nav-btn nav-center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-13.html" class="nav-btn nav-next">Modul 13 →</a>
-  </div>
-</div>
-
-<script>
-function check(){
-  let text=document.getElementById("answer").value.toLowerCase();
-  let keys=["tarix","qadimgi","zamonaviy","tarbiya","xalq","ta’lim","rivoj"];
-  let match=0;
-  keys.forEach(k=>{ if(text.includes(k)) match++; });
-  let percent=Math.min(100, match*14);
-  document.getElementById("result").innerHTML =
-    "Baholash natijasi: <strong>"+percent+"%</strong>";
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html><html lang="uz">
-<head>

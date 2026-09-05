@@ -2,281 +2,192 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>2-modul — Didaktik imkoniyatlar</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#070b14;
-  color:#e5e7eb;
-  padding-bottom:160px;
-}
-
-/* HERO */
-.hero{
-  padding:90px 24px 60px;
-  text-align:center;
-}
-.hero h1{
-  font-size:46px;
-  font-weight:900;
-  letter-spacing:.14em;
-  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{opacity:.8;margin-top:14px}
-
-/* LAYOUT */
-.layout{
-  max-width:1300px;
-  margin:0 auto;
-  padding:0 32px;
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:48px;
-}
-
-/* SIDEBAR */
-.sidebar{
-  position:sticky;
-  top:24px;
-  align-self:start;
-  padding:26px;
-  border-radius:26px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(22px);
-}
-.sidebar h3{
-  margin-bottom:16px;
-  letter-spacing:.18em;
-  color:#38bdf8;
-}
-.sidebar a{
-  display:block;
-  padding:12px 14px;
-  margin-bottom:10px;
-  border-radius:14px;
-  color:#e5e7eb;
-  text-decoration:none;
-  background:rgba(255,255,255,.05);
-}
-.sidebar a:hover{background:rgba(56,189,248,.25)}
-
-/* CONTENT */
-.content{display:flex;flex-direction:column;gap:64px}
-
-/* SECTION */
-.section{
-  padding:44px;
-  border-radius:34px;
-  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02));
-  backdrop-filter:blur(24px);
-}
-.section h2{
-  font-size:28px;
-  margin-bottom:22px;
-  background:linear-gradient(90deg,#fff,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* EXPLAIN */
-.explain{
-  background:#0b1220;
-  padding:28px;
-  border-radius:20px;
-  line-height:1.9;
-}
-
-/* TEST */
-.test{
-  margin-top:20px;
-  padding:22px;
-  border-radius:22px;
-  background:rgba(255,255,255,.05);
-}
-.test h4{margin-bottom:12px}
-.test label{display:block;margin-bottom:8px;cursor:pointer}
-
-/* TEXTAREA */
-textarea{
-  width:100%;
-  min-height:140px;
-  padding:16px;
-  border-radius:18px;
-  background:#0b1220;
-  color:#e5e7eb;
-  border:1px solid rgba(255,255,255,.2);
-}
-textarea:focus{outline:none;border-color:#38bdf8}
-
-/* RESULT */
-.result{
-  margin-top:20px;
-  padding:20px;
-  border-radius:20px;
-  background:#0b1220;
-  font-size:16px;
-}
-
-/* NAV */
-.nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  padding:18px 24px;
-  backdrop-filter:blur(18px);
-  background:linear-gradient(to top,rgba(7,11,20,.9),rgba(7,11,20,.4),transparent);
-}
-.nav-inner{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  gap:24px;
-}
-.nav a{
-  flex:1;
-  padding:20px;
-  border-radius:24px;
-  text-decoration:none;
-  color:#fff;
-  background:rgba(255,255,255,.08);
-  text-align:center;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2-modul. Xalq pedagogikasining didaktik imkoniyatlarini o‘quv-tarbiyaviy jarayonga tadbiq etish | Xalq pedagogikasi</title>
+<meta name="description" content="Milliy qadriyatlar va xalq tajribasini zamonaviy dars jarayoniga olib kirish yo‘llari.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<section class="hero">
-  <h1>2-MODUL</h1>
-  <p>Xalq pedagogikasining didaktik imkoniyatlari</p>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
+
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#A8442A;--rang-b:#7E3220">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">2-modul</span>
+    <h1>Xalq pedagogikasining didaktik imkoniyatlarini o‘quv-tarbiyaviy jarayonga tadbiq etish</h1>
+    <p class="ost">Milliy qadriyatlar va xalq tajribasini zamonaviy dars jarayoniga olib kirish yo‘llari.</p>
+    <div class="meta">
+      <span>📖 1,695 so‘z</span>
+      <span>🎮 T-jadval</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
+  </div>
 </section>
-
-<div class="layout">
-
-<aside class="sidebar">
-  <h3>Bo‘limlar</h3>
-  <a href="#explain">Tushuntirish</a>
-  <a href="#test">Testlar</a>
-  <a href="#write">Yozma savollar</a>
-  <a href="#result">Natija</a>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html" class="faol">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
 </aside>
-
-<main class="content">
-
-<section id="explain" class="section">
-<h2>Tushuntirish</h2>
-<div class="explain">
-Xalq pedagogikasining didaktik imkoniyatlari — xalq tajribasini zamonaviy ta’limga
-tadbiq etishdir. Maqollar, ertaklar, urf-odatlar bilimni mustahkamlaydi,
-mustaqil fikrlashni rivojlantiradi va milliy ongni shakllantiradi.
-</div>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasining didaktik imkoniyatlarini o‘quv-</li><li>tarbiyaviy jarayonga tadbiq etish</li></ol>
 </section>
-
-<section id="test" class="section">
-<h2>Testlar</h2>
-
-<div class="test" data-q="t1">
-<h4>1. Xalq pedagogikasi nimaga asoslanadi?</h4>
-<label><input type="radio" name="t1" value="0"> Texnologiyaga</label>
-<label><input type="radio" name="t1" value="1"> Xalq tajribasiga</label>
-<label><input type="radio" name="t1" value="0"> Statistikaga</label>
-</div>
-
-<div class="test" data-q="t2">
-<h4>2. Didaktik imkoniyat deganda nima tushuniladi?</h4>
-<label><input type="radio" name="t2" value="1"> O‘qitish imkoniyatlari</label>
-<label><input type="radio" name="t2" value="0"> Nazorat tizimi</label>
-<label><input type="radio" name="t2" value="0"> Hisobot</label>
-</div>
-
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>umumbashariy qadriyatlar</li><li>pedagogik ta’lim</li><li>milliy qadriyatlar</li><li>milliy tafakkur</li><li>ma’naviy qarashlar</li><li>ilimiy meros</li><li>milliy ong</li><li>milliy madaniyat</li><li>xalq tajribasi</li><li>xalq madaniyati</li><li>tarbiya texnologiyasi</li><li>didaktik imkoniyatlar</li></ul>
 </section>
-
-<section id="write" class="section">
-<h2>Yozma savollar</h2>
-
-<div class="test">
-<h4>1. Xalq pedagogikasining ahamiyati</h4>
-<textarea data-key="w1"></textarea>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/aNf9x92Fb_A"
+    title="«Mahmud Koshg‘ariy hayoti va ijodi» — videodars" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
-
-<div class="test">
-<h4>2. Maqollarning tarbiyadagi o‘rni</h4>
-<textarea data-key="w2"></textarea>
+<p class="media-izoh">«Mahmud Koshg‘ariy hayoti va ijodi» — videodars · <span>UrDPI rasmiy kanali</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Talaba – yoshlarda milliy tarbiyani umumbashariy qadriyatlar bilan shakllantirishni dunyo miqyosida erishilayotgan umumbashariy yutuqlar va zamonaviy fan asoslarining tarbiyaviy jihatlarisiz tasavvur etish qiyin.</p>
+<p>Shunga ko`ra oliy pedagogik ta’limda yoshlarda faqat pedagogik malaka va ko`nikmalarni tarkib toptirish, umumbashariy bilimlarni o`zlashtirishga ham imkoniyat yaratib berish lozim. Milliy qadriyatlar asosida shakllantiriladigan tafakkur va dunyoqarash yoshlarning umuminsoniy va zamonaviy yutuqlarni to`liq egallashlari uchun zamin yaratadi, zamonaviy bilimlar va ko`nikmalarni egallash esa chuqur va mustahkam bilim olish uchun poydevor vujudga keltiradi.</p>
+<p>Shu sababli yoshlarda milliy tafakkurni va zamonaviy bilim ko`nikmalarni o`zaro aloqada shakllantirish va olgan bilimlarni umumlashtirishga, ish jarayoniga xalq pedagogikasini olib kirishga o`rgatish barkamol insonni shakllantirishda muhim omil sanaladi. Yoshlarni ma’naviy qarashlarini shakllantirishda, ularni ma’naviy qadriyatlarimizni buyuk mutafakkirlar ilimiy merosini, falsafiy qarashlarini, muhim jihatlarini o`rganish, bugungi kun zavonaviy ilm-fan va tehnika taraqqiyotiga erishilayotgan bilimlarni o`zlashtirishga yo`naltirish bilan bog‘liq tar’lim-tarbiyaviy faoliyatga kuchli e’tibor qilinayotganligi bejiz emas.</p>
+<p>Yoshlarning intellektual salohiyatini qo`lga kiritishlarida ta’lim jarayonida ularni mustaqil fikr eritishga o`rgatish, dastlabki manbalarni o`zlashtirishning aniq usullarini egallash, olingan bilimlarga ongli ravishda yondashishga o`rgatish muhim rol o`ynaydi. Bunda asosiy e’tiborni dars jarayoniga qaratib, ilm-fan sohasida erishilgan yutuqlar va zavonaviy bilim hamda ko`nikmalar ustidagi ishlarni qo`shib olib borish zarur. Shunga ham ko`ra, barcha fanlar tizimiga milliy va umumbashariy qadriyatlarning ilmiy asoslarini kiritish darkor. Bundan ko`zlangan maqsad umuminsoniy qadriyatlarni e’tirof etadigan shaxs sifatida tarbiyalashdan iboratdir.</p>
+<p>Buni ayniqsa «Xalq pedagogikasi»ni o`qitish misolida yaqqol ko`rishimiz mumkin. «Xalq pedagogikasi» bu o`zbek xalqining ta’lim sohasida erishgan buyuk qadriyati sanaladi va u ko`p jihatdan umumbashariy qadriyatga aylanib qolgan.</p>
+<p>Talabalarga tarbiyaviy ishlarda «Xalq pedagogika»ni o`zaro bog‘lovchi to`rtta elementni ko`rsatib o`tish mumkin.</p>
+<p>Xalq madaniyati tarixi, tili, dini, urf-odatlari haqida bilimlar majmuasi. Bu bilimlar majmuasini o`zlashtirish orqali bo`lajak mutaxassislarning milliy ongi shakllanadi, amaliy tajribaga to`g‘ri metodologik yo`nalish beradi.</p>
+<p>Anglash, mehnat qilish va shu kabi vazifalarning asosi bo`lib hisoblanadigan umumiy intellektual hamda amaliy malakalarning tizimi. Bu tizim orqali bo`lajak mutaxassislarning milliy madaniyatini saqlab, yosh avlodga etkazishni ta’minlaydi.</p>
+<p>Bo`lajak mutaxassislarning xalq tajribasini bugungi sharoitda tarbiya jarayonida foydalanish va uni yanada rivojlantirish.</p>
+<p>Atrof-muhit orqali olingan bilim, malka hamda unga nisbatan tajribasi bo`lajak mutaxassislarda ishonch, qimmatli hislatlarning o`z ta’sirini ko`rsatadi.</p>
+<p>Bo`lajak mutaxassislarning tarbiyaviy ishlarda «Xalq pedagogikasi» asosida yondashishga tayyorgarligi – bu xalq pedagogikasining tajribalarini tarbiyaviy ishlarda foydalanishning metodologik asosini bilish, shaxsning har tomonlarma tarbiyasi, beriladigan tarbiyaning mazmuni, uslublari, turlari, shakllari haqida bilimlarni o`zlashtirish.</p>
+<p>Xalq pedagogikasi tajribalaridan foydalanishga tayyorlashning quyidagi shakllarini ko`rsatish mumkin: ma’ro‘za, seminar, amaliy tajriba darslari, maxsus kurslar, auditoridan tashqari darslar pedagogik amaliyot, talablarining ilmiy-tadqiqot ishlari, kurs ishlari, diplom ishlari va hokazo.</p>
+<p>Uslublari: hikoya, suhbat, intervyu, treninglar, munozaralar.</p>
+<p>Manbalar: xalq og‘zaki ijodi, milliy o`yinlar, urf-odatlar, rasm-rusumlar, xalq an’analari, milliy san’at namunalari va hokazo.</p>
+<p>Xalq pedagogikasini ta’lim-tarbiya jarayoniga tadbiq etishdan maqsad, tarbiya texnologiyasining ahamiyati, tarbiyaviy ishlarda «Xalq pedagogikasi»ning xususiyatini to`liq tushuntirish, tajribalarini foydalanishga tayyorgarligini shakllantirish, tarbiyaviy ishlarning uslublari, shakllari, jihozlaridan o`rinli tartibda foydalana olishga o`rgatish. Olingan nazariy bilimlarni, malaka va ko`nikmaga aylantirish, amaliy jihatdan qo`llash.</p>
+<p>Xulosa qilib aytganda shu vaqtga qadar ta’lim-tarbiya ishlarida xalqning boy pedagogik merosidan, hadislar va she’riy mantlarda oldinga surilgan g‘oyalardan to`la foydalana olganimiz yo`q. Aslida bo‘lar inson ma’naviy kamolotining hamma davrlari uchun ham ahamiyatli bo`lib qoladigan zaminlardir.</p>
+<p>Xalqimizning asrlar davomida shakllangan madaniy merosidan, axloq, odob, tarbiya borasidagi an’analaridan qanchalik samarali foydalansak, milliy mustaqilligimizning chinakam fidoiysi bo`lgan yoshlarni tarbiyalash borasida shunchalik sezilarli yutuqlarga erishamiz.</p>
+<p>Jamiyat taraqqiyoti uchun aholining soni emas, balki sifati muhimdir. Sifatning bosh mezoni yuksak ma’naviyatdir.</p>
+<p>Talabalardagi etnik jihatlarni shakllantirishda boshqa fanlar bilan bir qatorda «Xalq pedagogikasi» fanining ahamiyati katta. Bu fan yoshlarda mavhum qoidalarni emas, balki hayotda halol vijdon va iymon bilan yashashni o`rgatmog‘i kerak. Har bir fan kishilarga muayyan bilimlarni o`rgatadi. Bu bilimlar kishilarning yuksak axloqiy fazilatlari bilan qo`shilganda etuk ma’naviy boylikka aylanadi.</p>
+<p>Xalq pedagogikasinnig manbalari ma’lum tarbiyaviy imkoniyatlarga ega bo‘lib, ular eng avvalo maktabning (yoki oilaning) oldida turgan maqsad va vazifalaridan, so‘ngra esa aniq pedagogik jarayonda hal etiladigan masalalaridan kelib chiqadi. Xususan, o‘quv jarayonida yoki sinfdan tashqari tarbiyaviy ishlarda xalq pedagogikasining tarbiyaviy imkoniyatlariga murojaat etish mumkin. Masalan, boshlang‘ich sinflarda, aniqrog‘i 3-sinfda o‘zbek xalq maqollari o‘rganiladi. Mazkur sinf uchun "O‘qish" darslaridan birida "O‘zbek xalq maqollari" mavzusi bor. Dars jarayonida foydalanish uchun xalq pedagogikasining tarbiyaviy imkoniyatlari aniqlanadi. O‘qituvchi xalq tarbiya an’analari imkoniyatlarini aniqlashda darsnpng maqsadlariga e’tibor beradi. Ya’ni, "O‘zbek xalq maqollari" mavzusidagi darsning quyidagi maqsad va vazifalarini ajratib ko‘rsatish mumkin: xalq og‘zaki ijodi namunalari bilan tanishtirish, maqollarnii o‘rgatish va ular haqida tasavvur hosil qilish; maqollarning mazmunidan foydalanib, o‘quvchilarni mehnatsevarlikka, kamtar va odobli bo‘lishga, o‘zidan kattalarni hurmat qilishga undash; xalq og‘zaki ijodi namunalarini to‘plash va ularni asrashga chaqirish. Keltirilgan maqsad va vazifalarni hal etishga imkon beruvchi o‘zbek xalq maqollari tanlab olinadi va bo‘lar xalq pedagogikasining tarbiyaviy imkoniyatlarini tashqil etadi.</p>
+<p>«Xalq pedagogikasining tarbiyaviy imkoniyatlari» tushunchasini kiritishningg o‘zi xalq tarbiya an’analarini zamonaviy maktab va oila tajribasida qo‘llash doirasi ma’lum darajada chegaralanganligini anglatadi.</p>
+<p>Xalq pedagogikasining tarbiyaviy imkoniyatlari zamonaviy maktab oldida turgan vazifalar, uning ehtiyojlaridan kelib chiqadi. O‘quv-tarbiya jarayoni samarasini oshirishga to‘la imkon bergan taqdirdagina xalq tarbiya tajribasiga murojaat qilish mumkin. Keyingi vaqtlarda O‘zbekiston pedagogik davriy nashrlarida xalq pedagogikasiga keng o‘rin berilganligini mamnunlik bilan qayd etgan holda, uning mavjud imkoniyatlarini haddan tashqari bo‘rttirib ko‘rsatish, milliy qadriyatlarni umuminsoniy qadriyatlardan ustun qo‘yish, ilmiy pedagogikaga bir yoqlama, ya’ni faqat tanqidiy ko‘z bilan qarash ko‘zatilayotganligini ta’kidlash lozim.</p>
+<p>Bizningcha, xalq pedagogikasini maktab amaliyotiga tatbiq etishda uning tarbiyaviy imkoniyatlarini hozirgi kun talab va ehtiyojlaridan kelib chiqib, to‘g‘ri baholash zarur. Xalq pedagogikasi faqatgina ilmiy pedagogika bilan hamkorlikdagina chuqur o‘tganiladi. Tarbiya va o‘qitishning nazariyasi va uslubiyoti (metodikasi) xalq pedagogikasidan o‘quv-tarbiya jarayonida ilmiy asosda foydalanish imkonini beradi. Milliy maktab yaratishda an’anaviylikni zamonaviylik bilan to‘g‘ri bog‘lay olish evazigagina har tomonlama etuk shaxsni shakllantirish vazifalarini mumkin qadar to‘laroq hal qiluvchi talim-tarbiya sistemasini ishlab chiqarish mumkin. Yoki, so‘z xalq pedagogikasini ilmiy pedagogika va zamonaviy maktab ta’lim-tarbiya tajribasi bilan asosli ravishda bog‘lash haqida bormoqda. Bu o‘rinda biz xalq pedagogikasining tarbiyaviy imkoniyatlarini aniqlash va ulardan milliy maktab o‘quv-tarbiya jarayonida foydalanishning «tarbiya madaniyatida an’anaviylik va zamonaviylikning o‘zaro tasiri» prinsipini ilgari surdik. Bu prinsipning mohiyati quyidagicha.</p>
+<p>Milliy ta’lim-tarbiya uchun tarbiyada an’anaviylik va zamonaviylikning o‘zaro ta’siri muammosi xosdir. Ya’ni, xalqning etuk inson haqidagi ideallari, uni tarbiyalashga bo‘lgan qarashlarini shaxsni shakllantirishga qo‘yiladigan zamonaviy talablar bilan taqqoslash va ular orasidagi munosabitni aniqlash lozim.</p>
+<p>Xalq pedagogikasining didaktik imkoniyatlari deganda xalq ommasining yoshlarga bilimlar va amaliy ko‘nikmalar berish, ularni ijodiy ishlash uslublari bilan qurollantirish, dunyoqarashlarini o‘stirish va axloqiy nafosat g‘oyalarini egallashlarida qo‘llab kelgan empirik pedagogik tajribasini zamonaviy milliy maktab o‘qitish jarayonida qo‘llash uchun qulayligi tushuniladi. Masalan, milliy amaliy san’atga o‘rgatishning xalq orasida tarkib topgan uslubiyotini xalq pedagogikasining didaktik imkoniyatlari doirasiga kiritish mumkin. Xususan, ganch va yog‘och o‘ymakorligi, zardo‘zlik, musiqa asboblari yasash, kulolchilik va boshqa ko‘plab amaliy can’at turlarini egallashning xalq ustalari va chevarlari tomonidan tajribada yaratilgan o‘z usullari, uslub va vositalari mavjud. Ulardan milliy maktabdagi mehnat ta’limi darslarlda yoki to‘garak mashg‘ulotlarida o‘quvchilarga bilimlar va amaliy ko‘nikmalar berishda foydalanish mumkin.</p>
+<p>Xalq ta’limni tizimli va o‘zluksiz olish lozimligini allaqachon anglab etgan. Uning didaktik qarashlarida o‘qish – oqimga qarshi so‘zishga o‘xshatiladi. Chunki, oqimga qarshi so‘zishda to‘xtagan kishi orqaga ketganidek, o‘qishda to‘xtash ham ilm egallashni orqaga suradi.</p>
+<p>Ta’limning ko‘rsatmaliligi ham xalq e’tiboridan chetda qolmaydi. “O‘n marta eshitgandan bir bor ko‘rgan yaxshi” maqoli bu fikrni yorqinroq ifodalaydi.</p>
+<p>Ta’limning muhim elementi – bilimlarning mustahkamligi tamoyili. Yoshlikda samarali amalga oshishini: “Yoshlikda o‘rgangan ilm toshga o‘yilgan naqsh kabidir” maqolida bayon qilinadi.</p>
+<p>Shuningdek, xalq pedagogikasi manbalarida ilmning qiymati uning amalda qo‘llanilishi bilan o‘lchanishi alohida ta’kidlanadi. Hayot uchun foydasiz ilmni egallash qoralanadi. Amalda qo‘llanmaydigan bilim – yomg‘irsiz bo‘lutga, o‘z bilimini boshkalarga o‘rgatmagan kishilar ko‘zaga solib qo‘yilgan yorug‘likka o‘xshatiladi.</p>
+<p>Tillarni o‘rganishga xalq olamni bilish imkonini kengaytiruvchi vosita deb qaraydi. O‘zbeklar shuning uchun: “Tilni bilish- dilni bilishga yo‘l ochadi”, “Yuzta tilni bilgan kishi yuzta aqlning egasidir,-” deyishadi.</p>
+<p>Ona tilini bilish, uni asrash – avaylash, ta’limni ona tilida olish aqliy tarbiyada muhim ahamiyat kasb etishi xalq pedagogikasi manbalarida alohida ta’kidlangan. Ona tili – xalqning bebaho boyligi, u “ona” so‘zini aytish, o‘z ismini bilish bilan bola qalbiga kiradi. Shu til vositasida bola olamni bila boshlaydi, ilk allalar bola qalbiga xalq san’ati ruhini olib kiradi va uni umrbod sehrlab qo‘yadi.</p>
+<p>Xalq pedagogikasida ilmni yoshlarga amaliy hayotda zarur bo‘lgan tabiiy bilimlar bilan bog‘lab tushuntirishga alohida e’tibor beriladi. Jumladan, qadimgi turkiguy xalqlarda oylar, yil hisobi evropaliklar tavqimidan farq qilgan. Ularda oylar: “hamal” (mart) - 19 martdan, “savr” (aprel) – 19 apreldan, “javzo” – 20 maydan, “saraton” – 21 iyundan ... boshlangan. Har bir oyning, yil fasllarining boshlanishi va tugashi quyosh va boshqa sayyoralar harakati bilan bog‘lanib, bu vaqtda qanday ishlar qilinishi ta’kidlangan. Jumladan: “Hamal – ekinlarga kirar amal”, “Asad – ekiningni yasat”, “Savr kirdi – ekinlarga davr kirdi”, “Saratonda suv quy, asadda tek qo‘y”, “Er haydasang ko‘z hayda ...” singari.</p>
+<p>Shuningdek, miflar, afsonalar, dostonlardagi ijobiy qahramonlar ham ilm va ustozlarini hurmat qiluvchi, bilimdon, topqir, kasb – hunarli, matonatli, hayot qiyinchiliklarini o‘zi egallagan ilm va hunar vositasida bartaraf etuvchi kishilar sifatida ko‘rsatilgan. Dushmanga qarshi kurashdagi mahorat ham harbiy ilm sifatida tasvirlangan.</p>
+<p>Laylakning kelishi bahordan, qaldirg‘och va yovvoyi kabutar – yozdan, qarg‘aning qag‘illashi – qordan, sovuqdan darak beradi deb tushunilib, shunga mos yumushlar (hosil yig‘ish, ekish ...) bajarilgan.</p>
+<p>Bolalarga sigirning 9 oyda, tuyaning 12 oyda, quylarning 5 oyda bolalashi, mollarning yoshini ularning tishlariga qarab aniqlash o‘rgatilgan. “Baliq”, “sigir” yillari serhosil, “ilon”, “ot”, “sichqon” yillari qurg‘oqchil bo‘ladi deb tushuntirishgan.</p>
+<p>Matematikaga doir bilimlar masofani, hosilni, qurilayotgan uylar o‘lchamini o‘lchash bilan; fizikaga doir bilimlar amaliyot bilan bog‘liq holda oddiy richaglar, shamol va suv kuchidan foydalanish misolida; kimyoviy ilmlar chorvachilik mahsulotlarini qayta ishlash (masalan, sutdan qatiq, yog‘ ... olish, yog‘ni kuydirish ...), o‘simliklardan bo‘yoq olish, kiyimlarni tozalash, yuvish bilan; astronomiyaga doir bilimlar yuldo‘zlar va quyoshga qarab vaqtni aniqlash misolida; tibbiyotga bog‘liq bilimlar dorivor o‘simliklarni to‘plash va hayvonlar hamda o‘simliklar yog‘laridan foydalanib kasalliklarni davolash misolida o‘rgatilgan. Bu jarayonda nazariy bilimlar amaliyot bilan mustahkam bog‘lab tushuntirilganligi ahamiyatlidir.</p>
+<p>Xalq pedagogikasida bolalarning tafakkuri, mushohada qobiliyatini o‘stirishda topishmoqlardan unumli foydalanilgan. Topishmoqlar vositasida bolalarga ibtidoiy hisob (qo‘shish, ayirish, ko‘paytirish va bo‘lish amallari) o‘rgatilgan. Bo‘lar jumlasiga: “Pak-pakana bo‘yi bor, etti qavat to‘ni bor” (piyoz), “Aylanaverib-aylanaverib semirdi xonim” (urchuq), “Otarda yuz qo‘y va echki bor. Ularning nechta oyog‘i va qulog‘i bor?” (100 ta qo‘y va echkida 400 oyoq, 200 quloq bor) va boshqalarni kiritish mumkin.</p>
+<p>Yoki otasidan: “Yoshingiz nechada?” deb so‘ragan bolaga ota: “O‘zingning yoshingga ... yoshni qo‘shsang, mening necha yoshga kirganligimni topasan”, - deb javob bergan.</p>
+<p>Demak, xalq pedagogikasi manbalarida komil insonni shakllantirish uchun ularga ilm, kasb-hunar o‘rgatish; tarbiyaning ijtimoiy turmush uchun zarur yo‘nalishlarini mustahkam singdirish lozim ekanligi targ‘ib etiladi. Mazkur g‘oyalar hozirgi milliy istiqlol davrida ham muxim ahamiyat kasb etmoqda. Xulosa tariqasida o‘quv muassasalarida xalq pedagogikasidan foydalanish uchun uning tarbiyaviy va didaktik imkoniyatlarini bilish zarurligini aytish mumkin</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="2">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>Quyidagi ish qog‘ozi yordamida “Qanday” metodi bo‘yicha xalq</p>
+<p>pedagogikasining didaktik imkoniyatlarini o‘quv-tarbiyaviy jarayonga tadbiq etish bosqichlarining mohiyatini belgilang.</p>
+<blockquote>Ish qog‘ozi<br>Qanday?<br>XPDIO’TJTE) bosqichlari<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?</blockquote></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Yoshlarda milliy tarbiyani umumbashariy qadriyatlar bilan shakllantirishda dunyo miqyosida erishilayotgan yutuqlarni qanday baholaysiz?</li><li>Tarbiyaviy ishlarda «Xalq pedagogika»sini o`zaro bog‘lovchi nechta element mavjud va ular qaysilar?</li><li>Bo`lajak mutaxassislar tarbiyaviy ishlarda «Xalq pedagogikasi» asosida yondashishda qanday bilimlarni o‘zlashtirishlari zarur?</li><li>«Xalq pedagogikasining tarbiyaviy imkoniyatlari» deganda nimalarni tushunasiz?</li><li>Tarbiya madaniyatida an’anaviylik va zamonaviylikning o‘zaro tasiri»</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="2">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>Boynazarov F. O’rta Osiyo" antik, davri.Toshkent. O’qituvchi 1991 yil.</li><li>Mirtursunov Z.F, Xalq, pedagogikasi, Toshkent. O’qituvchi 1968 yil. Ajdodlar o’giti. xikoyalar, xikmatlar, timsoyalar. T. CHo’lpon 1990 yil.</li><li>Xasanov S. Mutafakkirlar mehnat tarbiyasi haqida.</li><li>Donishmandlar axloq haqida. Toshkent. O’qituvchi 1986 yil.</li><li>O’zbek pedagogikasi tarixi // A.Zunnunov tah.ostida. – T.: O’qituvchi, 1997. – 272 b.</li><li>O’rta Osiyoda pedagogik fikr taraqqiyotidan lavhalar // Zunnunov A., Xayrullaev M., Hotamov N., SHodiev D. - T.: Fan, 1996. – 243 b.</li><li>O’zbek pedagogikasi antalogiyasi . T. 1-jild. 1995y, 2-jild1999 y.</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-1.html"><span class="yon">← 1-modul</span><span class="nom">Xalq pedagogikasi fanining maqsad va vazifalari, mazmuni</span></a><a class="keyingi" href="modul-3.html"><span class="yon">3-modul →</span><span class="nom">Xalq pedagogikasida oila va oilaviy tarbiyaning aks etishi</span></a></nav>
 </div>
-
-</section>
-
-<section id="result" class="section">
-<h2>Natijalar</h2>
-<button onclick="checkAll()" style="padding:14px 24px;border-radius:18px;">Tekshirish</button>
-<div class="result" id="out"></div>
-</section>
-
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
 </main>
-</div>
 
-<div class="nav">
-<div class="nav-inner">
-<a href="modul-1.html">← Oldingi modul</a>
-<a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
-<a href="modul-3.html">Keyingi modul →</a>
-</div>
-</div>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
+  </div>
+</footer>
 
-<script>
-const keywords={
-  w1:["xalq","tarbiya","tajriba","milliy","ta’lim"],
-  w2:["maqol","tarbiya","odob","axloq","xalq"]
-};
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-/* SAVE */
-document.querySelectorAll("textarea").forEach(t=>{
-  const k=t.dataset.key;
-  t.value=localStorage.getItem(k)||"";
-  t.oninput=()=>localStorage.setItem(k,t.value);
-});
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-/* CHECK */
-function checkAll(){
-  let testScore=0,testTotal=0;
-  document.querySelectorAll("input[type=radio]:checked").forEach(r=>{
-    testScore+=Number(r.value);
-    testTotal++;
-  });
-  let testPercent=testTotal?Math.round(testScore/testTotal*100):0;
-
-  let writePercent=0,count=0;
-  document.querySelectorAll("textarea").forEach(t=>{
-    const text=t.value.toLowerCase();
-    let match=0;
-    keywords[t.dataset.key].forEach(k=>{
-      if(text.includes(k)) match++;
-    });
-    writePercent+=Math.round(match/keywords[t.dataset.key].length*100);
-    count++;
-  });
-  writePercent=count?Math.round(writePercent/count):0;
-
-  document.getElementById("out").innerHTML=
-    `Test: <b>${testPercent}%</b><br>
-     Yozma: <b>${writePercent}%</b><br>
-     Umumiy: <b>${Math.round((testPercent+writePercent)/2)}%</b>`;
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

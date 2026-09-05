@@ -2,292 +2,235 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>7-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#05080f;
-  color:#e5e7eb;
-  padding:90px 20px 160px;
-}
-
-/* ===== TOP NAV ===== */
-.top-nav{
-  position:fixed;
-  top:0;left:0;width:100%;
-  z-index:999;
-  background:rgba(5,8,15,.75);
-  backdrop-filter:blur(18px);
-}
-.top-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.top-nav a{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:10px 18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.08);
-  font-size:14px;
-}
-.top-nav a:hover{background:rgba(56,189,248,.3)}
-
-/* ===== LAYOUT ===== */
-.container{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:50px;
-}
-
-h1{
-  text-align:center;
-  font-size:clamp(28px,4vw,46px);
-  font-weight:900;
-  letter-spacing:.14em;
-  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* ===== CARD ===== */
-.card{
-  padding:36px;
-  border-radius:32px;
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(22px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.15),
-    0 40px 120px rgba(0,0,0,.85);
-}
-
-.card h2{
-  font-size:24px;
-  margin-bottom:14px;
-}
-
-.card p{
-  font-size:16px;
-  line-height:1.9;
-  opacity:.95;
-  margin-bottom:16px;
-}
-
-/* ===== VIDEO ===== */
-.video-box{
-  position:relative;
-  width:100%;
-  padding-top:56.25%;
-  border-radius:22px;
-  overflow:hidden;
-  background:#000;
-}
-.video-box iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* ===== TEST ===== */
-.question{margin-top:20px}
-.question label{
-  display:block;
-  margin-bottom:10px;
-  font-weight:700;
-}
-.options label{
-  display:block;
-  margin-bottom:8px;
-  cursor:pointer;
-}
-
-textarea{
-  width:100%;
-  min-height:140px;
-  border-radius:18px;
-  padding:14px;
-  border:none;
-  font-size:15px;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-  resize:vertical;
-}
-
-button{
-  margin-top:30px;
-  padding:16px 34px;
-  border:none;
-  border-radius:24px;
-  background:linear-gradient(90deg,#38bdf8,#22c55e);
-  color:#000;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.result{
-  margin-top:30px;
-  font-size:20px;
-  font-weight:900;
-}
-
-/* ===== BOTTOM NAV ===== */
-.bottom-nav{
-  position:fixed;
-  bottom:0;left:0;width:100%;
-  z-index:999;
-  background:linear-gradient(
-    to top,
-    rgba(5,8,15,.95),
-    rgba(5,8,15,.6),
-    rgba(5,8,15,0)
-  );
-  backdrop-filter:blur(16px);
-}
-.bottom-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  gap:18px;
-}
-.bottom-nav a{
-  flex:1;
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:18px 22px;
-  border-radius:24px;
-  text-align:center;
-  font-weight:700;
-  background:rgba(255,255,255,.08);
-}
-.bottom-nav a:hover{background:rgba(56,189,248,.3)}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7-modul. Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni | Xalq pedagogikasi</title>
+<meta name="description" content="Milliy qadriyatlar tizimi va ularning ma’naviy tarbiyadagi o‘rni.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<!-- TOP NAV -->
-<div class="top-nav">
-  <div class="top-nav-inner">
-    <a href="#video">🎥 Video</a>
-    <a href="#theory">📘 Nazariya</a>
-    <a href="#test">📝 Test</a>
-    <a href="#writing">✍️ Yozma savol</a>
-    <a href="dars.html">⬅ Darslar</a>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
+
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main id="asosiy">
 
-<h1>7-MODUL · XALQ PEDAGOGIKASI</h1>
-
-<!-- VIDEO -->
-<div class="card" id="video">
-  <h2>Video dars</h2>
-  <div class="video-box">
-    <iframe
-      src="https://www.youtube.com/embed/HbkbEwc9xZg"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-
-<!-- THEORY -->
-<div class="card" id="theory">
-  <h2>Mavzu: Xalq pedagogikasida shaxs kamoloti</h2>
-  <p>
-    Xalq pedagogikasida shaxs kamoloti tushunchasi markaziy o‘rinni egallaydi.
-    Inson tug‘ilganidan boshlab, oila, mahalla, maktab va jamiyat ta’sirida
-    bosqichma-bosqich shakllanadi.
-  </p>
-  <p>
-    Ushbu modulda shaxsning ma’naviy, axloqiy va jismoniy barkamolligi,
-    xalq tajribasi asosida qanday rivojlantirilishi yoritiladi.
-    Tarbiya jarayoni doimiy, izchil va hayot bilan bog‘liq holda olib borilishi
-    zarurligi ta’kidlanadi.
-  </p>
-  <p>
-    Xalq pedagogikasida “komil inson” g‘oyasi ustuvor bo‘lib,
-    u ilmli, axloqli, vatanparvar va mas’uliyatli shaxs sifatida talqin etiladi.
-  </p>
-</div>
-
-<!-- TEST -->
-<div class="card" id="test">
-  <h2>Test savollari</h2>
-
-  <div class="question">
-    <label>1. Xalq pedagogikasida shaxs kamoloti nimaga bog‘liq?</label>
-    <div class="options">
-      <label><input type="radio" name="q1" value="1"> Tarbiya va ijtimoiy muhitga</label>
-      <label><input type="radio" name="q1" value="0"> Faqat irsiyatga</label>
+<section class="modul-bosh" style="--rang-a:#1F3A5F;--rang-b:#16283F">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">7-modul</span>
+    <h1>Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni</h1>
+    <p class="ost">Milliy qadriyatlar tizimi va ularning ma’naviy tarbiyadagi o‘rni.</p>
+    <div class="meta">
+      <span>📖 2,548 so‘z</span>
+      <span>🎮 Saralash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
     </div>
   </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html" class="faol">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o’rni</li><li>Ma’naviy tarbiya jarayonida milliy qadriyatlarning ahamiyati</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>milliy istiqlol</li><li>ma’naviy qadriyatlar</li><li>urf-odat</li><li>an’ana</li><li>marosim</li><li>udumlar</li><li>sharq mutafakkirlari</li><li>uyg‘onish davri</li><li>ma’naviy barkamollik</li><li>madaniy-ma’rifiy qarashlar</li><li>ma’naviy meros</li><li>globallashuv jarayoni</li><li>tabiiy qadriyatlar</li><li>moddiy qadriyatlar</li><li>ma’naviy qadriyatlar</li><li>estetik qadriyatlar</li><li>milliy qadriyatlar</li><li>umuminsoniy qadriyatlar</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/7VP8DpCQmXo"
+    title="Xalqimizning milliy urf-odat, qadriyat va an’analari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">Xalqimizning milliy urf-odat, qadriyat va an’analari · <span>TIPU</span></p>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/VcVbB56etEM"
+    title="Milliy merosga aylangan qadriyatlar" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">Milliy merosga aylangan qadriyatlar · <span>El-yurt umidi Foundation</span></p><div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/btNpgkcmf4E"
+    title="«Milliy urf-odat, qadriyat va an’analar — tarbiya asosidir»" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">«Milliy urf-odat, qadriyat va an’analar — tarbiya asosidir» · <span>TISU</span></p>
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Milliy istiqlol mafkurasi ham ana shu milliy qadriyatlarga asoslanib yaratilishi bejiz emas, albatta. Bu borada birinchi Prezidentimiz I. Karimovning “Har bir fuqaro ajdodlarimizning bebaho merosi, milliy qadriyat va an’analarimizga munosib bo‘lishga erishish, yuksak fazilatli va komil insonlarni tarbiyalash, ularni yaratuvchanlik ishlarida da’vat qilish, shu muqaddas zamin uchun fidoiylikni hayot mezoniga aylantirish - milliy istiqlol mafkuramizning bosh maqsadidir» - deganlari ayni muddaodir .</p>
+<p>Ma’naviy qadriyatlar, urf-odat, an’ana, marosimlar va istiqlol istiqboli hamda mafkuraviy ong, yashash tarzi haqida, ya’ni avlodlar mushtarakligi to‘g‘risida fikr yuritar ekanmiz, uni uch toifaga bo‘lish lozim.</p>
+<p>Xo‘sh, ma’naviy qadriyatlarimiz xususida sharq mutafakkirlarimizning ilmiy, ma’rifiy merosi borasida yoshlarimizning tasavvur va bilim darajasi qanday? Qayd qilish lozimki o‘rta asrlar uyg‘onish davri, bunyodkorlari bo‘lmish allomalar bizning ajdodlarimiz ekanligidan faxrlanamiz. Bu borada Ibn Sinoning ma’naviy merosida qator muammolar tizimida axloq-odob masalalari e’tiborli salohiyatga egadir. Uning «Burch haqida risola», «Axloq haqida risola», «Insof haqida risola» kabi asarlarida axloq-odobning g‘oyat muhim qirralari bayon etilgan.</p>
+<p>Mutafakkirlarning asarlarida, jumladan «Tadbiri manzil» risolasida ham inson tabiati azaldan axloqli yoki axloqsiz bo‘lmaydi, degan g‘oya muhim ahamiyat kasb etadi. Aslida odamlar tayyor fazilat, odat va hayotiy ko‘nikmalar bilan tug‘ilmaydilar. Bunday xususiyatlar ularning ijtimoiy hayotida shaxsiy va o‘zgalar tajribasi, ajdodlar an’analari, ta’lim-tarbiyaning faol ta’siri ostida asta-sekin shakllana boradi. Ta’lim-tarbiya o‘zgalarning ma’naviy ta’siri ostida inson o‘zida ijobiy axloqiy fazilatlarni shakllantiradi yoki «yomon do‘stlar» ya’ni salbiy odatlar soxibiga aylana boradi.</p>
+<p>Jahonda XII asrdan boshlab hanuzgacha algebra fani asoschisi sifatida Al-Xorazmiy nomi ulug‘lanadi. Hozirgi zamonda kosmik kemalar, havo transporti, hisoblash texnikasi, ishlab chiqarishning texnologik jarayonlar algoritmi qoidasi asosida ishlaydi .</p>
+<p>Abu Nasr Farobiy inson aqliy va ijodiy faoliyatining takomillashuvida musiqiy ohanglarning fizikaviy holatiga asos soldi .</p>
+<p>Bunday yaratuvchanlik milliy va ma’naviy qadriyatlarimiz sifatida ulug‘lanar ekan, ularni o‘rganish, o‘zlashtirish yosh avlodning muhim burchi bo‘lmog‘i kerak .</p>
+<p>Xalq pedagogikasining barcha manbalarida tasvirlangan pedagogik fikrlarda, qahramonlar dunyoqarashlarida inson barcha hayotiy muammolarni, orzu-umidlarini faqat ilm-ma’rifatni egallash, ezgu amallar, mehnat va yaratuvchilik, do‘stlik va hamkorlik, go‘zal ma’naviy-axloqiy sifatlarni egallash yordamida amalga oshirish mumkinligi haqidagi g‘oya olg‘a suriladi. Shuning uchun bugungi milliy istiqlol davrida xalq pedagogikasi durdonalarini o‘rganish g‘oyat muhimdir. CHunki: “Kelajakda O‘zbekiston yuksak darajada taraqqiy etgan iqtisodi bilangina emas, balki bilimdon, ma’naviy yetuk farzandlari bilan ham jahonni qoyil qilishi lozim,”- deganida Prezidentimiz haq edi<sup class="izoh-ref"><a href="#izoh-13" id="ref-13" aria-label="13-izoh">13</a></sup>.</p>
+<p>Milliy qadriyatlar, urf-odat, an’ana va marosimlar - tarbiyaning eng ta’sirchan quroli. Undan oqilona foydalanish, farzandlarimiz ongida vatanparvarlik, rostgo‘ylik, xalq-parvarlik tuyg‘ularini shakllantirish bugungi kun talabi.</p>
+<p>Axloq- avvalo, inson va adolat tuyg‘usi, iymon, halollik degani. Insonning insonligi, ma’naviy – ahloqiy jihatdan barkamolligi, pokligi milliy qadriyatlarning qadriga etishi bilan belgilanadi.</p>
+<p>Milliy qadriyat quyidagi axloqiy tarbiya tushunchalaridan iborat :</p>
+<p>barkamol inson ota- onasi, farzandlari, qarindoshlari, butun oila a’zolari, qo‘ni –qo‘shinlari, mahalla- ko‘y, hamqishloqlari va butun mamlakat xalq farovonligi haqida qayg‘uradi;</p>
+<p>tevarak atrofni o‘rab olgan insonlar unga kerak bo‘lganidek, u ham atrofdagilarga kerakli inson bo‘lishga intiladi;</p>
+<blockquote>milliy qadriyatlarni e’zozlaydi va ularga sodiq bo‘lib qoladi;<br>milliy qadriyatlar asosida odob-axloq, fe’l- atvor, tarbiyani yoshlarning ongiga singdiriladi;<br>ota-bobolarimizdan qolgan ma’naviy- madaniy merosni qadirlaydi;</blockquote>
+<p>Vatanni sevib, himoya qiladi, yoshlarni harbiy- vatanparvarlik ruhida tarbiyalaydi.<sup class="izoh-ref"><a href="#izoh-14" id="ref-14" aria-label="14-izoh">14</a></sup></p>
+<p>Ma’naviy- axloqiy tarbiya, madaniyat to‘g‘risida so‘z borar ekan, VIII-XIX asrlarda Markaziy Osiyoda yashab ijod etgan qomusiy olimlar o‘z asarlarida inson ma’naviy va tafakkur dunyosini boyitishga, insoniyat ongini, madaniy-ma’rifiy qarashlarini o‘stirishga alohida e’tibor qaratganlariga amin bo‘lamiz, Ular o‘z asarlari bilan sharqona odob-axloq talablari asosida komil inson, adolatli jamiyat va davlatni shakllantirishning ma’naviy asosini yaratishga muvaffaq bo‘ldilar.</p>
+<p>O‘zbekistondek ona zaminimiz jahonga ne-ne buyuk mutafakkirlar va qomusiy allomalarni etishtirib bergan. Ular- xoh tibbiyotchi va dorishunos, xoh riyozotchi va falakshunos, hox tarixchi va fiqix, xoh tilshunos va munaqqil (naql qiluvchi), xoh adib va shoir, xoh tasavvuf ilmining mashxur namoyandasiyu davlat arbobi bo‘lsin yetuk ilmiy asarlar yaratganlar.Ulug‘ bobokalonlarimizdan Muhammad Muso al-Xorazmiy, Abu Nasr Farobiy, Abu Ali Ibn Sino, Abu Rayxon Beruniy, Bahouddin Naqshband, Hoja Ahmad Yassaviy, Mirzo Ulug‘bek, Az- Zamaxshariy Alisher Navoiy, Zaxiriddin Bobur, Abdulla Avloniy va boshqa alloma- mutafakkirlarning shuningdek, jadidchilarning ismlarini va ular tomonidan ta’lim – tarbiyaga oid asarlarini tilga olish kifoyadir.</p>
+<p>Bu mavzuni kengroq yoritishda milliy qadriyatlarimizga uzviy bog‘liq bo‘lgan diniy qadriyatlarimizning roli haqida to‘xtalib o‘tmasdan ilojimiz yo‘qdir.</p>
+<p>Diniy qadriyatlarni milliy qadriyatlardan ajratib o‘rganish yoki tahlil qilish qiyin. Sababi, milliy qadriyatlar diniy qadriyatlar bilan qo‘shilib ketib, mukammal umuminsoniy qadriyatga aylanadi.</p>
+<p>Birinchi Prezidentimiz Islom Karimov so‘zlari bilan aytganda: “Biz islom dini ota- bobolarimiz dini ekani, u biz uchun ham iymon, ham axloq, ham diyonat, ham ma’rifat ekanini doimo yuksak qadrlaymiz... Dinga hurmat va e’tiqod biz uchun o‘lmas qadriyatdir”<sup class="izoh-ref"><a href="#izoh-15" id="ref-15" aria-label="15-izoh">15</a></sup>.</p>
+<p>Millatning ravnaq topishida tarixan shakllangan milliy va diniy qadriyatlar, urf-odatlar, an’ana marosimlarning ahamiyati beqiyosdir. Milliy qadriyatlar avvalo, har bir millatning iftixori, faxri shu bilan birga ma’naviy merosining poydevori hamdir.</p>
+<p>Mustaqillik milliy qadriyatlarimizni rivojlantirish, ularni yanada teranroq anglashimiz uchun keng yo‘l ochib berdi. Mustaqillik, tufayli islom dini va islomiy qadriyatlarni tiklash borasida asrlarga teng amaliy ishlar qilindi. Xalqimiz hayoti va turmushida islom dini va islomiy qadriyatlar ma’naviy va ma’rifiy hayotimizning tarkibiy qismiga aylanib qolgan. Birinchi Prezidentimiz Islom Karimov so‘zlari bilan aytganda, “Biz islom dini ota- bobolarimiz dini ekani, u biz uchun ham iymon, ham axloq, ham diyonat, ham ma’rifat ekanini doimo yuksak qadrlaymiz...dinga hurmat va e’tiqod- biz uchun o‘lmas qadriyatdir” .</p>
+<p>Hamma davrlarda, barcha xalqlar uchun ta’lim-tarbiya eng dorlzarb masala sifatida qaralgan. Har bir millatning tarbiya borasida o‘ziga xos ma’naviy merosi, tajribalari va yondashuvlari mavjud.</p>
+<p>Koreya davlati ta’lim tizimida milliy tarbiyaga alohida e’tibor qaratiladi. Davlat maktablarida dinshunoslik o‘qitilmaydi. Lekin 3-sinfdan boshlab “Odobnoma” kabi maxsus fan joriy etiladi. Bu fan 12-sinfgacha o‘qitilib, haftasiga 2 soat vaqt ajratilgan. Bu fan o‘z ichiga dinshunoslik asoslarini ham qamrab olgan bo‘lib, qadriyat sifatida o‘qitiladi. Ehromlarga sayohat qilib borish, tarixiy yodgorliklar bilan tanishish, ma’naviyat tarixini o‘rganish maktab fanining majburiy davomi hisoblanadi.</p>
+<p>Xitoy ta’lim tizimining tarixi juda uzoqdir, uning ildizi qadimiy davrlarga borib taqaladi. Xitoyda dastlabki maktablar eramizdan ancha ilgari vujudga kelgan. Qadimgi Xitoy faylasufi va pedagogi (eramizdan oldingi V-IV asrlarda yashagan) Kun Szi (Konfutsiy) qator ilg‘or pedagogik g‘oyalarni olg‘a surgan va xususiy o‘qitishga asos solgan.</p>
+<p>Globallashuv jarayonining milliy ma’naviyat va ahloqiy qadriyatlardagi o‘ziga xosliklari yemirilishining oldiga to‘siq bo‘la oladigan omillarni yuzaga keltirsa va ulardan samarali foydalanish yo‘lida har bir millat harakat qilishga intilsagina integratsiyalashuv jarayonining tabiiy kechishi davom etish imkoniyatlari saqlanib qolishi mumkin. Aks holda globallashuvning milliy o‘ziga xosliklarini bir qolipga solishga o‘tkazayotgan salbiy ta’siri avj olishi davom etadigan bo‘lsa kuchlarning kuchsizlar ustidan hukmronlik qilishi uchun shart-sharoitlar yuzaga kelishi xavfi kuchayib boradi. Yana ham aniqrog‘i Integratsiyalashuv jarayonining milliy, ma’naviy madaniyat, qadriyat va ilm-fan sohalarida millatlarning o‘zaro tabiiy ta’sir o‘tkazish va boyitishdagi imkoniyatlarining cheklanib borishi o‘z navbatida har bir millatning mustaqil sub’ekt sifatida mavjud bo‘lishiga tahdidning kuchayishiga olib keladi. Aslida globallashuv internatsionallashuv va integratsiyalashuv ta’sirida amalga oshsagina barcha sohalarda tenglik tabiiylik va o‘zaro manfaatdorlik tamoyillarining amal qilishiga zamin yaratiladi.</p>
+<p>Barchaga ma’lumki, keyingi paytlarda ijtimoiy va ma’naviy muhitni sog‘lomlashtirish, milliy urf-odat va an’analarimizni turli behuda va zararli ko`rinishlardan tozalash, diyorimiz xalqini insoniy kamolot cho`qqilari sari yuksaltirish kabi xayrli ishlarga birinchi Prezidentimiz I.A. Karimov tomonidan katta e’tibor berilmoqda.</p>
+<p>Qadriyat – bu qadr qimmat ma’nosini anglatib, u inson uchun qadrli bo‘lgan barcha narsa va hodisalar (predmet va jarayonlar) majmuidir.</p>
+<p>Qadriyatlar – faqat o‘tmish uchun qadrli bo‘lmasdan, balki hozirda ham kelajak taraqqiyotida ham qadrli bo‘lib, ular jamiyat taraqqiyotiga ijobiy ta’sir qiladi hamda kishilar ongiga singib ijtimoiy ahamiyat kasb etadigan moddiy, ma’naviy, tabiiy, diniy, axloqiy, falsafiy va h.k.lar majmuyi.</p>
+<blockquote>Qadriyat turlari quyidagilar:<br>tabiiy qadriyatlar;<br>moddiy qadriyatlar;<br>ma’naviy qadriyatlar;<br>estetik qadriyatlar;<br>milliy qadriyatlar;<br>umuminsoniy qadriyatlar;</blockquote>
+<p>Tabiiy qadriyatlar – bu insonning yashashi va rivojlanishi uchun zarur bo‘lgan resurslar, ya’ni yer va yer ostiboyliklari, suv, havo, o‘rmonlar o‘simliklar, hayvonot dunyosi va boshqalar.</p>
+<p>Moddiy qadriyatlar – bu insonning moddiy ehtiyojlarini qondirishda qadrli bo‘lgan narsa (predmet, buyum)lardir. Ular: ishlab chiqarish vositalari va qurollari, mehnat predmetlari, moddiy ne’matlar, kishi faoliyati jarayonini amalga oshiradigan buyumlar.</p>
+<p>Ma’naviy qadriyatlar – bu siyosiy, huquqiy, badiiy, diniy, estetik, falsafiy, axloqiy, ma’rifiy, madaniy qadriyatlar.</p>
+<p>Estetik qadriyatlar – bu barcha ham shaklan, ham mazmunan go‘zalliklardir.</p>
+<p>Milliy qadriyatlar – bu muayyan xalq va millatlarning uzoq tarixiy davrlar asosida rivojlanib kelgan va ma’lum shakl va mazmunga ega bo‘lgan moddiy va ma’naviy boyliklar majmuasidir.</p>
+<p>Umuminsoniy qadriyatlar – bu umumbashariy ahamiyatga ega bo‘lgan va uning svilizatsiyasi bilan bog‘liq bo‘lgan moddiy va ma’naviy qadriyatlar majmuasidir.</p>
+<p>Xalqimiz ichida necha asrlar davomida shakllangan urf-odatlar juda ko`p. Ba’zi manbalarda ularning 376 tasi sanab o`tilgan.</p>
+<p>An’analar qadim-qadimlardan insoniyat turmushi, ijtimoiy faoliyati, mehnatidagi ibratli hayot saboqlaridir. Ularni avlod-ajdodlar uchun yo‘l-yo‘riq darslaridir desak yanglishmagan bo`lamiz.</p>
+<p>O`zbek an’analari, qadriyatlari xususan xalq pedagogikasi, og‘zaki ijod, uning tarkibidagi pandnomalar, o`gitlar, nasihatlar, olqish duolar har kun har daqiqa jonli jarayonlarda yashab, turmush tarzimizni bezab, ayniqsa farzandlarimizga to`g‘ri bo`lish, to`g‘ri yashash va odob-aloqi joyida bo`lishlikni eslatib turuvchi, da’vat qiluvchi manbalardir.</p>
+<p>Qadriyatlarimizning yana bir umumiy mushtarak tomoni shundaki, ularning barchasi, insonning iymon-e’tiqoda ma’naviy ma’rifiy va axloqiy-ruhiy tarbiyada komil odam bo`lishlikga qaratilgan. Yoshlarimiz xalqona qadriyatlardan nechog‘lik ko`p saboq olsalar, ularning tafakkurlari shunchalik boyib, aql-idroklari qayrilib, har tomonlama kamol topaveradilar.</p>
+<p>Xullas, qadriyatlar mazmuni xalq pedagogikasi qatlamlariga singdirilgan. Ular bag‘rida kamol topgan. Xalq pedagogikasi maqsadi esa farzandlarimizni yetuk fazilatlari, komil insonlar qilib tarbiyalashga qaratilgan.</p>
+<p>Jamiyatimizda, xalqimizga xos fazilatlaridan bo‘lgan o‘zaro mehr- oqibat,qadr- qimmat, xayru- sahovat singari insoniy fazilatlarning yanada rivoj topishida mahallalar yetakchi kuchga aylangani sir emas. Zero, yurtboshimiz iborasi bilan aytganda, kuchli davlatdan kuchli jamiyat sari dadil odimlash tamoyili huquqiy demokratik fuqarolik jamiyatini barpo etishda katta ahamiyat kasb etmoqda.</p>
+<p>Sharq xalqlarining me’rosi xilma-xil, ajoyib afsonaviy va tarixiy dostonlarga, masal va rivoyatlarga boy bo‘lib, mavzu jihatdan bir- biriga chambarchas bog‘langan.</p>
+<p>Bu asarlar o‘z muxtasarligi, ravonligi, qiziqarliligi, ohangdorligi hamda didaktik ahamiyati, g‘oyaviy mazmuni, ma’naviy to‘qligi, hayotiyligi bilan, xalqqa yaqinligi bilan insonlarni ma’naviy – axloqiy tarbiyalashda o‘zgacha muhim ahamiyatga egaligi bilan ham qadrlidir.</p>
+<p>Mutafakkirlarning hikmatli so‘zlari bilan birga, ilg‘or qarashlari va umumma’rifiy orzularini tarannum etuvchi voqea va hodisalar o‘zining tarbiyaviy mazmuni bilan yoshlarni komil insonlar sifatida tarbiyalashda asosiy omil sifatida xizmat qilishi mumkin. Zero, mutafakkirlar merosida keltirilgan hikoyalarda, matal-u rivoyatlarda nomus va poklik, insof va adolat, muruvvatlilik va haqgo‘ylik kabi ijobiy fazilatlarga qarama-qarshi qabixlik, tovlamachilik, riyokorlik, muttahamlik kabilar qo‘yiladi. Ko‘pgina hikoyalar zamirida inson o‘ziga kerakli xulosalar chiqarib oladi. Eng ahamiyatlisi shundaki, bu o‘git va nasihatlar o‘tmishdagi ulug‘ mutafakkirlar va donishmandlarning tarixiy hikoya va hikmatli so‘zlari orqali inson ongiga etkaziladi.</p>
+<p>Har bir inson o‘z hayotida ijtimoiy faol bo‘lishlikka intilishi kerak. Buning uchun, eng avvalo, o‘z shaxsiy qadriyatlarini shakllantirishga erishishi, oilaviy turmushga tayyor bo‘lishi, ilm olishga intilishi, hayoti uchun zarur bo‘ladigan mehnat malakalariga ega bo‘lishi, madaniy hordiq chiqara olishi va, albatta, Vatan oldidagi burchini bajara olishga tayyor bo‘lishi lozim.</p>
+<p>Mahalla deganda insonlarning belgilangan ma’lum bir hududda jamoa bo‘lib yashashlari tushuniladi. Ta’kidlash joizki, o‘zini –o‘zi idora qilish qadimgi Sharq mamlakatlari, jumladan, O‘zbekiston hududida vujudga kelgan ilk davlatlar va ularning boshqaruv faoliyatida ham yorqin ifodasini topgan. O‘zbek mahallalari o‘zida jamoatchilik ruxi, insonparvarlik, o‘zaro yordam, insof, diyonat, raximdillik kabi insoniy tuyg‘ular bilan sug‘orilgan holda shakllangan katta oiladir.</p>
+<p>Biz o‘z tarixi bilan faxrlanadigan insonlarni tarbiyalashimiz va shakllantirishimiz, bunda milliy g‘urur va milliy qadriyatlarimizga tayanishimiz va undan unumli foydalanishimiz zarur.</p>
+<p>Navro‘zi olamning qaytishi xalqimiz ruhiyatini ko‘tardi. Navro‘z bayrami bilan birga asrlar davomida e’zozlab kelingan urf- odatlarimiz, an’ana va o‘yinlarimiz qayta tiklandi.</p>
+<p>Yosh avlodni tarbiyalashda milliy- m’naviy qadriyatlar juda katta tarbiyaviy kuchga ega. Ularga sodiqlik bizni milliy birlik sifatida jahon miqyosida betakrorligimizni ta’minlaydi. Tilimiz, urf- odatlar, an’ana va udumlarimiz shunchaki o‘tmishdan qolgan meros emas, balki o‘zligimizni anglashimiz shartidir. Biz bu qadriyatlarimizning naqadar muhim ekanligini anglay olsak, millat sifatida o‘zligimizni saqlab qolamiz.</p>
+<p>Bugun yoshlar o‘z milliy tarixini o‘rganmoqda. Ona tili, madaniyat, urf- odat va an’analarining qayta tiklanib borayotgani ularni o‘zligini anglashga shart- sharoit yaratib berayotgani ham muhim yutiqdir. Bugun yoshlar shunchaki milliy-ma’naviy qadriyatlarini o‘rganib qolayotgani yo‘q. Ular dunyo xalqlari erishgan yutuqlardan bahramand bo‘lmoqda. Xorijiy davlatlarda o‘qish, bilim olib, fan- texnika yutuqlari, ilg‘or texnologiyalarni egallab jamiyatimiz ijtimoiy hayotiga joriy etish imkoniyatiga ega bo‘lmoqdalar.</p>
+<p>Ma’lumki, 2008 yilda mamlakatimizda 18yoshgacha bo‘lgan yoshlar 10 million 360 ming nafarni yoki umumiy aholining taxminan 40 foizini, 30 yoshgacha bo‘lganlar esa- 17 million 80 ming nafarni yoki 64 foizni<sup class="izoh-ref"><a href="#izoh-16" id="ref-16" aria-label="16-izoh">16</a></sup> tashkil etgan edi.</p>
+<p>O‘z-o‘zidan ayonki, aholimizning aksariyat qismini tashqil etadigan yoshlarimizning hali- beri yechilmagan muammolariga e’tiborimizni jalb etish, ularni hayotimizda haqiqatdan ham hal qiluvchi kuchga aylantirish masalasi jamoatchiligimizning diqqat markazida turibdi.</p>
+<p>Zero, yurtboshimiz qayd qilganlaridek: “Oldimizda nihoyatda muhim, kelajagimizni hal qiluvchi yangi vazifa turibdi. Bu vazifa erkin fuqarolik jamiyatining ma’naviyatni shakllantirishda, boshqacha aytganda, ozod, o‘z haq-huquqini yaxshi taniydigan, boqimandalikning o‘zi uchun or deb biladigan, o‘z kuchi va aqliga ishonib yashaydigan, ayni zamonda o‘z shaxsiy manfaatlarini xalq, Vatan manfaatlari bilan uyg‘un holda ko‘radigan komil insonlarni tarbiyalashdan iborat ”.<sup class="izoh-ref"><a href="#izoh-17" id="ref-17" aria-label="17-izoh">17</a></sup></p>
+<p>Jamiyat yoshlar ongida ma’naviy qadriyatlarni rivojlantirmay va mustahkamlamay turib o‘z istiqboliga erisha olmaydi. “Mamlakatimizni modernizatsiya qilish va zamonaviy jamiyat qurish yo‘lidagi murakkab va keng ko‘lamli vazifalarni hal etishga qodir bo‘lgan yangi avlod qadrlarini tayyorlash bundan buyon ham faoliyatimizning eng muhim yo‘nalishi bo‘lib qoladi ”,<sup class="izoh-ref"><a href="#izoh-18" id="ref-18" aria-label="18-izoh">18</a></sup> deb ta’kidlaydi birinchi przidenti I.A.Karimov. Mustaqillik esa ana shu vazifani amalga oshirishning muhim sharti hisoblanadi. Xalq yoki millat o‘z taqdirini o‘zi belgilash huquqiga ega bo‘lsagina, o‘zining mustaqil taraqqiyot yo‘lini erkin belgilab olishi, yoshlarni o‘z milliy qadriyatlari negizida tarbiyalash mumkin.</p>
+<p>Yoshlar tarbiyasida milliy-ma’naviy qadriyatlarga tayanish, uning talqini va jamiyatimizda iqtisodiy- siyosiy islohotlarni amalga oshirishda tutgan o‘rni bugungi muhim muammolar jumlasidandir. Millat uchun erkinlik adolat tantanasining oliy ifodasidir. Erkinlik birovni o‘ziga qaram qilishga, birovning mol- mulkini talon- taroj etishga, birovga xiyonat qilishga, birovni o‘ldirishga yoki zarar yetkazishga yo‘l qo‘ymaydi. Chunki erkinlik qonunga asoslanadi: qonun doirasida olibyu borilgan ishlar va xatti- harakatlar ahloqiy hamda huquqiy qadriyatlar jihatidan haqli hisoblanadi. Kundalik turmushda, o‘zaro munosabatlarda inson erkinligi qonun hamda axloqiy normalar bilan cheklangan bo‘ladi. Erkinlikni to‘g‘ri tushunib, uni hayotimizga to‘g`ri tatbiq etganimizdagina, bu buyuk ne’mat- adolat va erkinlikni saqlab qolishimiz va undan keyingi avlodlarimiz ulardan bahra olishlari mumkin.</p>
+<p>I.Ergashev Yoshlar dunyoqarashida milliy – ma’naviy qadriyatlarga tayanish muayyan maqsad va vazifalarni o‘z ichiga oladi. Ular quyidagilar :</p>
+<p>- Yoshlar o‘z dunyoqarashida milliy – ma’naviy qadriyatlarga tayanmasa, ularning ongi va tafakkuridan mutlaqo begona qadriyatlar joy oladi. O‘zining milliy- ma’naviy qadriyatlariga nisbatan bepisandlik bilan qarash shakllanadi.</p>
+<p>- Yoshlarning milliy- ma’naviy qadriyatlarga bo‘lgan munosabatinig hozirgi holatini o‘rganish, ularning amaliy faoliyatlarida ko‘proq qaysi qadriyatlar ustivor bo‘lib borayotganini aniqlashga yordam beradi. Bundan ko‘zlangan asosiy maqsad ularning milliy- madaniy meros va qadriyatlarga nisbatan ishonch va e’tiqodni mustahkamlashdan iborat.</p>
+<p>- Yoshlarning milliy-ma’naviy qadriyatlarga nisbatan ishonch va e’tiqodining mustahkam bo‘lishi O‘zbekiston tanlagan o‘ziga xos va mos taraqqiyot yo‘li talablaridan kelib chiqadi hamda yoshlar oldiga aniq vazifalarni qo‘yadi.<sup class="izoh-ref"><a href="#izoh-19" id="ref-19" aria-label="19-izoh">19</a></sup></p>
+<p>I. Ergashev jamiyat ma’naviy hayotida milliy qadriyatga munosabat muammolarini quyidagi omillarga bog‘laydi :</p>
+<p>1. Mustaqillik ulug‘ ne’mat va qadriyat ekanini chuqur idrok etgan holda, umummaqsad yo‘lida yoshlar ozod shaxs va erkin fuqaro sifatida jamiyat oldidagi o‘z ma’suliyatini chuqur anglab, faollik ko‘rsatishi ularning qalb amriga aylanishi lozim.</p>
+<p>2. Jamiyatni erkinlashtirish va ma’naviyat demokratiya hamda yoshlar dunyoqarashidagi milliy- ma’naviy qadriyatlarga tayanish bilan ham o‘zviy bog‘liq. Mamlakat, xalq, millatning buguni va kelajagiga daxldor bo‘lgan qadriyatlar haqida o‘z fikrini ochiq va erkin bildirish ayrim salbiy holatlarning oldini oladi. Eng muhimi, fikrni erkin aytish muhim. Yoshlar fikriga hurmat bilan qarash, o‘zgalar fikriga tayanish, milliy- ma’naviy qadriyatlarni tiklash orqali jamiyatda siyosiy- huquqiy madaniyat yuksalib boradi.</p>
+<p>3. Demoqratik jamiyatda milliy- ma’naviy qadriyatlarni tiklashga ehtiyoj ortib, fikrlar xilma- xilligi, munozara madaniyati shakllanadi. Faqat o‘z fikrini o‘tkazish, o‘zgalar fikrini bo‘g‘ib qo‘yish hollariga barham beriladi.</p>
+<p>4. Milliy – ma’naviy qadriyatlarning tiklanishi tufayli yoshlar o‘z erkinligi va mustaqilligini qadrlaydigan, unga hurmat bilan qaraydigan, shu tuyg‘uga ko‘proq ehtiyoj sezadigan bo‘lib boradi. Madaniy merosga nisbatan befarqlik va loqaydlik kabi ayrim illatlar barham topadi.</p>
+<p>5. Bugun rahbarlik lavozimlarida ishlayotgan ayrim shaxslar faoliyatida uchraydigan, qadriyatlarimizga to‘g‘ri kelmaydigan salbiy illatlarga barham berish imkoniyati tug‘iladi.</p>
+<p>6. Mustaqil mamlakatda har bir yoshning qaysi sohada ishlashidan qat’iy nazar, avvalo, ozod va erkin shaxs, inson sifatida o‘zligini anglamog‘i zarur bo‘ladi. O‘zlikni anglash esa ma’naviy qadriyatlarni chuqur o‘rganish, asrab- avaylab rivojlantirish orqali amalga oshadi.<sup class="izoh-ref"><a href="#izoh-20" id="ref-20" aria-label="20-izoh">20</a></sup></p>
+<p>Ota- bobolarimiz ilm o‘rgatish bilan farzandlariga avlodan- avlodga o‘tib kelayotgan milliy ma’naviy, axloqiy qadriyatlarni singdirganlar. Istiqlolning taraqqiyot va o‘zgarishlarga boy davrida yoshlarning har tomonlama kamol topishi hozirgi kunning talab va ehtiyojidir.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="7">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><blockquote>I. Quyidagi ish qog‘ozi asosida “Sinkveyn” metodi yordamida zamonaviy dars mohiyatini yoriting.<br>Ish qog‘ozi<br>1-qator. 1 ta ot<br>2-qator. 2 ta sifat<br>3-qator. 3 ta fe’l<br>4-qator. 4 ta so‘z<br>5-qator. 1-qatordagi otga sinonim</blockquote></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Ma’naviy qadriyatlarning qayta tiklanishi jarayonlari haqida nimalarni bilasiz?</li><li>Milliy qadryatlar deb nimaga aytiladi?</li><li>YOshlarda qadryatlarga nisbatan munosabatni shakllantirishda tarixiy manbalardan foydalanishning axamiyati.</li><li>O‘zbek xalqi an’analari, marosimlari, urf-odatlarining tarbiyaviy axamiyati qanday?</li><li>YOshlarda qadryatlarni qadrlash jihatlari qanday shakllantiriladi?</li><li>YOshlar dunyoqarashida milliy – ma’naviy qadriyatlarga tayanish qanday maqsad va vazifalarni o‘z ichiga oladi?</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="7">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="izohlar">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <ol class="izoh-royxat"><li id="izoh-13"><a href="#ref-13" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Karimov I.A. Ilm-fan imkoniyatlaridan to’laroq foydalanaylik. “O’qituvchilar gazetasi”. 1989 yil,2 dekabr</li><li id="izoh-14"><a href="#ref-14" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> G.M.Ergasheva.Milliy qadriyatlar va shaxs ijtimoiy ximoyasining huquqiy mexanizmlarini takomil-lashtirish. Respublika ilmiy-amaliy konferensiyasi materiallari.- T.: “Akademiya”, 2007. 211-212 betlar</li><li id="izoh-15"><a href="#ref-15" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Karimov I.A. Ozod va obod Vatan, erkin va farovon hayot- pirovard maqsadimiz. –T.:2000. 26- bet</li><li id="izoh-16"><a href="#ref-16" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Madalieva Z. Huquqiy madaniyat va yoshlar.- T.: “Akademiya”, 2008. 5- bet</li><li id="izoh-17"><a href="#ref-17" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Karimov I.A. biz kelajagimizni o‘z qo‘limiz bilan quramiz.7- jild. –T.: “O‘zbekiston”, 1999. 304-bet</li><li id="izoh-18"><a href="#ref-18" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-19"><a href="#ref-19" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ergashev I. Yoshlarning ijtimoiy faolligi. –T.: “Akademiya”, 2008. 15-16- betlar</li><li id="izoh-20"><a href="#ref-20" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ergashev I. Yoshlarning ijtimoiy faolligi. –T.: “Akademiya”, 2008. 15- bet</li></ol>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>4,A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,M.Nishonov ” Pedagogika”T;Talqin 2008 y</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-6.html"><span class="yon">← 6-modul</span><span class="nom">Xalq pedagogikasi va xalq og‘zaki ijodida dostonlar</span></a><a class="keyingi" href="modul-8.html"><span class="yon">8-modul →</span><span class="nom">Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-  <div class="question">
-    <label>2. Komil inson tushunchasi nimani anglatadi?</label>
-    <div class="options">
-      <label><input type="radio" name="q2" value="1"> Ilmli va axloqli shaxsni</label>
-      <label><input type="radio" name="q2" value="0"> Faqat bilimli shaxsni</label>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
     </div>
   </div>
-</div>
+</footer>
 
-<!-- WRITING -->
-<div class="card" id="writing">
-  <h2>Yozma savol</h2>
-  <label>
-    Xalq pedagogikasida shaxs kamolotining ahamiyatini o‘z fikringiz bilan izohlang:
-  </label>
-  <textarea id="text1"></textarea>
-</div>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-<button onclick="checkAll()">Natijani tekshirish</button>
-<div class="result" id="result"></div>
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <div class="bottom-nav-inner">
-    <a href="modul-6.html">⬅ modul 6</a>
-    <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-8.html">➡ modul 8</a>
-  </div>
-</div>
-
-<script>
-function checkAll(){
-  let score=0;
-  if(document.querySelector('input[name="q1"]:checked')?.value=="1") score++;
-  if(document.querySelector('input[name="q2"]:checked')?.value=="1") score++;
-
-  let text=document.getElementById("text1").value.toLowerCase();
-  let keywords=["shaxs","tarbiya","xalq","ma’naviy","kamol"];
-  let match=0;
-  keywords.forEach(k=>{ if(text.includes(k)) match++; });
-
-  let percent=Math.min(100,(score*40)+(match*10));
-  document.getElementById("result").innerHTML =
-    "Yakuniy baho: <strong>"+percent+"%</strong>";
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

@@ -2,361 +2,249 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>9-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#070b14;
-  color:#e5e7eb;
-  padding-bottom:170px;
-}
-
-/* ===== HERO ===== */
-.hero{
-  padding:90px 24px 70px;
-  text-align:center;
-}
-.hero h1{
-  font-size:clamp(30px,4vw,52px);
-  font-weight:900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  margin-top:18px;
-  opacity:.85;
-  letter-spacing:.14em;
-}
-
-/* ===== LAYOUT ===== */
-.layout{
-  max-width:1400px;
-  margin:0 auto;
-  padding:0 36px;
-  display:grid;
-  grid-template-columns:340px minmax(0,760px);
-  justify-content:center;
-  gap:56px;
-}
-
-/* ===== SIDEBAR ===== */
-.sidebar{
-  position:sticky;
-  top:32px;
-  align-self:start;
-  padding:28px;
-  border-radius:30px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(24px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 40px 120px rgba(0,0,0,.75);
-}
-.sidebar h3{
-  margin-bottom:18px;
-  font-size:15px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#38bdf8;
-}
-.sidebar a{
-  display:block;
-  padding:12px 14px;
-  margin-bottom:10px;
-  border-radius:14px;
-  text-decoration:none;
-  color:#e5e7eb;
-  font-size:14px;
-  background:rgba(255,255,255,.04);
-  transition:.3s;
-}
-.sidebar a:hover{
-  background:rgba(56,189,248,.18);
-}
-.sidebar a.active{
-  background:rgba(56,189,248,.35);
-  box-shadow:0 0 0 1px rgba(56,189,248,.6);
-}
-
-/* ===== CONTENT ===== */
-.content{
-  display:flex;
-  flex-direction:column;
-  gap:64px;
-  align-items:center;
-}
-
-/* ===== BLOCK ===== */
-.block{
-  width:100%;
-  padding:44px;
-  border-radius:36px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.10),
-    rgba(255,255,255,.02)
-  );
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 60px 160px rgba(0,0,0,.8);
-  transition:.45s;
-}
-.block h2{
-  margin-bottom:26px;
-  font-size:clamp(22px,2.8vw,36px);
-  font-weight:800;
-  letter-spacing:.1em;
-  background:linear-gradient(90deg,#fff,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.block p{
-  font-size:16px;
-  line-height:1.95;
-  letter-spacing:.02em;
-  margin-bottom:18px;
-  opacity:.96;
-}
-
-/* ===== FOCUS / BLUR ===== */
-.block.dim{
-  filter:blur(6px);
-  opacity:.35;
-}
-.block.active{
-  filter:none;
-  opacity:1;
-  transform:scale(1.02);
-  box-shadow:
-    inset 0 0 0 1px rgba(56,189,248,.6),
-    0 90px 240px rgba(0,0,0,.95);
-}
-
-/* ===== FIXED NAV ===== */
-.module-nav{
-  position:fixed;
-  left:0;
-  bottom:0;
-  width:100%;
-  z-index:999;
-  padding:18px 24px;
-  background:linear-gradient(
-    to top,
-    rgba(7,11,20,.9),
-    rgba(7,11,20,.5),
-    rgba(7,11,20,0)
-  );
-  backdrop-filter:blur(18px);
-}
-.module-nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  gap:26px;
-}
-.nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  z-index:999;
-  padding:18px 24px;
-  background:linear-gradient(
-    to top,
-    rgba(7,11,20,.95),
-    rgba(7,11,20,.6),
-    rgba(7,11,20,0)
-  );
-  backdrop-filter:blur(18px);
-}
-
-.nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:26px;
-}
-
-.nav-btn{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:20px 28px;
-  border-radius:26px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.14),
-    rgba(255,255,255,.04)
-  );
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 30px 90px rgba(0,0,0,.85);
-  letter-spacing:.14em;
-  font-size:14px;
-  transition:.35s;
-}
-
-.nav-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    inset 0 0 0 1px rgba(56,189,248,.6),
-    0 50px 140px rgba(0,0,0,.95);
-}
-
-/* MARKAZDAGI TUGMA */
-.nav-center{
-  font-weight:900;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  background:linear-gradient(
-    90deg,
-    #38bdf8,
-    #22c55e,
-    #38bdf8
-  );
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  box-shadow:none;
-}
-
-/* JOYLASHUV */
-.nav-prev{justify-self:start}
-.nav-next{justify-self:end}
-
-/* MOBIL */
-@media(max-width:900px){
-  .nav-inner{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .nav-prev,.nav-next{
-    justify-self:center;
-  }
-}
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9-modul. Xalq pedagogikasida diniy ta’limotlar | Xalq pedagogikasi</title>
+<meta name="description" content="Qur’oni Karim va Hadislardagi tarbiyaviy g‘oyalar; g‘oyaviy tahdidlardan himoya.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<section class="hero">
-  <h1>9-MODUL</h1>
-  <p>Xalq pedagogikasi va jamiyat taraqqiyoti</p>
-</section>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="layout">
-
-<aside class="sidebar">
-  <h3>Reja</h3>
-  <a href="#r1" data-target="r1">1. Jamiyat va xalq pedagogikasi</a>
-  <a href="#r2" data-target="r2">2. Tarbiya va ijtimoiy ong</a>
-  <a href="#r3" data-target="r3">3. Zamonaviy ahamiyati</a>
-</aside>
-
-<main class="content">
-
-<section id="r1" class="block">
-<h2>Jamiyat va xalq pedagogikasi</h2>
-<p>
-Xalq pedagogikasi jamiyat taraqqiyoti bilan uzviy bog‘liq bo‘lib,
-har bir tarixiy davrda xalqning ijtimoiy ehtiyojlari,
-hayot tarzi va ma’naviy qarashlarini aks ettiradi.
-</p>
-<p>
-Jamiyat rivojlangan sari tarbiya mazmuni boyiydi,
-mehnat madaniyati, jamoaviylik va mas’uliyat kabi tushunchalar
-xalq pedagogikasining markaziy g‘oyalariga aylanadi.
-</p>
-</section>
-
-<section id="r2" class="block">
-<h2>Tarbiya va ijtimoiy ong</h2>
-<p>
-Xalq pedagogikasida tarbiya shaxsning ijtimoiy ongini shakllantirishga xizmat qiladi.
-Inson jamiyatda yashar ekan, uning xulqi va qarashlari
-ijtimoiy muhit ta’sirida rivojlanadi.
-</p>
-<p>
-Shu sababli xalq pedagogikasi yoshlarni
-jamiyat manfaatiga xizmat qiladigan,
-faol va mas’uliyatli shaxs sifatida tarbiyalashni ko‘zlaydi.
-</p>
-</section>
-
-<section id="r3" class="block">
-<h2>Zamonaviy ahamiyati</h2>
-<p>
-Bugungi globallashuv sharoitida xalq pedagogikasi
-milliy o‘zlikni saqlash va umuminsoniy qadriyatlar bilan uyg‘unlashishda
-muhim vosita bo‘lib xizmat qiladi.
-</p>
-<p>
-U zamonaviy ta’lim tizimini boyitib,
-yosh avlodni ma’naviy barkamol etib tarbiyalashga yordam beradi.
-</p>
-</section>
-
-</main>
-</div>
-
-<div class="nav">
-  <div class="nav-inner">
-
-    <a href="modul-8.html" class="nav-btn nav-prev">
-      ← Modul 8
-    </a>
-
-    <a href="dars.html" class="nav-btn nav-center">
-      ⬤ MODULLAR RO‘YXATI ⬤
-    </a>
-
-    <a href="modul-10.html" class="nav-btn nav-next">
-      Modul 10 →
-    </a>
-
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
+</header>
+
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#7A2436;--rang-b:#551824">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">9-modul</span>
+    <h1>Xalq pedagogikasida diniy ta’limotlar</h1>
+    <p class="ost">Qur’oni Karim va Hadislardagi tarbiyaviy g‘oyalar; g‘oyaviy tahdidlardan himoya.</p>
+    <div class="meta">
+      <span>📖 4,479 so‘z</span>
+      <span>🎮 Ha yoki yo‘q</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
+  </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html" class="faol">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasida diniy ta’limotlar</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>Islom dini</li><li>Qur’oni Karim</li><li>Hadisi SHarif</li><li>Arab istilochilari</li><li>diniy tarbiya</li><li>terrorizm</li><li>diniy qadriyat</li><li>umumbashariy qadriyat</li><li>Islom ta’limoti</li><li>g‘oyaviy tahdid</li><li>terrorizm</li><li>fanatizm</li><li>fundamentalizm</li><li>ekstremizm</li><li>mafkuraviy kurash</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/Zy1v0UaOvCc"
+    title="Ochiq dars: din va ma’naviyat, axloq va san’at masalalari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
+<p class="media-izoh">Ochiq dars: din va ma’naviyat, axloq va san’at masalalari · <span>Ipak Yo‘li Innovatsiyalar universiteti</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Islom dinining umumbashariy qadriyat, ilohiy, ilmiy-dunyoviy ta’limot sifatida barhayotligini ta’minlab kelayotgan asosiy manbalari Qur’oni Karim va Hadisi Shariflardir.</p>
+<p>Qur’oni Karim bilan tanishar ekanmiz, “Ilm” so‘zi asosidagi “alima” (bilmoq) fe’l negiziga tayangan kalimalar turli hollarda 750 marta takrorlanganligi ilmiy tadqiqotlarda qayd etilgan bo‘lib, bu o‘zak faqat “Alloh”, “Rabb” (Parvardigor ma’nosida), “bo‘lmoq” va “gapirmoq” kabi eng ko‘p ishlatilgan o‘zak-so‘zlardan keyin beshinchi o‘rinda turar ekan.</p>
+<p>Rasullohga nozil bo‘lgan 5 oyat hozirgi Qur’oni Karim matni<sup class="izoh-ref"><a href="#izoh-27" id="ref-27" aria-label="27-izoh">27</a></sup> 96-surasi (“Alaq”)ning birinchi oyatlari bo‘lib, shunday boshlanadi: “Iqra’ bi-ismi robbikal-lazi xalaq!” (“YAratgan rabbing nomi bilan o‘qi!”). Oradan bir oyat o‘tib yana “o‘qi!” so‘zi qaytariladi: “Iqra’ va robbikal akram, allazi allama bil qalam. Allama-l-insona ma lam ya’lam” (“O‘qi! Sening o‘ta karamli parvardigoring qalam vositasi bilan ta’lim berdi. Insonga u bilmagan narsalarni o‘rgatdi”).</p>
+<p>Ilmga qiziqtirish borasida Alloh Qur’onda shunday deydi: «Aytgin, ilmlilar bilan ilmsizlar teng bo‘la oladilarmi albatta bu haqda faqat aqlli kishilargina eslaydilar: (“Zumar” surasi, 9-oyat). Boshqa bir oyatda ilmli kishilar Allohning ho‘zurida boshqalardan ko‘ra yuqori darajada turishlari ochiq-oydin aytilgan: «Alloh taolo sizlardan imon keltirganlarni va ilmli bo‘lganlarning darajasini ko‘taradi» («Mujodala» surasi, 11-oyat).</p>
+<p>Arablar tomonidan bosib olingan yerlarda xalqlar Islom dinini qabul qilishga majbur etildi. Arab istilochilari xalqni o‘zlariga bo‘ysundirish va ular tomonidan Islom dinini qabo‘l qilinishiga erishish maqsadida harbiylar hamda Islom dini targ‘ibotchilarining xizmatidan birdek foydalandilar. Natijada o‘z oldilariga qo‘ygan asosiy maqsadga erishdilar. Movarounnahrda Islom ta’limoti g‘oyalarining yoyilishi, kishilar tomonidan Shariat qoidalari, Islom dini aqidalariga bo‘ysunish, yagona va qudratli Ollohga sig‘inish, shuningdek, Ollohning erdagi rasuli (elchisi) bo‘lgan Muhammad Alayhis-salom ko‘rsatmalariga rioya etish xalqning ongiga chuqur singib, ular tomonidan mazkur din asoslarining qabo‘l qilinishiga zamin hozirladi. Natijada Movarounnahrda islomiy qadriyatlar tarkib topa boshladi.</p>
+<p>Ulkan hududni qamrab olgan Arab xalifaligi davlatining hukmronligi davrida ijtimoiy hayot, turmush tarzi, shuningdek, ilm-fan va madaniyat yanada rivojlandi. Ushbu davrlarda qadimgi yunon va rim madaniy merosi negizida bir qator fanlar yangi tushuncha va bilimlar bilan boyidi. Yunon va rim mutafakkirlari tomonidan yaratilgan va astronomiya, tibbiyot, kimyo, matematika va geografiyaga oid deyarli barcha yirik asarlar arab tiliga tarjima qilindi.</p>
+<p>G‘oyaviy kurash-xalqaro maydonda ustuvor mavqega ega bo‘lish, keng xududda xukumronlikka erishish yo‘lida olib borilayotgan harakat shakli hisoblanadi. Xukumronlik uchun intilayotgan kuchlarning maqsadlari, faoliyat yo‘nalishlari hamda ilgari surayotgan ta’limotlarining mohiyatiga ko‘ra g‘oyaviy kurash turli ko‘rinishlarda amalga oshiriladi.</p>
+<p>G‘oyaviy kurash jarayonida ayrim ekstremistik kuchlar insoniyat hayoti uchun o‘ta havfli sanaluvchi terrorizmdek g‘oyaviy tahdiddan foydalanishga zo‘r bermoqda.</p>
+<p>Terrorizm: terrorchi yoki terrorchilik tashqiloti tomonidan birdan ortiq davlat xududida amalga oshiriladigan yoki bittadan ko‘p davlat manfaatlariga zarar etkazadigan, bir davlatning fuqarolari tomonidan boshqa davlatning fuqarolariga nisbatan yoki boshqa davlatning xududida amalga oshiriladigan haraqatlardir.</p>
+<p>Insoniyat taraqqiyotiga salbiy ta’sir ko‘rsatayotgan, XX asrning umumbashariy muammosiga aylangan diniy-siyosiy ekstremistik oqimlarning deyarli barcha terrorchilikka asoslanib, ochiqdan-ochiq hokimiyatni egallash uchun harakat qilmoqdalar.</p>
+<p>Manbalarda “ekstremizm- keskin fikr va choralarni yoqlash, keskin choralarga tarafdorlik ” tarzida talqin etilgan va aksariyat o‘rinlarda mazkur tushunchaning yuridik atama ekanligiga urg‘u berilgan.</p>
+<p>Diniy ekstremizm rasmiy xokimiyatni “keskin qat’iy choralar ko‘rish” yo‘li bilan o‘zgartirish harakatini biniy ta’limot, qarash va g‘oyalar asosida amalga oshiradigan oqim hisoblanadi.</p>
+<p>Islom ekstremizmida ikki belgini kuzatish mumkin.</p>
+<p>1.hozirgi zamon musulmon jamoalari o‘zining islomiy xususiyatlarini yo‘qotgan va jaholat tusiga aylangan degan mafkurani targ‘ib qilish;</p>
+<p>2.mamlakatda islom qoidalarini o‘rnatish, hokimiyatga haqiqiy musulmonlar kelishi uchun xech bir ikqilanmasdan faol urush harakatlarini, “kuch ishlatish” zarurligini insonlar ongiga singdirish.</p>
+<p>Islom ekstremizmi o‘tgan asrning 50-60 yillarda xorijda, ayniqsa, Yaqin va O‘rta Sharq mamlakatlarida paydo bo‘lgan. Aslida ekstremistik kuchlarning ildizi juda chuqur, ya’ni islom dini shakllangan ilk davrlardayoq paydo bo‘lgan.</p>
+<p>“Fundamentalizm” atamasi keng ma’noda islom g‘oyalarining Muhammad S.A.V. davrlarida qanday talqin etilgan bo‘lsa, shundayligicha saqlashni, ularni o‘zgartirmaslikni, muqaddas manba “Qur’oni Karim”da vahiy va mo‘‘jizalar qanday bayon etilgan bo‘lsa,shundayligicha qabo‘l qilishni, dinning barcha an’anaviy yo‘l-yo‘riqlarini qat’iy va og‘ishmay bajarishni talab etadigan oqimlarni ifodalaydi.</p>
+<p>Ushbu atama dastlab 1908 yilda AQSHning Kaliforniya shtati protestantlari tomonidan qo‘llanilgan bo‘ilib, protestant oqimlar harakati mohiyatini ifodalashga xizmat qilgan.</p>
+<p>Dastlab fundamentalizm faqat diniy g‘oyalarnigina ilgari surgan bo‘lsa,bugungi kunda ijtimoiy-siyosiy qarashlarni ham ilgari surmoqda. Bu holat fundamentalizm, xususan islom fundamentalizmining siyosiylashganidan dalolat beradi.</p>
+<p>Fanatizm o‘z aqidasining shak - shubhasiz to‘g‘riligiga ishonib, boshqa firqa va mazhablarni butunlay rad etgan holda ularni tan olmaslik, balki ularni diniy asoslarni buzishda ayblab, ularga qarshi urush ochishga chaqiradigan omillardandir. Diniy fanatizm diniy ekstremizm va terrorizmga zamin tayyorlaydi.</p>
+<p>Fundamentalizm – ma’lum din vujudga kelgan ilk davriga qaytish va bu yo‘l bilan zamonaning barcha muammolarini hal qilish mumkin degan fikrni ilgari suruvchilarning yo‘nalishi. Diniy fundamentalizm – aqidaning o‘zgarmasligini himoya qiladigan, vahiy va mo‘‘jizalarning muqaddas kitoblardagi bayonining harfiy talqini tarafdori, ularning har qanday majoziy talqiniga murosasiz, so‘zma - so‘z talqinga asoslangan e’tiqodni aqlga tayangan mantiqiy dalillardan ustun qo‘yadigan, muayyan diniy e’tiqod shakllanishining boshlang‘ich davrida belgilangan barcha yo‘l-yo‘riqlarni qat’iy va og‘ishmay bajarilishini talab qiladigan diniy oqimlarni ifodalashda qo‘llaniladigan istilohdir.</p>
+<p>Prezidentimiz Sh. Mirziyoyev ta’kidlaganidek: “Bugungi kunda ijtimoiy-ma’naviy muhitni va aholi turmush sharoitini yaxshilash, yoshlarni turli diniy ekstremistik oqimlar ta’siridan asrash masalasi barchamiz uchun eng asosiy masala bo‘lib turibdi. Muqaddas islom dinini niqob qilib boshqa ko‘chalarga kirib ketayogan johil kimsalar bir narsani tushunmaydi yoki tushunishni istamaydi. YA’ni, islom faqat nurli hayotga, ilm-ma’rifatga, yaxshilikka undaydi. Hech qachon xunrezlik, qotillik, zo‘ravonlikka chaqirmaydi. Ana shu haqiqatni tan olmasdan, soxta g‘oyalarga aldanib, zararli oqimlarga kirish, terrorchi bo‘lish – bu O‘zbekiston xalqiga mutlaqo to‘g‘ri kelmaydi”<sup class="izoh-ref"><a href="#izoh-28" id="ref-28" aria-label="28-izoh">28</a></sup>.</p>
+<p>Islom falsafasida ma’naviy omil jamiyat rivojida etakchi o`ringa qo`yiladi. Ma’naviy-ahloqiy barkamollik hukmron bo`lgan jamiyatda ijtimoiy-iqtisodiy taraqqiyotni ta’minlash g‘oyasi hadislar mazmunida o`z echimini topadi.</p>
+<p>Alloh o‘zining yagonaligiga ham ilmli kishilarni guvoh qilgan: «Alloh albatta uning o‘zi yagona iloh, undan boshqa ibodatga sazovor zot yo‘qligiga shohidlik beradi. Shuningdek, farishtalar va ilm egalari ham bu narsaga adolat bilan shohidlik berdilar» («Oli Imron» surasi, 18-oyat).</p>
+<p>Shu oyatda Alloh ilmli kishilarning shohidligini o‘z farishtalarining shohidligi bilan tenglashtirgan. Bu esa, ilmli kishilarning hurmati Alloh ho‘zurida naqadar yuqori ekanligini ko‘rsatadi. Aksincha, Qur’on ilmsizlarni tanqid qiladi: “SHunday qilib Alloh ilmsizlarning qalbini berkitib qo‘yadi”. (“Rum” surasi, 59-oyat). Qur’on ilmning chegarasi yo‘q ekanligini ham bayon qilib o‘tgan: “Har bir ilmlining ustidan undan ham ilmliroq bor” (“Yusuf” surasi, 76-oyat).</p>
+<p>Bu oyatdan maqsad shuki, olimlar o‘z ilmlari bilan mag‘rurlanib, o‘z ustida ishlashni tark etmasinlar, doimo ularni ham birov tanqid qilib qolishiga o‘zlarini tayyorlab tursinlar, demakdir. Qur’on musulmonlarni barcha narsaning haqiqatini bilish uchun doimo ilm payida bo‘lishga chaqiradi: «Ey, parvardigor, mening ilmimni ziyod qilgin deb ayt” (“Toho” surasi, 114 -oyat).</p>
+<p>Islom kishilarni ilmga chaqirish bilan kifoyalanib qolgan emas, balki aqliy va fikriy harakatsizlikning oldini olish asos-larini kishilarga ko‘rsatgan. Bu quyidagi narsalarda ayon bo‘ladi:</p>
+<p>1. Ilm biror narsani hujjatli, aniq dalil bilan bog‘lamaguncha, uni haqiqat deb tan olmaydi. Qur’on ham musulmon-larga dalilsiz narsani qabo‘l qilmaslikni buyuradi: «Ular aytdilar, jannatga kim yahudiy yoki nasroniy bo‘lsa kiradi. Bu ularning orzusi xolos. Sen, agar gaplaringiz to‘g‘ri bo‘lsa, dalil va hujjat keltiringlar, deb aytgin” (“Baqara” surasi, 111-oyat).</p>
+<p>Bir narsaga dalil va hujjat bo‘lmasa, ishonib bo‘lmaydi. Boshqalarga taqlid qilib, shirk e’tiqodida bo‘lganlarni Alloh so‘roq qiladi: «Kim Alloh bilan qo‘shib boshqa ilohga dalil va hujjatsiz ibodat qilgan bo‘lsa, uning hisob-kitobi Allohning huzurida bo‘ladi. Albatta kofirlar najot topmaydilar» («Mo‘‘minun» surasi, 117-oyat).</p>
+<p>Ilm doimo mavhum narsani deb aytishdan qaytaradi. Gumonni rost deyish to‘g‘ri emas. Bir masala to‘g‘ri yoki noto‘g‘ri ekanligini bilish uchun uning hujjati, kuchiga qaraladi, agar xujjati kuchli bo‘lsa, masala haqiqat, hujjat kuchli bo‘lmasa, masala gumon. Mana shu ilmiy farqlash Qur’on ta’limotlariga ham to‘g‘ri keladi.</p>
+<p>Qur’on haqiqiy - ilmiy narsalarga suyanishga, gumon va xayollardan uzoqda bo‘lishga buyurgan va gumonga ergashganlarning holi yomon bo‘lishini aytib o‘tadi: «Balki zolimlar ilmsiz ravishda havoyi-nafslariga ergashadilar» («Rum» surasi, 29-oyat).</p>
+<p>Alloh musulmonlarga ilmiy asosda ish olib borishni ko‘rsatib, shunday deydi: «O‘zing bilmagan narsaga ergashma. Albatta, ko‘z, quloq va qalb barcha narsadan so‘raladi» («Isro» surasi, 36-oyat). Oyatning ma’nosi shuki, o‘zing aniq bilmasang, senga aytiladigan turli-tuman narsalarga ergashma. Chunki inson qiyomat kunida qulog‘i eshitgan, ko‘zi ko‘rgan, qalbi jo qilgan barcha narsalar haqidagi so‘roqlarga javob berishi kerak. Biz eslab o‘tgan oyatlarning barchasi ishning asosi aniq, sobit, ilmiy ravishda bo‘lishi zarurligini, gumon va turli fikrlar bo‘lmasligini anglatadi.</p>
+<p>Ilm ko‘r-ko‘rona taqliddan qaytarishda Qur’on bilan muvofiqdir. Qur’onda bir fikrni ota-bobomiz qilgan, deb, o‘zlari aql ishlatmay yurganlarni tanqid qilingan: «Agar ularga Alloh tushirgan narsaga va payg‘ambarga yaqin kelinglar, deyilsa, ular ota-bobolarimizdan qolgan narsa bizga kifoya qiladi, deydilar. Ota-bobolari hech narsani bilmagan, va to‘g‘ri yo‘lda yurmagan bo‘lsalar, unda nima bo‘ladi» («Moida» surasi, 104-oyat).</p>
+<p>Boshqa bir oyatda shunday deyilgan: «Agar ularga Alloh tushirgan narsaga ergashinglar, deyilsa, ular, yo‘q biz ota-bobolarimizdan ko‘rganimizni qilamiz, deydilar. Ota-bobolari hech narsani bilmagan bo‘lsalar va to‘g‘ri yo‘lda yurmagan bo‘lsalar, unda nima bo‘ladi. Kofirlar xuddi bir qo‘y podasiga o‘xshaydilarki, ular cho‘ponning qichqirig‘ini eshitadilar-u, ma’nosiga tushunmaydilar. Ular kar va ko‘rdirlar, aqllarini ishlatmaydilar» («Baqara» surasi, 170-171-oyatlar).</p>
+<p>Qur’onning shu oyatlaridan ko‘rinib turibdiki, aql ishlatmay, o‘zi ishonch hosil qilmay — ko‘r-ko‘rona taqlid qilish kofirlarning ishi ekan. Har bir inson Islomni bilib, unga ishonch hosil qilmaguncha, ko‘r-ko‘rona taqlid qilgani bilan mo‘‘min bo‘la olmaydi. Qur’on xalqlarni boshliqlar va yo‘lboshchilarga ko‘r-ko‘rona taqlid qilishdan ehtiyotlanishga chaqiradi. Uning aytishicha, yo‘lboshchilar ham va unga ergashganlar ham noto‘g‘ri yo‘lda bo‘lsalar — qiyomat kunida teng azob chekadilar.</p>
+<p>Buning ma’nosi shuki, bu dunyoda yo‘lboshchilik qilganlar, qiyomat kunida o‘ziga ergashganlardan qochar ekan. Ikki guruh ham azobga duchor bo‘lib oralaridagi aloqa o‘zilar ekan.</p>
+<p>Qur’on ota-bobolarga, boshliqlarga va yo‘lboshchilarga ko‘r-ko‘rona taqlid qilishdan qaytarish bilan birga, faqat bir taraflama fikrlashdan ham qaytardi va biror narsa qilmoqchi bo‘lsa o‘sha narsaning yaxshisini tanlab olishga chaqiradi: “Ular (musulmonlar) gapni eshitganlaridan so‘ng, eng yaxshisiga ergashadilar. Shunday kishilarni Alloh to‘g‘ri yo‘lga boshlaganlar va ular aql egalaridirlar” (“Zumar” surasi, 18-oyat).</p>
+<p>Mana shu oyatda Alloh musulmonlarni barcha gaplarni eshitib, tushunib, so‘ngra yaxshisiga ergashishga buyuradi. Alloh shunday qilganlarni ilohiy hidoyatga erishganlar va o‘tkir aql egalari, deb ataydi.</p>
+<p>Aslida ilm degani ishlarni aql yordamida bajarishga aytiladi. Aql esa, uchragan narsani tushunib olish qobiliyatidir. Qur’on barcha ishlarda aqlni ishlatishga chaqiradi, aqlni ishlatmaganlarni qattiq tanqid qiladi. Qur’onda aqlga taalluqli so‘zlar 50 marta ishlatilgan. Aql egalarining so‘zi esa 10 martadan ko‘proq ishlatilgan. Shuning o‘zi ham Qur’on aqlga katta e’tibor berganini dalililidir. Qur’on aqlning ulkan ne’mat ekanligini bayon qiladi: “Albatta bu narsalarda aqlli kishilar uchun belgilar bor” (“Ra’d” surasi, 4-oyat). “Biz oyatlarni aqlli kishilar uchun bayon qilib qo‘ydik. Aqlni ishlatmaydilarmi” (“Baqara” surasi, 76-oyat) va hokazo.</p>
+<p>Qur’on musulmon kishining ko‘z oldida turgan mavjudotlarni o‘rganishga chaqiribgina qolmay, avvalgi o‘tgan halqlarning tarixi, ularning obodonchilik yo‘lida olib borgan ishlari, havoyi-nafsga berilib, oqibatda halokatga uchraganlarini ham o‘rganshiga undagan. “Rum” surasida shunday deyilgan: “Er yuzida yurib o‘zlaridan avval o‘tganlarning oqibati nima bo‘lganiga nazar solmaydilarmi. O‘tganlar bo‘lardan ko‘ra quvvatliroq edilar, er yuzida asar qoldirgan edilar, bo‘lardan ko‘ra er yuzini ko‘proq obod qilgan edilar va ularga payg‘ambarlari ochiq-oydin xabarlar bilan keldilar. Alloh ularga zulm qilmoqchi emas edi, lekin ular o‘zlariga – o‘zlari zulm qildilar”. (9-oyat).</p>
+<p>Qarang, bir xalqqa shunday ta’limotlar kelibdi. Unda o‘tgan ummatlarning taraqqiyot, obodonchiligi, yuz tuban ketishi va harob bo‘lishi sabablarini o‘rganishga chaqiriq bor ekan. Bu chaqiriq tarix va sotsiologiya ilmini o‘rganishga chaqiriq emasmi?<sup class="izoh-ref"><a href="#izoh-29" id="ref-29" aria-label="29-izoh">29</a></sup></p>
+<p>Xulosa qilib aytganda, Prezidentimiz Shavkat Mirziyoyevning shu yil 28 iyuldagi “Ma’naviy-ma’rifiy ishlar samaradorligini oshirish va sohani rivojlantirishni yangi bosqichga ko‘tarish to‘g‘risida”gi qarori mamlakatimiz aholisiga qaratilgan ma’naviy-ma’rifiy ishlarni keng va atroflicha, xolis tahlil etish, bugungi globallashuv sharoitida navqiron avlod ongu shuurini turli yot va zararli g‘oyalardan himoyalashga oid dolzarb vazifalarni bajarishda muhim asos bo‘ldi.</p>
+<p>“Azaliy qadriyatlarimiz va axloqiy fazilatlarni o‘zida mujassam etgan muqaddas dinimizni asrash va qadrlash har birimizning sharafli burchimizdir. Islom – haqiqatni anglash demakdir, u odamzotni ezgu amallarni bajarishga undaydi, har birimizni yaxshilik va tinchlikka chorlaydi, haqiqiy inson bo‘lishni o‘rgatadi.</p>
+<p>Muqaddas dinimiz bundan buyon ham xalqimizni birlashtirib, millati va tilidan qat’i nazar, ma’naviy poklanish, odamlarni tinchlik, ezgulik, bag‘rikenglik, o‘zaro hurmat va totuvlikka undaydigan, o‘rnini hech narsa bosa olmaydigan vosita bo‘lib xizmat qilishi shubhasizdir”<sup class="izoh-ref"><a href="#izoh-30" id="ref-30" aria-label="30-izoh">30</a></sup>-deb, ta’kidlaydi prezidentimiz Sh.Mirziyoyev.</p>
+<p>Darhaqiqat, ushbu buyuk diniy meros oliy qadriyat sifatida yoshlarda insoniylik fazilatlarini shakllantirish, go‘zal xulq va pokiza ahloqiy jixatlarni tarbiyalashda eng asosiy manbalardandir.</p>
+<p>Payg‘ambarimiz Muhammad (s.a.v) Hadisi Shariflarida ilm inson kamolotining negizi, ezgulik va poklik insonlarni turli ofatlardan saqlovchi vosita deb qaraladi. Hadislarda ilm poklik, halollik, kishilarni yaxshilik sari boshlovchi, qorong‘ilikda yo‘l ko‘rsatuvchi mash’al tariqasida talqin qilinadi. Ilm-bu hikmat, poklik ramzi, ilmsizlik johillik, u bilan shug‘ullanmaslik nopoklikka va jaholatga olib kelishi ham, ham ulardan ta’kidlanadi.</p>
+<p>Islom dinining asosini imon, e’tiqod tashqil etadi. Shuning uchun hadislarda “Dinning ofati uchtadir: 1) beamal olim; 2) zolim hokim; 3) bilmasdan fatvo aytuvchi ulamo” deyiladi.<sup class="izoh-ref"><a href="#izoh-31" id="ref-31" aria-label="31-izoh">31</a></sup> Shuning uchun ilmni qadrlovchi kishiga o‘rgatish lozimligi, uni xo‘rlovchi, mensimaydigan kishiga o‘rgatish gunoh, deb qaraladi.</p>
+<p>Ilm bilan shug‘ullanishning o‘zi yetarli emas. Boshqalarni undan xabardor qilish muhimdir. Hadislarning birida ilm o‘rganmoq uni tarqatmoq bilan barobar olib boriladi, deyiladi: “Kimki ummatlarimga mening sunnatimga oid 40 hadisni yodlab etkazsa, qiyomat kunida men uni shafoatimga loyiq kishilar safiga kirgizaman” (112-Hadis).</p>
+<p>Tolibi ilmning xolis, kamtarin bo‘lishi o‘ta muhimdir. Bilganini ko‘z-ko‘z qilish, maqtanish gunohdir. Kishi bilganini e’tirof etish bilan birga bilmaganini ham tan olishi joiz. Ayniqsa, diniy faoliyat bilan shug‘ullanadigan ulamolar, maktab va madrasalarda tolibi ilmlarga saboq beruvchi ustoz-mudarrislar aytadigan gapini, qiladigan ishini, chiqaradigan fatvosini va beradigan bilimini o‘ylab berishi kerak. Hatto aytadigan maslahati ham holisona, beminnat bo‘lishi lozim. Hadislarning birida shunday deyiladi: “Kimki birodariga bir ish qilishga bilib noto‘g‘ri maslahat bersa, demak birodariga xiyonat qilgan bo‘ladi” (110-Hadis).</p>
+<p>Ilm o‘zligini anglash, xudoni, dinni bilish demakdir Ilm olimniki pesh qilish vositasi bo‘lmasligi zarur. “Kimki olimlarga maqtanish uchun, - deyiladi hadislarda,- yoki nodonlar bilan tortishish, yoxud odamlarning dillarini o‘ziga moyil qilish uchun ilm olsa do‘zaxga boradi” (108-Hadis).</p>
+<p>Ilmli kishilarni e’zozlash, hurmat qilish har kim uchun ham farz, ham qarzdir. Shuning uchun ilmli kishilarga insonlar, butun mavjudot xayrixoh. Bir hadisda aytiladi: “Ilmga har bir narsa istig‘for aytadi, hatto dengizdagi baliqlar ham” (93-hadis).</p>
+<p>Ilm olish hunar o‘rganish olijanob va savobli. Ilm, hikmatlar, hunar kishini turli nopok ishlardan asraydi: “Hattoki bir soat ilm o‘rganish kechasi bilan ibodat qilib chiqqandan afzaldir” (536-hadis).</p>
+<p>Ilm kishilarga naf keltirishi lozim. Olimlar ilm o‘rganib boshqalar yo‘lini yorug‘ qilishlari, ularga rahnomo bo‘lishlari joiz. “Ilm ikki xildir, biri qalbda bo‘ladi – uni ilmi nofe’ (foydali) deyiladi, ikkinchisi tilda bo‘ladi – u odam bolasiga yuborgan Alloh taoloning xujjatidir” (95-hadis). Ilm foydali bo‘lishi uchun u odamlarga o‘rgatilishi lozim. Ilmli kishi sadoqatli bo‘lishi, kishilarga yaxshilikni o‘rgatishi kerak. Ilm bilimli kishi uchun fazilat bo‘lsa, bu holatni u boshqalarga singdirishi zarur.</p>
+<p>“Odamlarga yaxshilikni o‘rgatib, o‘zini esidan chiqargan olim, kishilarga yorug‘lik berib, o‘zini quydiradigan shamchiroqqa o‘xshaydi” (106-hadis) yoki “Ilmni o‘rganib uni hech kimga aytmayotgan odam boylikni to‘plab uni hech (narsaga) sarf qilmayotgan baxilga o‘xshaydi” (106-hadis).</p>
+<p>Ilmu xikmat o‘tkinchi emas, u abadiy. SHuning uchun mo‘min kishiga vafotidan keyin etib turadigan savob narsa uning tarqatgan ilmdir.</p>
+<p>Hadislarda ilmli kishi mevali daraxtga o‘xshatiladi. Lekin ilmli kishining aytadigan fikrlari boshqalarga xush kelishi, tushunarli bo‘lishi darkor. Muhammad payg‘ambar o‘z hadislarida va’z aytganda kishilarni zeriktirmaslik, aytilayotgan fikrni tushunarli bo‘lishini ta’kidlagan: “Osonlashtiringiz, qiyinlashtirmangiz! Xushxabar aytingiz, nafratlantirmangiz (o‘zingizdan bezdirmangiz)!” (121-hadis).</p>
+<p>Ilmni o‘rganish shaxsiy manfaat uchun bo‘lmasligi darkor. “Bir kishi Alloh ilmini (Islomni) teran o‘rganadir, teran tushunadir va undan manfaatlanadir va Alloh yuborgan hidoyatni o‘zi o‘rganib, o‘zgalarga ham o‘rgatadilar. Ikkinchi bir kishi ilm o‘rganib, odamlarga o‘rgatadilar. Ammo o‘zi amal qilmaydi. Uchinchi bir kishi mutakabbirlik qilib o‘zi ham o‘rganmaydir, o‘zgalarga ham o‘rgatmaydir. Bo‘lardan birinchisi mo‘‘min, ikkinchisi fosiq, uchinchisi kofirdir” (26-hadis).</p>
+<p>Ilm kishilarni odillik va insonparvarlikka undaydi. Ilmli kishilarni hadislarda unumdor tuproqqa o‘xshatiladiki, undan ungan o‘simliklar, giyohlar insonlarni oziqlantiradi. Suv erlarga hayot bag‘ishlaganidek, ilm ham kishilarga ezgulik, yaxshilik keltiradi: “Ilm ko‘p yoqqan yomg‘irga o‘xshaydir. Ba’zi er sof unumdor bo‘lib, yomg‘irni o‘ziga singdiradir-da, har xil o‘simliklar va ko‘katlarni o‘stiradilar va ba’zi er qurg‘oq, qattiq bo‘lib, suvni emmasdan o‘zida to‘playdir. Undan Alloh taolo bandalarini foydalantirgaydir. Odamlar suvdan ichgaydir, hayvonlarni va ekinlarni sug‘orgaydirlar. Ba’zi er esa tekis bo‘lib, suvni o‘zida tutib qolmaydir, ko‘katni ham ko‘kartirmaydir”, - deyiladi hadislarda.</p>
+<p>Ilm, hikmat o‘rganmoq mo‘minning eng yuksak fazilatidir. CHunki ilm kishilarga tayanch, rahnamo, zebu-ziynat, mo‘min uchun ilm hayotining yo‘ldoshi va dushmanlarga qarshi kurashda quroldir. “Ilm egallang!- deb xitob qilgan payg‘ambarimiz. – Ilm sahroda do‘st, hayot yo‘llarida tayanch, yolg‘izlik damlarida – yo‘ldosh, baxtiyor daqiqalarda – rahbar, qayg‘uli onlarda – madadkor, odamlar orasida – zebu-ziynat, dushmanlarga qarshi kurashda - quroldir”. SHuning uchun ilm olish yo‘lida har qanday riyozat bo‘lsa ham kishi undan qaytmasligi kerak. Ilm-hunar o‘rganish mashaqqatdir. Ammo inson o‘z irodasi, aql-zakovati bilan unga intilmog‘i lozim. “Ilmu hunarni Xitoydan bo‘lsa ham borib o‘rganinglar”, deydi (126-hadis) Muhammad payg‘ambar.</p>
+<p>Ilm–bu ma’rifat, fazilat. Ilm jamiyat musaffoligining belgisidir. Ilm- ma’rifat bor joyda diyonat bor. Agar ilm susaysa – jaholat, nodonlik kuchayadi. Ilmsiz mamlakatda fitnalar kuchayadi, qotillik avj oladi.</p>
+<p>Ilm susaysa nopoklik, fohisha zo‘rayadi. Bu borada hadislarda: “Ilmning susaymog‘i – jaholatning kuchaymog‘i, zinoning avj olmog‘i, xotinlarning ko‘paymog‘i – erkaklarning ozaymog‘i”, - deyiladi (36-hadis).</p>
+<p>Ilm, xikmat jamiyatdagi ma’naviyat manbai. SHuning uchun ilm o‘rganib uni tarqatish avj olsa fitnalar, haraj (qotillikning) oldi olinadi. Hadislarda ulamolar ilm o‘rganib, ilm tarqatishga kirishsinlar, bilmaganlarga o‘rgatsinlar. Zero, ilm sir tutilsa, halokat boshlanadi, deb aytilgan. SHu bilan birga ilm faqat birovlar mulki emas, u butun mo‘minlarning ma’naviy mulkidir. Ilmni sir tutish, uni tarqatmaslik jamiyatni halokatga olib keladi. Hadislarning o‘zidek ilm, xikmat ham umumbashariyat mulki bo‘lmog‘i lozim.</p>
+<p>Hadislarning qimmatli, insoniy va axloqiyligi shundaki, ularda barcha masalalar holisona ifodalangan. Ularda ta’limning hozirgi ko‘p muammolari o‘ziga xos tarzda bayon etilgan. “Har bir musulmonga ilmga intilish farzdir”. Bu fikr ta’limning umumiy majburiyligiga ishora emasmi?</p>
+<p>Bu fikrlar Yan Amos Kamenskiyning “Buyuk didaktika”asari yozilmasdan bir necha asr avval aytilgan.</p>
+<p>Umuman hadislardagi fikrlarning qimmatli tomoni yana shundaki, ular umumbashariydir. Ular biron bir ijtimoiy guruh manfaati nuqtai-nazaridan yozilmagan. Bundan tashqari ular insoniyat ma’naviyati, axloqi, madaniyati taraqqiyotining sarchashmalari, ular rivojining poydevorini tashqil qilganligi bilan ham ardoqlidir. Qolaversa, hadislarning o‘zi ham xikmat, ham ilmdir.</p>
+<p>Shunday qilib, Qur’oni Karim va Hadislarda insonni o‘qib-o‘rganishga, ilm vositasi bilan dunyodagi voqea-hodisalarning tub mazmun-mohiyatini anglab etishga targ‘ib qilinadi.</p>
+<p>Qur’oni Karimda axloq va odob masalasiga alohida e’tibor berilgan. Ta’kidlanishicha, insonning jamiyatda tutgan o‘rni bilan chambarchas bog‘liq axloq-odob, ota-ona va qarindosh-urug‘larga hurmat etim-esir, qambag‘al-miskinlarga muruvvat va saxovatlilik, halollik, poklik, to‘g‘rilik, o‘z halol mehnati va kasb-hunari bilan yashash, oila va nikoh munosabatlari, o‘z bolalarini boqish, ta’lim va tarbiya berish, omonatiga xiyonat qilmaslik, adolatparvarlik, do‘stlik va birodarlik kabi yaxshi xulqlar insonni haqiqiy kamolotga undovchi insoniy fazilatlardir.</p>
+<p>Qur’oni Karimda sabr-qanoatli, ehsonli, saxovatli, muruvvatlik, keng fe’lli bo‘lish yuksak ma’rifat va yuksak axloqiy fazilat belgisi, deb ta’kidlanadi: “Albatta sabrlilar o‘z savoblarini hisob-kitobsiz to‘liq oladilar” (“Zumar” surasi, 10-oyati). “Sabr-qanoatga ehson bilan bir qatorda eng yuksak fazilat sifatida katta e’tibor beriladi: Muhammad, mashaqatli va ozorlarga sabr qiling! Zotan, Alloh chiroyli amal qiluvchilarning ajr-mukofotlarini zoe etmas” (“Hud” surasi, 115-oyati).</p>
+<p>Shuningdek insondagi axloqiy fazilatlardan eng muhimi xayri ehson haqida alohida fikr yuritiladi: “Alloh senga ehson qilgani kabi sen ham (Allohning bandalariga) infoq- ehson qil” (“Qasas” surasi, 77-oyati).</p>
+<p>Qur’oni Karimning “Al-Isro” surasini 23-24-oyatlarida ota-onaning bolani dunyoga keltirishi bilan birga, farzandga yaxshi ism qo‘yishi, o‘z farzandini jismoniy va ma’naviy tomondan etuk kishi qilib tarbiyalashi, ya’ni ilmu ma’rifatga o‘rgatish va biror bir kasb-hunar egasi qilish, o‘g‘il bola bo‘lsa uylantirish, qiz bola bo‘lsa turmushga chiqarish, ularga moddiy va ma’naviy yordam berib turishi ta’kidlanadi.</p>
+<p>Ma’lumki, manmanlik – aybini tan olmaslik, takabburlik sanaladi. Manmanlik haqida Qur’on Karimni “Isro” surasining 37-oyatida: “Er yuzida Kibr-Havo bilan yurmagin! Chunki sen (oyoqlaring bilan) hargiz erni teshib (uning tubiga) ketolmaysan va bo‘yi bastda tog‘larga etolmaysan”, - deyiladi.</p>
+<p>Bu to‘g‘rida payg‘ambarimiz Muhammad alayhissalomning hadislaridan birida: “Kimki o‘zini katta olsa, yurishida o‘ziga bino qo‘ysa, oxiratda Allohning g‘azabiga uchraydi” (821-hadis), deb ogohlantiradi.</p>
+<p>Ma’lumki, VIII - IX asrlar Hadis ilmi uchun «oltin davr» hisoblanadi.</p>
+<p>Islom dunyosida eng nufuzli manbalar deb sanalgan oltita ishonchli to‘plam (as-sahih as – sitta) ni yaratgan muhaddislar “ham vatandoshlarimiz bo‘lib, ilm – u fan rivojlangan IX asrda yashab ijod etganlar. Bo‘lar Abu Abdulloh Muhammad ibn Ismoil al - Buxoriy 194 (810) – 256 (870), Imom Muslim ibn al – Xajjoj 206 (819) – 261 (874), Imom Iso Muhammad ibn Iso at –Termiziy 209 (824), - 279 (892), Imom Abu Dovud Sulaymon Sijistoniy 202 (817) – 275 (880), Imom Ahmad an – Nasoniy 215 (830) – 303 (915), Imom Abu Abdulloh Muhammad ibn YAzid ibn Majja 209 (824) – 273 (886) kabi allomalardir.</p>
+<blockquote>Olimlar “al-kutub as-sitta” (olti kitob)ni quyidagilardan iborat deb ko‘rsatadilar:<br>Abu Abdulloh Muhammad ibn Ismoil al-Buxoriy tomonidan yozilgan “As-Sahih”.<br>Imom Muslim an-Nishonpuriy (imom Muslim ibn al - Hajjoj) tomonidan yozilgan “As-Sahih”.<br>Imom Ibn Mojja tomonidan yozilgan “Sunnai”.<br>Imom Abu Dovud Sulaymon – Sijistoniy tomonidan yozilgan “Sunnai”.<br>Imom ibn Iso at-Termiziy tomonidan yozilgan “Aj-jami al-Kabir”.<br>Ahmad an – Nasoiy tomonidan yozilgan “Sunnai” kabi to‘plamlardir.</blockquote>
+<p>Imom al – Buxoriyning shoh-asari “Al-Jome’ as-sahih” (“Ishonchli to‘plam”) 4 jiddan iborat bo‘lib, unga 600 ming hadidan 7275 ta eng “sahih” hadislar kiritlgan, takrorlanmaydiganlari 4000 hadisdan iboratdir.</p>
+<p>Imom al-Buxoriy juda boy ijodiy meros qoldirgan. Uning “Al-Jome’ as-saxix” (“Ishonchli tuplam”), “Al-adab al-mufrad”, “At-Tarix al-kibor” (“Katta tarix”), “At-Tarix as-sagiyr”, (“Kichik tarix”), “Al-kiroatu xalfa-l-Imom” (“Imom ortida turib ukish”), “Vaf’ul-yadini fi-s-Saloti” (“Namozda ikki kulni kutarish”) kabi ishlari mavjud bo‘lib, kulyozmalari bizgacha etib kelgan. Amma “At-Tarix al-avsat” (“Urta tarix”), “At-Tafsir al-kabir” (Katta tafsir”), (“Al-Jome’ al-kabir” (“Katta tuplam”), “Kitob-ul-xiba” (“Xadya kitobi”) nomli asarlari ham bo‘lganligi ma’lum, lekin bo‘lar bizgacha etib kelmagan. SHubxasiz, bu asarlaridan eng etuk, shox asari “Al-Jome’-as-saxix”dir. Bu asar “Saxix al-Buxoriy” nomi bilan ham dunyoda mashxur. 4-jildan iborat mazkur kitobda paygambarimiz sallolloxu alayxi vasallam xadislaridan tashkari, islom xukukshunosligi, islom marosimlari, axlok-odob, ta’lim-tarbiya, tarix va etnografiyaga oid ma’lumotlar ham berilgan. Unga 600 ming xadisdan 7275 ta eng “saxix” xadislar kiritilgan bo‘lib, takrorlanmaydigan 4000 xadisdan iboratdir. Bu kitob islom ta’limotida kur’oni karimdan keyingi manba xisoblanadi. Ma’lumki, islom dini insonni ma’naviy kamolot sari etaklovchi ta’limot. SHu sababli Kur’oni Karimda ham, xadislarda ham yaxshi xulq va odob keng targib etilgan.</p>
+<p>“Saxix” yunalishining asoschisi, eng etuk va mashxur muxaddis Abu Abdulox Muhammad ibn Ismoil al-Buxoriydir. Imom Buxoriy xadis ilmida “Amir ul-mu’minin”. “Imom al-muxaddisiyn” (“Barcha muxaddislarning peshvosi”) degan sharafli nomga sazovor bo‘lgan. U 810 yil, 13 mayda (ba’zi manbalarda 810 yil, 20 iyulda) (xijriy 194 yil shavvol oyining 13 kuni) Buxoroda tugilgan. Go’dakligida otadan etim kolgan. O‘quv muassasasida savod chikargan, 10 yoshidanok arab tili va kitoblaridan ularni yodlay boshlaydi. Al-Buxoriy xadis ilmini katta kizikish bilan urgana boshlaydi. Yoshlik chogidan boshlab turli roviylardan eshitgan xadislarni yodlab boror edi. Abdullox ibn ol-Muborak, Vaki’ ibn Jarrox kabi olimlar tuplagan xadislarni yod olgan, xadis rivoyatchilari xakidagi baxslarda katnashgan.</p>
+<p>Al-Buxoriy 825 yilda, un olti yoshida onasi va akasi bilan Xijozga safar qiladi. Makkayu Mukarrama va Madinayu Munavvarada bo‘lib, xaj ibodatini ado etadi. Balx, Barsa, Kufa, Bag‘dod, Xume, Damashq, Misr, Makka va Madinada bo‘lib, safar jarayonida muxaddislardan xadis ukir edi. Olti yil Xijozda kolib, xadis ilmidan ta’lim oladi. Shu bilan birga, Damashq, Qoxira, Basra, Bag’dod shaharlarida mashxur olimlardan fiqx ilmidan dars oladi, o‘zi ham baxs va munozaralarda qatnashadi, tolibu ilmlarga dars ham beradi.</p>
+<p>Imom Buxoriy iste’dodli, o’tkir muxofazali, ziyrak olim bo‘lgan. “Manbalarga ko‘ra, Bag‘dodda istiqomat qilgan paytida ko‘pincha oyning nurida ijod qilib, korongi kechalari sham yorugida kitob ukir ekan. Agar tunda bexosdan biror-bir fikr-muloxaza kelib kolsa, shamni yokib darxol fikrini kogozga tushirar, shu taxlitda ba’zi kechalari shamni yigirma martagacha uchirib-yokar ekan”.</p>
+<p>Imom Buxoriyning utkir zexn egasi ekanligini quyidagi misoldan ham bilish mumkin.</p>
+<p>Rivoyatlarga kura “U kaysi bir kitobni kulga olib, bir marotaba mutolaa qilsa, hammasi yod qolaverardi”. Imom Buxoriyning o‘z so‘ziga kura, yuz ming saxix (ishonchli) va ikki yuz ming gayri saxix (ishnchsiz) xadisni yod bilar ekan. O‘z shogirdlaridan Amir ibn Fallos “Muhammad ibn Ismoil al-Buxoriyga ma’lum bo‘lmagan xadis, albatta ishonchli xadis emasdur”, - deydi. Ustozi Imom Axmad ibn Xanbal al-Marvaziyning aytishicha, “Butun Xurosondan Muhammad ibn Ismoil kabi olim chikkan emas”.</p>
+<p>Imom Buxoriyning o’tkir zexni haqida shunday rivoyat keltiriladi: “Imom Buxoriy bilan Basrada xadis darsiga katnashgan sheriklaridan biri Xoshid ibn Ismoil aytadi: “Imom Buxoriy bizlar bilan ustozning darsini eshitardi. Ustoz rivoyat qilgan xadislarini biz yozib olar edik, ammo Buxoriy fakat kulok solibgina utirardi. Shu tarzda kancha kunlar utib, orada ustoz kariyb 15 ming xadis rivoyat qildi. Shunda biz Buxoriyga: “Sen nega xadislarni yozmaysan?” - deb ta’na qilgan vaktimizda: “Sizlar yozib borayotgan xadislarni men ustoz ogzidan yodlab olayotirman”, - dedi-da, ustoz rivoyat qilgan hamma xadislarni bir chekkadan yoddan ukib berdi. Shundan keyin biz yozib olgan xadisalarimizdagi xatolarni uning yodlaganidan tuzatib oladigan bo‘ldik”.</p>
+<p>Imom Buxoriy juda kup zabardast olimlardan ta’lim oladi. Manbalarda uning ustozlarini to’qsonga yakin deb ko‘rsatishadi. Muhammad ibn Yusuf al-gartobiy, Ubaydulla ibn Musa al-Abasiy, Abu Bakr Abdulla ibn az-Zubayr al-Hamiydiy, ibn Raxavayx nomi bilan mashxur imom Isxok ibn Ibroxim, Imom Axmad ibn Xanbal, Ali ibn al-Madiyniylar uning ustozlaridir.</p>
+<p>Imom al-Buxoriyning o‘zi ham yirik va mashxur olimlar Isxok ibn Muhammad al-Ramoziy, Abdullox ibn kutayba, Ibroxim al-Harbiy, Muhammad ibn Abu Iso at-Termiziy, Muhammad ibn Nasr al-Marvaziy, Muslim ibn Al-Xajjojlarga o‘z vaktida ustozlik qilgan.</p>
+<p>Imom Buxoriy uta kamtar, insonparvar, xulq-odobda tengsiz, saxovatli inson ham bo‘lgan. U xadis ilmining etuk olimi bo‘lsa ham, vakti kelganda zamondoshlari, shogirdlaridan ham urgangan. Imom Buxoriy bir ming saksonta muxaddisdan xadis eshitgan. Undan tukson ming kishi ishonarli xadisni tuplagan, 100 ming “saxix” va 200 ming “gayri saxix” xadislarni yod olgan.</p>
+<p>Imom al-Buxoriy uzok safardan ona yurti Buxoroga kaytgach, talabalar va ulamolarga xadis ilmidan sabok beradi va uning targibotchisiga aylanadi. Rivoyatlarga kura, xalifaning Buxorodagi noibi Xolid ibn Axmad ibn Xolid az-Zuxaliy uni saroyiga kelib xadis ilmidan sabok berishga taklif etadi. Ammo Imom Buxoriy bu taklifni kabo‘l etmaydi va: “Men ilmni xorlab sultonu amirlar eshigiga olib bormayman. Agar amirga ilm kerak bo‘lsa, tarbiyalanuvchilarni (ikkinchi rivoyatda saroyidagilarni) uyimga yoki masjidimga yuborsin”, - deb javod beradi. Al-Buxoriy bilan amir Xolid ibn Axmad az-Zuxalliy munosabatlariga raxna tushadi. Bunga ba’zi xasadguy shaxslarning igvolari ham sabab bo‘ladi. Amir buyuk allomani shahardan chikib ketishga farmon beradi. Uni Samarkand ulamolari o‘z yurtlariga taklif etadilar. Imom Buxoriy yulga chikadi. Ammo Samarkandga yakin Xaftang kishlogida (xozirgi Poyarik tumani) betob bo‘lib koladi va shu erda xijriy 256 yili ramazon oyining oxirgi kuni (milodiy 870 yil 1 sentyabr) 62 yoshida vafot etadi va shu erga dafn etiladi.</p>
+<p>Yuqoridagilarga xulosa qilib aytganda, islom ta’limoti mujassamlashgan Qur’oni Karimdagi “Biz odam bolalarini aziz-mukarram qildik... ularga halol-pok narsalardan rizqu – ro‘z berdik va ularni o‘zimiz yaratgan juda ko‘p jonzotlardan afzal-ustun qilib qo‘ydik”; “Ey mo‘minlar, sizlarga rizq qilib berganimiz-pokiza narsalardan englar”, “Bandalarimga aytingki, ular eng go‘zal so‘zlardan so‘zlashsinlar”, “Odamlarni aldab fitnaga solish o‘ldirishdan yomonroqdir”, “Alloh zulm qiluvchilarni sevmaydi”, “Parvardigoringiz... ota-onaga yaxshilik qilishlaringizni amr etdi...” kabi muhim g‘oyalar; shuningdek, Hadisi SHarifdagi “Ilm egallang! Ilm-sahroda do‘st, hayot yo‘llarida tayanch, yolg‘izlik damlarida – yo‘ldosh, baxtiyor daqiqalarda – rahbar, qayg‘uli onlarda – madadkor, odamlar orasida – zebu ziynat, dushmanlarga qarshi kurashda - quroldir”; “Ilm olish har bir muslim va muslima uchun farzdir”; “Beshikdan to qabrga kirgunlaringizcha ilm izlangiz”, “YOshlikda olingan ilm toshga o‘yilgan naqsh kabidir”; “YOlg‘on so‘zlama”, “o‘zinga ravo ko‘rganni boshqalarga ham ravo ko‘r”, “Englar, ichinglar, sadaqa qilinglar, ammo isrofgarchilikka o‘tmanglar”, “Ahmoqdan uzoqlashing”, “Nonni e’zozlanglar”; deb zikr etilgan hikmatlar komil insonni tarbiyalashda muhim manbadir.</p>
+<p>Ta’kidlash joizki, Muso al-Xorazmiy, Imom Ismoil al – Buxoriy, Imom at-Termiziy, Abu Nasr Forobiy, Abu Ali ibn Sino, Abu Rayhon Beruniy, Yusuf Xos Hojib, Ahmad Yassaviy, Ahmad Yugnakiy, Shayx Najmiddinov Kubro, Sulaymon Boqirg‘oniy, Abduxoliq G‘ijduvoniy, Bahovuddin Naqshband, Mahmud Zamaxshariy, Mirzo Ulug‘bek, Alisher Navoiy, Davoniy, Voiz Koshifiy va ulardan keyin ijod qilgan boshqa mutafak-kirlar islom ta’limotini, Qur’oni Karimni, payg‘ambarimizning aytgan so‘zlari, diniy va axloqiy yo‘l-yo‘riqlari, hikmatlaridan iborat manba-Hadisi Shariflarni yaxshi bilganlar, ularning ta’sirida ijod etib, kelgusi avlodlar uchun benazir meros qoldirganlar. Aslini olganda esa, mutafakkirlarimizning tabiy-ilmiy, ijtimoiy-falsafiy va ta’lim-tarbiyaga oid qarashlari-ning asosi, shuningdek, asarlarining mazmun – mohiyati va g‘oyasi ham Qur’oni Karim va Hadisi Sharif ta’limotiga asoslanadi. Chunki biz nazarda tutayotgan davrdan boshlab savod o‘rgatish Qur’oni Karim va Hadisi Shariflardagi pand-nasihatlarni o‘rganish va ulardagi ko‘rsatmalarni o‘zlashtirish bilan olib borilgan. Shunga ko‘ra, Qur’oni Karim va Hadisi Shariflardagi pand-nasihatlar ham olimlar, ham adiblar ijodiga kuchli ta’sir etgan va islom ta’limoti allomalarimiz asarlarida ilmiy talqin etiladi. Bo‘larda ilgari surilgan g‘oyalar yosh avlodning ham aqliy, ham axloqiy jihatdan kamol topishiga, pedagogik fikr taraqqiyoti tarixida katta ahamiyatga ega bo‘ldi.</p>
+<p>Shunday qilib, biz islom ta’limotida, ta’lim-tarbiya masalalarining tutgan o‘rnini tahlil etar ekanmiz, bu davr ma’naviy-ma’rifiy tafakkurining harakterli tomoni shundaki, ma’naviyat, ma’rifat, odob-axloq sohasidagi tasavvur, fikr, bilimlar islom diniy aqidalari va ta’limotlarini ham bilimning, ilmiy tasavvurning bir ko‘rinishi sifatida o‘z ichiga singdirib yubordi. Dunyoviy ilmlar va diniy ilohiy tasavvurlar bir butun holda qabo‘l etilib, inson ilmiy tushunchalari asosida talqin etilib, ular jahonga mashhur qomusiy mutaffakkir-larimiz asarlarida keng o‘rin egalladi.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="9">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>Hadislarda ilm egallash bevosita yozuv taxtasi yoki ish qog‘ozida o‘z aksini topgan quyidagi sxema asosida tashkil etiladi: BBB metodi</p>
+<p>Ish qog’zi</p>
+<div class="jadval-o"><table><thead><tr><th>Bilaman</th><th>Bilishni xohlayman</th><th>Bilib oldim</th></tr></thead></table></div>
+<p>“T-jadval” metodidan foydalanish uchun quyidagi sxema taqdim etiladi:</p>
+<div class="jadval-o"><table><thead><tr><th>Diniy ta’limot masalasi (g‘oya, omil)</th><th></th></tr></thead><tbody><tr><td>Afzalligi</td><td>Kamchiligi</td></tr><tr><td>1.</td><td>1.</td></tr><tr><td>2.</td><td>2.</td></tr><tr><td>3.</td><td></td></tr><tr><td>...</td><td>...</td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Islom dinini insonlar tafakkurini o‘stirishdagi xizmati qanday?</li><li>«Qur’oni Karim»da qanday tarbiyaviy g‘oyalar ilgari surilgan?</li><li>Hadis ilmining rivojlanishida allomalarning qo‘gan xissasi qanday?</li><li>Hadislarda ilm egallash haqida qanday o‘gitlar berilgan?</li><li>Axloqiy fazilatlarni shakllantirishda diniy manbalarning axamiyati qanday?</li><li>Imom al-Buxoriyning hadis ilmi rivojiga qo‘gan xissasi haqida gapirib bering.</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="9">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="izohlar">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <ol class="izoh-royxat"><li id="izoh-27"><a href="#ref-27" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Қуръони Карим. Ўзбекча изоҳли таржима. Таржима ва изоҳлар муаллифи Алоуддин Мансур. – Т.: Ғафур Ғулом номидаги Адабиёт ва санъат нашриёти, 1992, 5-532-бетлар (Кейинги мисоллар ҳам шу манбадан олинди)</li><li id="izoh-28"><a href="#ref-28" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Шавкат Мирзиёевнинг "Ижтимоий барқарорликни таъминлаш, муқаддас динимизнинг софлигини асраш – давр талаби" мавзусидаги анжуманда сўзлаган нутқи 15 июн 2017й</li><li id="izoh-29"><a href="#ref-29" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Муҳаммад Содиқ Муҳаммад Юсуф. Имон. –Т.: “Камалак”, 1991, 128-136-бетлар</li><li id="izoh-30"><a href="#ref-30" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ш. Мирзиёевнинг Ислом ҳамкорлик ташкилоти Ташқи ишлар вазирлари кенгаши 43-сессиясининг очилиш маросимидаги нутқи [21.10.16 ](http://nasihat.uz/archives/738)</li><li id="izoh-31"><a href="#ref-31" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ҳадис. Ал-Жомиъ ас-саҳиҳ (Ишонарли тўплам). I, II, III, IV жилд. Қомуслар Бош таҳририяти; -Т.: 1991-1996 (кейинги мисоллар одам шу манбалардан олинди)</li></ol>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>Boynazarov F. O’rta Osiyo" antik, davri.Toshkent. O’qituvchi 1991 yil.</li><li>Mirtursunov Z.F, Xalq, pedagogikasi, Toshkent. O’qituvchi 1968 yil.</li><li>Ajdodlar o’giti. xikoyalar, xikmatlar, timsoyalar. T. CHo’lpon 1990</li><li>Xasanov S. Mutafakkirlar mehnat tarbiyasi xaqida.</li><li>Donishmandlar axloq xaqida. Toshkent. O’qituvchi 1986 yil.</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-8.html"><span class="yon">← 8-modul</span><span class="nom">Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati</span></a><a class="keyingi" href="modul-10.html"><span class="yon">10-modul →</span><span class="nom">Xalq pedagogikasida xalq amaliy san’ati va madaniyatining o‘rni</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
+  </div>
+</footer>
 
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-<script>
-const links=document.querySelectorAll('.sidebar a');
-const blocks=document.querySelectorAll('.block');
-
-links.forEach(link=>{
-  link.addEventListener('click',()=>{
-    const id=link.dataset.target;
-
-    links.forEach(l=>l.classList.remove('active'));
-    link.classList.add('active');
-
-    blocks.forEach(b=>{
-      b.classList.add('dim');
-      b.classList.remove('active');
-    });
-
-    const active=document.getElementById(id);
-    if(active){
-      active.classList.remove('dim');
-      active.classList.add('active');
-    }
-  });
-});
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

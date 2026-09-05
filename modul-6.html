@@ -2,275 +2,204 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>6-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#05080f;
-  color:#e5e7eb;
-  padding:90px 20px 160px;
-}
-
-/* ===== TOP NAV ===== */
-.top-nav{
-  position:fixed;
-  top:0;left:0;width:100%;
-  z-index:999;
-  background:rgba(5,8,15,.75);
-  backdrop-filter:blur(18px);
-}
-.top-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.top-nav a{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:10px 18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.08);
-  font-size:14px;
-}
-.top-nav a:hover{background:rgba(56,189,248,.3)}
-
-/* ===== LAYOUT ===== */
-.container{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:50px;
-}
-
-h1{
-  text-align:center;
-  font-size:clamp(28px,4vw,46px);
-  font-weight:900;
-  letter-spacing:.14em;
-  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* ===== CARD ===== */
-.card{
-  padding:36px;
-  border-radius:32px;
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(22px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.15),
-    0 40px 120px rgba(0,0,0,.85);
-}
-
-.card h2{
-  font-size:24px;
-  margin-bottom:14px;
-}
-
-.card p{
-  font-size:16px;
-  line-height:1.9;
-  opacity:.95;
-  margin-bottom:16px;
-}
-
-/* ===== VIDEO ===== */
-.video-box{
-  position:relative;
-  width:100%;
-  padding-top:56.25%;
-  border-radius:22px;
-  overflow:hidden;
-  background:#000;
-}
-.video-box iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* ===== TEST ===== */
-.question{margin-top:20px}
-.question label{
-  display:block;
-  margin-bottom:10px;
-  font-weight:700;
-}
-.options label{
-  display:block;
-  margin-bottom:8px;
-  cursor:pointer;
-}
-
-textarea{
-  width:100%;
-  min-height:120px;
-  border-radius:18px;
-  padding:14px;
-  border:none;
-  font-size:15px;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-  resize:vertical;
-}
-
-button{
-  margin-top:30px;
-  padding:16px 34px;
-  border:none;
-  border-radius:24px;
-  background:linear-gradient(90deg,#38bdf8,#22c55e);
-  color:#000;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.result{
-  margin-top:30px;
-  font-size:20px;
-  font-weight:900;
-}
-
-/* ===== BOTTOM NAV ===== */
-.bottom-nav{
-  position:fixed;
-  bottom:0;left:0;width:100%;
-  z-index:999;
-  background:linear-gradient(
-    to top,
-    rgba(5,8,15,.95),
-    rgba(5,8,15,.6),
-    rgba(5,8,15,0)
-  );
-  backdrop-filter:blur(16px);
-}
-.bottom-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  gap:18px;
-}
-.bottom-nav a{
-  flex:1;
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:18px 22px;
-  border-radius:24px;
-  text-align:center;
-  font-weight:700;
-  background:rgba(255,255,255,.08);
-}
-.bottom-nav a:hover{background:rgba(56,189,248,.3)}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6-modul. Xalq pedagogikasi va xalq og‘zaki ijodida dostonlar | Xalq pedagogikasi</title>
+<meta name="description" content="«Alpomish», «Go‘ro‘g‘li» va boshqa dostonlarning tarbiyaviy ahamiyati.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<!-- TOP NAV -->
-<div class="top-nav">
-  <div class="top-nav-inner">
-    <a href="#video">🎥 Video</a>
-    <a href="#theory">📘 Nazariya</a>
-    <a href="#test">📝 Test</a>
-    <a href="#writing">✍️ Yozma savol</a>
-    <a href="dars.html">⬅ Darslar</a>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
+
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main id="asosiy">
 
-<h1>6-MODUL · XALQ PEDAGOGIKASI</h1>
-
-<!-- VIDEO -->
-<div class="card" id="video">
-  <h2>Video dars</h2>
-  <div class="video-box">
-    <iframe
-      src="https://www.youtube.com/embed/HbkbEwc9xZg"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-
-<!-- THEORY -->
-<div class="card" id="theory">
-  <h2>Nazariy tushuntirish</h2>
-  <p>
-    Xalq pedagogikasida tarbiya uzluksiz jarayon bo‘lib, u oila, mahalla,
-    ta’lim muassasalari va jamiyat bilan chambarchas bog‘liq holda olib boriladi.
-  </p>
-  <p>
-    Ushbu modulda xalq tajribasiga tayangan holda tarbiya metodlari,
-    ularning zamonaviy ta’lim bilan uyg‘unlashuvi yoritiladi.
-  </p>
-</div>
-
-<!-- TEST -->
-<div class="card" id="test">
-  <h2>Test savollari</h2>
-  <div class="question">
-    <label>1. Xalq pedagogikasida tarbiyaning asosiy manbai nima?</label>
-    <div class="options">
-      <label><input type="radio" name="q1" value="1"> Xalq tajribasi va qadriyatlari</label>
-      <label><input type="radio" name="q1" value="0"> Faqat darsliklar</label>
+<section class="modul-bosh" style="--rang-a:#96501F;--rang-b:#6D3915">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">6-modul</span>
+    <h1>Xalq pedagogikasi va xalq og‘zaki ijodida dostonlar</h1>
+    <p class="ost">«Alpomish», «Go‘ro‘g‘li» va boshqa dostonlarning tarbiyaviy ahamiyati.</p>
+    <div class="meta">
+      <span>📖 1,812 so‘z</span>
+      <span>🎮 Juftlash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
     </div>
   </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html" class="faol">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasi va xalq og‘zaki ijodida dostonlar.</li><li>Dostonlarning tarbiyaviy ahamiyati.</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>Bolalar o`yinlari</li><li>donishmandlik. odobnoma</li><li>harbiy sport mashqlari</li><li>harbiy – jismoniy tarbiya</li><li>mehnat tarbiyasi</li><li>mehnat mazmuni</li><li>nafosat tarbiyasi badiiy og‘zaki ijod</li><li>o‘zbek folklorshunosligi</li><li>baxshi ijrosi</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/7FuWwcIkLko"
+    title="Abdunazar baxshi — «Alpomish» dostoni, 1-qism" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
-
-<!-- WRITING -->
-<div class="card" id="writing">
-  <h2>Yozma savol</h2>
-  <label>
-    Xalq pedagogikasining tarbiyadagi ahamiyatini o‘z fikringiz bilan yozing:
-  </label>
-  <textarea id="text1"></textarea>
+<p class="media-izoh">Abdunazar baxshi — «Alpomish» dostoni, 1-qism · <span>ALPOMISH MEDIA</span></p>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/2dF0gLGjx0Y"
+    title="«Alpomish» dostoni — Shoberdi baxshi ijrosi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
-
-<button onclick="checkAll()">Natijani tekshirish</button>
-<div class="result" id="result"></div>
-
+<p class="media-izoh">«Alpomish» dostoni — Shoberdi baxshi ijrosi · <span>baygobek</span></p><div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/WCZ4at28iR4"
+    title="«Alpomish» xalq dostoni asosidagi film" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
+<p class="media-izoh">«Alpomish» xalq dostoni asosidagi film · <span>ALPOMISH MEDIA</span></p>
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Ming yillik madaniyatimiz tarixida xalqimiz badiiy tafakkurining mahsuli sifatida yuzaga kelgan nafis so‘z san’ati durdonalari behisob. Ana shu ma’naviy namunalarni o‘zida mujassam etgan badiiy og‘zaki ijod turlaridan biri eposdir. Epos mazkur xalq haqidagi barcha ma’lumotlarni qomusiy qamrab oluvchi janrdir. «Ta’lim to‘g‘risida»gi Qonunda yosh avlodni ma’naviy, jismoniy barkamol qilib tarbiyalashda qadimiy, milliy qadriyatlarning o‘rni alohida ta’kidlangan. Bu qadriyatlarning tarkibiy qismi bo‘lgan dostonlar yoshlarga insoniy fazilatlarni singdirishda, ularni komil inson qilib tarbiyalashda katta ahamiyatga ega.</p>
+<p>O‘zbek xalq og‘zaki ijodida dostonlar avlodlar dunyoqarashi va pedagogika olamining ko‘zgusi bo‘lib, komil insonni tarbiyalashda o‘ziga xos bebaho qadriyatlardan biri hisoblanadi. Zero, xalq dostonlari qahramonlarining sarguzashtlari, ularning qiyinchiliklarni engib, har jihatdan chiniqib borishi har bir yosh uchun ibratdir. Dostonlar xalqning o‘zligini, tilini, urf-odatlarini, qadriyat va an’analarini ifodalab beruvchi ko‘zgu ekanligini yuqorida ta’kidladik. Xalq donishmandligi ruhi bilan sug‘orilgan dostonlarni chuqur va atroflicha o‘rganish esa yosh avlodning ma’naviy kamolotini yuksaltirishga xizmat qiladi.</p>
+<p>O‘zbek folklorshunosligida xalq dostonlarini o‘rganish bo‘yicha ilmiy tadqiqot olib borilyapti, maqolalar chop etilgan, bu izlanishlar o‘z navbatida dostonlarning haqiqiy mohiyatini olishga yordam beradi.</p>
+<p>«Doston» so‘zi qissa, hikoya, shonu-shuhrat, sargo‘zasht, ta’rif va maqtov ma’nolarida ishlatiladi. Adabiy termin sifatida yirik hajmli etik asar nazarda tutiladi. Dostonlarnda tasvirlangan voqea-hodisalar yakka shaxs favqulodda kuch qudratga ega bo‘lgan xalq idealidagi bahodir atrofiga birlashtiriladi. Badiiy adabiyotda asosan ikki usulda yaratilgan dostonlar bor. Birinchisi, asrlar davomida xalq og‘zaki ijodida baxshilar tomonidan og‘zaki tarzda kuylanib kelingan dostonlar bo‘lsa, ikkinchisi, yozma shaklda shoirlar tomonidan ijod qilingan dostonlardir. Masalan, «Alpomish», «Go‘ro‘g‘li» turkumidagi dostonlar «Malikai ayyor», «Ravshan», «Kuntug‘mish», «Rustamxon» kabilar og‘zaki dostonlar namunalaridir. Yusuf Xos Xojibning «Qutadg‘u bilig», Haydar Xorazmiyning «Gul va Navro‘z», A.Navoiyning «Xayratul abror», «Farhod va SHirin», «Layli va Majnun» kabi asarlari esa yozma adabiyotdagi dostonlar hisoblanadi. Og‘zaki ijoddagi dostonlarni baxshilar kuylaydilar. Qadimda «Baxshi» so‘zi xalqona usullar bilan bemorni davolovchi «tabib», ayrim hududlarda «ustoz» ma’nolarini anglatgan. Bugungi kunda xalq dostonlarini kuylaydigan san’atkor ma’nosini bildiradi. Dostonlar ham she’riy ham nasriy parchalardan bo‘lib, baxshi soz chertganda sozanda, she’riy parchalarni kuyga solib aytganda xonandaga aylanadi. Ijrochi baxshilar do‘mbira, tor, dutor chalib, qo‘biz chertib doston aytganlar. Shu bois dostonchilik kechalari har tinglovchi uchun katta bayram bo‘lgan. Bunday kechalarda odamlar o‘rtasidagi hamma ginaxonliklar unutilgan, turmush tashvishlari chekingan. Fozil Yo‘ldosh o‘g‘li, ergash Jumanbo‘lbo‘l o‘g‘li, Islom shoir, Po‘lkan shoir, Amat baxshi, Murod baxshi, Qurbannazar Abdullaev (bola baxshi) kabi folklorshunoslar tomonidan o‘zbek xalq baxshilaridan 150 dan ortiq (variantlari bilan 400 dan ortiq) dostonlar yozib olingan bo‘lib, ularning ko‘pchiligi alohida-alohida kitoblar sifatida nashr etilgan. Dostonlar mazmuniga ko‘ra ham bir necha turlarga tavsiflanadi. Jumladan:</p>
+<blockquote>Qahramonlik dostonlari: «Alpomish», «Yodgor».<br>Jangnoma dostonlar: «Yusuf bilan Ahmad», «Alibek bilan Bolibek», «Xoldorxon» va b.<br>Romantik dostonlar: «Rustamxon», «Murodxon», «Kuntug‘mish», «Go‘ro‘g‘li» va b.<br>Tarixiy dostonlar: «Edega», «SHayboniyxon», «Oychinor» va b.</blockquote>
+<p>Kitobiy dostonlar: «Layli va Majnun», «Farhod va SHirin», «Zevarxon», «Oshiq G‘arib va SHoxsanam»,«Sayyod va Hamroh» va b.</p>
+<p>Dostonlarda ezgulik, ozodlik, vatanparvarlik, xalqparvarlik, qahramonlik kabi insoniy g‘oyalar mislsiz mahorat bilan tarannum etilgan va insonni hamisha ma’naviy kamolot sari etaklagan.</p>
+<p>Ana shunday umrboqiy asarlardan biri «Alpomish» dostonidir. O‘n asrki bu doston nafaqat xalq tilida balki xalq dilida yashab keladi. Filolog M.Qo‘shmoqovning yozishicha: «Alpomish alp bo‘lgan uchun ming yillar davomida xalq yuragida o‘lmay yashab keladimi? Aslo! Alplik Alpomitsh obarizining bir qirrasi xolos. Alpomish aslida ma’naviyat qahramonidir. U vatan mustaqilligi, xalqning ma’naviy birligi uchun ozodlik, ezgulik, tinchlik kurashgan qahramon… Ma’naviyat qahramoni bo‘lgani tufayli ham u xalqning ideal qahramoniga aylandi. Shuning uchun o‘zbek xalqi o‘z tarixining eng qora kunlarida ham Alpomishni yuragida saqladi, undan madad oldi. Undan ibrat qilib Alpomish o‘g‘illarni, Barchin qizlarni voyaga etkazdi».</p>
+<p>«Alpomish» dostonida ishq - muxabbat, jang lavhalari, tarixiy ma’lumotlar bor, ma’lu sabab bilan ajalib ketgan xalqni birlashtirish yo‘lida xizmat ko‘rsatgan xalq farzandining yurt ozodligi, elni birlashtirish maqsadidagi safarlari, o‘zidan son va kuch jixatidan ustun turgan dushman bilan olishuvlar aks etadi. Dostonda kattalarni hurmat qilish, kichiklarni izzat qilish kabi ibratli tarbiyaviy tushunchalar, oilada farzandlar fikriga quloq solish, ular bilan maslahatlashish, aka-ukalar o‘rtasidagi munosabatlar ham tasvirlangan. Shuningdek, o‘zbekning kadimiy urv-odatlaridan bo‘lgan sovchilarni kutish, mexmon qilish, ularning hurmatini joyiga qo‘yish, izzatini qilish, shirinso‘zlik bilan muomala qilish kabi axloqiy hislatlar ham o‘z ifodasini topgan.</p>
+<p>Dostondagi qaxramonlik jasoratlarini Barchin obrazida ham khrishimiz mumkin. Barchin alplarning eng zo‘ri Ko‘kaldoshdan olti oy muhlat so‘raydi, ular ko‘nishadi; o‘n yigitga o‘n bedov otni berib xat yozib Alpomishga jo‘natadi: «Olti oychalik yo‘lga keldim, qalmoqning eliga keldim, zo‘r yovning qo‘lida qoldim, olti oylik muhlat oldim, mendan umidi bo‘lsa, Alpomish kelsin, bo‘lmasa javobimni bersin», -deydi. Doston yoshlarga yoriga vafodorlik, sadoqatlik kabi hislatlarni shakllantirishda ham muhim vosita sanaladi.</p>
+<p>Dostonda aka-singil o‘rtasida mehr-oqibat, oila sha’nini himoya qilish, singilning akaga mehri kabi hislatlar ham ifodalangan. Alpomishning singlisi Qaldirg‘och «ahmoq qalmoq» elida to‘qson alpning orasida talash bo‘lib, ular zug‘umidan azoblar ichra o‘rtangan Barchinni qutqarmoqqa shoshilmagan akasidan o‘pkalab, unga so‘z tg‘ini sanchadi: «Aka, aytgan so‘zim og‘ir olmagin, Nar-moda ishini bunda qilmagin», - deydi. SHunda Qaldirg‘och o‘sha gaplarni yanada qamchinliroq qilib aytadi:</p>
+<blockquote>«Har kim o‘z elida bekmi, to‘rami,<br>Nar – modalar sendan kamroq bo‘lami,<br>Mardning yori toy talashda qolami?»</blockquote>
+<p>Ayni, «nar-moda», ya’ni «erkak-urg‘ochi» so‘zi o‘zining ta’nador qudrati bilan yigitning hamiyatini uyg‘otib, Alpomishni Boychiborga mindiradi, Barchinni ozod qilishga otlanib, shijoat bilan elib boradi:</p>
+<blockquote>«Dubo‘lg‘a boshda dungullab,<br>Kark qubba qalqon qarqillab,<br>Tilla poyanak urilgan<br>O‘zanglarga sharqillab,<br>Bedov otlari dirqillab,<br>Olg‘ir qushdayin charqillab,<br>Qulda nayzasi so‘lqillab,<br>Yurmoqchi uzoq yo‘liga,<br>Qaramay o‘ngu so‘liga,<br>Etsam deb yorning eliga<br>Siltab yuradi Boychibor…<br>Yo‘l yurar davlatli shunqor…»</blockquote>
+<p>Alpomish Qalmoqshox yurtiga borib, Qorajon bilan do‘st tutunadi, u Alpomish nomidan Barchinoyga sovchi bo‘lib boradi va shunday deydi:</p>
+<p>- «Qani, Barchin, Alpomish bo‘lsa keldi, alplarning muhlati bo‘lsa bitib qoldi, sen nima javob aytasan?» Barchin aytadi: «Alpomish kelsa kelibdi-da, Alpomish keldi deb men Alpomishning etagidag ushlab keta berayinmi? Bu alplar ham umid bilan olti oyga muhlat bergan. Har kim maydonga ot soladi. Mening to‘rt shartim bor, shu shartimni bajargan kishiga tegaman. Hohi Alpomish qilib olsin, hohi Qalmoqlarning biri qilib olsin. SHu so‘zimni xon to‘ramga aytib bor»,-deydi.</p>
+<p>Barchin qanchalik Alpomishni sevsa ham, lekin o‘zbekona hayo bilan hamma qatori shartni bajarishini talab qiladi. Dostondagi bu parcha qizlarimizni iboli, hayoli, iffatli, or-nomusli qilib tarbiyalashda juda ahamiyatlidir.</p>
+<p>Barchin alplarga 4ta shart qo‘yadi: «Poyga qilaman, otini o‘zdirganga tegaman; kurashda alplarning barini yiqqanga tegaman; yoy tortishsa yoyi sinmay qolganga tegaman, ming qadamda tanga pulni urgan qarag‘ay merganga tegaman»,-deydi. Dostondagi qaxramonlik jasoratlari mana shu to‘rtda shartni bajarishda o‘z ifodasini topadi.</p>
+<p>«Alpomish» dostoni o‘zbek xalqining sevikli dostoni bo‘lgani bejiz emas. Undagi voqealar hayotiyligi va ta’sirchanligi bilan ajralib turadi, mardlik, fidoiylik, samimiyat, to‘g‘rilik, hamiyatlilik, do‘stga sodiqlik, yorga vafodorlik, vatanparvarlik va mehnatsevarlik kabi insoniy fazilatlardan iborat bo‘lgan o‘zbek milliy ruhiyati yaqqol ko‘rinadi.</p>
+<p>«Alpomish» dostonining 1000 yilligi 1999 yilda Termizda nishonlandi. Taniqli tilshunos olim Nizomiddin Maxmudov ta’kidlaganlaridek, «Turkiy tarixning eng chuqur qatlamlaridan ibtido olgan bu doston o‘zbekning o‘lmas so‘zi timsoli sifatida munavvarlik olib kiradi. CHinakam xalq so‘zining umri boqiydir».</p>
+<p>Xalq dostonlarining juda katta qismi sevgi sargo‘zashtlarini tasvirlashga bag‘ishlanadi. Ishqiy – romantik dostonlarda voqea tuguni oshiqning ma’shuqa xakida xabar topishdan boshlanadi. Masalan, «Ravshan» dostonida Ravshan Zulxumorni uzukda ko‘rib qoladi. «Kuntug‘mish»da Holbeka yigitni tushida ko‘radi, Kuntug‘mish qizning sur’atiga oshiq bo‘lib qoladi, ya’ni bir birini ko‘rmagan odamlar o‘rtasida g‘oyibdan sevgi paydo bo‘ladi. Sar sevgi esa hamisha odamni qaxramonlikka, jasurlikka, jasoratga undaydi.</p>
+<p>«Zevarxon» dostonida Zevar va Malikai Xubon o‘rtasidagi chuqur insoniy munosabatlar, visol va xijron, vafo va sadoqat, do‘stlik tarannum etiladi.</p>
+<p>«Kuntug‘mish» dostonida yoshlarni kasb – hunar o‘rganishga undovchi misralar behisob. Qilichxon laqabli podshoning Kuntug‘mish degan yolg‘iz o‘g‘li bo‘lib, o‘n to‘rt yoshga to‘lguncha ilm – hunar o‘rganadi, kasb-kamolot hosil qiladi. O‘n to‘rt yoshdan keyin esa qilichbozlik, miltiq otish, nayzabozlik, ko‘pkari chopish kabi sipohilik hunarlarini o‘rganadi, har tomonlama komil shahzoda bo‘lib etishadi.</p>
+<p>«Ravshan» dostoni ham ishqiy – sargo‘zasht dostondir. Bu doston ham «Go‘ro‘g‘li» turkumiga mansub, «Ravshan» pok va samimiy muhabbatini kuylovchi maqsadga erishish yo‘lida mardlik va botirlikni ulug‘lovchi, zulm va adolatsizlikni qoralovchi asardir.</p>
+<p>«Malikai ayyor» dostoni ham «Go‘ro‘g‘li» turkumiga kiradigan dostonlardan biri. Unda muhabbat hongomalari va ishqiy sargo‘zashtlar serob. Dostonda or-nomus, imon-e’tiqod, insoniy iroda, chidam, topqrlik singari ezgu ma’naviy sifatlar tasvirlanadi. O‘zbek yigitlariga xos eng olijanob fazilatlar Avaz timsolida aks etgan. Dostonda xalq maqol, matal va qo‘shiqlaridan juda keng foydalanilgan.</p>
+<p>«Oysuluv» dostonidagi Oysuluv o‘zbek xotin - qizlarining umumlashma obrazidir. Uning hozirgi zamon xotin - qizlariga ibrat bo‘luvchi go‘zal xslatlari juda ko‘p. Masalan, Oysuluv o‘g‘lining zindonband bo‘lganini eshitib esankirab qolmaydi, balki sabr – toqat qilib, mulohaxa blan ish ko‘radi, qo‘rqmay eron elchilariga qarata: «Men Turon mamalakatimni, elu – xalqimni unga bermayman!»-deb xitob qiladi.</p>
+<p>Yuqorida sanab o‘tilgan dostonlarning barchasi chin insoniy fazilatlarni shakllantirishda xalq pedagogikasining eng muhim manbalaridan ekanigi bejiz emas.</p>
+<p>Dostonlar xalqimizning o‘ziga xos badiiy tarixi bo‘lib, tarixiy – madaniy ahamiyati tengsizdir. Ularda xalqimizning asrlar bo‘yi qilgan orzu-umidlari, kelajak xakidagi uy-fikrlari mujassamlashgan. Xalq dostonlari milliy iftixor va o‘z-o‘zini anglash, vatanparvarlik, o‘zaro ishonch, do‘stlik tuyg‘ularini tarbiyalashda juda katta g‘oyaviy-estetik vazifani o‘taydi.</p>
+<p>Xalq dostonlari o‘zbek xalqi madaniyati rivojida ham katta ahamiyatga ega. Dostonlar motivlari asosida doamalar va badiiy filmlar yaratildi. Dostonlar yozuvchilar, shoirlar, dramaturglar, kinomatograflar, rassomlar, xaykaltaroshlar, fan va madaniyat arboblari uchun bitmas – tugalmas ijod tashmasidir.</p>
+<p>Dostonlar ko‘rib turganimizdek, yigitlarimizni mardlikka, jasurlikka, mehnatsevarlikka chorlaydi. Shuningdek, do‘stga vafodorlik, aka-uka o‘rtasidagi mehribonlik, ota-onaga fidoyi bo‘lishga o‘rgatadi. Masalan, aka-uka o‘rtasidagi mehribonlik «Kuntug‘mish» dostonida Turkiboy va Mohiboy obrazlarida do‘stlar o‘rtasidagi sadoqatlik «Zevarxon» dostonida Zevarxon va Xasanxon, «Alpomish» dostonida Alpomish va Qorajon obrazlarida tasvirlangan.</p>
+<p>Dostonlarda ko‘plab hikmatli so‘z va maqollarni uchratish mumkin. Masalan: «G‘aribning ko‘nglini ovlamoq savob», «Qilichdan seskanmas botirning tani», «Kamlikning kamoli bordir, manmanning savoli bordir», «Yaxshilarning yuzin ko‘rsang jannatdir, yomon odam qilgan ishi minnatdir», «O‘zingdan kattani uchratsang ter bil, o‘zingni er bilsang, birovni sher bil» kabilar shular jumlasidandir. Xususan. «Alpomish» dostonida xalq donoligining durdonalari – xikmatli so‘zlar juda serob. Ularni xalqimiz boshidan o‘tkazgan tajribalar asosida yuzaga kelgan xulosalar desak adashmaymiz.</p>
+<blockquote>«Kuchuk bosmas yo’lbars-sherning izini,<br>Esi bor biladi gapning to‘zini»;<br>«To o‘lguncha so‘ylab qolgan til bo‘lsin,<br>G‘animning shavkati kuyib kul bo‘lsin»;<br>«Dam shu damdir, o‘zga damni dam dema,<br>Boshing eson, davlatingni kam dema»;<br>«Davlat qunsa bir chibinning boshiga,<br>Semurg‘ qushlar solom berar qoshiga»;<br>«Sozandalar sozin chertar qul bilan,<br>Yomon odam kuydiradi til bilan»;<br>«Xozon bo‘lsa, zog‘lar qo‘nar gulshanga»;<br>«Gul ketar bo‘lsa, guliston emranar,<br>Shahar vayron bo‘lsa sulton tebranar<br>Mol borida hamma odam do‘st edi,<br>Boshdan davlat qaytsa tuqqan emranar»</blockquote>
+<p>Dostonlar mavzusiga singdirilgan yuqoridagi kabi maqollar va xikmatli so‘zlarning axloqiy tarbiyadagi ahamiyati cheksizdir. Ishqiy romantik dostonlar yoshlarni sevgida vafodor, do‘stga sadoqatli qilib tarbiyalasa, qaxramonlik va jangnoma dostonlar yoshlarda insonparvarlik, vatanparvarlik kabi chin insoniy fazilatlarni shakllantirishga xizmat qiladi.</p>
+<p>Go‘zal xulq, mukammal ma’naviy axloqiy fazilatlarni har bir insonda mujassam bo‘lishi ta’lim tarbiyaga bog‘liq. Mazkur qo‘llanmaning ikkinchi mavzusida ta’kidlanganidek, yuksak ma’naviy axloqli yoshlarni tarbiyalashda xalq pedagogikasining boshqa manbalari qatori dostonlarning tarbiyaviy ahamiyatini ta’lim tarbiya jarayoniga singdirishimiz lozim.</p>
+<p>Xalq dostonlarida milliy an’analar, urf – odatlar, insoniy qadriyatlar doim ijobiy obrazlar, xatti – harakatlari bilan bog‘lab tasvirlanadi, ular timsolidi adolatparvarlik, rostgo‘ylik, mardlik, insonga mehr-muhabbat bilan qarash, halollik, vafodorlik, turli elatlar va xalqlarning birodarligi, do‘stlik va samimiyat kabi hislatlar mehnat tarbiyasi, jismoniy kamolot, aqliy va axloqiy sifat ulug‘lanadi. Dostondagi ijobiy qaxramonlarni xalq o‘z donishmandlarina aylantirdi.</p>
+<p>Demak, dostonlarda ilgari surilgan muhim g‘oyalar, ijobiy qaxramonlar timsolida mujassamlashgan insoniy fazilatlar, milliy qadriyatlar hozirgi yosh avlodni tarbiyalashda muhim ahamiyat kasb etadi. Qadimgi ishonch-e’tiqodlar, urf-odatlar, udumlar mohiyatini kelajak avlodga etkazishning eng samarali yo‘li ham xalq og‘zaki ijodi durdonalaridan unumli foydalanishdan iboratdir. Zero, dostonlar turli ramziy obrazlar orqali o‘tmishimiz bilan hozirimizni bir biri bilan chambarchas bog‘lab turadi, yoshlarga estetik did va zavq bog‘ishlashdan tashqari axloqiy shuurini ham uyg‘otadi.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="6">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>1. Quyidagi ish qog‘ozi asosida “Tizimlashtirish” metodi yordamida talabalarning” Dostonlar “ haqidagi bilim, ko‘nikma, malakalari (BKM)ni tashhislashga doir tushunchalarni ifodalang.</p>
+<p>Ish qog‘ozi</p>
+<div class="jadval-o"><table><thead><tr><th>Talabalarning “ Dostonlar” haqidagi BKMni tashhislash</th><th></th><th></th><th></th></tr></thead><tbody><tr><td>Tushunchalar</td><td>Tushunchalar</td><td>Tushunchalar</td><td>Tushunchalar</td></tr></tbody></table></div>
+<p>2. Quyidagi ish qog‘ozi asosida “Ikki sahifali kundalik” metodi yordamida talabalarning bilim, ko‘nikma, malakalari (BKM)ni tashhislashga doir tushunchalarni ifodalang.</p>
+<p>Ish qog‘ozi</p>
+<div class="jadval-o"><table><thead><tr><th>Talabalarning “ Dostonlar” haqidagi BKMni tashhislash</th><th></th></tr></thead><tbody><tr><td>Tushunchalar</td><td>Ularning ta’rifi</td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Dostonlarning yaratilish tarixi haqida nimalarni bilasiz?</li><li>Dostonlarda ilgari surilgan tarbiyaviy g‘oyalar haqida gapirib bering.</li><li>Dostonlarning necha turi mavjud?</li><li>Dostonlarda xalq madaniyatini tasvirlanishi.</li><li>Dostonlarning tarbiyaviy ahamiyati.</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="6">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,M.Nishonov ” Pedagogika”T;Talqin 2008 y</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-5.html"><span class="yon">← 5-modul</span><span class="nom">Xalq pedagogikasi va o‘zbek xalq og‘zaki ijodi</span></a><a class="keyingi" href="modul-7.html"><span class="yon">7-modul →</span><span class="nom">Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <div class="bottom-nav-inner">
-    <a href="modul-5.html">⬅ modul 6</a>
-   <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-7.html">➡ modul 7</a>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
   </div>
-</div>
+</footer>
 
-<script>
-function checkAll(){
-  let score=0;
-  if(document.querySelector('input[name="q1"]:checked')?.value=="1") score++;
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-  let text=document.getElementById("text1").value.toLowerCase();
-  let keywords=["xalq","tarbiya","milliy","qadriyat","tajriba"];
-  let match=0;
-  keywords.forEach(k=>{ if(text.includes(k)) match++; });
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-  let percent=Math.min(100,(score*50)+(match*10));
-  document.getElementById("result").innerHTML =
-    "Yakuniy baho: <strong>"+percent+"%</strong>";
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

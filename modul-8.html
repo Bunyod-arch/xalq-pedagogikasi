@@ -2,338 +2,204 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>8-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(circle at 20% 10%, #123 0%, transparent 40%),
-    radial-gradient(circle at 80% 30%, #062 0%, transparent 45%),
-    #04070d;
-  color:#e5e7eb;
-  padding:100px 20px 170px;
-}
-
-/* ===== TOP NAV ===== */
-.top-nav{
-  position:fixed;
-  top:0;left:0;width:100%;
-  z-index:999;
-  background:rgba(4,7,13,.7);
-  backdrop-filter:blur(18px);
-}
-.top-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.top-nav a{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:10px 18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.08);
-  font-size:14px;
-}
-.top-nav a:hover{background:rgba(34,197,94,.35)}
-
-/* ===== LAYOUT ===== */
-.container{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:70px;
-}
-
-h1{
-  text-align:center;
-  font-size:clamp(30px,4.5vw,50px);
-  font-weight:900;
-  letter-spacing:.18em;
-  background:linear-gradient(90deg,#fff,#22c55e,#38bdf8,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* ===== TIMELINE ===== */
-.timeline{
-  display:flex;
-  flex-direction:column;
-  gap:60px;
-  position:relative;
-}
-.timeline::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:0;
-  bottom:0;
-  width:2px;
-  background:linear-gradient(#22c55e,#38bdf8);
-  opacity:.3;
-}
-
-.step{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-.step:nth-child(even){
-  direction:rtl;
-}
-.step:nth-child(even) *{
-  direction:ltr;
-}
-
-.card{
-  padding:38px;
-  border-radius:36px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.12),
-    rgba(255,255,255,.03)
-  );
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.18),
-    0 60px 160px rgba(0,0,0,.9);
-}
-
-.card h2{
-  font-size:26px;
-  margin-bottom:18px;
-  letter-spacing:.08em;
-}
-
-.card p{
-  font-size:16px;
-  line-height:1.95;
-  margin-bottom:16px;
-  opacity:.95;
-}
-
-/* ===== TEST ===== */
-.test-card{
-  margin-top:20px;
-}
-.question{
-  margin-top:18px;
-}
-.question label{
-  display:block;
-  font-weight:700;
-  margin-bottom:8px;
-}
-.options label{
-  display:block;
-  margin-bottom:6px;
-}
-
-textarea{
-  width:100%;
-  min-height:160px;
-  border-radius:22px;
-  padding:16px;
-  border:none;
-  font-size:15px;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-}
-
-/* ===== BUTTON ===== */
-button{
-  margin-top:30px;
-  padding:18px 40px;
-  border:none;
-  border-radius:28px;
-  background:linear-gradient(90deg,#22c55e,#38bdf8);
-  color:#000;
-  font-size:17px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-/* ===== RESULT ===== */
-.result{
-  margin-top:26px;
-  font-size:22px;
-  font-weight:900;
-}
-
-/* ===== BOTTOM NAV ===== */
-.bottom-nav{
-  position:fixed;
-  bottom:0;left:0;width:100%;
-  z-index:999;
-  background:linear-gradient(
-    to top,
-    rgba(4,7,13,.95),
-    rgba(4,7,13,.6),
-    rgba(4,7,13,0)
-  );
-  backdrop-filter:blur(16px);
-}
-.bottom-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  gap:18px;
-}
-.bottom-nav a{
-  flex:1;
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:20px 22px;
-  border-radius:26px;
-  text-align:center;
-  font-weight:800;
-  background:rgba(255,255,255,.08);
-}
-.bottom-nav a:hover{background:rgba(34,197,94,.4)}
-
-@media(max-width:900px){
-  .timeline::before{left:10px}
-  .step{grid-template-columns:1fr}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8-modul. Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati | Xalq pedagogikasi</title>
+<meta name="description" content="Milliy o‘yinlar orqali jismoniy, aqliy va jamoaviy fazilatlarni shakllantirish.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<!-- TOP NAV -->
-<div class="top-nav">
-  <div class="top-nav-inner">
-    <a href="#s1">1-bosqich</a>
-    <a href="#s2">2-bosqich</a>
-    <a href="#s3">3-bosqich</a>
-    <a href="#test">📝 Test</a>
-    <a href="dars.html">⬅ Darslar</a>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
+
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main id="asosiy">
 
-<h1>8-MODUL · XALQ PEDAGOGIKASI</h1>
-
-<div class="timeline">
-
-<!-- STEP 1 -->
-<div class="step" id="s1">
-  <div class="card">
-    <h2>Xalq pedagogikasida tarbiya tizimi</h2>
-    <p>
-      Xalq pedagogikasida tarbiya uzluksiz va hayot bilan chambarchas bog‘liq jarayon
-      sifatida qaraladi. Tarbiya insonning tug‘ilishidan boshlab umrining oxirigacha
-      davom etadi va avloddan-avlodga o‘tib boradi.
-    </p>
-    <p>
-      Oila, mahalla, mehnat jamoasi va ta’lim muassasalari xalq pedagogikasining
-      asosiy tarbiya institutlari hisoblanadi.
-    </p>
-  </div>
-</div>
-
-<!-- STEP 2 -->
-<div class="step" id="s2">
-  <div class="card">
-    <h2>Tarbiya metodlari va usullari</h2>
-    <p>
-      Xalq pedagogikasida tarbiya hikmat, nasihat, ibrat, maqol, ertak,
-      mehnat jarayoni va marosimlar orqali amalga oshiriladi.
-    </p>
-    <p>
-      Bu metodlar o‘quvchining ongiga tabiiy ravishda singadi va
-      majburiyliksiz ta’sir ko‘rsatadi.
-    </p>
-  </div>
-</div>
-
-<!-- STEP 3 -->
-<div class="step" id="s3">
-  <div class="card">
-    <h2>Zamonaviy ta’lim bilan uyg‘unlik</h2>
-    <p>
-      Zamonaviy pedagogika xalq pedagogikasining boy tajribasini
-      innovatsion texnologiyalar bilan uyg‘unlashtirishi zarur.
-    </p>
-    <p>
-      Bu uyg‘unlik o‘quvchilarda milliy ong va global fikrlashni
-      bir vaqtda rivojlantiradi.
-    </p>
-  </div>
-</div>
-
-</div>
-
-<!-- TEST -->
-<div class="card test-card" id="test">
-  <h2>Mustahkamlash testi</h2>
-
-  <div class="question">
-    <label>1. Xalq pedagogikasida tarbiya qaysi jarayon sifatida qaraladi?</label>
-    <div class="options">
-      <label><input type="radio" name="q1" value="1"> Uzluksiz jarayon</label>
-      <label><input type="radio" name="q1" value="0"> Vaqtinchalik jarayon</label>
+<section class="modul-bosh" style="--rang-a:#2F6B45;--rang-b:#1E4A2E">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">8-modul</span>
+    <h1>Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati</h1>
+    <p class="ost">Milliy o‘yinlar orqali jismoniy, aqliy va jamoaviy fazilatlarni shakllantirish.</p>
+    <div class="meta">
+      <span>📖 2,079 so‘z</span>
+      <span>🎮 Juftlash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
     </div>
   </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html" class="faol">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasida milliy o‘yinlarning mazmuni va tarbiyaviy ahamiyati</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>o‘yin</li><li>o‘yinning mohiyati</li><li>chumurdi-qochdi</li><li>milliy o‘yinlar</li><li>etakchi faoliyat</li><li>jamoaviy o‘yinlar</li><li>ko‘g‘irchoq o‘yinlari</li><li>abstrakt tasavvur</li><li>loyporsildoq o‘yini</li><li>harbiy o‘yinlar</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/f9b8_6RO_xI"
+    title="«O‘zbek milliy xalq o‘yinlari — ajdodlar merosi»" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">«O‘zbek milliy xalq o‘yinlari — ajdodlar merosi» · <span>BuxDPI</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>O‘yin - inson faoliyatining ko‘rinishlaridan biridir. Murakkab va qiziqarli hodisa sifatida u turli kasbdagi kishilar diqqatini jalb etadi. O‘yin - inson o‘zligining namoyon bo‘lishi, uning takomillashuv usulidir. O‘yin kattalar hayotida muayyan o‘rin tutar ekan, u bolalar uchun alohida ahamiyatga egadir. Uni “bolalikning hamroxi” ham deb atash qabo‘l qilingan. U maktabgacha tarbiya yoshidagi bolalar hayotining asosiy mazmunini tashqil etadi, u mehnat va ta’lim bilan o‘zviy aloqada bo‘lgan holda etakchi faoliyat sifatida namoyon bo‘ladi. Bola shug‘ullanadigan ko‘pchilik jiddiy ishlar o‘yin shaklida bo‘ladi. O‘yinda shaxsdagi mavjud barcha jihatlar ishga tushadi: bola harakat qiladi, gapiradi, idrok etadi, o‘ylaydi; o‘yin jarayonida bolani xayoloti, xotirasi faol ishlaydi, ta’sirchanlik va iroda sifatlari namoyon bo‘ladi. O‘yin tarbiyaning muhim vositasi sifatida namoyon bo‘ladi.</p>
+<p>O‘yinning pedagogik nazariyasini uning mohiyati va xususiyatlarini chuqurroq tushungandagina yaratish mumkin.</p>
+<p>O‘tkazilgan tadqiqotlar o‘yin nazariyasining asosiy masalalarini birmuncha chuqurroq; yoritish imkonini beradi, chunonchi:</p>
+<p>1.O‘yinning mohiyati va o‘ziga xosligi.</p>
+<p>2.O‘yinning bola tarbiyasidagi o‘rni va uning bolalar bog‘chasidagi pedagogik jarayonda tutgan mavqei.</p>
+<p>Tabiyki, aqliy tarbiyaning samarali bo‘lishi ko‘p jihatdan oila, ota-ona, keksalar va ustozlarning tarbiyasiga bog‘liqdir. Ular jamiyatda, turmushda yuz bergan hodisalar natijasi bo‘lgan ko‘p yillik hayotiy tajribalarini yoshlarga o‘rgatib, bolalarni bilim egallashga va mehnat qilishga jalb qilganlar.</p>
+<p>Insoniyat tarixiy taraqqiyotining barcha davrlarida ham muayyan urug‘, qabila, elat yoki millat yashaydigan hududni begonalardan himoya qilish yashash tarzining muhim shartlaridan ana shu ruhda tarbiyalashga e’tibor qaratilgan. Bolalar o‘zlarining psixologik xususiyatlariga ko‘ra to voyaga etgunlaricha buning mohiyatini chuqur anglamaganliklari bois kattalarning Bu boradagi harakatlariga jiddiy yondashmaganlar va mas’uliyatni etarlicha his etmaganlar.</p>
+<p>Hudud uchun kurash hayot kechirish va tiriklikni ta’minlash uchun zaruriyat ekanligini chuqur anglagan kattalar esa bolalar, yoshlarda hududni qo‘riqlash, uni dushmandan himoyalash ko‘nikmalarini shakllantirishning samarali yo‘llarini izlagan-lar. Bunday samarali yo‘l sifatida bolalar faoliyatining asosiy ko‘rinishlaridan bo‘lgan o‘yinlar tanlangan. “.... Ibtidoiy odamlar mevalarni terib eb kun kechirish bilan mashg‘ul bo‘lgan davrda Bu sohaga oid ish tajribalari bilan birga o‘yin-musobalarga ham ehtiyoj sezila boshlangan.</p>
+<p>Birinchidan, mevalarni terib eyish davrida kim ko‘p va tez meva zahirasini yig‘sa, u to‘q bo‘lgan. Bu o‘ziga xos musobaqani vujudga keltirgan.</p>
+<p>Ikkinchidan, mohir terimchilar qariganda, ularga daraxt uchiga chiqib, xatarli shoxlarda turib, meva terish qiyin bo‘lgan. Bundan foydalangan qariyalar bolalarga meva terishni ish sifatida emas, balki o‘yin shaklida o‘rgatishgan.<sup class="izoh-ref"><a href="#izoh-21" id="ref-21" aria-label="21-izoh">21</a></sup></p>
+<p>Xalq og‘zaki ijodi namunalari merganlik, kamondan otish, nayza sanchish, kurash, qilichbozlik, ot yoki tuyalar ishtirokidagi poyga hamda uloqning ommaviy tadbirlarning tarkibiy ko‘rinishi bo‘lganligi, ular vositasida yoshlarda mardlik, epchillik, chaqqonlik, uddaburonlik, matonat kabi sifatlar tarbiyalan-ganligi, jangovarlik kayfiyati hosil qilinganligi to‘g‘risida hikoya qilinadi. Turli davrlarda yigitlarning jismoniy chiniqqanligi, ularning mard va jasur bo‘lishlariga jiddiy e’tibor qaratilganligi “Alpomish” va “To‘maris” dostonlarida keltirilgan quyidagi lavhalar ham isbotlaydi:</p>
+<p>Balog‘at yoshiga etgan Barchinoy unga uylanish niyatida bo‘lgan yigitlar oldiga shart qo‘yib, otlar ishtirokidagi poygada g‘olib chiqqan, ming qadam masofada turib, yoy bilan tanga pulni mo‘ljalga ola bilgan va kurash tushib to‘qson alp (bahodir)ni yiqitgan yigitga turmushga chiqishini aytadi;</p>
+<p>“Vaqt alla – palla bo‘lganda kuyov bilan kelinni ular uchun belgilangan soyabon aravaga chiqarish oldidan kurashtirib ko‘rishadi(bo‘lg‘usi kelin-kuyovlarning kuch sinashishi o‘zbeklar orasida yaqin kunlargacha saqlanib qolgan tortishmachoqning ibtidoiy shakli edi)”.<sup class="izoh-ref"><a href="#izoh-22" id="ref-22" aria-label="22-izoh">22</a></sup></p>
+<p>Tarixiy manbalarda qayd etilishicha, qadimdan “Qilich jangi”, “Tuya poyga”, “Tuyalar jangi”, “Otliqlar poygachi”, “Podachi”, “Poda to‘p”, “Jun to‘p”, “Chim to‘p”, “Chavgon” va boshqa o‘yinlardan yoshlarni jangovorlik va vatanparvarlik ruhida tarbiyalashda samarali foydalanilgan.</p>
+<p>O‘zbek xalq pedagogikasida aqliy tarbiyaning amalga oshirilishi shuni ko‘rsatadiki, bu sohada o‘yin faoliyati muhim rol o‘ynagan. Zero, bolalar tug‘ilganidan boshlab, ularda atrof-muhitni anglashga qiziqish uyg‘otishga ahamiyat berilgan. Ularga o‘sgan sayin bu qiziqish ham rivojlanib borgan. Natijada, bolalarda aql, xotira, ko‘p narsani bilishga havas, fikrni bir nuqtaga qaratish, mantiqiy fikrlash qobiliyati kengayib borgan, ular asta-sekin murakkab o‘yinlarni o‘ynay boshlaganlar.</p>
+<p>Qadimda o‘yin turlari, jumladan, qo‘shiq shaklida, qo‘z bog‘lash, o‘yinga da’vat etish, chek tashlash, og‘iz boylash, o‘rta qo‘limni top, sanoq kabi tarzda bo‘lgan. Qizlar juft-juft bo‘lishib, kaftlarini bir-biriga urib aylanishib “Chittigul” qo‘shig‘ini aytganlar:</p>
+<blockquote>Chitti gul-o, chittigul,<br>Hay-yu chittigul.<br>Chittigulga gul bosay,<br>Bir yonini yonbosay.<br>Hay-yu chittigul,<br>Hay-yu chittigul....<br>O‘g‘il bolalar esa:<br>Tomda tovuq qatormi,<br>Ayroningdan tortaymi?<br>O‘yin yoqmas bolalar,<br>Nomozshomdan qatormi?<br>Kel – ho!<br>Qo‘shig‘ini aytishib, o‘rtoqlarini o‘yinga da’vat etganlar:<br>Bir, ikki o‘n olti,<br>O‘n olti deb kim aytdi?<br>O‘n olti deb men aytdim,<br>Ishonmasang sanab boq....<br>Qo‘shig‘ini aytib sanoqni o‘rganganlar.</blockquote>
+<p>O‘zbek xalq pedagogikasida tez aytish – bolalar aqliy faoliyatini, fikrlash qobiliyatini va nutqini o‘stirishda muhim ahamiyat kasb etadi:</p>
+<blockquote>Qizarib pishgan olmadi,<br>Olmadan nega olmadi,<br>Olmagan xo‘p bo‘bdi,<br>Endi kelsa, olma de...<sup class="izoh-ref"><a href="#izoh-23" id="ref-23" aria-label="23-izoh">23</a></sup><br>Yoki:<br>G‘ani g‘ildirakni g‘izillatib g‘ildiratdi.<br>Olima olimdan olma oldimi,<br>Olima olimdan olma oldimi?<br>Eshik oldida bo‘loq, bo‘loqdan suv ichar uloq, o‘zun quloq.<br>To‘p-to‘p ko‘k koptok, har to‘p ko‘k koptokda bittadan katta koptok.<sup class="izoh-ref"><a href="#izoh-24" id="ref-24" aria-label="24-izoh">24</a></sup></blockquote>
+<p>O‘zbek xalqining uzoq yillar davomida aqliy tarbiyada qo‘llagan yaratilgan “Bekinmachoq”, “Quvlashmachoq”, “Zag‘izg‘on”, “Aylanma darra”, “O‘rta qo‘limni top”, “Kim chaqqon”, “Ayyor tulki”, “Tortishmachoq”, “YOshlom-yoshlom”, “Sarinchoq”, “Olma menda”, “CHumurdi - qochdi”, “Oq terakmi, ko‘k terak” va boshqa harakatli o‘yinlari yosh yigit-qizlarda harakat faolligini, mustaqillik, fikrlash, chaqqonlik, do‘stni himoya qilish, o‘hshatish, chamalash, so‘zlarni to‘g‘ri va bir vaqtda aytish, bir joyda turib turli harakatlarni bajarish kabi malaka va ko‘nikmalarni egallashga yordam berdi. Masalan, “Oq terakmi, ko‘k terak?” o‘yinida oralig‘i 10-12 metrli masofada 7-8 nafardan yoki undan oshiq bolalar saf tortib, ikki tomonda qo‘l ushlashib, zanjirsimon shaklda turishadi. Bir tomonda saf tortib turgan bolalar baravariga qo‘shiq qilib aytadilar:</p>
+<blockquote>Oq terakmi, ko‘k terak,<br>Bizdan sizga kim kerak?<br>Javob:<br>Oladigan jon kerak!<br>Yana javob:<br>Ol-o oladigan janingni!</blockquote>
+<p>Narigi tomonning bolalaridan bittasi o‘z to‘dasidan ajralib chiqib, to‘g‘ri biron bolaning qo‘liga uradi. Zanjirni o‘zadi yoki o‘zolmaydi, yo asir oladi yoki o‘zi asirlikda qoladi.</p>
+<p>“Chumurdi – qochdi” o‘yinida 4-5 bola qatnashadi. Bolalar ariq bo‘yicha keladilar. Shunda bolalardan biri “Chumurdi-qochdi” o‘ynaymiz deb taklif qiladi. O‘yin qoidasi bo‘yicha suvga kim kechikib tushsa. Shu chumiriladi (sho‘ng‘itiladi). Uch-to‘rt bola keyin tushgan bolani suv tagiga sho‘ng‘itib keyin qochib-so‘zib ketadilar. Chumurilgan bola boshqalarni quvadi. Kimni tutib olsa, endi shu chumuriladi.</p>
+<p>“Olma menda” o‘yinida esa bir necha bola suvga tushadi. Ulardan biri “Olma menda” deya sho‘ng‘ib ketadi. Keyin go‘yo olma qalqiyotgandek suvdan faqat boshini chiqarib yuboradi. Qolgan bolalar uni tutishga harakat qiladilar. “Olma menda” degan bola yana suv ostiga kirib qochadi davom etadi. Kim oldin haligi bolaning boshiga qo‘l tegizsa, olmani shu olgan hisoblanadi. U qochadi va bolalar uni tutishga urinadilar.<sup class="izoh-ref"><a href="#izoh-25" id="ref-25" aria-label="25-izoh">25</a></sup></p>
+<p>O‘zbek xalq pedagogikasining zukko tadqiqotchisi Zokir Mirtursunovning ta’kidlashicha, ov qilish o‘yinlari orqali tarbiyalashning ahamiyati juda kattadir: “Yoshlarni ov qilishga o‘rgatishning biz uchun qimmatli tomoni shundaki, ov qilishga bog‘liq bo‘lgan bir qator jismoniy mashq malakalari egallanadi. Ya’ni bola otda chopish ot ustida tik turish, yotish, ot yoniga og‘ish, otda chopa turib kamon va miltiqdan o‘q ota bilish va hakozo mashq malakasini egallagan bo‘lishlari zarur. Shu bilan birga ov qushlari ulardan, qirg‘iy, qarchig‘oy va ov iti – tozi itni boqish, ovga o‘rgatish hamda ulardan foydalanish yo‘llarini o‘rganish talab qilinadi. Yoshlarni ovga o‘rgatish, albatta, ma’lum tajribaga ega bo‘lgan kishilar tomonidan olib borilar edi”.<sup class="izoh-ref"><a href="#izoh-26" id="ref-26" aria-label="26-izoh">26</a></sup></p>
+<p>Xalq pedagogikasining asosiy qoidalaridan biri bolalarni o‘z tengqurlari muhitida tarbiyalashda turli o‘yinlardan foydalanilgan. Xalq pedagogikasi o‘yinlar jarayonida bolalarda qat’iylik. tirishqoqlik, halollik, rostgo‘ylik va adolatlilik tarkib topishini, shuningdek, o‘yinlarning bolalar o‘rtasida do‘stlik va o‘rtoklikni hamda boshqa olijanob fazilatlarni rivojlantirishini yaxshi bilgan.</p>
+<p>Boshqa xalqlardagi singari o‘zbek bolalarining o‘yinlari ham ularning jamoa bo‘lib qatnashuvini taqozo etishi ma’lum.</p>
+<p>Binobarin, shunday o‘yinlar jamoatchilik hissini tarbiyalashda, hamjihatlik bilan harakat qilish, umumiy qabo‘l qilingan normalar va qoidalarga bo‘ysunish malakalarini, ziyraklikni tarkib toptirishda katta ahamiyat kasb etadi. O‘yin qoidalari oldida barcha o‘yinchilar tengligi tuyg‘usini vujudga keltiradi.</p>
+<p>O‘g‘il va qiz bolalarning mehnatga doir o‘yinlari, jumladan, qizlar mehmonlarni kutib olish va mehmondorchilik odobi, o‘zaro insoniy muloqotlar, turmush masalalarini xal etish, to‘y va hokazolardan iborat turli xalq milliy urf-odatlari va an’analariga taqlid qilinadigan ko‘g‘irchoq o‘yinlarini o‘ynashi ular tarbiyasida juda muhim o‘rin tutadi. SHu o‘yinlar jarayonida bolalar kattalarning yaxshi xatti-harakatlarini va ishlarini takrorlaydilar. Ularning yaxshi so‘zlari - pand-nasihatlari, maslaxatlariga taqlid qiladilar (masalan, ona qo‘g‘irchoq orqali o‘z qiziga, ya’ni qo‘g‘irchoqning esa kizchaga o‘gitlar berishi va hokazo).</p>
+<p>Bolalar o‘yinlarida kattalar foydalanadigan mehnat qurollarining kichkina nusxalari, chorvadorlar, dehqonlar, hunarmandlar, ovchilar va boshqalarning mehnati jarayonlariga taqlid qilish katta o‘rin tutadi va bu hol ularni mehnatga psixologik hamda amaliy jihatdan tayyorlashda katta ahamiyat kasb etadi. SHuningdek, ko‘p o‘yinlar bolalar tafakkuri, idroki, xotirasi, zehni va abstrakt tasavvurini rivojlantirishda yordam beradi. SHu jihatdan ayrim manbalarda o‘zbeklarning juda qadimiy va o‘tmishda bolalar hamda yoshlar orasida bag‘oyat ommalashgan deya ta’riflangan turli o‘yinlari alohida qimmatga molik.</p>
+<p>Zero, umr ko‘klamidagi o‘yin murg‘aklarni ulg‘aytiradi, hayotga tayyorlaydi. Bu jarayon ming yillar davomida ruhiyatimizga singib, irsiyatimizga o‘tgan. SHu bois hunar ham suyak suradi, jumladan, kichkintoy o‘zi to‘la anglab etmagan holda ajdodlari shug‘ullangan kasb -hunarni egallashga beixtiyor intiladi va murg‘ak ongida shakllangan narsalarni yasashga urinadi. Bu sa’y-harakatlar odatda ko‘pincha o‘yinlar orqali amalga osha boradi. O‘yinlar esa turmush tarzimizni har tomonlama qamrab olgan. Masalan, ot o‘yin, qo‘tir echki, do‘ppi o‘yin, hammompish, tosh o‘yin, dastachilildak, uyakam o‘yin, loyparsildoq, qurmatoyov, ko‘ch-ko‘ch o‘yini va hokazo. Ro‘yxatni istalgancha davom ettirish mumkin.</p>
+<p>Chorvador oilasida tug‘ilgan o‘g‘il yugurib yuradigan bo‘lgach, novdani ot qilib minib, chopib o‘ynay boshlaydi. Uni ko‘rgan onalari yoki akalari:</p>
+<p>Toyi, toyi jijincharoq,</p>
+<p>Toy bo‘lib o‘yinqaroq, - deya erkalab, uni ruhlantiradi.</p>
+<p>Dehqon oilasida tug‘ilgan bolalar yozning issiq kunlarida to‘planishib, hammompish o‘ynashni yoqtiradilar. Bu o‘z nomiga monand "uysozlik o‘yini" bo‘lib, kichkintoylar tuproqni hammomning gumbazi shaklida uyib, rosa shapatilab, so‘ngra og‘izlarida suv keltirib, gumbaz ustiga oz-oz sepib, yana shapatilab, gumbazning ustki qismini qotirib qo‘shiq aytishadi:</p>
+<blockquote>Hammompish, hammompish,<br>Hammanikidan oldin pish.<br>Hammadan oldin pishmasang,<br>Bo‘zilib ket, o‘yilib tush!</blockquote>
+<p>Keyin bir tomonidan eshik ochib, gumbaz ichidagi xom tuproqlar qo‘l bilan chiqarib tashlanadi. Bunda pishiq shibbalangan gumbaz bo‘zilmay qoladi. Gumbazi bo‘zilmay qolgan "usta" ruhlanib, baqirib-chaqirib, oyoq-qo‘llarini harakatlantirib, qo‘shiq aytib yuboradi:</p>
+<p>Mening buvim: "Suv", - dedi,</p>
+<p>"Oyoq-qo‘ling yuv", - dedi.</p>
+<p>Bu o‘yin jarayonida norasidaning uysoz-ustachilikka bo‘lgan havasi orta boradi, mehnatga layoqati oshadi.</p>
+<p>Loyporsildoq o‘yini juda qiziq: loydan kosacha yasab, uni to‘nkarib turib, silliq erga urilsa, bu "idish" ichida siqilgan havo porsillab, boshmaldoqning tirnog‘icha joyni o‘pirib chiqadi, porsillagan tovush qancha baland chiqsa, jajjilarning quvnok shovqini shunchalik avjlanadi, turli-tuman, o‘zuq-yuluq qo‘shiqlarga ulanadi... Loy erga urilaverib, rosa pishigach, undan o‘zun chorqirra g‘ishtchalar tayyorlanadi va bir-biriga o‘xshamaydigan, har biri o‘ziga xos tarh asosida – qadimgi paxsa devor imoratlar andozasida uychalar yasaladi. Bu ham uysoz ustachilik hunariga bolaning qo‘lini o‘rgatib, ko‘zini pishitib boradigan o‘yinlardan biridir.</p>
+<p>O‘yinlar qaysi shakl, mavzu, yo‘nalishga ega bo‘lmasin, loy tuproq bilanmi, cho‘pu latta bilanmi, ipu arqon bilanmi, murg‘akni hayotga, turmush ikir-chikirlariga, ro‘zg‘or ishlariga hozirlashda o‘ziga xos hunar maktabi vazifasini bajargan. Bolalar o‘yinlarining barchasi, ba’zan yuqori pardada, ba’zan xirgoyi qilgan holda, bari bir qo‘shiq aytib turib bajarilgan, uning uchun ularga o‘ziga xos bir sinkretik asar sifatida qarash lozim.</p>
+<p>Ma’lumki, kichiklar kattalarning yurish-turishiga. xatti-harakatiga, so‘ziga, ishiga taqlid qilishni ma’qul ko‘radilar. Qo‘shiqlar xirgoyi qilish bilan birga, meqnat jarayonida ota-onasi, aka-opasi yonida turib ishlashni yoqtiradilar. Kichkintoylar mehnat qo‘shiklarini bevosita bir ish bilan mashg‘ullik jarayonida juda ko‘tarinki kayfiyatda ijro qiladilar. O‘zlarini kattalardek sezadilar. Chunki ulardagi ulg‘ayish istagi, hayotda o‘z mavjudligini his etish, zavq-shavq mana shu holatda murg‘ak qalbdagi to‘lqinlarni jo‘sh urdiradi, kuylatib yuboradi. Shu yo‘sinda ma’sumlar o‘zlari shug‘ullanayotgan o‘yin-mehnat maromiga hamohang qo‘shiqlar ham to‘qib aytadilar.</p>
+<p>Bolalar ruhiyatida kechayotgan ijodiy jarayonni kattalar o‘z o‘rnida, me’yorida rag‘batlantirmoqlari lozim. Ularning qobiliyati va ijro imkoniyatiga qarab, yo‘l-yo‘riq berib turmoqlari zarur. Xato qilsa, sira kamsitmay, ohista, samimiy tushuntirib turilsa, maqsadga muvofiq bo‘ladi. Ayniqsa, ota-ona mehnat jarayonida farzandlarini yonlarida olib yursalar, ularga zerikib qolmaydigan darajada ish buyursalar,’o‘zlari ko‘shiq xirgoyi qilib ishlasalar, bu norasidaning ham akdiy, ham jismoniy o‘sishi uchun eng asosiy omillardan an’anaviy o‘zbekona tarbiya usullaridan bo‘ladi.</p>
+<p>Turli o‘yinlar jarayonida bolalar tabiat, hayvonot dunyosi va hokazolar bilan tanishadilar. Masalan, bolalar toshlar bilan o‘ynayotganlarida ularning rangi, shakli, og‘irligi va hokazolarni bilib oladilar, toshlar ana shu xususiyatlari bilan bir-biridan farqlanishini tushunadilar. O‘yinlar jarayonida ularning nutqi o‘sadi, tafakkuri rivojlanadi, lug‘at boyligi kengayadi.</p>
+<p>O‘tmishda o‘z otlariga ega bo‘lgan oilalardaga bolalar kichik yoshlaridan chavandozlikni o‘rgana boshlagan. Inqilobgacha o‘tgan ayrim mualliflarning kitoblarida o‘zbeklar o‘g‘il bolalarni besh yoshidan otga mindirganini va ular o‘n yoshlaridan jang o‘yinlari hamda chavandozlik poygalarida qatnashgani tilga olingan.</p>
+<p>Yozma manbalarda o‘zbeklarning faqat erkaklari emas, balki ayollari ham ot minishni yaxshi bilgani qayd qilingan. Rasmiy nashrlarda yozilganidek, o‘zbek ovullarida ot poygalari har qanday kulay hollarda, hatto, yangi uy solinishi munosabati bilan ham o‘tkazilgan. Bunday musobaqalarga kishilar qunt bilan tayyorgarlik ko‘rganlar, o‘z otlarini tayyorlaganlar va bunday ishlarda o‘smirlar hamda yoshlar zimmasiga ko‘p vazifalar yuklangan. Ayrim kishilar o‘zining butun hayotini poyga otlarini tayyorlash kasbiga bag‘ishlagan. Otalar yoki bobolar o‘zlarining ana shu sohadagi tajribalarini va chavandozlarga muxabbatini kichkintoylarga o‘rgatgan.</p>
+<p>O‘zbek bolalar o‘yinlarining ayrimlari harbiy o‘yinlar bo‘lib, buning sababi vatan mudofaachilarini tayyorlash va tashqaridan tez-tez bo‘lib turadigan hujumlarni muvaffaqiyatli qaytarish zarurligadan edi. "Kamon otish", "Nayzabozlik", "Urush" va boshqalar harbiy o‘yinlarga kirgan. O‘zbek bolalari orasida 5-6 yoshlaridan boshlab kamon otish o‘yini juda ommaviy tus olgan. Jamoatchilik bu o‘yinni ma’qullagan va kattalar doimo bolalarni qamon otishga rag‘batlantirganlar. Xalq tarbiyada kamon otish o‘yiniga qanchalik e’tibor berganini shundan ham anglash mumkinki, onalar o‘z allalarida o‘g‘lining kuchli va kamon otishda mohir bo‘lishi haqidagi istaklarni kuylaganlar. Uzoq o‘tmishda o‘zbeklar o‘lgan kishining qabriga ham kamon o‘qini qo‘yib ko‘mganlar. Boshqacha aytganda, o‘zbek uchun kamon o‘qi qabristongacha hamroh bo‘lgan. Kamon otish jasurlikni tarbiyalagan, mohir kamonchi-jangchilar tayyorlashning yaxshi maktabi bo‘lgan.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="8">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><blockquote>Ish qog‘ozi<br>1. Quyidagi ish qog‘ozi asosida “Toifalash” metodi yordamida o’yin turlarini ko‘rsating.<br>Ish qog‘ozi</blockquote>
+<div class="jadval-o"><table><thead><tr><th>Xarakterli belgilari</th><th>Turlari</th></tr></thead><tbody><tr><td>Muayyan yoshga tegishliligiga ko’ra o’ynaladigan o’yinlar</td><td></td></tr><tr><td>Tashkiliy shakliga ko’ra o’ynaladigan o’yinlar</td><td></td></tr><tr><td>Tarbiyaviy axamiyatiga ega o’yinlar</td><td></td></tr><tr><td>Vositalar ordamida o’ynaladigan o’yinlar</td><td></td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Qanday milliy o‘yinlarni bilasiz?</li><li>Xalq bolalarga aqliy tarbiya berishda qanday o‘yinlardan foydalangan.</li><li>Ta’lim-tarbiya jarayonida o‘yinlardan foydalanishning axamiyati qanday?</li><li>Qanday o‘yin turlari mavjud?</li><li>O‘yinning bola tarbiyasidagi o‘rni qanday?</li><li>Harbiy o‘yinlarning tarbiyaviy axamiyati nimada?</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="8">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="izohlar">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <ol class="izoh-royxat"><li id="izoh-21"><a href="#ref-21" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Қорабоев У. Ўзбек халқ ўйинлари. –Т.: “Санъат”, 2001, 6-бет</li><li id="izoh-22"><a href="#ref-22" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Осим М. Широқ. Тарихий қиссалар. –Т.: “Ёзувчи”, 1995, 4-бет</li><li id="izoh-23"><a href="#ref-23" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> А. Зуннунов. Халқ педагогикасида ақлий тарбия// Халқ таълими, 1994 йил 3-4-сонлар, 49-50-бетлар</li><li id="izoh-24"><a href="#ref-24" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ўзбек педагогикаси антологияси. – Т.: “Ўқитувчи”, 1995, 24-бет</li><li id="izoh-25"><a href="#ref-25" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ғ. Жаҳонгирров. Ўзбек болалар фольклори. –Т.: “Ўқитувчи”, 1975, 110-115-бетлар</li><li id="izoh-26"><a href="#ref-26" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> З.Миртурсунов. Ўзбек халқ педагогикаси –Т.: “Фан”, 1973, 116-бет</li></ol>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>A.Avloniy «Uson millat», T.SHarq 1993-yil</li><li>Abu Nosir Farobiy «Fozil odamlar shaщri», T.Xalq merosi 1993- yil.</li><li>R.Usmonov «Hayot ustoz-xalq muallim», Toshkent. O’qituvchi 1997- yil</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-7.html"><span class="yon">← 7-modul</span><span class="nom">Xalq pedagogikasida milliy urf-odatlar, an’analar, udumlar, marosimlarning tarbiya vositasi sifatidagi o‘rni</span></a><a class="keyingi" href="modul-9.html"><span class="yon">9-modul →</span><span class="nom">Xalq pedagogikasida diniy ta’limotlar</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-  <div class="question">
-    <label>2. Asosiy tarbiya institutlari qaysilar?</label>
-    <div class="options">
-      <label><input type="radio" name="q2" value="1"> Oila, mahalla, ta’lim muassasasi</label>
-      <label><input type="radio" name="q2" value="0"> Faqat maktab</label>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
     </div>
   </div>
+</footer>
 
-  <div class="question">
-    <label>Yozma savol: Xalq pedagogikasining bugungi ta’limdagi ahamiyatini izohlang.</label>
-    <textarea id="text"></textarea>
-  </div>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-  <button onclick="check()">Natijani aniqlash</button>
-  <div class="result" id="result"></div>
-</div>
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <div class="bottom-nav-inner">
-    <a href="modul-7.html">⬅ modul 7</a>
-      <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-9.html">➡ modul 9</a>
-  </div>
-</div>
-
-<script>
-function check(){
-  let score=0;
-  if(document.querySelector('input[name="q1"]:checked')?.value=="1") score++;
-  if(document.querySelector('input[name="q2"]:checked')?.value=="1") score++;
-
-  let text=document.getElementById("text").value.toLowerCase();
-  let keys=["tarbiya","xalq","milliy","ta’lim","ma’naviy","tajriba"];
-  let match=0;
-  keys.forEach(k=>{ if(text.includes(k)) match++; });
-
-  let percent=Math.min(100,(score*40)+(match*8));
-  document.getElementById("result").innerHTML =
-    "Yakuniy baho: <strong>"+percent+"%</strong>";
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

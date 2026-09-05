@@ -2,291 +2,248 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>13-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(900px 500px at 20% -10%,#0f172a,#020617),
-    radial-gradient(700px 400px at 90% 10%,#052e16,#020617);
-  color:#e5e7eb;
-  padding:110px 20px 190px;
-}
-
-/* ===== HEADER ===== */
-.header{
-  max-width:1000px;
-  margin:0 auto 80px;
-  text-align:center;
-}
-.header h1{
-  font-size:clamp(36px,5vw,66px);
-  font-weight:900;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#22c55e,#38bdf8,#22c55e);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.header p{
-  margin-top:20px;
-  font-size:18px;
-  line-height:2;
-  opacity:.9;
-}
-
-/* ===== SECTION ===== */
-.section{
-  max-width:900px;
-  margin:0 auto 90px;
-  padding:46px;
-  border-radius:36px;
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(22px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 60px 160px rgba(0,0,0,.85);
-}
-.section h2{
-  font-size:28px;
-  margin-bottom:22px;
-}
-.section p{
-  font-size:16px;
-  line-height:1.95;
-  margin-bottom:16px;
-}
-
-/* ===== CHOICE ===== */
-.choice{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
-}
-.option{
-  padding:26px;
-  border-radius:26px;
-  background:rgba(255,255,255,.08);
-  cursor:pointer;
-  transition:.3s;
-}
-.option:hover{
-  transform:translateY(-6px);
-  background:rgba(34,197,94,.18);
-}
-.option.selected{
-  background:rgba(34,197,94,.35);
-  box-shadow:0 0 0 2px rgba(34,197,94,.7);
-}
-
-/* ===== TEST ===== */
-.question{
-  margin-bottom:26px;
-}
-.question h3{
-  font-size:18px;
-  margin-bottom:14px;
-}
-.question input{
-  margin-right:8px;
-}
-
-/* ===== TEXTAREA ===== */
-textarea{
-  width:100%;
-  min-height:200px;
-  border-radius:24px;
-  padding:18px;
-  border:none;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-  font-size:16px;
-}
-
-/* ===== BUTTON ===== */
-button{
-  margin-top:30px;
-  padding:18px 44px;
-  border:none;
-  border-radius:32px;
-  background:linear-gradient(90deg,#22c55e,#38bdf8);
-  color:#020617;
-  font-size:17px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-/* ===== RESULT ===== */
-.result{
-  margin-top:24px;
-  font-size:24px;
-  font-weight:900;
-}
-
-/* ===== NAV ===== */
-.nav{
-  position:fixed;
-  bottom:0;left:0;
-  width:100%;
-  z-index:999;
-  padding:18px 24px;
-  background:linear-gradient(
-    to top,
-    rgba(2,6,23,.95),
-    rgba(2,6,23,.6),
-    rgba(2,6,23,0)
-  );
-  backdrop-filter:blur(18px);
-}
-.nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:26px;
-}
-.nav-btn{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:20px 28px;
-  border-radius:26px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.14),
-    rgba(255,255,255,.04)
-  );
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 30px 90px rgba(0,0,0,.85);
-  letter-spacing:.14em;
-  font-size:14px;
-  transition:.35s;
-}
-.nav-btn:hover{transform:translateY(-4px)}
-.nav-center{
-  font-weight:900;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#22c55e,#38bdf8,#22c55e);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  box-shadow:none;
-}
-.nav-prev{justify-self:start}
-.nav-next{justify-self:end}
-
-@media(max-width:900px){
-  .nav-inner{grid-template-columns:1fr;text-align:center}
-  .nav-prev,.nav-next{justify-self:center}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13-modul. Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi | Xalq pedagogikasi</title>
+<meta name="description" content="Ustoz odobi, shogird burchi va murabbiylik san’ati haqida ajdodlar merosi.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<div class="header">
-  <h1>13-MODUL</h1>
-  <p>
-    Ushbu modulda siz xalq pedagogikasi bo‘yicha
-    tahliliy fikrlash, qaror qabul qilish va
-    bilimlarni mustahkamlash bosqichidan o‘tasiz.
-  </p>
-</div>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<!-- TAHLIL -->
-<div class="section">
-  <h2>Tahliliy vaziyat</h2>
-  <p>
-    Siz umumta’lim maktabida o‘qituvchisiz. Sinfda milliy qadriyatlarga
-    befarq bo‘lgan o‘quvchilar bor. Siz xalq pedagogikasidan
-    foydalanib, tarbiyaviy muhitni yaxshilamoqchisiz.
-  </p>
-</div>
-
-<!-- QAROR -->
-<div class="section">
-  <h2>Qaror qabul qiling</h2>
-  <div class="choice">
-    <div class="option" onclick="select(this)">Xalq og‘zaki ijodi asosida dars o‘tish</div>
-    <div class="option" onclick="select(this)">Faqat zamonaviy metodlardan foydalanish</div>
-    <div class="option" onclick="select(this)">Milliy va zamonaviy usullarni uyg‘unlashtirish</div>
-    <div class="option" onclick="select(this)">Tarbiyani faqat oilaga yuklash</div>
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<!-- TEST -->
-<div class="section">
-  <h2>Mini-test</h2>
+<main id="asosiy">
 
-  <div class="question">
-    <h3>1. Xalq pedagogikasining asosiy kuchi nimada?</h3>
-    <label><input type="radio" name="q1">Faqat qadimiyligida</label><br>
-    <label><input type="radio" name="q1" data-correct>Hayotiy tajribaga asoslanganida</label><br>
-    <label><input type="radio" name="q1">Faqat darsliklarda</label>
+<section class="modul-bosh" style="--rang-a:#8C3A2B;--rang-b:#63251A">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">13-modul</span>
+    <h1>Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</h1>
+    <p class="ost">Ustoz odobi, shogird burchi va murabbiylik san’ati haqida ajdodlar merosi.</p>
+    <div class="meta">
+      <span>📖 5,124 so‘z</span>
+      <span>🎮 Klaster</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
   </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html" class="faol">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasi manbalarida ustoz- o’qituvchi kasbining</li><li>ulug’lanishi</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>ustoz</li><li>intizom</li><li>o’qituvchi odobi</li><li>milliy tarbiya</li><li>izzat-hurmatda bo’lish</li><li>qadr-qimmatni anglash</li><li>samimiylik</li><li>iltifotlilik</li><li>haqiqatlilik</li><li>mardlik</li><li>jasurlik</li><li>mehribonlik kabi insoniy fazilatlar</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/JJ484wp0oVw"
+    title="Yoshlar xohlagan ustoz — o‘qituvchi kasbi haqida suhbat" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">Yoshlar xohlagan ustoz — o‘qituvchi kasbi haqida suhbat · <span>Edu-Action Centre</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Turkiy xalqlar qadim zamonlardayoq o’z yozuviga ega bo’lgan. Ota-bobolarimiz o’tmishda uyg’ur, runik yozuvlaridan, shuningdek, sug’d, xorizmiy yozuvlaridan foydalanishgan. Arablar istilosidan so’ng arab alifbosi qabul qilingan. Arab yozuviga asoslangan o’zbek alifbosiga ming yildan ko’proq muddatda amal qilindi. O’zbekistonda 1929 yilda – lotin, 1939 yilda rus alifbosiga o’tildi. 1993 yilda O’zbekiston Respublikasi lotin yozuviga – yangi o’zbek alifbosiga o’tish xaqidagi qaror chiqardi.</p>
+<p>Qadimgi Turon zaminida yashagan xalqlar sug’orma dehqonchilik bilan mashg’ul bo’lganlar. Odamlar tabiat hodisalarini ko’zatib borganlar, olam sirlari haqida ayrim kishilarga (payg’ambarlarga) vaqti-vaqti bilan g’ayb ilmi ham kelib turgan. Ayrim kishilar karomat ko’rsatib bo’lajak voqealarni oldindan ayta bilganlar. Dunyoviy ilmlardan astronomiya, geometriya, arifmetika, tibbiyot vujudga kelgan. Saroylar, ibodatxonalar huzurida ochilgan maktablarda yoshlarga diniy va dunyoviy ilmlar o’rgatilgan. Mirzalar, qozilar, hakimlar kabi davlat xizmatchilari tayyorlaydigan maktablar ham bo’lgan. Sharq mamlakatlaridagi maktablarda xat-savod o’rgatish murakkab, og’i ish hisoblangan. Ilm olish – nina (igna) bilan quduq qazish, deb bejiz aytilmagan. Mutafakkir olimla o’qitishning yengilroq usullarini topish ustida bosh qotirganlar. Sharq mamlakatlarida qadimda yaratilgan ayrim qo’lyozma asarlarda tarbiyaning maqsadi, o’qituvchi qanday bo’lishi haqida, shuningdek, ilm oluvchining ma‘naviyat qiyofasi, xislatlari to’g’risida fikr-mulohazalar bayon etilgan, maslahatlar berilgan.</p>
+<p>Qadimgi sharq mamlakatlarida maktablarda qattiq intizom o’rnatilgan, jismoniy jazo berishga yo’l qo’yilgan. Ota o’g’lini maktabga berayotganida domlaga “bolamning eti sizniki, suyagi meniki”, degan naqilni bekorga aytmagan. Ko’pchilik hunarmand, kosib, dehqon, chorvadorlarning bolalari oilada turmush, mehnat jarayonida tarbiya olganlar, kasb-hunarni egallaganlar.</p>
+<p>O’zbek xalq pedogogikasi – o’qituvchi odobning</p>
+<p>dastlabki va bebaho manbai</p>
+<p>Ahloqiy pand-nasihatlarning, ta‘lim-tarbiyaning ijodkori ham, asrlar davomida yoshlarni kamolot sari yetaklab, ularga hayot ilmini, turmush saboqlarini o’rgatib kelgan to’ng’ich ustoz ham-hayot, xalqdir. Yer yuzidagi barcha kishilar singari turkiy qabilalar ham qadim zamonlardayoq hayotiy ehtiyoj taqozosi bilan o’z bolalarini sog’lom, baquvvat, mehnatsevar, katta-kichiklarni izzat-hurmat qiladigan, xushaxloq, botir, jamoani, vatanni himoya qila oladigan kishilar bo’lib ulg’ayishlarini orzu qilganlar. Tarbiya sohasida to’plagan tajribalarini, orzu-istaklarini umumlashtirib maqol, topishmoq, ertak, rivoyat, hikoyat, doston kabilar shaklida ifodalab yoshlarga, oila a‘zolariga, boshqalarga o’rgatganlar. Shu tariqa o’zbek xalq pedogogikasi vujudga kelgan. Unda ijobiy axloqiy sifatlar, fazilatlar ulug’lanadi, salbiy illatlar esa qoralanadi. O’zbek xalq pedagogikasining shaxs va jamiyat uchun foydali, ilg’or, axloqiy g’oyalari og’izdan-og’izga, avloddan-avlodga o’tib, folklor asarlari, milliy oilaviy urf-odatlar, an‘analar sifatida bizgacha yetib kelgan.</p>
+<p>O’zbek xalqi pedagogikasi asarlarida murabbiy, ustozning hurmati, mo’‘tabat inson sifatida ulug’lanadi. “Otang bolasi bo’lma, odam bolasi bo’l”, “Ustoz otangdan ulug’”, “Ota-ona bolani dunyoga keltiradi, ustoz esa uni yuksaklikka, osmonga ko’taradi” kabi hikmatlarda murabbiy, ustozlarning mehnati, qadr-qimmati ulug’langan.</p>
+<p>O’zbek xalqining etnopedagogikasi umuminsoniy va milliy tarbiyaning qudratli omili, vositasidir. Turkiy xalqlar o’z bolalarini yoshlikdan uy-ro’zg’or mehnatiga o’rgatishga katta e‘tibor bergan. O’zbek xalq pedagogikasi bolalarga-kimki yaxshi mehnat qilsa, yaxshi buyum tayyorlasa, u yaxshi usta, degan g’oya singdirilgan. Bundan tarbiya jarayonida: “Avval bil, keyin qil”, “Avval o’rgan, keyin o’rgat”, “Aql ko’pga yetkazar, hunar ko’kka”, “Ustoz shogird-jonsiz kesak”, “Ustoz ko’rmagan shogird-har maqomda yurg’alar” kabi maqollarning ahamiyati katta bo’lgan.</p>
+<p>Xalq doimo yosh avlodni aqlli, odobli, go’zal fazilatli inson bo’lib kamol topishini orzu qilgan va shunga intilgan. Bunday orzu-istaklar Abdulqosim Firdavsiyning Markaziy Osiyo xalqlarining qadimgi hayotini aks ettiruvchi “Shohnoma” asarida quyidagicha tasvirlanadi.</p>
+<blockquote>Aql yo’l ko’rsatib, dilni etar shod,<br>Har ikki olamda aqlli obod.<br>Hamisha aqlingni rahnamo etgil,<br>Noloyiq ishlardan olisroq ketgil.<sup class="izoh-ref"><a href="#izoh-32" id="ref-32" aria-label="32-izoh">32</a></sup></blockquote>
+<p>O’zbek xalq pedagogikasida ota-onaning namuna, ibrat ko’rsatishiga katta e‘tibor berilgan. “Bolalarga go’zal tarbiya berish uchun, ota-onalarning o’zlari go’zal axloqli, tarbiyali bo’lishlari shartdir ... Agar ota-onalar o’z umr-yo’ldoshlari bilan go’zal ravishda umr kechirsalar, ularni hurmatlasalar, bolalar ulardan oliyjanoblik va xushmuomalalik odobini o’rganadilar</p>
+<p>O’zbek xalq pedagogikasida qo’llanib kelingan tarbiya usullari yoshlarga o’zaro izzat-hurmatda bo’lish, qadr-qimmatni anglash, samimiylik, iltifotlilik, haqiqatlilik, mardlik, jasurlik, mehribonlik kabi insoniy fazilatlarni singdirishga xizmat qilgan. Bolani elga manzur, odobli farzand qilib tarbiyalash ota-onaning burchi hisoblangan. O’zbek xalqi yaratgan maqol, naql, afsona, rivoyat, hikoyatlarda ma‘naviy axloqiy ideallar, ibratli, qiziqarli o’gitlar shaklida bayon etilgan. “Hurmat qilsang, hurmat ko’rasan”, “Har kim ekkanin o’radi”, “Bola aziz, odobi undanda aziz” kabi maqollar shular jumlasidandir.</p>
+<p>Hikoyat. Naql qilishlaricha, podsho ayonlari bilan ovdan qaytayotganida yo’lda kelayotgan bir bolani ko’rib qoladi. Otidan tushib, bolaga salom beradi. Vazir bundan taajublanib, “Shohim nega bunday qildingiz?”, -deganda u: “Bu bola ustozimning nabirasi. Ustozga hurmatim tufayli unga salom berdim”,-degan ekan. Bu naqlda</p>
+<p>halqimizning ustozga, muallimga bo’lgan chuqur hurmati ifodalangan. “Har kimki hayotdan olmasa ta‘lim, unga o’rgata olmas hech bir muallim”, “Hayot ustoz, xalq muallim” kabi hikmatlar juda o’rinli aytilgan.</p>
+<p>Bayon qilingan pedagogik fakt va mulohazalar o’qituvchining axloqiy fazilatlari tarbiyachilik ishining tarbiyashunoslik ilmining tarkibiy qismi sifatida xalq pedagogikasi zaminida vujudga kelib, asrlar davomida sayqallanib, takomillanib borganidan dalolat beradi. O’zbek xalq pedagogikasi asarlari, o’zbek oilasining bola tarbiyasi bobida to’plagan tarixiy tajribasi, milliy axloqiy qadriyatlarimiz o’qituvchi odobining bebaho manbai, bitmas tuganmas sarchashmasidir.</p>
+<p>Eramizdan oldingi oltinchi asrdan milodiy beshinchi asrgacha o’tgan davrda Yunonistondagi quldorlik davlatlari va Rim imperiyasida bir qadar demokratik tartiblar, respublika boshqaruvi o’rnatildi. Bu yerda o’ziga xos ta‘lim-tarbiya tizimlari va pedagogik ta‘limotlar yaratildi. Yunonistonlik olimlar-Demokrit (460-370), Suqrot (469-339), Aflotun (427-347), Arastu (383-322); shuningdek mashxur Rim pedagogi Kvintilian (42-118)lar o’z asarlarida ta‘lim-tarbiya, o’qituvchi axloqiga doir pedagogik nazariyalar yaratdilar.</p>
+<p>Masalan, Demokrit tarbiyaning tabiatga mosligi g’oyasini o’rtaga qo’ygan. O’qitish jarayonida bolalarning qiziquvchanligini hisobga olish zarur ekanligini uqtirgan. Ta‘limning kishi tabiatini o’zgartiruvchi qudratli kuch ekanligini, o’qitishga majburlash usulidan ko’ra, ishontirish vositasidan foydalanish afzalligini, salbiy namunalarning zararligini ta‘kidlagan edi.</p>
+<p>U tarbiyada mehnatning roli muhimligini ko’rsatib, pedagoglar, ota-onalar bolani yomon o’rnakdan ehtiyot qilib, yaxshi hulq hosil qilish uchun foydali xatti-harakatlarni ko’proq mashq qildirishlari lozim degan edi.</p>
+<p>Aflotun bola tarbiyachiga itoat qilishi zarurligi to’g’risidagi g’oyani ilgari suradi. U bolani muttasil nazorat qilib borish; uning yaxshi xulqi, itoatkorligini rag’batlantirish, itoatsizlik qilsa-qo’rqitish va urib bo’lsa ham to’g’ri yo’lga solish lozimligini ta‘kidlaydi. “Agar pedagog yoki ota-ona,- degan edi u,- bolaga: mana bu adolatli, bu esa adolatsiz, bu ishni yaxshi qilish yaxshi, bu esa uyat, bu narsa muqaddas, bu esa nopoklik; bu ishni qilish kerak, bunisini qilmaslik lozim, deb aytmasa va ko’rsatmasa bolani tarbiyalay olmaydi”<sup class="izoh-ref"><a href="#izoh-33" id="ref-33" aria-label="33-izoh">33</a></sup></p>
+<p>Arastuning “Iskandarga nasihat”i<sup class="izoh-ref"><a href="#izoh-34" id="ref-34" aria-label="34-izoh">34</a></sup> da bayon etilgan pedagogik g’oyalar yoshlarni axloqiy tarbiyalash nuqtai nazaridan hamon qimmatini yo’qotmagan. Shuningdek, Arastuning “Afina siyosati” asarida tasvirlangan<sup class="izoh-ref"><a href="#izoh-35" id="ref-35" aria-label="35-izoh">35</a></sup> afinaliklarning o’qituvchilarni saylash taomili ham o’qituvchi bobida diqqatga sazovordir. Chunonchi, muallimdan yoshlarga sinfiy burchga sadoqat, intizomlilik, davlatni boshqara olish kabi axloqiy fazilatlarni tarbiyalash talab etilgan. Saylab qo’yish-o’qituvchi-tarbiyachilar zimmasiga katta majburiyatlar yuklagan. Bu taomil Afina davlatida pedagoglik ishining ommaviyligini, unga katta e‘tibor berilganini ko’rsatadi. O’qituvchi etib saylangan qituvchi etib saylangan kishi unga davlatning kelajagi-yoshlarni tarbiyalashdek ulug’ vazifa ishonib topshirilganidan faxrlangan. Davlat va tarbiyalanuvchilar bilan o’qituvchi o’rtasidagi muomala, munosabatlarni tartibga soluvchi qoidalarga amal qilish talab etilgan.</p>
+<p>Rim pedagoglaridan eng mashxuri-Mark Fabiy Kvintilian “Notiqni tarbiyalash to’g’risida” nomli asarida pedagog muammolarni, shuningdek o’qituvchi odobiga doir masalalarni ham bayon etadi. Kvintilian o’z zamonasida Grek va Rim pedagogik g’oyalarini yaxshi o’rganib, notiqlar maktabida ko’p yillar o’qituvchilik qilib orttirgan katta tajribasii umumlashtiradi. Uning fikricha, bola maktabda ta‘lim-tarbiya olish lozim. O’qituvchi o’zi tarbiyalayotgan har bir bolaga ehtiyotlik bilan va e‘tibor berib muomala qilishi kerak, chunki befahm va qobiliyatsiz bola kamdan-kam uchraydi. O’qituvchining o’zi o’qimishli bo’lishi, bolalarni sevishi, o’zini yaxshi tuta bilishi, bolalarni bo’lar-bo’lmasga maqtayvermasligi yoki jazolayvermasligi, o’z shogirdlari uchun o’rnak bo’lishi va ularni sinchiklab o’rganishi lozim. Har bir o’qituvchi o’qitishning hamma bosqichlarini o’tishi kerak. Yuqori tipdagi maktab o’qituvchisi, avvalo, boshlang’ich maktabda muallimlik qilishi maqsadga muvofiq. Muallim va tarbiyachilarning talaffuzi yaxshi bo’lishi kerak.</p>
+<p>O’qituvchi odobining tarixiy lidizlari haqida gap borar ekan, qadimgi Yunoniston va Rim pedagoglarining yuqorida keltirilgan g’oyalarini tilga olish o’rinli deb hisoblaymiz. Chunki, Markaziy Osiyoda yashagan mutafakkirlar Hindiston, xitoy kabi sharq mamlakatlari madaniyati, ilm-fani, pedagogikasi bilan bir qatorda qadimgi Yunoniston, Rim madaniyati, falsafasi, pedagogikasiga ham e‘tibor berganlar. Jahon allomalarining ilmiy aloqalari, ma‘rifatparvarlik, pedagogik axloqiy ta‘limotlarni Markaziy Osiyoda pedagogika sohasidagi fikrlar taraqqiyotining tarixiy ildizlaridan biridir.</p>
+<p>Kishilar o’rtasidagi munosabatlarda ko’pgina muammolar o’ylamasdan ehtiyotsizlik bilan aytilgan qo’pol so’zdan kelib chiqadi. Chiroyli so’z esa yaxshi muomala, mehr-oqibat kalitidir. Islom ta‘limoti kishilarni shirinso’zlikka chaqiradi. Shirinso’zlik va xushmuomalalikning shartlaridan biri ovozni baland ham, past ham qilmay, meyorida gapirishdir. Islom ta‘limotida baqirib gapirish qoralanadi.</p>
+<p>Imom Buxoriyning “Al-jome‘ as-sahih” asarining “Ilm kitobi” bo’limi<sup class="izoh-ref"><a href="#izoh-36" id="ref-36" aria-label="36-izoh">36</a></sup> ilm egallash fazilati va xosiyatlari, ilm o’rganish odobi to’g’risida bahs etadi. Bu yerda ilm egallash odobining 54 qoidasi haqida hikoyat qilingan. Ularda Muhammad payg’ambarimizning ilm o’rgatish va o’rganishga doir pand-nasihatlari bayon etilgan. Islom dini qabul qilingan mamlakatlarda maktab va madarasalarda saboq bergan mullalar (muallimlar), mudarrislar va tolibi ilmlar bir necha asrlar davomida bu pand-nasihatlarga amal qilganlar. Ularning tahlili ilm o’rgatuvchi va o’rganuvchilarga nisbatan quyidagi didaktik talablar, pedagogik-axloqiy g’oyalarni ifodalashga imkon beradi:</p>
+<p>-ilm beruvchining ovozi tinglovchilarning hammasiga eshitilarli me‘yorida bo’lishi;</p>
+<p>-ilm mazmuni “Aytgan edilar, xabar beradilar, guvohlik beradilar” kabi samimiy yoqimli so’zlar bilan ifodalash;</p>
+<p>-biror ta‘limiy yoki tarbiyaviy masalani o’rtaga tashlab, muhokama, munozara yo’li bilan -ilm o’rganish va o’rgatish uchun ma‘lum kunlarni qat‘iy belgilab qo’yish;</p>
+<blockquote>-ilmni fahmlab teran tushunib, anglab o’rganish, esda mustahkam saqlash;<br>-teran tushunilgan yaxshi anglab olingan ilmlarni yod olish;<br>-ilm o’rgatish jarayonida bolaga lozim hollarda tanbeh berish mumkinligi;<br>-kishi ilmni o’zi o’rganib, o’zgalarga ham o’rgatishi, ilmga o’zi amal qilishi zarurligi;<br>-ilmning susayishi, ilmga e‘tiborsizlik, jamiyatni muqarrar inqirozga yetaklashini tushunish;<br>-ilmni oson, yengil qilib, odamlarni bezdirmay o’rgatish;</blockquote>
+<p>-ilmni so’rab bilib olish, ilm o’rganishda uyalmaslik, o’zi uyalsa boshqa birov orqali so’rab bilib olish lozimligi;</p>
+<p>-ilmga doir savol bergan odamga so’raganidan ko’ra ko’proq javob qaytarish;</p>
+<p>-bilim tinglovchiga tushunarli bo’lishi uchun har bir gapni bir necha marta (uch bora)qaytarishning afzalligi;</p>
+<blockquote>-ilmni ishtiyoq bilan o’rganishning afzalligi;<br>-ayollarga ham ilm o’rgatish lozimligi;<br>-eshitganni yaxshiroq bilib olish, mukammal tushunish uchun qayta so’rash joizligi;<br>-ilmni bilgan kishi bilmaganga, eshitganlar eshitmaganlarga yetkazish lozimligi;<br>-ilm berayotgan ulamoning so’zlariga jim turib, diqqat bilan quloq solishning ma‘qulligi;<br>- odamlarga juda oz bilishlarini anglatish;</blockquote>
+<p>- ilmni tushunishni,ilm olishni istamagan kishi o’rniga ilmni tushunadigan qavmga (kishilarga) o’rgatish joizligi.</p>
+<p>Islom ta‘limotida bayon bu dedaktik g’oyalar musulmon maktablarda o’qituvchi va o’quvchilar o’rtasidagi muomala munosabatlarini tartibga soluvchi axloqiy qoidalar sifatida amaliyotda qo’llanilgan. Ular Markaziy Osiyoda yashagan allomalarning tarbiyashunoslikka doir ta‘limotlari uchun ilmiy zamin vazifasini ham bajargan.</p>
+<p>Markaziy Osiyoda mamlakatlarida islom dini qabul qilingan so’ngra ming yildan ortiqroq davr mobaynida o’qituvchi odobi g’oyalar islom ta‘limoti ta‘sirida shakllandi va rivojlandi. Ma‘lumki, islom har bir musulmondan avvalo iymonli bo’lishni talab etadi. Bu, Allohni, Muhammad uning rasuli ekanini tilda va dilda tan olish, barcha olamlarni insoni ham tangri yaratganiga, oxirat kuni muqarrarligiga ishonishini nazarda tutadi. Shubhasiz, bu musulmon maktablarining muallimlarga qo’yiladigan axloqiy talablaridan eng birinchisi va muhimdir. Shu bilan birga Markaziy Osiyoda yashagan allomalar yosh avlodni o’qitish va tarbiyalash, shuningdek o’qituvchilik faoliyati va odobiga doir ta‘limotlarni ham yaratdilar.</p>
+<p>Abu Nasr al-Farobiy (873-930) o’z asarlarida har bir kishi jamiyatida, davlatga munosib inson bo’lishi uchun ta‘lim va tarbiya olishi lozim deb hisoblaydi. Yoshlarga ta‘lim va tarbiya beradigan ustoz shogirdiga nisbatan juda qattiq zug’um qilishga intilmasligi, shuningdek haddan tashqari ko’p yon berishiga ham intilmasligi lozim, chunki ortiqcha zug’um shogirdga ustozga nisbatan nafrat uyg’otadi, bordi-yu, shogird ustozining juda xam yumshoqligini payqab qolsa bu hol ustozini mensimaslikka va u beradigan bilimdan sovishga olib keladi.</p>
+<p>Farobiyning ta‘kidlashicha, har bir kishining fe‘l-atvoriga qarab tarbiya ikki usul–ixtiyoriy va majburiy usullar bilan amalga oshirilishi mumkin. Bordi-yu tarbiyalanuvchilar fan va hunar o’rganishga moyillik bildirsalar, ularga nisbatan ilhomlantirish-rag’batlantirish usuli qo’llaniladi: aksincha, mabodo ular o’zboshimcha va itoatsiz bo’lsalar, majburiy usulni qo’llash mumkin.<sup class="izoh-ref"><a href="#izoh-37" id="ref-37" aria-label="37-izoh">37</a></sup></p>
+<p>Musulmon maktabida ishlaydigan kishilardan ziyrak, aqlli kishi-o’tkir zehn –idrokli, fazilatli bo’lishi, o’zining qobiliyati va idrokini yaxshi kishilarga yo’naltirishi, yomon ishlardan o’zini saqlash lozim. Farobiy “Aql to’g’risida” gi risolasida o’zida o’n ikki xislatni birlashtirgan kishigina axlohli odam deb hisoblaydi.Buxislatlar qatoriga: odamda barcha organlar mukammal taraqqiy etgan bo’lishi, barcha masalalarni tezda va to’g’ri tushuna oladigan, xotirasi baquvvat, zehni o’tkir so’zlari aniq, fikrni ravon bayon eta oladigan, o’qishga muhabbatli me‘yoriga amal qila oladigan, haqiqatni va haqiqat tarafdorlarini sevadigan, yolg’onchilarga nafrat bilan qaraydigan, g’urur va vijdonini qadrlaydigan, mol-dunyoga mukkasidan ketmagan, adolatni sevadigan, jabr-zulm o’tkazuvchilarga nafrat bilan qaraydigan, adolatli bo’lish, qat‘iylik ko’rsatish, qo’rqmas va jasur bo’lish kabilarni kiritada. Ta‘lim-tarbiya beruvchilar o’z bilimlari va axloqiy darajalarida bir-birlaridan farq qiladilar, deb hisoblaydi u.</p>
+<p>Abu Ali Ibn Sino (980-1037) ning fikricha tarbiya yagona jarayon bo’lib, yoshlarga aqliy, jismoniy, nafosat, axloqiy tarbiya berishni va hunar o’rgatishni nazarda tutadi. “Tib qonunlari” asarida bolaning 6 yoshdan o’qitish va tarbiyalash uchun muallimga topshirish haqida so’z yuritiladi. Ibn Sino ta‘lim jarayonida quyidagi qoidalarga amal qilish lozim deb hisoblaydi: o’qitishda oddiydan murakkabga qarab borish; bolaning qobiliyat va mayllarini e‘tiborga olish; bolaga kuchi yetadigan mashqlarni bajartirish ta‘limni jismoniy mashqlar bilan qo’shib olib borilishi.</p>
+<p>Bolaga ta‘lim va tarbiya berishi uchun saxovatli, dono, iymonli, axloqiy va aqliy tarbiya usullarini yaxshi biladigan, irodasi kuchli muallim va tarbiyachini tanlash zarur. Muallim sog’lom, pok, halol, xushmuomala kishi bo’lmog’i lozim. Barkamol inson qilib yetishtirish uchun tarbiyachi bolani o’rni bilan rag’batlantirishni ham, o’rni bilan jazolashni ham bilsin. Vaqti-vaqti bilan bolani maqtab, yomon xulqini qoralab, yaxshi qiliqlarini o’z vaqtida rag’batlantirib ham turish kerak.</p>
+<p>Abu Ali Ibn Sino bolalarni yakka-yakka o’qitishdan ko’ra jamoada ta‘lim berishni afzal deb hisoblaydi. U jamoada o’qitishning afzalliklari haqida gapirib, ta‘kidlaydiki, bunday holatda bolada ilmga intiluvchanlik ortadi; sheriklarning bilimiga havas qilib, o’z bilimlari bilan g’ururlanadi; boshqalardan orqaga qolishga bolaning g’ururi yo’l qo’ymaydi; birga o’qiganda bolalar bir-birlari bilan gaplashib nutqi o’sadi, xotirasi mustahkamlanadi: ta‘lim jarayonida o’quvchilar bir-birlari bilan inoqlashadi, bir-birlarini hurmat qilishga odatlanadi, munozara qilishni o’rganadi, o’zaro musobaqalashishadi, o’zlarining huquqi va burchlari haqida fikr almashadilar. Bu esa bolalarning xulqini yaxshilashga axloq normalarini egallab olishlariga ko’maklashadi.</p>
+<p>Ibn Sinoning ko’rsatishicha, muallim avvalo bolaga Qur‘on ta‘limotini o’rgatish lozim, so’ngra bolaning nimaga qiziqishini, qaysi kasbga yoki san‘atga mayli borligini aniqlash zarur. Bilim va hunarni bola hayot kechirish va yashash vositasi deb bilsin. So’ngra biror kasb-hunarni mukammal o’rganishi kerak. Ilm va hunar o’rganayotganda bolaning talanti, qiziqish va maylini e‘tiborga olish zarur. Aks holda ta‘lim va tarbiya kutilgan natijani bermaydi. Bolalarning bir xillari til o’rganishga qobiliyatli bo’lsa, ba‘zilari boshqa fanlarga, masalan tibbiyotga, geometriyaga qobiliyatli bo’lishi mumkin. Shuning uchun ham muallim bolaga ta‘lim berishga kirishishdan oldin o’quvchining xarakterini o’rganishi va bilim darajasini o’rganishi kerak.Bunda avvalo bola diqqatining xususiyatlarini, qiziqishi va qobiliyatlarini e‘tiborga olib, unga qaysi hunar yoki san‘atni o’rganishi mumkinligini ko’rsatish kerak.</p>
+<p>Kaykovus (XI asr)”Qobusnoma” da bolalarga hunar va fazl o’rgatmak to’g’risida farzandiga qilgan nasihatida ota-onaning va muallimlarning bolaga muomala-munosabati masalasiga ham to’xtaladi. Chunonchi, u ota-ona o’z bolasiga ilm va axloqiy fazilatlarni singdirish uchun bolani muallim qo’li bilan jazolashi mumkinligini uqtiradi va deydi: “... Va har ilmni o’rgatuvchi muallimlar ta‘lim uchun (bolani) ursalar, sen(ota) shafqat ko’rguzgil, mayli ursunlar, nedinkim yosh o’g’lon ilm va adabni tayoq bilan o’rganur va o’z ixtiyori bilan o’rganmas. Ammo farzand beadab bo’lsa va sening ul sababdin qahring kelsa, o’z qo’ling bila urmagil, muallimlarning tayog’i bila qo’rqutgil.Bolalarga muallimlar adab bersunlar, toki sendin o’g’lingning ko’nglida gina qolmasun”.<sup class="izoh-ref"><a href="#izoh-38" id="ref-38" aria-label="38-izoh">38</a></sup> Burxoniddin Zarnudjiy XII asrning ikkinchi yarmida yashab ijod etgan. Marg’ilondagi madrasada ta‘lim olgan va shu yerda musulmon qonunshunosligidan talabalarga dars bergan. O’zining ko’p yillik pedagogik tajribasini umumlashtirib, “O’quvchiga ta‘lim yo’lida qo’llanma” nomli pedagogik asar yaratdi. Bu asar Sharq mamlakatlarida ko’p marta nashr etilib, keng tarqalgan.</p>
+<p>Unda pedagoglik kasbi, o’quvchi va muomala odobiga doir bir qancha kasbiy-axloqiy talablar ifodalangan. Quyidagilar shular jumlasiga kiradi:</p>
+<p>- o’rganish uchun fanlar orasidan eng muhimlarini tanlash: bolalar nimaga qiziqishlari, nimani o’rganmoqchi ekanligi va kelgusida hayotda qaysinisiga ehtiyoj tug’ilishini hisobga olish; eng avvalo allohni bilish yo’llari haqidagi fanlarni tanlash;</p>
+<p>- muallim tanlaganda, eng avvalo bilimlisiga, eng oliyjanobiga va tajribalisiga to’xtalmoq;</p>
+<p>- har bir kishi qanoat, sabr muruvvatni egallashga intilishi, bilimlarni takrorlashga e‘tibor berish;</p>
+<p>- o’quvchi muallimdan o’rganayotgan fani, kasbidan to’la qanoat qilishi;</p>
+<p>- bilimlarni mukammal o’zlashtirish uchun aql-farosatlilik, kuchli istak, chidamlilik, o’rgatuvchi-o’qituvchi, bilim olish uchun yetarli vaqt bo’lishi;</p>
+<p>- o’quvchining sherigi (o’rtog’i, dusti) sofdil,pok fe‘l-atvorli bo’lishi; yalqov, ishyoqmas, ezma bo’lmasligi, jinoyatchi va qo’li egrilardan uzoqroq yurish;</p>
+<p>-o’quvchining muallimga, ustozga hurmati – undan oldin yurmaslik, uning o’rniga borib o’tirmaslik, mashg’ulotlar paytida unga yaqinroq joyda o’tirishida bilinadi..<sup class="izoh-ref"><a href="#izoh-39" id="ref-39" aria-label="39-izoh">39</a></sup></p>
+<p>Muslihiddin Sa‘diy Sheroziy (1184-1292)ning asarlari Markaziy Osiyoda, jumladan, o’zbeklar orasida ham keng tarqalgan. “Guliston”, “Bo’ston” kabi pedagogik-axloqiy kitoblari eski o’zbek maktablarida darslik sifatida o’qitilgan<sup class="izoh-ref"><a href="#izoh-40" id="ref-40" aria-label="40-izoh">40</a></sup>. “Guliston” asarining “Tarbiyaning ta‘siri ostida” deb nomlangan yettinchi bobida tarbiyachilik faoliyati, tarbiyashunoslik ilmi, o’qituvchi odobining bir necha muhim qonun-qoidalari qiziqarli hikoyatlar shaklida bayon etiladi.</p>
+<blockquote>Quyidagilar shular jumlasidandir:<br>ta‘lim-tarbiya berish uchun bolada avvalo qobiliyat bo’lishi kerak:<br>Qobiliyat bo’lsa aslida,<br>Tarbiyat unga qiladi asar.<br>Qancha urinma bo’lmas sayqali,<br>Temir aslida bo’lmasa javhar<sup class="izoh-ref"><a href="#izoh-41" id="ref-41" aria-label="41-izoh">41</a></sup><br>kishi yoshlikdan ilm-hunar o’rganishi kerak.<br>Hunar qaynoq buloq ,tuganmas davlatdir.<br>Istar esang otangdan meros, qo’ygil otang ilmiga ixlos. <sup class="izoh-ref"><a href="#izoh-42" id="ref-42" aria-label="42-izoh">42</a></sup></blockquote>
+<p>- muallim bolalarni odobli qilib tarbiyalashi, ularga andisha bilan gapirishni, maqbul harakat qilishni o’rgatashi lozim. Muallimning so’ziga amal qilmagan shahzodalarga jazo ko’proq berilishi joiz, chunki ularning gapirgan gaplari, qilgan ishlari tillarda doston bo’ladi. (O’sha asar, 145-bet) .</p>
+<p>- muallim tili achchiq , badjahl, fosiq , haddan tashqari qattiqqul bo’lmasligi; shuningdek, o’ta sodda, muloyim tabiatli kishi ham bo’lmasligi joiz:</p>
+<blockquote>Agarda muallim bo’lsa beozor,<br>Bolalar sinfni qilishar bozor.<br>Kumush ul taxtaga zardin bitib yod:<br>“Ota mehridin afzal jabri ustod”.<sup class="izoh-ref"><a href="#izoh-43" id="ref-43" aria-label="43-izoh">43</a></sup></blockquote>
+<p>mabodo tarbiyalanuvchi muallimning to’g’ri nasihatiga quloq solishni istamasa ham tarbiyachi bilganiniunga aytishi joiz.</p>
+<blockquote>Baharda bargi mo’l daraxtlar nochor<br>Yalang’och qolar qish izg’irinida.<br>Past nodon mastlikda o’ylamas aslo<br>Ne kechar ahvoli yo’qlik kunida.<sup class="izoh-ref"><a href="#izoh-44" id="ref-44" aria-label="44-izoh">44</a></sup><br>tarbiyaning natijasi, samarasi bolaning tabiatiga bog’liq .<br>Tilla-kumush bari chiqsa ham toshdan,<br>Barcha toshda oltin bo’lmog’i gumon.<sup class="izoh-ref"><a href="#izoh-45" id="ref-45" aria-label="45-izoh">45</a></sup></blockquote>
+<p>Alisher Navoiy (1441-1501) o’zbek adabiyotining asoschisidir. Shu bilan birga, u pedagog-mudarris hamdir. O’z asarlarida, ayniqsa, “Mahbub-ul-qulub” asarida kasb axloqi, turli guruh kishilarining odobi masalasini maqolatlar shaklida yoritadi. U ta‘lim-tarbiya masalalariga alohida e‘tibor berar ekan, tarbiya jarayonlarini, vositalarini, axloq-odob talablarini ko’rsatadi. Ta‘limda ilmiylik, asoslanganlik, tarixiylik kabi tamoyillarni asos qilib oladi. O’z davridagi musulmon maktablarining yutuq va kamchiliklarini tahlil etadi. O’qituvchi odobi va muallimlik kasbi, mudarrislar, maktabdorlar to’g’risida gapirar ekan, muallim o’z shogirdlarini va ta‘lim berayotgan fanini sevishi zarur deydi. O’ziga ham, o’quvchiga ham talabchan bo’lish lozimligini uqtiradi. O’qituvchi jamiyatda obro’li va hurmatga loyiq insondir, deb hisoblaydi. Shogirdlar muallimni hurmat qilishlari, e‘zozlashlari zarurligini uqtiradi.</p>
+<p>Alisher Navoiy o’z zamonasidagi maktabdorlar (muallimlar) haqida gapirib, ular bolalarga jafo qilish, azob berish, kaltaklashga o’rganib qolishganini tanqid qiladi. Ular toshbag’ir, darg’azab, gunohsizlardan achchiqlanishga odatlanishgan. Muallimlardagi bu salbiy sifatlar tarbiya jarayonining qiyinchiliklaridan, bolalarning tabiati, fe‘l-atvori, fahm-farosati, turli-tumanligi ta‘sirida vujudga keladi, deb hisoblaydi.</p>
+<p>Navoiyning fikricha, ba‘zan bir kishi bitta bolaga tarbiya berishga ojizlik qiladi, muallim esa bir to’da bolalarga ilmu adab o’rgatadi. Bu jarayonda muallim ko’p aziyat chekadi, mashaqqatlarni boshdan kechiradi. Shuning uchun shogirdlar ustoz oldida umrbod qarzdor ekanliklarini his etishlari lozim. Shogird podsholik martabasiga erishsa ham muallimga qulluq qilsa arziydi.</p>
+<blockquote>Haq yo’lida senga bir harf o’qitmish ranj ila,<br>Aylamak bo’lmas ado oning haqin yuz ganj ila.<br>Navoiyning “Mahbub-ul-ulub” asarida o’qituvchi odobiga doir quyidagi talabar bayon etilgan:<br>- mudarris ota-onasining mansabi, boyligiga qarab bolaga muomala qilmasligi lozim;</blockquote>
+<p>-muallim bolalarga bilgan narsalarini o’rgatishi, bilmagan ilmlarini o’rgatishga urinmasligi kerak;</p>
+<p>-gerdayish, manmanlik, ta‘magirlik, nodonlik kabi illatlar o’qituvchi axloqiga yot sifatlardir;</p>
+<p>-muallim yaramas ishlardan, nopoklikdan yiroq bo’lishi kerak;</p>
+<p>-xalq nazarida olim hisoblanadigan mudarrislar yomon ishlardan, fisqu fasoddan o’zlarini tiya bilishlari zarur.</p>
+<p>Bilimdonlik, halollik, rostgo’ylik- o’qituvchining muhim axloqiy fazilati, ma‘naviy boyligi hisoblanadi. Bu fazilatlar insonning munosabatlarini go’zallashtiradi. Insonning moddiy ehtiyojlari cheklangan bo’ladi va to’la qondirilishi mumkin. Lekin ma‘naviy ehtiyojlar ma‘naviy boyliklar singari cheksizdir. Kishi yaratgan ma‘naviy boyliklarini qanchalik ko’p o’zlashtirsa, uning shaxsi shunchalik barkamol bo’ladi.</p>
+<p>O’qituvchining ma‘naviy boyligi, bilimdonligi xalq manfaatiga, yoshlarning baxti, iqboli, istiqboli, kelajagiga qaratilishi xizmat qilishi zarur. Mashhur mutafakkir aytganidek, agar kishi faqat o’zi uchungina ishlasa, u mashhur olim, ulug’ donishmand, ajoyib shoir bo’lishi mumkin, lekin u hech qachon haqiqiy barkamol inson bo’la olmaydi. Buyuk kishi bo’lishi uchun avvalo jamiyat taraqqiyoti yo’lida, insoniyatning buyuk orzu-istaklarini ro’yobga chiqarish yo’lida xizmat qilmoq va buning uchun zarur bo’lsa, o’z hayotini ham qurbon qilishga tayyor turmoq kerak.</p>
+<p>Muallimning bilimdon bo’lishi, insoniyat yaratgan ma‘naviy boyliklarni ko’paytirish va uni yoshlarga astoydil o’rgatishi, o’z ishidan qanoat hosil qilishi, o’z kasbini, bolalarni dildan sevib, berilib ishlashi-bularning barchasi o’quvchi shaxsining shakllanishiga ta‘sir etadi.</p>
+<p>Har tomonlama bilim va yuksak madaniyatga ega bo’lish o’qituvchi odobining talablaridan biridir. Bozor iqtisodiyotiga asoslangan jamiyat kishisining ideali insonning aqliy barkamol, ma‘naviy boy, ishbilarmon, axloq-odobli, halol, rostgo’y, o’zini tuta oladigan bo’lishini taqazo qiladi. Maktab o’quvchilari bu idealga ntiladilar. O’quvchiga axloqiy ta‘sir o’tkazishning samarasi o’qituvchining chuqur bilimli, yuksak madaniyatli, barkamol inson bo’lishiga bog’liq. Muallim o’zi o’qitadigan fanini xshi bilishi va undan tuzukkina dars berishi bilangina bunga erisha olmaydi. Haqiqiy ustoz o’z predmetini bilish bilangina cheklanib qola olmaydi. U juda ko’p narsalarni bilishga, tushunishga, his etishga intilishi lozim. Mafkuraviy hayot, badiiy adabiyot, tasviriy san‘at, teatr, kino, televidenie, musiqa, arxitektura, sport-muallim bularning barchasidan xabardor, ularni tushunadigan, qadrlaydigan bo’lishi talab etiladi. O’qituvchi hamma narsani ko’ra oladigan bo’lishi zarur, lekin har joydan bir shingil emas, balki,avvalo, o’z ishini, o’zi o’qitadigan fanni puxta bilishi, shu bilan birga bilimlarning boshqa sohalariga ham qiziqishi, ulardan xabardor bo’lishi kerak.</p>
+<p>O’qituvchilik faoliyati uchun bu sifatlar zaruriy hisoblanadi. Ilm-fan rivojlanib, yangi texnologiyalar joriy etilayotgan hozirgi davrda bolalar bilim oladigan manbalar yil sayin ko’payib bormoqda. Badiiy va ilmiy-ommabop kitoblar, gazeta, jurnal, radio va televizion eshittirishlar, muzey va ko’rgazmalarga bolalar juda qiziqadilar, shuning uchun ham muallim juda ko’p narsani bilishi, hamma narsadan xabardor bo’lishi kerak. O’qituvchi madaniyatning bior sohasidan ham xabarsiz qolishi mumkin emas. U bolani qiziqtiradigan barcha savollarga to’g’ri, o’rinli javob qaytarishi lozim. O’z fanidan boshqa hech narsaga qiziqmaydigan muallim o’qituvchilar uchun ideal bo’la olmaydi. Jamiyat hamma vaqt o’qituvchining umumiy madaniyatiga juda katta talablar qo’yadi.</p>
+<p>O’qituvchining ma‘naviy qiyofasida halollik, rostgo’ylik, axloqiy poklik, oddiylik va kamtarlik muhim fazilatlardan biri hisoblanadi. Bu fazilatlar kishiga go’zallik, ma‘naviy poklik bag’ishlaydi, kishining qadr-qimmatini oshiradi. Halollik muallimning ichki va tashqi dunyosining birligini, so’zi bilan xatti-harakati to’g’ri kelishini, o’quvchilarga, hamkasblariga, ota-onalariga ochiqko’ngil va samimiy munosabatini ifodalovchi axloqiy fazilatdir. U inson xarakterining mohiyatidan kelib chiqadi. O’qituvchining halolligi o’z vazifasini vijdonan va ongli ravishda bajarishida namoyon bo’ladi.</p>
+<p>O’qituvchi axloqida halollik to’g’rilikni, rostgo’ylikni, mafkuraviylikni, printsipiallikni, o’ziga, o’quvchilarga va boshqalarga bo’lgan ishonchni, samimiylikni , so’z bilan ishonchni, oddiylik va kamtarlikni taqozo qiladi. Rostgo’ylik o’qituvchining a‘naviy qiyofasini xarakterlaydigan axloqiy fazilat bo’lib, kishining so’zida, gapida ifodalanadi. Rostgo’ylik kishilarga doimo haqiqatni gapirishni , to’g’ri ma‘lumot berishni , aldamaslikni talab qiladi. “Qudratli insonda doimo rostlik, zaiflikdan erur yolg’onu pastlik” , degan edi Abulqosim Firdavsiy. Markaziy Osiyo xalqlarining umuminsoniy va milliy qadriyatlarida rostgo’ylik va shirinso’zlik o’ta qadrlanadi.</p>
+<p>O’qituvchining halolligi, rostgo’yligi, pokligi Vatanga, xalqqa, yoshlarga munosabatida namoyon bo’ladi. Halollik va rostgo’ylik – kamtarlik va oddiylikni taqozo qiladi. Halol va rostgo’y odam oddiy va kamtar bo’ladi. O’ziga ko’rsatilgan izzat-hurmatdan taltayib, gerdayib manmanlikka berilib ketmaydi. Bu fazilatlar o’qituvchining axloqli kishi sifatida obro’sini oshiradi. Aksincha, muallimning ikkiyuzlamachiligi, soxta, qalbaki xatti-harakatlari, printsipsizligi bola tarbiyasiga salbiy ta‘sir etib ba‘zan juda og’ir oqibatlarga olib keladi.</p>
+<p>Voqeiy hikoyat. Maktabni bundan o’n yilcha oldin bitirgan kishi bunday hikoya qiladi: “Shu yil maktabga kelgan rus tili o’qituvchimiz D. Darsni yaxshi o’tardi, bizga har kuni nasihat qilardi. Insonningt burchi, axloqiy poklik, yuksak printsiplar haqida ko’p gapirardi, ko’tarinki ruh, balandparvoz so’zlar bilan doim biror tarixiy faktni yoki mashhur kishilarni misol keltirib gapirardi. Ochig’ini aytsam bizlarga uning bu gaplari juda yoqardi. U nasihat qilganda biz qandaydir biror yangilikni bilib olardik. Lekin bir kuni xuddi shunday nasihatgo’ylikdan so’ng qarasak, muallimimiz bizga qanday yashashni o’rgatar ekanu, o’zi ichuvchi ekan. Kechqurunlari uning uyida ichkilikbozlik, qimor o’yini ham bo’lib turar ekan. Sinfdoshlarimizdan biri bir kuni qishloqdagi katta to’ydan so’ng o’qituvchimiz mast bo’lib, uygacha yetolmay yo’lda yiqilib qolganini ko’ribdi. Shundan so’ng bu o’qituvchi biz uchun eng obro’siz kishi bo’lib qoldi. U hamon bizga nasihat qilar, lekin uning gaplariga endi hech kim quloq solmas ishonmasdi. Esimda, bir kuni maktab ma‘muriyati shu o’qituvchini mukofatladi. Men bilan partada birga o’tirgan bola o’ylanibroq qoldi va “Balki, shunday yashash kerakdir?”, dedi. Bu juda xavfli mulohaza edi.”</p>
+<p>Muallimning yomon xulqi ta‘sirida bola axloqsizlik yshliga kirib ketishi mumkin. Chunki bunday voqealar bolaning qalbida chuqur iz qoldiradi. Ayrim oilalarda sofdillik, xushaxloqlilikdan ko’ra ikkiyuzlamachilik ustun keladigan ba‘zi holatlar ham uchrvb turadi. Buning ustiga yana muallim maktabda bir xil gapirib, turmushda, uyda boshqacha hayot kechirganini, boz ustiga bunday muallimni maktab direktori mukofotlaganini o’quvchi ko’rib tursa, buning oqibatini bir tasavvur qiling. Bu axloqiy tarbiya nuqtai nazaridan juda xavfli. Buning natijasida bola muallimga ham, boshqalarga ham ishonmaydigan, kattalarni hurmat qilmaydigan, tartibbuzar bo’lib ketishi mumkin.</p>
+<p>Pedagogik jarayonda muallimning halolligi, rostgo’yligi, o’zini tuta bilish, shirinso’zlik kabi axloqiy sifatlari uning shaxsiy ishi emas, balki ijtimoiy qiymat va ahamiyat kasb etadi, professional zaruriy fazilatlarning tarkibiy qismi bo’lib qoladi. Ijobiy axloqiy sifatlar bo’lmasa o’qituvchining bilimi, mahorati va boshqa xislatlari sho’ qiymatini yo’qotadi. Chuqur bilim, pedagogik mahorat va ruhiy-ma‘naviy xislatlar bilan bir qatorda mas‘uliyat, qadr-qimmat, adolat, yaxshilik istash, halollik, rostgo’ylik, kamtarlik, vijdonlilik kabi axloqiy fazilatlar muallimning obro’sini oshiradi.</p>
+<p>Xullas, agar muallim o’quvchilar unga xushaxloq, eng barkamol inson deb qarayotganliklarini qanchalik yodda tutsa, bolalarga uning ta‘siri shunchalik kuchliroq bo’ladi, uning har bir maqtagani bolaga zavq bag’ishlaydi, uning har bir tanbehi bola qalbida shunchalik chuqur iz qoldiradi, barcha tarbiyaviy ishlar ta‘sirli va samarali bo’ladi. O’zining biror noo’rin xulqi bilan bolalarga yoqmay qolgan muallimning ahvoli voy bo’ladi. Muallim axloqining pokligiga io’onch yo’qolsa, yoki unga putur yetsa, o’sha zahotiyoq o’qituvchi nutqining burdi ketadi – uning maqtashi ham, tanbehi ham o’z ahamiyatini yo’qotadi, avvallari bolalarning unga hurmati va muhabbati tufayli ko’ngilxushlik bilan osongina bitadigan ishlar endi bolalarni qiynash, majbur etish va jazo berish bilangina bajarilishi mumkin.</p>
+<p>O’qituvchining axloqiy faoliyatlaridan yana biri – o’z kuchiga ishonch, lekin manmanlik, maqtanchoqlik qilmaslikdir. Muallim har doim oldinga qarab intilishi, o’z ishiga, o’z-o’ziga nisbatan talabchan bo’lib, o’z darslariga tanqidiy qaray olishi lozim. O’quvchilar, hamkasblari, nazoratchilari uning darslarini yuqori baholasalar ham muallim bundan mag’rurlanib ketmasligi kerak. U yaxshi o’tgan darsidan qanoat hosil qilgan paytlarida bundan ko’ra ham tuzukroq ishlashga intilsa, bu-ijodiy kamolot sari borishning to’g’ri yo’lidir.</p>
+<p>Qo’rqoqlik, o’z kuchiga ishonmaslik, birovning ko’magiga muhtojlik, o’qituvchi axloqiga, muallimlik kasbiga mutlaqo to’g’ri kelmaydi. Shuningdek, o’ziga bino qo’ygan, maqtanchoq, olifta muallimni ham bolalar xush ko’rmaydilar. O’qituvchi o’z kuchiga ishonib, o’z fanini, bolalarni, pedagoglik ishini sevgan, o’zining butun kuchini, qalb ko’rini unga sarflagan taqdirdagina o’quvchilarning hurmatiga sazovor bo’la oladi.</p>
+<p>Ma‘lumki, o’qituvchining faoliyatida ayrim juz‘iy xatolar, istisnolar, ba‘zan biror noo’rin xatti-harakat uchrab qolishi ham mumkin. Muallim bunday paytlarda o’z xatosini tushunib, uni tan olishi, kechirim so’rashi lozim. Bu yaxshi muallimning qadr-qimmatini tushurib yubormaydi, balki aksincha, o’quvchilar muallimning jur‘atiga, uning yuksak axloqiy fazilatlariga ishonch bilan qaraydigan bo’ladilar.</p>
+<p>O’qituvchi o’zi ikkilanadigan ayrim masalalarni, hatto o’quvchilar bu haqda so’rab qolsalar ham, bolalarga iloji boricha, aytib qo’ymasligi maqsadga muvofiq. Chunki, mujmal, xato javob bergandan ko’ra, bu masalani hozircha chetlabroq o’tish ma‘qul. Navbatdagi darsgacha uni aniqlab, bilib olishi va so’ngra asosli javob qaytarishi mumkin.</p>
+<p>Boshqa kasblarga qaraganda pedagogik faoliyat odobli bo’lishni taqazo qiladi. Odatda, inson ahloqi uning odobida ifodalanadi. O’qituvchining har bir so’zi, har bir bosgan qadami ibrat, tarbiya, o’rnakdir. Uning katta-kechiklar, o’quvchilar bilan qanday salomlashishi, kattalarga, kechiklarga, xotin-qizlarga munosabati, muomalasi, maktab oshxonasida ovqatlanishidan tortib, ko’chada yurishgacha tarbiya omili hisoblanadi. Har bir ishni o’z paytida, aniq bajarishi, bergan vadasining ustidan chiqishi, o’zini to’ta bilishi, irodasi, - bo’larning bachasi o’quvchilar xulqiga ta‘sir etibgina qolmay, bolalarda axloqiy fazilatlarning shakllanishiga ham yordam beradi<sup class="izoh-ref"><a href="#izoh-46" id="ref-46" aria-label="46-izoh">46</a></sup></p>
+<p>Ustoz deb ataluvchi «atama»ning lug’aviy ma’nosi o’ta keng. Buning mukammal falsafasini yoritish uchun yuzlab kitoblar bitilsa ham oxiriga yetib bo’lmaydi. Ustoz deganda, uning ma’naviy nuri va bu nurdan yuzlab ko’ngillar bahra olayotganligini tasavvur qilamiz.Ustozlik bu shogirdlar ehtiromi, xalq ehtiromi, jamoatchilik ehtiromiga sazovor bo’lgan chinakam unvon. Ustoz – yozgani ham, aytgan suxani ham mag’izli, mantiqli, adolatli, tafakkuri keng, savodli, imon-e’tiqodli, axloqli, ma’naviyatli inson. Ustoz odamiylik qiyofasi ufurib turgan, qalbi bilan dunyoni tinglaydigan, nafaqat millat, balki zaminu zamon, umuminson tashvishlarini yuragidan o’tkazib yashaydigan zot. Sadoqatli ustoz kamtarin, zukko, sermulohaza bo’ladi. Ustoz xalqqa, eliga manzur bo’la oladigan muruvvatli kishidir. Otaning o’z o’g’liga ustozlik qilishida teran hikmat bor. Yoki har bir kasb egasi, u zargarmi, taqachimi, kulolmi, farzandiga jismida ardoqlangan, qadoq qo’llaridan zavq olgan asl hunarini, shu hunarning sir-asrorlarini o’rgatishi haqiqiy ustoz – ota rahnamoligining muqaddas ko’rinishidir. Bu an’ana otadan o’g’ilga, bobodan nevaraga va butun avlodga o’tib borishi, sehrli qo’l mehnatining sharofati, hunarmandchilikning yuksak xususiyati ekanligidan darak beradi. Ustozlar haqida gap ketganda, yevropalik faylasuf Frensis Bekon ko’plab shogirdlar orttirgan olimlarni uch guruhga bo’ladi. «Birinchi guruh olimlar, – deydi u, – o’z «men»i atrofida o’ralashib qolgan olimlardir, ularni o’rgimchakka qiyos etish lozim. CHindan ham o’rgimchak juda mohir, uning to’qigan to’rini yasash boshqaning qo’lidan kelmaydi. Lekin, u to’r o’rgimchakning o’zidan boshqa hech kimga kerak emas. Ikkinchi yo’l bu chumolilar yo’li. Chumolilarning o’zlari hech narsa ijod etmaydilar. Ammo mehnatkashdirlar, shuning uchun hamma narsani o’z uylariga tashib ketadilar. Ularning boyligidan birov bahramand bo’lmaydi. Uchinchi yo’lni tanlagan kishilar mutafakkirlardir. Bu toifa donishmand kishilarning moddiy va ma’naviy qanotlari bor. Ular asalarilardir… Asalarilar guldan gulga qo’nar ekan, qatralab bol yig’adi, yiqqanlarini odamlarga beradi, o’zlariga olib qolmaydi». Ustoz – otangdan ulug’. Ustozlarni juda ko’p kishilar ulug’laydilar. Ko’p kishilar ulug’lagan insonlarni ulug’ deb aytish joiz. Har bir kishining otasi farzand uchun ulug’ligi muqarrar. Ammo uning ulug’lanish doirasi shu farzandlar va eng yaqinlari orasida. Hamma ulug’laydigan ustozlarga nisbatan bu doira qisqa va chegaralangan. Ustozning esa ulug’lanish doirasi keng. Shuning uchun u ulug’dir. Barcha farzandlar singari Amir Temur uchun ham otasi ulug’. Uning qudrati otasini “Go’ri Mir” maqbaraga dafn qilib poyiga o’zini qo’ydirishga yetar edi. Ammo ustozini ulug’lab, o’zini uning poyiga dafin etishligini vasiyat qilganligi ham ustozning otadan ulug’ligidan dalolatdir. Ota o’z farzandiga o’zining bisotidagi hamma narsani berishi mumkin. Ammo farzand u bilan ulug’lik darajasiga ko’tarila olmasligi muqarrar. Chunki, barcha otada ustozlik qila oladigan kasbi va qobiliyati bo’lmasligi mumkin. Farzandni tarbiyalab ulug’lar safiga qo’sha oladigan ustozdir. Bu bilan ham ustoz ulug’dir. Ota uchun farzand uning zurriyodi, hayotining davomchisi. Ustoz uchun esa u ulug’ ishlarning davomchisi. Farzand ota xizmati bilan bu darajada ulug’lanmasligi mumkin, ammo ustoz o’rgatgan kasb bilan u ulug’lar safidan joy oladi. Bu ham otaga nisbatan ustozning ulug’ligidan dalolatdir. Agar unda iqtidor bo’lsa va yaxshi ustozning qo’liga tushib qolsa, u alloma bo’lishi tayin. Bu ham ustozning ulug’ligidan dalolatdir. Birovga bir burda nonini topib yeydigan kasbni o’rgatadigan ustoz bo’lishdek saodat hammaga ham nasib qilmagan. Ustoz aytdi: qora ko’ngilni sovun bilan oqartirish qiyin ekan. Ota o’z farzandini tarbiyalashni juda xohlaydi va bor kuchi bilan harakat qiladi. Chunki bola shu otaning farzandi. Ammo ustoz uchun shogird hech kim emas, uning farzandi, hatto yaqin qarindoshi ham bo’lmasligi mumkin. Ammo u otadan ko’proq, ota kasbidan yaxshiroq kasbni o’rgatadi. Uning kamoloti uchun ustoz otadan ko’p va xayrli xizmat qiladi. SHu tufayli ustoz ulug’dir. Otaning farzandiga yaxshilik qilishi uchun otalik hissi bor, ustozning esa, birovning farzandini ko’klarga ko’taradigan kasbni o’rgatish uchun jonkuyarlik bilan harakat qilib, hatto o’zini ham bag’ishlashi uning insoniylik fazilatidandir. Insoniy fazilati yuksak odamlar ulug’dir. Har qanday erkak ota, har qanday ayol ona bo’lishi mumkin, lekin ularning hammasiga ustozlik saodati nasib qilavermaydi. Faqat ulug’ otalar va onalargagina ustozlik saodati nasib qiladi. SHu tufayli ustoz — ulug’ va buyuk zotdir. Ustoz o’zidan oldingi o’tgan odamlardan ibrat olib ustoz bo’lganligi uchun, o’zidan keyingi shogirdlari uchun ham ibratdir.</p>
+<p>Ustozning maqsadi hamisha ezgulik bilan yo’g’rilgan. Haqiqiy ustoz – sohili yo’q ummonga o’xshaydi. Undan cheksiz xazina va boyliklarni topish mumkin. Ustoz bo’lish uchun odam eng avvalo o’zini tarbiyalashi lozim. Shu tufayli har qanday ustoz o’z ishini o’ziga ustozlik qilishdan boshlashi kerak. Ustozning aytganlarini aytib yurishdan ko’ra, unga amal qilib yashash senga ham sening atrofingdagilarga ham kata naf keltiradi. Har bir inson, avvalo o’ziga ustoz, o’ziga shogird bo’lishi lozim. Ustozlikni his qilmagan kishi ustozning qadriga yetmaydi.· Ustozlik mas’uliyati juda og’ir, ko’p narsalarni ko’tarishni va ayrim halovatlardan ham voz kechishni talab qiladi.· Ustoz hayoti — ibrat maktabi. Agar u haqiqiy ustoz bo’lsa.</p>
+<p>Daraxtning hosili — mevasi, ustozning hosili — shogirdlari. Ustoz faqat yaxshi, samimiy, saxovatli va bilimdon odamlardangina yetishib chiqadi. Agar insonda saxovat va insof uyg’un bo’lmasa, hamma ham ustoz bo’lishdek saodatga muyassar bo’lavermaydi</p>
+<p>Demak, o’qituvchi, muallim, domla, ustoz, murabbiy degan so’zlarni xalqimiz samimiy hurmat, minnatdorchilik bilan tilga oladi. Bu, albbata, bejiz emas. Zero odam aqlini tanigandan boshlab kattalardan, bilimli, tajribali, kishilardan tarbiya, tahsil, odob o’rganadi. Inson yozuvni ixtiro qilgan qadim zamonlardan beri muallim yosh avlodga xat-savod, ilm-hunar o’rgatadi. Hayotda endi kirib kelayotgan, kun sayin bo’y cho’zib, to’lishib, balog’atga yetib, atrofdagi narsa va hodisalarni, tabiat va jamiyat sirlarini bilib olishga zo’r ishtiyoq bilan intilayotgan bola uchun o’qituvchi “eng bilimdon”, “eng donishmand” kishi inson kamolotining oliy namunasidir. O’qituvchi-avlodlarni bir-biriga bog’lovchi “tilla halqa”, o’qituvchilik esa, boqiy kasbdir.</p>
+<p>O’qituvchi jamiyatda juda muhim, ma‘suliyatli ish bajaradi. Muallimning mehnati shu bilan qadrliki, u odamni, uning, ma‘naviyati, dunyoqarashi, axloqiy e‘tiqodini shakllantiradi. O’qituvchidan ta‘lim olgan bola hayotda ishchimi yoki davlat arbobimi-kim bo’lib yetishmasin, o’zining sevimli muallimini, ta‘lim olgan maktabini minnatdorlik hislari bilan eslab turadi.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="13">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>Mavzuni o‘zlashtirishda qaysi omillar hisobga olindi? Mavzuni o‘zlashtirishda qanday omillar hisobga olinmadi? Ro‘yxatga yana qanday omillarni kiritish mumkin? Masalaning yana qaysi jihatlariga e’tibor berish zarur?</p>
+<p>O‘qituvchi mehnatini tashkil etishga ta’sir etuvchi omillarni “Barcha omillarni hisobga ol!” (BOHO) metodi yordamida aniqlanishi (namuna)</p>
+<blockquote>O‘qituvchi mehnatini tashkil etish<br>Har tomonlama rivojlanish<br>Vaqtni tejash<br>Vaqtdan unumli foydalanish<br>Salomatlik<br>to‘g‘risida<br>qayg‘urish<br>Qulay mehnat sharoitini yaratish<br>Mehnat sharoitidan oqilona foydalanish<br>Dam olish<br>sharoitidan oqilona foydalanish<br>Qulay dam olish sharoiti<br>Izoh: talabalar tomonidan tanlangan har bir gugurt donasi yoki oddiy cho‘p</blockquote>
+<p>bittadan tushunchani ta’riflash shartligini anglatadi. Shunga ko‘ra talaba agarda ikkita gugurt donasini tanlagan bo‘lsa, u holda ikkita tushunchani ajratib ko‘rsatib, ularni ta’riflaydi. Gugurt donalari sonining ortib borishiga ko‘ra tushunchalar soni va ularga beriladigan ta’riflar miqdori ham ko‘payib boradi.</p>
+<p>“O‘qituvchi mehnatini ilmiy tashkil etish” mavzusining “Gugurt donalari” strategiyasida yoritilishi</p>
+<div class="jadval-o"><table><thead><tr><th>1-guruh</th><th>2-guruh</th><th>3-guruh)</th></tr></thead><tbody><tr><td>Mehnat –O‘qituvchi mehnati –O‘qituvchi mehnatini tashkil etish – Pedagogik tajriba – O‘z ustida ishlash –</td><td>1.O‘z-o‘zini rivojlantirish –2. O‘z ustida ishlash –4. Pedagogik tajriba –</td><td>Pedagogik tajriba to‘plash –Faoliyat –Pedagogik faoliyat –Pedagogik faoliyatni rejalashtirish – O‘zini o‘zi baholash –O‘zini o‘zi tahlil qilish –</td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Xalq pedagogikasida ustoz- shogirt masalalari qanday yoritilgan?</li><li>O’qituvchini jamiyatda tutgan o’rni qanday?</li><li>O’qituvchini milliy odob axloqi qanday bo’lishi kerak?</li><li>O’qituvchi axloqida halollik to’g’rilikni, rostgo’ylikni, mafkuraviylikni, printsipialligini nima bilan bog’laysiz?</li><li>O’qituvchi madaniyati boshqalar madaniyatidan farqi nimada?</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="13">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="izohlar">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <ol class="izoh-royxat"><li id="izoh-32"><a href="#ref-32" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> “SHohnoma” 1-kitob, Toshkent., 1975 yil. 35-36 betlar</li><li id="izoh-33"><a href="#ref-33" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-34"><a href="#ref-34" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> “O’zbek pedagogikasi antologiyasi”. Toshkent, “O’qituvchi”, 1995, 39-46 betlar</li><li id="izoh-35"><a href="#ref-35" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Pisarinko V. I.,Pisarinko I. Ya. Pedagogicheskaya etika. Minsk, 1977, 10-11 betlar</li><li id="izoh-36"><a href="#ref-36" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> (Hadis. Birinchi kitob. Toshkent, 1991, 28-51-betlar)</li><li id="izoh-37"><a href="#ref-37" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’zbek pedagogikasi antalogiyasi. Toshkent, “O’qituvchi”, 1995,108-109-betlar)</li><li id="izoh-38"><a href="#ref-38" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Qobusnoma.Toshkent, “Meros”, 1992, 83-bet</li><li id="izoh-39"><a href="#ref-39" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’zbek pedagogikasi antalogiyasi Toshkent, “O’qituvchi”, 1995 206-bet</li><li id="izoh-40"><a href="#ref-40" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> SH. Shomuhamedov. “Bir dasta gul” maqolasiga qarang: Sa‘diy “Guliston”, Toshkent, 1968, 5-bet</li><li id="izoh-41"><a href="#ref-41" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’sha asar, 143-bet</li><li id="izoh-42"><a href="#ref-42" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-43"><a href="#ref-43" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li><li id="izoh-44"><a href="#ref-44" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’sha asar, 148-bet</li><li id="izoh-45"><a href="#ref-45" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> O’sha asar, 149-bet</li><li id="izoh-46"><a href="#ref-46" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> M.Ochilov Qarshi 2005y Nasaf 67b</li></ol>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Sh. M. Mirziyoyev: “O’zbekiston respublikasini yanada rivojlantirish bo’yicha harakatlar strategiyasi” Xalq so’zi. 2017-yil 9-fevral</li><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,M.Nishonov ” Pedagogika”T;Talqin 2008 y</li><li>O.Xaydarova «Xalq pedagogikasi»,Navoiy 2008</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-12.html"><span class="yon">← 12-modul</span><span class="nom">Milliy musiqa, qo‘shiqchilik va milliy teatrlar xalq pedagogikasining tarbiya vositasi sifatida</span></a><a class="keyingi" href="modul-14.html"><span class="yon">14-modul →</span><span class="nom">Xalq tarbiya nazariyasida tabiatni muhofaza qilish va sog‘lom turmush masalalari</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-  <div class="question">
-    <h3>2. Zamonaviy ta’limda xalq pedagogikasi:</h3>
-    <label><input type="radio" name="q2">Keraksiz</label><br>
-    <label><input type="radio" name="q2" data-correct>Uyg‘un holda qo‘llanadi</label><br>
-    <label><input type="radio" name="q2">Faqat tarix uchun</label>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
   </div>
+</footer>
 
-</div>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-<!-- YOZMA -->
-<div class="section">
-  <h2>Yozma fikr</h2>
-  <p>
-    Xalq pedagogikasini zamonaviy ta’limda qo‘llash bo‘yicha
-    o‘z fikringizni yozing.
-  </p>
-  <textarea id="text"></textarea>
-  <button onclick="evaluate()">Yakuniy baholash</button>
-  <div class="result" id="result"></div>
-</div>
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-<!-- NAV -->
-<div class="nav">
-  <div class="nav-inner">
-    <a href="modul-12.html" class="nav-btn nav-prev">← Modul 12</a>
-    <a href="dars.html" class="nav-btn nav-center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-14.html" class="nav-btn nav-next">Modul 14 →</a>
-  </div>
-</div>
-
-<script>
-function select(el){
-  document.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
-  el.classList.add("selected");
-}
-
-function evaluate(){
-  let score=0;
-
-  document.querySelectorAll("input[data-correct]").forEach(i=>{
-    if(i.checked) score+=20;
-  });
-
-  let txt=document.getElementById("text").value.toLowerCase();
-  let keys=["xalq","tarbiya","milliy","ta’lim","zamonaviy"];
-  let match=0;
-  keys.forEach(k=>{if(txt.includes(k))match++;});
-  score+=match*6;
-
-  score=Math.min(100,score);
-  document.getElementById("result").innerHTML=
-    "Sizning umumiy natijangiz: <strong>"+score+"%</strong>";
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html><html lang="uz">
-<head>

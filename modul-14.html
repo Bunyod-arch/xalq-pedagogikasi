@@ -2,290 +2,285 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>14-modul — Yakuniy baholash</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-/* ===== DYNAMIC IOS26 BACKGROUND ===== */
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  min-height:100vh;
-  color:#f8fafc;
-  background:
-    radial-gradient(1200px 600px at 10% 10%,rgba(0,255,255,.18),transparent),
-    radial-gradient(1000px 500px at 90% 20%,rgba(168,85,247,.22),transparent),
-    radial-gradient(800px 400px at 50% 90%,rgba(34,197,94,.22),transparent),
-    #020617;
-  animation:bgMove 18s ease-in-out infinite alternate;
-  padding:120px 20px 200px;
-}
-
-@keyframes bgMove{
-  0%{filter:hue-rotate(0deg)}
-  100%{filter:hue-rotate(25deg)}
-}
-
-/* ===== HEADER ===== */
-.header{
-  max-width:1100px;
-  margin:0 auto 90px;
-  text-align:center;
-}
-.header h1{
-  font-size:clamp(42px,6vw,82px);
-  font-weight:900;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  background:linear-gradient(120deg,#22d3ee,#a855f7,#22c55e,#22d3ee);
-  background-size:300% 300%;
-  animation:neonFlow 8s linear infinite;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-@keyframes neonFlow{
-  0%{background-position:0% 50%}
-  100%{background-position:100% 50%}
-}
-.header p{
-  margin-top:28px;
-  font-size:19px;
-  line-height:2;
-  opacity:.92;
-}
-
-/* ===== GLASS CARD ===== */
-.card{
-  max-width:980px;
-  margin:0 auto 90px;
-  padding:54px;
-  border-radius:44px;
-  background:
-    linear-gradient(145deg,
-      rgba(255,255,255,.16),
-      rgba(255,255,255,.04)
-    );
-  backdrop-filter:blur(30px) saturate(160%);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.18),
-    0 80px 220px rgba(0,0,0,.85);
-}
-.card h2{
-  font-size:32px;
-  margin-bottom:28px;
-}
-.card p{
-  font-size:16.8px;
-  line-height:2;
-  margin-bottom:18px;
-  opacity:.95;
-}
-
-/* ===== QUESTIONS ===== */
-.question{
-  margin-bottom:34px;
-}
-.question h3{
-  font-size:18px;
-  margin-bottom:14px;
-}
-.question label{
-  display:block;
-  padding:12px 18px;
-  margin-bottom:10px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-  cursor:pointer;
-  transition:.25s;
-}
-.question label:hover{
-  background:rgba(34,211,238,.18);
-}
-
-/* ===== TEXTAREA ===== */
-textarea{
-  width:100%;
-  min-height:240px;
-  border-radius:30px;
-  padding:22px;
-  border:none;
-  background:rgba(255,255,255,.14);
-  color:#fff;
-  font-size:16.5px;
-  outline:none;
-}
-
-/* ===== BUTTON ===== */
-button{
-  margin-top:40px;
-  padding:22px 64px;
-  border:none;
-  border-radius:44px;
-  background:
-    linear-gradient(120deg,#22d3ee,#a855f7,#22c55e);
-  background-size:200% 200%;
-  animation:neonFlow 6s linear infinite;
-  color:#020617;
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:.12em;
-  cursor:pointer;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.6);
-}
-
-/* ===== RESULT ===== */
-.result{
-  margin-top:34px;
-  font-size:28px;
-  font-weight:900;
-}
-.cert{
-  margin-top:18px;
-  font-size:18px;
-  opacity:.9;
-}
-
-/* ===== NAV ===== */
-.nav{
-  position:fixed;
-  bottom:0;left:0;
-  width:100%;
-  z-index:999;
-  padding:20px 26px;
-  background:linear-gradient(
-    to top,
-    rgba(2,6,23,.96),
-    rgba(2,6,23,.65),
-    rgba(2,6,23,0)
-  );
-  backdrop-filter:blur(22px);
-}
-.nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:26px;
-}
-.nav-btn{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:22px 30px;
-  border-radius:30px;
-  background:rgba(255,255,255,.10);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 30px 90px rgba(0,0,0,.85);
-  letter-spacing:.14em;
-  font-size:14px;
-}
-.nav-center{
-  font-weight:900;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  background:linear-gradient(120deg,#22d3ee,#a855f7,#22c55e);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  box-shadow:none;
-}
-.nav-prev{justify-self:start}
-.nav-next{justify-self:end}
-
-@media(max-width:900px){
-  .nav-inner{grid-template-columns:1fr;text-align:center}
-  .nav-prev,.nav-next{justify-self:center}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>14-modul. Xalq tarbiya nazariyasida tabiatni muhofaza qilish va sog‘lom turmush masalalari | Xalq pedagogikasi</title>
+<meta name="description" content="Tabiatga ehtiyotkor munosabat, ekologik ong va sog‘lom turmush tarzi.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<div class="header">
-  <h1>14-MODUL</h1>
-  <p>
-    Xalq pedagogikasi kursining yakuniy bosqichi.
-    Ushbu sahifa sizning umumiy bilim darajangiz,
-    tahliliy fikrlashingiz va xulosangizni baholaydi.
-  </p>
-</div>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="card">
-  <h2>Yakuniy test</h2>
-
-  <div class="question">
-    <h3>1. Xalq pedagogikasining bosh maqsadi:</h3>
-    <label><input type="radio" name="q1">Faqat tarixni bilish</label>
-    <label><input type="radio" name="q1" data-correct>Komil insonni tarbiyalash</label>
-    <label><input type="radio" name="q1">Faqat urf-odatlarni saqlash</label>
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
+</header>
 
-  <div class="question">
-    <h3>2. Xalq pedagogikasi qaysi manbaga tayangan?</h3>
-    <label><input type="radio" name="q2" data-correct>Xalq tajribasi va hayotiy amaliyot</label>
-    <label><input type="radio" name="q2">Faqat yozma manbalar</label>
-    <label><input type="radio" name="q2">Faqat diniy manbalar</label>
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#23583E;--rang-b:#17402C">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">14-modul</span>
+    <h1>Xalq tarbiya nazariyasida tabiatni muhofaza qilish va sog‘lom turmush masalalari</h1>
+    <p class="ost">Tabiatga ehtiyotkor munosabat, ekologik ong va sog‘lom turmush tarzi.</p>
+    <div class="meta">
+      <span>📖 3,520 so‘z</span>
+      <span>🎮 Chiqindilarni saralash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
   </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html" class="faol">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq tarbiya nazariyasida tabiatni muxofaza qilish va sog’lom turmush masalalari</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>tabiatning shaydosi</li><li>go’zallikdan zavqlangan</li><li>madaniy samimiy</li><li>mezbon</li><li>mehmon</li><li>tavoz’e</li><li>xovli</li><li>joylar tozalash</li><li>tabiati go’zal</li><li>yomon xulq –atvor</li><li>ekologik tarbiya</li><li>atrof – muxit</li><li>munosabat</li><li>milliy anana</li><li>udum</li><li>xayvonlar</li><li>o’simlik</li><li>«Qizil kitob»</li><li>bayramlar shakli</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/-Ekk6mDUsgw"
+    title="Tabiatni muhofaza qilishning pedagogik asoslari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">Tabiatni muhofaza qilishning pedagogik asoslari · <span>Jizzax davlat pedagogika universiteti</span></p>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/T_tNlPWdprY"
+    title="Salomatlik saboqlari: sog‘lom turmush tarzi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">Salomatlik saboqlari: sog‘lom turmush tarzi · <span>ATV telekanali</span></p><div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/9EK7z3Es4fw"
+    title="Tabiatni muhofaza qilish" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">Tabiatni muhofaza qilish · <span>Qamashilik yoshlar</span></p>
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>O’zbek xalqi azaldan go’zallikning, tabiatning xaqiqiy shaydosi bo’lgan, uni e’zozlagan va ardoqlagan. Har qanday go’zallikdan zavqlangan, go’zallik yaratishga intilgan.</p>
+<p>Bolalarda go’zallik to’g’risidagi tushunchalar ularni o’rab turgan tevarak atrofdagi turmush olamlari: kiyim – kechak, o’yinchoqlar, oila a’zolarining o’zaro madaniy samimiy munosabatlari, saranjom xovli, gulzor: san’at asarlari musiqa, ashula, rasm asosida tarkib toptiriladi. Oila go’zallikning birinchi maktabi, oila a’zolarining o’zaro munosabati, uyning jixozlari, o’sha narsalarning uyg’unligi, tartibli joylashtirilishi, saranjom – sarishtalikning bolaning go’zallikka munosabatini tarbiyalaydi. Masalan : «O’tkan kunlar» romanida Yusufbek xoji yoki Mirzakarim qutidor oilasi, ularning o’zaro munosabatlari, Yusufbek xojining Kumushbibi va Zaynabga bergan nasixatlari, Kumushbibining onasi Oftoboyga yozgan maktublari….. O’lim oldidan Kumushbibining qaynotasidan uyalishi. Bular xammasi kishilar o’rtasidagi munosabat go’zalligi so’zlashish madaniyatini kuraylik. Eri xotiniga «begim» yoki Xotin eriga ….Masalan, «Yulduzli tunlar» romanida Bobur onasiga, onasi shox o’g’liga «amirzodam» deb, Xonzoda begim ukasiga «amirzodam» deb murojaat qilishadi. So’zlayotgan kishi o’zini «faqir», «kamina» deb, o’zgalarga «mavlono» deb murojaat qilishgan. Vodiyliklar xatto o’z bolasiga xam «Siz» deb murojaat qilgan. Kiyinish bo’yicha xam o’zbek xalqi o’ziga xos udimga, rasm – rusumga rioya qiladi. O’ziga xos kiyinish madaniyatiga ega. Masalan : To’yga, mehmonga, ishga borganda kiyiladigan kiyimlar, ozoda kiyiladigan kiyimlar.</p>
+<p>Mehmon kutish madaniyati: Uy, xovli joylar tozalangan, yangi ko’rpachalar to’shalib, yangi yostiqlar qo’yilgan, yangi dasturxonlar yozilgan, chiroyli idishlar ishlatilgan, toza sochiq berib, qo’liga suv quyilgan. Mehmonning xurmatini joyiga qo’yib, u uchun xamma qulayliklar yaratilgan. Mehmon xam o’zini kamtar, sipo tutgan. Mezbon mehmonga tavoz’e bilan qo’l qovushtirib, o’ta iltifotli bo’lgan. Mehmon kutganda xatto mezbon xam yaxshi kiyinib olgan. Mehmon oldida bolalarni urushmagan, ovozini ko’tarmagan, odob doirasidan chiqmagan. Yosh kelinlar o’rnidan turib, qo’lini ko’ksiga qo’yib sal egilib choy uzatishgan. Mehmonga borganda suqliq, ochko’zlik, beodoblik qilmay, o’zini o’ta sipo tutishgan, ovqatlanish qoidalariga rioya qilishgan. Bular xammasi muloqot, o’zini tutish, ovqatlanish madaniyati, ya’ni go’zalligidir. Anna shu go’zallikdan xalqimiz zavqlangan. SHu zavq bilan kelin tanlashgan, quda – anda bo’lishgan.</p>
+<p>Ovqatlanishda yoshi kattalar boshlashgan, dasturxon atrofida xam yoshiga, mavqeiga qarab o’tirishgan. Gapirganda xam yoshlar kattalarni gapini bo’lishmagan, luqma tashlamey, jim turib, navbat kutishgan. SHuning uchun xam dono xalqimiz: Xusn to’yda kerak, aql kunda kerak deyishgan. Yoki: So’z chimildiq, aql kelindir.</p>
+<p>Bu haqda sharq mutafakkirlarining fikrlari xam g’oyat ibratlidir.</p>
+<p>Masalan: Ibn Sino: Yaxshi va yomon xulqning xammasi sharoit, tarbiya, odatlanish, natijasija vujudga keladi. Ochko’zlik, yaxshi ovqat, ichkilik, xotin xalatga berilishdan o’zini tutish iffat sanaladi.</p>
+<p>Kishini qabiq va bemaza ishlarga qadam qo’yishdan tutib turadigan va uni yaxshi ishlarga yo’llashiga hayo deyiladi.</p>
+<p>Yordam berishning go’zalligi undan kishining kasallik topishida ko’rinadi.</p>
+<p>Xulqlarning barchasi o’z tabiati bilan go’zal, yomon xulq -atvorlarga esa keyin erishilgan bo’ladi. Go’zal xulq atvorlar odatlanishdan yuzaga keladi.</p>
+<p>Maxmud Qoshgoriy: O’g’lim, senga meros qilib, ezgu xulq, odobni qoldiraman deydi.</p>
+<p>Baxouddin Naqshbandiy: Kam yenglar, ocharchilik qurmasdan boy - badavlat yashaysizlar, kam uxlanglar mukammalliklarga erishasizlar, kam gapiringlar dono bo’lasizlar. Yoki xofiz Sheroziy go’zallikka shu darajada oshifta bo’ladiki, u:</p>
+<blockquote>Agar ul SHeroz go’zali, ko’nglingni ololsa,<br>Qora xoliga baxsh etgum Samarqandu Buxoroni.<br>Go’zal xislarni tarbiyalashning eng muxim vositasi tabiatdir.<br>M: X.Olimjon:<br>Chiroylidir, go’yo yoki kelin,<br>Ikki daryo yuvar kokilin.<br>Yoki:<br>Tog’lardagi qip-qizil lola,<br>Go’yo bo’lib yoqut piyola…</blockquote>
+<p>Go’zallikdan zavqlanishga o’rgatishda san’at va uning turlari, rasm, musiqa va ashula, badiiy adabiyotning ro’li kattadir.</p>
+<p>Ekologik tarbiya deganda esa o’quvchilarga berilishi lozim bo’lgan tabiat bilan inson orasidagi munosabatlarni ifodalovchi bilimlar tizimi tushuniladi. Ekologik tarbiya esa insonning atrof – muxitga nisbatan munosabatini tarbiyalashdir.</p>
+<p>Ekologik ta’lim - tarbiyadan bosh maqsad yosh avlodda atrof – muxit, uning muommolariga ongli munosabatni shakllantirish.</p>
+<p>Ekologik tarbiyalash jarayonida yoshlar tabiat boyliklarini tejab – tergashga, tabiatni muxofaza qilishga o’rgatila boriladi.</p>
+<p>Ekologik tarbiya oiladan boshlanadi. Ekologik dunyoqarashning shakllanish negizi oila tarbiyasiga bog’liqdir.</p>
+<p>Ajdodlarimiz bolalarga atrof – muxitga xurmat, obodonchilik va ko’kalamzorlashtirish xissini sabot bilan singdirishgan.</p>
+<p>Masalan: atrofni ifloslantirmaslik uchun axlatlarni aloxida chuqurlarga tashlash, xojatxonalarni ariq, soy, buloqsuvlaridan uzoqroq joyda kovlash, yong’in chiqmaslik chorasini ko’rish, ko’karib turgan daraxtni kesmaslik, nixollarni sindirib paymon qilmaslik, qushlarning uyasini buzmaslik kabi odatlar shakllantirilgan. Oila davrasida farzandlarga «Suvga tuflama, uni iflos qilma, chunki barcha jonivorlar uni ichib baxra oladi».</p>
+<p>Gullab turgan mevani daraxtlarning shoxini sindirma, u meva beradi, uni o’zing yeysan, «Pishib etilmagan uzumni uzma, agar uzsang kata gunoh shu bo’ladi, chunki unda axli mo’minning nasibasi bor.» deb pand – nasixatlar qilganlar.</p>
+<p>Xozir ekologik tarbiya saviyasi past. Mollarni ekinzorlarda (bog’larda ) boqishadi. O’tmishda xalqimiz qaramog’idagi xayvonlarga maxsus podachi saqlagan, yoki navbat bilan boqishgan.</p>
+<p>Oilaviy dam olishga chiqishganda daraxtlarga, o’simliklarga, xayvonlarga zarar keltirilmagan. Yoshlarni ekologik tarbiyalashda milliy anana va udumlarni qayta ishlashga qatta e’tibor berilmoqda.</p>
+<p>Bolalarni ekologik tarbiyalashda xalq og’zaki ijodining ta’siri katta. Xalq ertaklarida bolalar ajdodlarimizning ekologik xatolari nimalardan iborat ekanligini, ularning ibratli ishlarini o’rganadilar. O’quvchilarga aytiladigan ertaklarda xayvonlar va o’simliklarning xususiyatlari, ularning tabiatdagi o’rni ochib beriladi. Xayvon va o’simliklarga bo’lgan noto’gri munosabat natijasida juda noyob xayvon va o’simliklarning nomlari «Qizil kitob» ga kiritilgan. Qo’riqxonalar ochilgan.</p>
+<p>Milliy tarbiyamizda to’rt narsa: yer, suv, tuproq, xavo muqaddas narsa hisoblangan. Xalqimiz juda qadim zamonlardan suvga e’tiqot qo’yishgan. Har tomchi suvni qadrlab bog’ – rog’lar yaratishgan.</p>
+<p>Xadisda xam ekologik tarbiyaga alohida e’tibor berishgan.</p>
+<p>Masalan: Soyasidan xalq foydalanib turgan daraxtni kesib yuborgan odamni tangri do’zaxga maxkum etur. «Dehqonchilik bilan shug’ullaninglar, dehqonchilik muborak kasbdir. Unda qo’riqchilarni ko’paytiringlar». «Qaysi bir musulmon ekin eksa yoki biror daraxt o’tkazsa, so’ng uning mevasidan qush yoki xayvon esa, uning ekinidan ekilgan har biridan unga saadaqa savobi yoziladi».</p>
+<p>Xadis misolida bag’ri kenglik, jonzodlarni asrash zarurligi g’oyasi ulug’lanadi.</p>
+<p>Ekmak niyatida qo’lingizda ko’chat turgan paytda bexosdan qiyomat qoyim bo’lishi aniq bo’lganida xam ulgursangiz, uni ekib qo’yavering. «Kim suv toshqinini to’xtatsa yoki yong’inni o’chirsa, unga shaxidlik ajri beriladi» kabi xadislarda ekologiya va tabiat muxofazasiga oid tushunchalar bordir.</p>
+<p>Demak, ota - bobolarimiz azal – azaldan tabiatga yuksak mehr va ehtirom ko’rsatishgan.</p>
+<p>Yurtni obod etishgan, ko’chalarni xovlilarni sarishta saqlashgan. Xalqimizning tabiatga munosabati urug’ qadash, qovun sayli, suv sayli, uzum sayli, xosil bayrami, gul bayrami, navro’z bayrami, xirmon kabi bayramlarida xam ifodalangan. Bunday tabiat bayramlari ularning hayot tarzlariga aylanib ketgan.</p>
+<p>Respublikamiz mustaqillikka erishgandan so’ng bu diyorni obod etish uning atrof – muxitini ozoda saqlash xar bir fuqaroning insoniy burchiga aylandi. Obodonchilik va orastalik, pokizalik va tejamkorlik, xush xulqlik va xushmomilalik xar bir inson uchun, pedogoglar va o’quvchilar uchun xam ekologik manaviy mezondir.</p>
+<p>Ekologik tarbiya jarayonida o’quvchilar tabiat xaqida tushuncha tabiiy muxit, tabiiy omillar xaqida tushunchaga ega bo’lishi zarur. Tabiat boyliklaridan tejab kelgan foydalanish, ularni muxofaza qilishni o’rganishlari zarur. Atrof - muxitni ifloslanishidan saqlashlari lozim. Tabiatni kelajak avlodlari uchun tabiiy xolda qoldirishga xarakat qilish kerak.</p>
+<p>O’quvchilarni tabiatni muntazam kuzatib borishga, qiziqishga, tabiatni ximoya qilish uchun kurashishga, uning go’zalligini asrab avaylashga o’rgatish lozim.</p>
+<p>Qadimgi muqaddas kitobimiz «Avesto»da yer, suv, zamin, xona, badan kiyim – kechak, oziq – ovqatlarni toza tutish va ishlashga aloqida e’tibor berilgan. Unda go’ristonlarni shaxar va qishloqlardan yiroqda joylashtirish, uni o’rab qo’yish, murda tekkan libos, yerlarni qatron qildirish xususida foydali maslaxatlar mavjud. Inson yoki xayvon o’ligi tushgan soy, ariq, xovuz, quduqlarni bir necha qatron qilish takidlanadi.</p>
+<p>O’t – o’lanlar va mevali daraxtlar ekilgan, suvlari ravon bo’lgan zamin eng yaxshi yerdir. Ayol va farzandlari sarson - sargardon yuradigan yer yeng yomon zamindir. Yerni iflos qilgan va uni saqlash qoidalarini buzgan shaxslar «40 kamchi urush jazosiga» girifton qilingan.</p>
+<p>Inson yashayotgan xonada yuvinish va cho’milish qatian man etilgan. «Avesto» da uy jonvorlarini ehtiyot qilishga chaqirish kuchli.</p>
+<p>Eng qadimiy davrlardan xalq ommasi ehtiyoji bilan shakllana borgan, ijtimoiy zarurat asosida rivoj topgan, muayyan vaqtlarda ta’qiqlangan, katta qapama - qarshiliklar, to’siqlarni engib, boshqa xalqlar tajribasi bilan boyib kelgan rituallar o’zoq va boy tarixga ega.</p>
+<p>RITUAL (lotin so’zidan «marosim») - xulq-atvorning tarixiy shakli bo’lib, o’zaro ijtimoiy va madaniy munosabatlarni, qadr-qimmatni anglatuvchi bir maromga keltirilgan harakatlar tizimidir. Bu tushuncha bilan birga, biz, ushbu rituallar haqidagi ma’lumotimizda ritualga juda yaqin bo’lgan an’ana, odat, marosim tushunchalari haqida ham bir oz to’xtalib o’tamiz.</p>
+<p>Rituallar eng qadimiy davrlardan boshlab shakllana boshlagan. Asrlar bo’yi avloddan-avlodga o’tib, kamol topib, bebaho merosga aylangan rituallar ko’p. Rituallar din paydo bo’lgunga qadar paydo bo’lgan. Lekin rituallarning ma’lum qismi tarixning qcos~ shamollariq- bosqinchilar va turli tarixiy shaxslar-hukmdorlar tazyiqiga uchrab, noxaq yo’qotilgan, ayrim qarama-qarshiliklarni engib, ko’pgina fazilatlardan ajralsa-da butunlay yo’qolib ketmagan, yana boshqalari esa xalq hayotidan mustahkam o’rin olib, bizning zamonamizgacha etib kelgan.</p>
+<p>Ibtidoiy jamoa davridan boshlab paydo bo’lgan rituallar o’sha davr odamlari tomonidan o’z davrining nafasini, dunyoqarashini, mehnat faoliyati, madaniyati, turli odatlari, marosimlari, ijtimoiy munosabatlarni saqlab qolish va keyingi avlodga etkazish maqsadida yoshlarga o’rgatilgan va ular bizgacha turli kuy, qo’shiq, o’yinlar orqali etib kelgan.</p>
+<p>Qadimiy rituallar, asosan, ikki turga bo’lingan: tantanali va motam yoki tantanali-motam yurishlari, tantanali rasmiy ko’zatish va kutib olishlar. Keyinchalik ular takomillashib borib quyidagi turlarga bo’lingan: ijtimoiy, oilaviy, milliy, diniy, harbiy, mehnat, bilan bog’liq, kundalik-hayotiy, o’quv - tarbiya bilan bog’liq va boshqalar.</p>
+<p>Tarixiy ma’lumotlarga qaraganda ibtidoiy davrda ovchilar o’yinlari, harbiy o’yinlar, diniy, ilohiy o’yinlar, ayiq ovi o’yini va turli hayvonlar o’yinlari ko’plab qo’llanilgan, ularni bajarishning o’ziga yarasha tartib-qoidalari ishlab chiqilgan, ortiqcha harakatlar olib tashlangan, natijada ushbu o’yinlarning o’ziga yarasha marosimlari-rituallari paydo bo’lgan. Keyinchalik dehqonchilik boshlangach, dehqonchilikka bog’liq bo’lgan marosimlar – rituallar paydo bala boshlagan: mehnat o’yinlari, yomg’ir chaqirish, bevaqt sovuq tushsa «Kuyoshga sig’inish», omad kelmaganda «qurbonlik qilish» va boshqalar. SHuningdek, yoshlarni sog’lom, baquvvat bo’lishlari, o’z yurtlarini vatanparvari bo’lishlari uchun «erkaklikka o’tish», ya’ni turli sinovlardan, qiynoqlardan o’tish, o’zini hayotga tayyorligi, kuchini namoyish etish kabi marosim (ritual)lar kelib chiqqan. Har bir ritual o’zining tarbiyaviy va ta’limiy ahamiyatiga ega bo’lgan. Ularning har biri odamlarning tarbiyasi, bilmi, hayotiy tajribalarini ortishiga yordam bergan. Rituallar yillar davomida charxlanib borgan va aniq xatti-harakatlar bilan belgilangan marosimlarga aylangan.</p>
+<p>An’ana - bu o’ziga xos ijtimoiy hodisa bo’lib, kishilarning ongida, hayotida o’z o’rnini topgan, avloddan-avlodga o’tadigan, takrorlanadigan, hayotning barcha sohalarida (umum yoki ma’lum guruh tomonidan) qabul qilingan tartib va qoidalardir.</p>
+<p>Odat - («urf-odat») - kishilarning turmushiga singib ketgan ma’lum muddatda takrorlanib turuvchi xatti-hapakat, ko’pchilik tomonidan qabul qilingan xulq-atvor qoidalari, ko’nikma. Masalan,</p>
+<blockquote>kichiklarning kattalarga salom berishi;<br>erta turib uy-hovlini tartibga keltirib qo’yish;<br>mehmonlarga alohida hurmatda bo’lish;<br>bayram arafasida kasal, ojiz, qiynalganlardan xabar olish;</blockquote>
+<p>yordam lozim bo’lganlarnikiga hasharga borish kabilar o’zbek xalqining yaxshi odatlari hisoblangan.</p>
+<p>Agar an’ana ijtimoiy hayot, mehnat, madaniyatning hamma sohalariga xos bo’lib, hodisalarning juda keng doirasini qamrasa, odat ijtimoiy hayotning ma’lum sohalarida, ya’ni</p>
+<blockquote>kishilar turmushi;<br>mehnati;<br>xulq-atvori;<br>muloqoti;<br>oilaviy munosabatlarda ko’proq mavjud bo’ladi.</blockquote>
+<p>Marosim bu ko’pincha an’ana va urf-odatning tarkibiy qismi bo’lib, inson hayotidagi muhim voqealarni nishonlashga qaratilgan rasmiy va ruhiy ko’tarinkilik, tantanavor vaziyatda o’tadigan o’zining umumiy qabul qilingan ramziy harakatlariga ega bo’lgan hayotiy tadbir.</p>
+<blockquote>Masalan,<br>ism qo’yish marosimi;<br>nikohdan o’tish marosimi;<br>dafn qilish marosimi;<br>xotiralash marosimi;<br>urug’ qadash marosimi;<br>o’rimga kirish marosimi va boshqalardir.</blockquote>
+<p>Odat kundalik hayotning turli vaqtida uchrashi mumkin bo’lsa, marosim esa inson hayotidagi muhim hodisalar sodir bo’lganda vujudga keladi. Uning asosiy burilish daqiqalarini (masalan, tug’ilish, uylanish, o’lim kabilarni) qayd etadi, rasmiylashtiradi.</p>
+<p>Marosimning avloddan-avlodga o’tadigan ramziy va rasmiy harakatlari, qoidalari mavjud. Marosimga bo’layotgan voqeaga, «guvoh» sifatida odamlar chaqirilgan, ular dardga yoki quvonchga sherik bo’lishgan, kelajak uchun yaxshi niyatlar qilishgan. Har bir marosimning o’ziga xos umumiy qabul qilingan tuzilishi (boshlanishi, o’rtasi, oxiri) bo’ladi. Ko’pincha an’ananing tarkibiy bo’lagi odat, odatning muhim bir qismi marosim bo’ladi. Shu sababli inson hayotida bo’lib o’tadigan yoki bo’lib o’tayotgan muhim voqeani turmushda burilish yasaydigan «nuqtalari»ni nishonlash jarayonida ham an’ana, ham odat, ham marosim sodir bo’lishi mumkin. Masalan, yoshlar voyaga etganda — yigitlar uylanishi, qizlar turmushga chiqishlari kerak. Buni avloddan-avlodga o’tib keladigan an’ana desak bo’ladi. Bir-birini sevgan yigit-qizning oila qurishi uchun nikoh to’yi o’tkaziladi. Bu o’z navbatida insoniyat hayotiga singan, muayyan qoidaga ma’lum tartibda ega bo’lgan urf-odat hisoblanadi (lekin har bir millatda bu urf-odatlar har xil).</p>
+<p>Nikoh to’ylarining asosiy shartlaridan biri kuyov va kelinni nikohdan o’tishlaridir. Zamonaviy shakliga ko’ra — mashinada yurish, guvohlar bilan ZAGSdan o’tish, uzuk taqish, ZAGS xodimlarining savollariga javob berish, hujjatlarga imzo chekish. Bu rasmiy va tantanali ravishda o’tadigan marosim.</p>
+<p>Yuqorida aks ettirilgan jarayonlar — kelin-kuyov, ularning qarindosh-urug’lari, yoki do’stlari uchun bayramga aylanishi mumkin. To’y kechasini o’tkazilishi, barcha tanishlar va qarindoshlarni taklif etilishi bu bayramga yanada tantanali tus beradi.</p>
+<p>«An’ana», «odat», «marosim» tushunchalarining izohi bir-biri bilan bog’liq xodisalar bo’lishi bilan bir qatorda an’analarning tarkibiy qismi esa marosim bo’lishi mumkin.</p>
+<p>Masalan, - bilim yurtini bitirgan yosh mutaxassislarning ishlab- chiqarishga borib, ish boshlashi, bu odat tusiga kirib qolgan;</p>
+<p>- bu muhim voqeaga bag’ishlanib har yili an’anaviy tadbirlar tashkil qilish mumkin; - bu odatning tarkibiy qismi - yoshlarni tantanali ravishda ishchilar safiga qabul qilish o’z-o’zidan marosimga aylanadi.</p>
+<blockquote>Marosimlar:<br>chigit qadash;<br>ishchilar safiga qabul qilish;<br>yangi korxona, firma, markaz ochilishi (prezentasiya);<br>diplom topshirish;<br>pasport topshirish;<br>dafn qilish va boshqalar.</blockquote>
+<p>«An’ana», «marosim» kabi bayram bilan bog’liq atamalar «standart» tushuncha emas, ularning mazmuniga hayot rivojlanishi va turmush eqtiyojlari ta’sir etishi mumkin.</p>
+<p>Ijtimoiy hayot taraqqiy etish bilan uning talabiga javob bermaydigan an’analar va bayramlar, marosimlar asta-sekin unutila boshlanadi.</p>
+<p>Marosim inson hayotidagi muhim hodisalar sodir bo’lganda vujudga keladi. Marosimning avloddan-avlodga ramziy va rasmiy harakatlari, qoidalari mavjud.</p>
+<p>Bu harakatlar va qoidalarning ixchamligi, aniq bir maqsadga yo’naltirilganligi, hatti-harakatlarni bir maromga keltirilgani biz yuqorida aytib o’tgan ritual tushunchasiga tug’ri keladi.</p>
+<p>Rituallar haqida gapirganimizda birinchi o’rinda O’zbekiston Respublikasi ramzlariga bo’lgan xurmat ko’rsatish rituallari haqida fikr yuritamiz.</p>
+<p>Ma’lumki, O’zbekiston Respublikasi Davlat Bayrog’i, Madhiyasi, Gerbi - bizning asosiy ramzlarimiz hisoblanadi. Ular haqida davlat tomonidan Qonunlar qabul qilingan, ushbu hujjatlarda davlat ramzlariga bo’lgan hurmat, ularga bo’lgan munosabat, ularni ishlatish, caqlash usullari haqida tavsiyalar berilgan. Lekin hayotimizda ko’pchilik rahbarlar, ta’lim tarbiya bilan shug’ullanuvchilar bu qonunlardan bexabar bo’lganliklari yoki e’tiborsizliklari tufayli davlat ramzlariga bo’lgan munosabatda ko’pgina siyosiy va qo’pol xatolarga yo’l qo’ymoqdalar. Masalan, Davlat bayrog’ini ko’tarish va tushurishda, uni devorga mix yoki knopka bilan ilib qo’yishda, Davlat madhiyasi ijro etilganda unga hurmat yuzasidan o’rindan turishda, ramzlarni jihozlash ishlarida qo’llashda va boshqalar.</p>
+<p>Bunday xatolarga yo’l qo’ymaslik uchun, albatta, Vazirlar Mahkamasining davlat ramzlari to’g’risidagi qarorlarini o’qib o’rganib chiqish kerak. O’quvchi yoshlar o’rtasida esa Davlat ramzlariga bo’lgan hurmat va munosabat haqida suhbatlar tashkil etish kerak. Ularni Vazirlar Mahkamasining qarorlari bilan tanishtirish lozim. Davlat ramzlariga bag’ishlangan darslar yoki rituallar darslarini tashkil etish kerak.</p>
+<p>O’quv muassasalarida o’tkaziladigan rituallar (marosimlar), ma’naviy-ma’rifiy, tarbiyaviy ishlar, tadbirlarni tashkil etishni hamda ularning tizimini to’rt guruhga bo’lish mumkin.</p>
+<p>I Yoshlarni Vatanga, o’z xalqiga vatanparvarlik ruhida tarbiyalashni shakllantirishga qaratilgan rituallar tizimi. Bunga quyidagilar kiradi:</p>
+<p>Umumxalq, bayramlarini o’tkazish: Mustaqillik bayrami, O’qituvchi va murabbiylar bayrami, Konstitusiya, Yangi yil, Xalqaro xotin-kizlar bayramlari, Navro’z, Xotiralash va qadrlash bayramlari, shuningdek, Ramazon va Qurbon hayitlarining birinchi kunlari kabi bayramlar.</p>
+<blockquote>Yosh fuqarolar bayrami (pasport topshirish).<br>«Vatanni sevmoq iymondandir» bayram rituali.<br>Davlat ramzlariga hurmat ko’rsatish rituali.<br>Rituallar darsi.<br>Davlat tiliga bag’ishlangan bayram rituali.<br>«Ajdodlarimiz merosi-qadriyatlarimiz asosi» mavzusidagi rituallar.<br>Xotira kuni (tantanali lineyka, gulchambar qo’yish rituallari).</blockquote>
+<p>II Yoshlarni fuqarolik burchi, tanlagan kasbiga mas’uliyat hissini shakllantiruvchi rituallar tizimi. Bunga quyidagilar kiradi:</p>
+<blockquote>1. O’quvchi, talabalikka bag’ishlov rituali.<br>2. Talabalarni sinfdan-sinfga, kursdan-kursga, guruhdan-rypyhga<br>o’tkazish rituali.<br>3. Bitiruvchilar tantanasi.<br>4. Kasb-hunar bayrami.<br>5. O’quv yurtini tashkil etilganligiga bag’ishlangan an’anaviy bayram rituali.<br>6. Hafta navbatchiligini qabul qilish, yakunlash va topshirish rituallari.<br>7. Kundalik hayotni boshlashga bag’ishlangan ritual (saflanish).<br>8. Kasb sulolasini ulug’lash bayrami rituali.</blockquote>
+<p>9. Bitiruvchilarni o’z ilm dargohlariga o’zlari tayyorlagan kasbiy sovg’alarni taqdim etish rituali.</p>
+<blockquote>10.»Xomiylarga balli» kechasini o’tkazish rituali.<br>11. «Birinchi qo’ng’iroq», «Oxirgi qo’ng’iroq» rituallari.<br>12. Ustozlarga bag’ishlangan «CHin dildan» bayrami rituali.<br>13. «Quvnoq ustalar o’lkasi» ko’rik - tanlov rituali.<br>14. «Alpomish avlodimiz» ug’il bolalar bellashuvi va boshqalar.</blockquote>
+<p>III YOshlarni ahloqiy fazilatlarini takomillashtirishga qaratilgan rituallar tizimiga quyidagilar kiradi:</p>
+<p>I. «Milliy — madaniy, odob-axloq darslariqni tashkil etish (taxminan kuyidagi mavzularda: tashqi qiyofa, salomlashuv, o’zini tuta bilish va boshqara olish, so’zlashuv madaniyati).</p>
+<p>2. Mavsumiy sport bayramlarini o’tkazish.</p>
+<p>3. Mavsumiy xasharlarni o’tkazish.</p>
+<p>4. O’quvchilar o’rtasida bahs-munozara o’tkazish: (taxminiy mavzular: «Ota-onang — toji-taxtini», «Nima savobu, nima gunoh», «Nonni e’zozlang», «Yigit kishiga yetmish hunar oz», «Bepul narsaning baxosi qancha?», «Yo’lbars izidan, yigit so’zidan qaytmas» va boshqalar.</p>
+<blockquote>5. «Farzand burchi» ko’rigini o’tkazish.<br>6. «Odobnoma» choyxonasini o’tkazish rituali.<br>7. Notiqlik turniri.<br>8. «Mehmonnoma» davrasi.<br>9. Topishmoqlar kechasi. (Xalq topishmoqlari).<br>10.Kulgu kechasi.</blockquote>
+<p>YI Kelgusida ritualga aylanishi mumkin bo’lgan tarbiyaviy tadbirlar tizimiga quyidagilarni kiritish mumkin:</p>
+<blockquote>Kasbiy mahorat tanlovlarini o’tkazish (estafeta shaklida).<br>Musiqaviy diskoteka o’tkazish.<br>O’quv yurtining «Faxriy a’zoligiga» qabul qilish rituali.<br>Xalqaro talabalar kuniga bag’ishlangan festivalь.<br>Mavsumiy sayllar rituallari.<br>Kitob haftaligi, o’quv predmetlari haftaliklarini o’tkazish tartiblari.</blockquote>
+<p>Yuqorida berilgan marosim (rituaplar)dan tashqari har bir o’quv yurtida (sharoitdan kelib chiqqan holda) turli xil tashkiliy tadbirlar ham bo’lishi mumkin, ularga quyidagilarni kiritsa bo’ladi:</p>
+<p>1. O’quv yurtining mutaxassisligi yo’nalishi, xususiyatidan kelib chiqqan holda o’quv yurtining madhiyasi, emblemasi, qasamyodi, shaklini tayyorlash.</p>
+<p>2. O’quv yurtining o’ziga xos musiqaviy qo’ng’irog’ini tayyorlash.</p>
+<p>3. Iqtisodiyot, tadbirkorlik, tejamkorlik va hunarmandlik ruhida tarbiyalashga bag’ishlangan tadbirlar.</p>
+<p>4. O’quv yurtida talaba va o’quvchilar uchun tanaffus madaniyatini tashkil etish ritualini ishlab chiqish.</p>
+<p>Yuqorida sanab o’tilgan barcha marosimlar o’quv yurtida o’tkazilishi shart deb bo’lmaydi, chunki ularning tayyorgarligi, o’tkazilishi, tarbiyaviy ta’siri o’quv yurtining sharoiti, tashkilotchilarning umumiy va maxsus tayyorgarligi, bilimi, tajribasiga bog’liqdir.</p>
+<p>O’quv yurtlarida O’rta Osiyo xalqlarining qadimgi kalendarь bayramlarini o’rganish, ularni tashkil etib o’tkazish talabalar tarbiyasiga ijobiy ta’sir ko’rsatgan bo’lardi:</p>
+<blockquote>Bu bayram - marosimlar kuyidagilar:<br>Baxoriy tengkunlikda — «Navro’z» bayrami (21-22 mart).<br>Ko’zgi tengkunlikda - «Mexrjon» bayrami (22 sentyabrь).<br>Qishning eng uzun tuni — «Sada» (Olov) bayrami (22 dekabrь).<br>Yozning eng uzun kuni - «Angom xayit» (suv sayli) bayrami (22 iyunь).</blockquote>
+<p>Yuqorida ko’rsatilgan bayramlar o’zbek xalqining qadimiy bayramlari hisoblanadi. Ularning jadval yilnomasi quyidagicha:</p>
+<blockquote>O’zbek xalq bayramlarining jadval-yilnomasi<br>21-22 mart – Navro’z eski maxalliy nomlaridan biri — «Yil boshi»<br>Bayramning mohiyati, vujudga kelishi.</blockquote>
+<p>Qadimgi bahor bayramlari asosida taxminan 28-30 asr muqaddam paydo bo’lgan. Tabiat uyg’onishi, kunduz va tun tengligi, dala ishlarining boshlanishi kabi hodisalarni aks ettirib kelgan. «Yil boshi» - yangi yil bayrami sifatida ham mashhur bo’lgan.</p>
+<p>Bayramning zamonaviy mazmuni va tashkiliy shakllari. Tabiat jonlanishi, bahor kelishi, dalalarda yangi mehnat mavsumi boshlanishiga bag’ishlangan sayllar, tomoshalar, o’yinlar, musobaqalar, xalq ijodi ko’riklarini o’tkazish, maxsus taomlar tayyorlanishi va boshqalar.</p>
+<p>2. Gul sayllari (lola sayli, qizil gul sayli, sunbula sayli) Aprel oyining boshi — may oyining oxiri.</p>
+<p>Bayramning mohiyati, vujudga kelishi.Qadimiy davrlardan boshlab dalalar, qir-adirlar, tog’ yon bag’rida turli tabiiy gullar (boychechak, lola, sunbula, binafsha) ochilishi munosabati bilan o’tkaziladigan sayllar sifatida vujudga kelgan.</p>
+<p>Bayramning zamonaviy mazmuni va tashkiliy shakllari, Tabiiy go’zallikni, gullarni, o’simliklarni e’zozlash, saqlash va ko’paytirishga bag’ishlangan tadbirlar, sayllar, tabiiy saylgohlarga dam olishni uyushtirish.</p>
+<p>3. Suv sayli 21 iyun — (yoz bayrami) Qadimiy nomi «Angom».</p>
+<p>Bayramning mohiyati, vujudga kelishi.</p>
+<p>Yuqorida ko’rsatilgan bayramlar o’zbek xalqining qadimiy bayramlari hisoblanadi. Ularning jadval yilnomasi quyidagicha: O’rta Osiyo iqlimi sharoitida suvga bo’lgan tabiiy ehtiyoj asosida shakllangan, suv xavzalari bor sharoitda taraqqiy etgan.</p>
+<p>Bayramning zamonaviy mazmuni va tashkiliy shakllari</p>
+<p>Suvning qadriga etish, e’zozlash tadbirlari, suv xavzalari yonida turli dam olish, sog’lomlashtirish va cho’milish tadbirlarini o’tkazish.</p>
+<p>4. Qovun sayli, uzum sayli, anor, anjir sayllari, tabiat va mehnat bayramlari. Avgustning oxiri.</p>
+<p>Bayramning mohiyati, vujudga kelishi.</p>
+<p>Qadimgi hosil yig’ish odatlari asosida shakllangan. Turli nomi va bog’ mahsulotlari pishganda dehqonlar o’z yaqinlari, qo’shnilari, qarindoshlarini chaqirib, ularni o’z hosillari bilan siylagan, qariyalarning duosini olgan.</p>
+<p>Qovun ekkanlar — «Qovun sayli», uzum ekkanlar — «Uzum sayli» o’tkazib kelishgan. Pishiqchiliq mavsumida hashap va Bog’ sayllari xam uyushtirilgan.</p>
+<p>Zamonaviy mazmuni va tashkiliy shakllari.</p>
+<p>Pishiqchlik davrida qishloq, dala-bog’larda boshlanib, shahar bozorlari, maydonlarda va madaniy bog’larda sodir bo’ladigan meva ko’rgazma — savdolari, tomoshalar, sayllar, «Kimning mevasi shirin» nomli ko’rik-konkurslar.</p>
+<blockquote>5. Mehrjon - 22 sentyabr - (Kuz bayrami) Bu bayramning qadimiy nomlari:<br>Xorazmda «Chiri-ruj», Sund — Samarqandda — «Nim-sarda».<br>Bayramning mohiyati, vujudga kelishi.</blockquote>
+<p>Eng qadimgi Mitra (quyosh)ga sig’inish odatlari va kuz (hosil) marosimlari asosida taxminan 2-3 ming yil muqaddam vujudga kelgan. U kuzni kun va tun tengligini, hosil yig’ish yakunini, qishga tayyorgarlik ko’ra boshlash kabi hodisalarni aks etgirgan bayram. Tarixda 10-15 acp mobaynida Navro’zdan so’nggi ikkinchi katta bayram hisoblangan, yil yarmo vazifasini ham o’tagan. O’rta asrlarda turli bayramlarga bo’linib ket).</p>
+<p>Zamonaviy mazmuni va tashkiliy shakllari.</p>
+<p>Xozirgi kunda kuz bayrami, ko’zgi tun va kun tengligi, an’anaviy (eski) «yil yarmi» mehr-shavkat tadbirlari sifatida tabiiy sayllarda, madaniy bog’larda, o’yingohlarda, maydonlarda turli ko’rgazmalar, ko’riklar, tomoshalar, musobaqalar, sayllar kabi shakllardan foydalanib utkazilsa bo’ladi.</p>
+<p>SADA --22 dekabr —— (qish bayrami)</p>
+<p>Bayramning mohiyati, vujudga kelishi.</p>
+<p>Bu bayram qadimdan olov kashf etilgan kun deb qabul qilingan. U qadimiy ajdodlarimizning qishda olov (isinish)ga bo’lgan ehtiyojlari asosida taraqqiy etgan.</p>
+<p>Otashparastlik davrida «Sada» eng katta bayramlarning biri bo’lgan. Islom istilosidan so’ng (o’rta asrlarda) bu bayram yo’qola borgan. Biroq uning ko’pgina qoldiqlari saqlanib qolgan.</p>
+<p>Zamonaviy mazmuni va tashkiliy shakllari.</p>
+<p>Xozirgi kunda uni qish bayrami sifatida hamda dunyodagi eng katta kashfiyotlardan biri — olov mo’jizalariga, yildagi eng uzoq tun («Yaldo kechasi») va qisqa kunga, qishki chilla boshlanishiga bag’ishlab, turli ochiq maydonlarda, zallarda gulxanlar yoqib, tomosha — sayllar qilib, rang- barang musobaqalar bilan uyushtirsa bo’ladi.</p>
+<p>Biz taklif etgan marosimlar (ritual)larning barchasi katta tayyorgarlik, o’quvchi-talabalarning qiziqishi hamda ularni tashkil etishga bog’liq bo’lib ularning har biri ustida alohida fikr yuritish, o’ylash, shuningdek, ularni o’tkazish uchun ishchi yoki ijodiy guruhlar tuzish kerak bo’ladi, shu bilan birga marosimlarni tayyorlash va o’tkazish vaqtida ko’ppoq o’quvchilarning tashabbusiga, ularning qiziqishiga hamda fikrlariga diqqat-e’tiborni qaratish kerak.</p>
+<p>Har bir o’tkazilgan marosim tarbiyaviy ahamiyatga ega bo’lishi va o’quvchilarning tarbiyasiga ta’sir etadigan bo’lishi kerak.</p>
+<blockquote>Biz quyida turli mavzulardagi ritual marosimlar ro’yxatini sizlarga havola qilamiz:<br>Zamonaviy bayramlar tasnifi<br>Tabiat bayramlari.<br>Zamonaviy navro’z.<br>Yangi yil bayrami.<br>Tabiatsevarlar bayrami<br>Gul va qush bayramlari.<br>Mexrjon bayrami.<br>Mustaqillik bayrami va boshqalar<br>Mehnat bayramlari.<br>Qishloq xujalik xodimlarining Mehnat bayramlari.<br>«Urug’ qadash» va «Birinchi gul» tantanalari.<br>Hosil bayrami, sabzavot va mevalar sayllari.<br>2. Sanoat ishchilarining mehnat bayramlari.<br>Madaniyat bayramlari:<br>Ma’rifiy bayramlar.<br>«San’at bayrami».<br>Folklor bayramlari.<br>Badiiy sport bayramlari.<br>Xalqaro do’stlik bayramlari.<br>4. Oilaviy - xususiy bayramlar:<br>Ism qo’yish marosimi<br>Tug’ilgan kunlar va muchal yoshini nishonlash marosimi.<br>Beshik to’yi<br>«Birinchi qadam» bayrami.<br>Sunnat to’yi<br>Maktab yoshidagi bolalar bayramlari.<br>O’zbek to’ylari. Nikoh to’ylari.<br>Kumush, oltin va olmos to’ylar.<br>Pensiyaga kuzatish va qariyalar bayramlari va boshqalar.<br>5. Ijtimoiy — siyosiy bayramlar:</blockquote>
+<p>Umumxalq bayramlari (Mustaqillik, O’qituvchi va murabbiylar, Konstitusiya, Xotira va qadrlash, xotin-qizlar) va kasb bayramlari.</p>
+<p>6. Diniy bayramlar:</p>
+<p>- Ro’za va Qurbon hayitlari</p>
+<p>7. Xar xil shakl, mavzu va ko’rinishdagi marosimlar: Choyxona «ODOBNOMA», Topishmoqlar kechasi (Xalq topishmoqlari), «MEXMONNOMA» davrasi, Og’zaki jurnal (O’zbekiston, Navro’z, Mehrjon, Bahor mavzularida), «Odam ko’rki-libos» konkurs — kecha, «Otangga raxmat» suhbat- munozara, milliy o’yinlar kechasi (raqslar va bolalar o’yinlari) va boshqalar.</p>
+<blockquote>Nazoat savollari<br>Xalq pedagogikasida tabiatni muxofaza qilish tarbiyasini shakllantiruvchi vositalar?<br>Xalq pedagogikasida ekalogik tarbiyani tarkib toptiruvchi usullar nimalar?<br>SHarq mutafakkirlarining asarlarida tabiatni ardoqlash tarbiyaning ifodalanishi.</blockquote>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="14">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>“Xalq pedagogikasida tabiatni muxofaza qilish "mavzusida Qanday?metodi orqali turi vamohiyatini belgilash</p>
+<blockquote>Ish qog‘ozi<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>D<br>a<br>r<br>s<br>t<br>u<br>r<br>l<br>a<br>r<br>i<br>Turlari<br>Mohiyati<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?<br>Qanday?</blockquote></div>
+</section>
+<section class="quti kir" id="test" data-test="14">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>S.S.Bulatov. O’zbek xalq Amaliy san’ati. Toshkent.O’qituvchi. 1993</li><li>S.A.Nishonov. Ilm-fan taraqqiyoti, tabiat va inson. Toshkent1984 yil</li><li>S.A.Nishonov. Tabiatni qo’riqlash va tabiiy resurslardan unumli foydalanish. O’quv – uslubiy qo’llanma. Toshkent 1983 yil.</li><li>Qur’oni Karim. Xadis. Toshkent1991 yil.</li><li>Pedogogika tarixidan xrestomatiya. Toshkent 1993 yil.</li><li>Tuliboev M. Xalq ma’naviy boyliklaridan foydalanish yo’llari. Jizzax 1994 yil.</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-13.html"><span class="yon">← 13-modul</span><span class="nom">Xalq pedagogikasi manbalarida ustoz-o‘qituvchi kasbining ulug‘lanishi</span></a><a class="keyingi" href="yakuniy.html"><span class="yon">Yakunlash →</span><span class="nom">Yakuniy nazorat savollari</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-  <div class="question">
-    <h3>3. Zamonaviy ta’limda xalq pedagogikasi:</h3>
-    <label><input type="radio" name="q3">Rad etiladi</label>
-    <label><input type="radio" name="q3" data-correct>Uyg‘un holda qo‘llanadi</label>
-    <label><input type="radio" name="q3">Faqat nazariyada qoladi</label>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
   </div>
-</div>
+</footer>
 
-<div class="card">
-  <h2>Yakuniy yozma xulosa</h2>
-  <p>
-    Kurs davomida olgan bilimlaringizni qisqacha tahlil qiling.
-    Xalq pedagogikasini kelajak faoliyatingizda qanday qo‘llaysiz?
-  </p>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-  <textarea id="essay"></textarea>
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-  <button onclick="finish()">Kursni yakunlash</button>
-
-  <div class="result" id="result"></div>
-  <div class="cert" id="cert"></div>
-</div>
-
-<div class="nav">
-  <div class="nav-inner">
-    <a href="modul-13.html" class="nav-btn nav-prev">← Modul 13</a>
-    <a href="dars.html" class="nav-btn nav-center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="index.html" class="nav-btn nav-next">Kurs tugadi →</a>
-  </div>
-</div>
-
-<script>
-function finish(){
-  let score=0;
-  document.querySelectorAll("input[data-correct]").forEach(i=>{
-    if(i.checked) score+=25;
-  });
-
-  let text=document.getElementById("essay").value.toLowerCase();
-  let keys=["xalq","pedagogika","tarbiya","milliy","ta’lim","tajriba"];
-  let match=0;
-  keys.forEach(k=>{if(text.includes(k))match++;});
-  score+=match*5;
-  score=Math.min(100,score);
-
-  document.getElementById("result").innerHTML=
-    "Yakuniy natija: <strong>"+score+"%</strong>";
-
-  document.getElementById("cert").innerHTML=
-    score>=60
-    ? "🎓 Tabriklaymiz! Siz kursni muvaffaqiyatli yakunladingiz."
-    : "❗ Kursni qayta ko‘rib chiqish tavsiya etiladi.";
-}
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html><html lang="uz">
-<head>

@@ -2,285 +2,271 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>1-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#070b14;
-  color:#e5e7eb;
-  padding-bottom:170px;
-}
-
-/* ===== HERO ===== */
-.hero{
-  padding:90px 24px 70px;
-  text-align:center;
-}
-.hero h1{
-  font-size:clamp(30px,4vw,52px);
-  font-weight:900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#fff,#38bdf8,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  margin-top:18px;
-  opacity:.85;
-  letter-spacing:.14em;
-}
-
-/* ===== LAYOUT (MARKAZLASHTIRILDI) ===== */
-.layout{
-  max-width:1400px;
-  margin:0 auto;
-  padding:0 36px;
-  display:grid;
-  grid-template-columns:340px minmax(0,760px);
-  justify-content:center;
-  gap:56px;
-}
-
-/* ===== SIDEBAR ===== */
-.sidebar{
-  position:sticky;
-  top:32px;
-  align-self:start;
-  padding:28px;
-  border-radius:30px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(24px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 40px 120px rgba(0,0,0,.75);
-}
-.sidebar h3{
-  margin-bottom:18px;
-  font-size:15px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#38bdf8;
-}
-.sidebar a{
-  display:block;
-  padding:12px 14px;
-  margin-bottom:10px;
-  border-radius:14px;
-  text-decoration:none;
-  color:#e5e7eb;
-  font-size:14px;
-  line-height:1.5;
-  background:rgba(255,255,255,.04);
-  transition:.3s;
-}
-.sidebar a:hover{
-  background:rgba(56,189,248,.18);
-}
-.sidebar a.active{
-  background:rgba(56,189,248,.35);
-  box-shadow:0 0 0 1px rgba(56,189,248,.6);
-}
-
-/* ===== CONTENT (MARKAZDA) ===== */
-.content{
-  display:flex;
-  flex-direction:column;
-  gap:64px;
-  align-items:center;
-}
-
-/* ===== BLOCK ===== */
-.block{
-  width:100%;
-  padding:44px;
-  border-radius:36px;
-  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.02));
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 60px 160px rgba(0,0,0,.8);
-  transition:.45s;
-}
-.block h2{
-  margin-bottom:26px;
-  font-size:clamp(22px,2.8vw,36px);
-  font-weight:800;
-  letter-spacing:.1em;
-  background:linear-gradient(90deg,#fff,#22c55e,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.block p{
-  font-size:16px;
-  line-height:1.95;
-  letter-spacing:.02em;
-  margin-bottom:18px;
-  opacity:.96;
-}
-
-/* ===== CONTENT BLUR ===== */
-.block.dim{
-  filter:blur(6px);
-  opacity:.35;
-}
-.block.active{
-  filter:none;
-  opacity:1;
-  transform:scale(1.02);
-  box-shadow:
-    inset 0 0 0 1px rgba(56,189,248,.6),
-    0 90px 240px rgba(0,0,0,.95);
-}
-
-/* ===== FIXED NAV ===== */
-.module-nav{
-  position:fixed;
-  left:0;
-  bottom:0;
-  width:100%;
-  z-index:999;
-  padding:18px 24px;
-  background:linear-gradient(
-    to top,
-    rgba(7,11,20,.9),
-    rgba(7,11,20,.5),
-    rgba(7,11,20,0)
-  );
-  backdrop-filter:blur(18px);
-}
-.module-nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  gap:26px;
-}
-.nav-btn{
-  flex:1;
-  padding:22px 28px;
-  border-radius:26px;
-  text-decoration:none;
-  color:#e5e7eb;
-  background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 30px 90px rgba(0,0,0,.85);
-  letter-spacing:.1em;
-  transition:.35s;
-}
-.nav-btn span{
-  display:block;
-  margin-top:6px;
-  font-size:13px;
-  opacity:.75;
-}
-.nav-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    inset 0 0 0 1px rgba(56,189,248,.6),
-    0 50px 140px rgba(0,0,0,.95);
-}
-.nav-btn.next{text-align:right}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:1000px){
-  .layout{
-    grid-template-columns:1fr;
-  }
-  .content{
-    align-items:stretch;
-  }
-  .module-nav-inner{
-    flex-direction:column;
-  }
-  .nav-btn.next{text-align:left}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1-modul. Xalq pedagogikasi fanining maqsad va vazifalari, mazmuni | Xalq pedagogikasi</title>
+<meta name="description" content="Fanning pedagogika tizimidagi o‘rni, predmeti, ob’ekti va tarixiy taraqqiyot bosqichlari.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<section class="hero">
-  <h1>1-MODUL</h1>
-  <p>Xalq pedagogikasi fanining maqsad va vazifalari, mazmuni</p>
-</section>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="layout">
-
-<aside class="sidebar">
-  <h3>Reja</h3>
-  <a href="#r1" data-target="r1">1. Pedagogika tizimidagi o‘rni</a>
-  <a href="#r2" data-target="r2">2. Fan predmeti va vazifalari</a>
-  <a href="#r3" data-target="r3">3. Tarixiy taraqqiyot bosqichlari</a>
-  <a href="#r4" data-target="r4">4. Sharq mutafakkirlari</a>
-</aside>
-
-<main class="content">
-
-<section id="r1" class="block">
-<h2>Pedagogika tizimidagi o‘rni</h2>
-<p>Insonni har tomonlama tarbiyalash xalq pedagogikasining asosiy maqsadidir.</p>
-</section>
-
-<section id="r2" class="block">
-<h2>Fan predmeti va vazifalari</h2>
-<p>Xalq pedagogikasi — xalqning tarbiyaviy tajribasiga asoslangan fan.</p>
-</section>
-
-<section id="r3" class="block">
-<h2>Tarixiy taraqqiyot bosqichlari</h2>
-<p>Xalq pedagogikasi tarix bilan uzviy bog‘liq holda rivojlangan.</p>
-</section>
-
-<section id="r4" class="block">
-<h2>Sharq mutafakkirlari</h2>
-<p>Forobiy, Ibn Sino, Navoiy pedagogik fikr rivojiga ulkan hissa qo‘shgan.</p>
-</section>
-
-</main>
-</div>
-
-<div class="module-nav">
-  <div class="module-nav-inner">
-    <a href="dars.html" class="nav-btn">← Darslar ro‘yxatiga qaytish</a>
-    <a href="modul-2.html" class="nav-btn next">
-      Keyingi modul →
-      <span>2-modul. Xalq pedagogikasining manbalari</span>
-    </a>
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
+</header>
+
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#1B3B6F;--rang-b:#24304F">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">1-modul</span>
+    <h1>Xalq pedagogikasi fanining maqsad va vazifalari, mazmuni</h1>
+    <p class="ost">Fanning pedagogika tizimidagi o‘rni, predmeti, ob’ekti va tarixiy taraqqiyot bosqichlari.</p>
+    <div class="meta">
+      <span>📖 5,854 so‘z</span>
+      <span>🎮 Klaster</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
+  </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html" class="faol">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasining pedagogika tizimidagi o’rni.</li><li>Kursning predmeti, ob’ekti, maqsadi va vazifalari.</li><li>Xalq pedagogikasining tarixiy taraqqiyot bosqichlari .</li><li>Sharqda ilk uyg’onish davrida Movarounnahr mutafakkirlarining ta’lim tarbiya haqidagi qarashlari.</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>Xalq pedagogikasi</li><li>milliy pedagogika</li><li>milliy tarbiya</li><li>xalq tajribalari</li><li>ta’lim tarixi</li><li>tarbiya tarixi</li><li>ma’naviy qarashlar</li><li>ijtimoiy tuzim</li><li>axloqiy ko‘nikma</li><li>mutafakkir olimlar</li><li>tarixiy o‘gitlar</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/4hT4rGvlAHI"
+    title="Xalq pedagogikasi va O‘rta Osiyo buyuk mutafakkirlarining qarashlari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
+<p class="media-izoh">Xalq pedagogikasi va O‘rta Osiyo buyuk mutafakkirlarining qarashlari · <span>UrDPI rasmiy kanali</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Insonni har tomonlama tarbiyalash insoniyatning azaliy orzusi bo‘lib, ajdodlarimiz ma'rifat va madaniyatni qanday qilib yosh avlodga o‘rgatish, ularni komillikka yetaklash yo‘llari, qonun-qoidalarini izlaganlar. Ma'rifatli va ma'naviy komil insonni tarbiyalash “O‘zbek xalq pedagogikasi” fanining asosiy maqsadidir hamda uning bosh masalasi va mavzusi tarbiyadir. Tarbiyadan keng ma'no ta'lim rivojlanishi, ma'lumot bilan bog‘langan holda barkamol insonni voyaga yetkazishdir. Bu o‘z navbatida insoniyat yaratgan ilmiy-ma'naviy boyliklarga, insonning o‘ziga yangicha munosabat, yondashuvni yuzaga keltirdi.</p>
+<p>Bunday yangicha yondashishlar “O‘zbek xalq pedagogikasi” fanining ob’ekti va mavzuini kengaytiradi.</p>
+<p>1.1.Xalq pedagogikasi (Etnopedagogika) – etnomadaniy an’analar, xalqning poetik va badiiy ijodiyotiga asoslangan og‘zaki bilimlar, tarbiyaviy (faoliyat) ko‘nikmalar majmui, bolalarning bir-birlari va kattalar bilan qiladigan muloqotining barqaror shakllarini o‘zida namoyon etuvchi fan.</p>
+<p>Xalq pedagogikasining ajralmas qismi bo‘lgan “O‘zbek xalq pedagogikasi” O‘zbek xalqi paydo bo‘lgan va yashab kelayotgan butun davrni o‘z ichiga oladi. Jumladan, ijtimoiy va maishiy-axloqni, hayotning barcha tomonlarini, Xalq og‘zaki ijodi, qadrshunoslik, udumshunoslik va marosimshunoslikning yetakchi yo‘nalishlarini, diniy axloqiy ta'limotni o‘z ichiga oladi. Demak, “O‘zbek xalq pedagogikasi” - bu dono xalqimizning ta'lim-tarbiya, axloq, odob, insoniy qadriyatlar va uning ma'naviy ustuvorligi, imon- e'tiqodi, butunligi sohasidagi dunyoqarashi, ommaviy faoliyati, usullari, an'analari, tajriba xulosalarining lo‘nda, bag‘oyat teran, donishmandnoma tarzda ifodalanishidir.</p>
+<p>Milliy qadriyatlarning barkamol insonni tarbiyalashdagi roli “O‘zbek xalq pedagogikasi» an'analarida farzandlarning estetik idroki, hissiyoti va tasavvurlarini rivojlantirish hamda mukammallashtirish; tarbiyalanuvchilarning badiiy-ijodiy qobiliyatlarini shakllantirish va kamol toptirish, estetik did asoslarini shakllantirish va takomillashtirish; estetik tarbiyada tarbiyalanuvchilar o‘yin folklori-ning o‘rni va ahamiyati, tarbiyalanuvchilar folklor-etnografik dastalari - estetik tarbiya markazi ekanligi, vorislik, ustoz-shogirdlik an'analarining pedagogik, axloqiy-estetik ahamiyati, yoshlarni shaxs sifatida shakllantirish hamda badiiy-estetik tarbiyalashda xalq ommaviy tomosha san'ati - sirk, dorbozlik, askiya, baxshi-shoirchilik, dostonchilik, ertakchilik, qiziqchilik, taqlidgo‘ylik, maddohlik, qiraotxonlik, qissaxonlik, otunlik, voizlik, bo‘zaxo‘rlik alyorlari kabi san'atlarining tutgan o‘rni va pedagogik-tarbiyaviy ahamiyati, xalq an'anaviy sporti, fizkulturachi - farzandlar jismoniy baquvvatligi va yetukligining garovi ekanligi, chaqqonlik, epchillik va har tomonlama garmonik rivojlanishning sinalgan vositasi ekanligi, tarbiyalanuvchilar o‘yin folklorining pedagogik tarbiyaviy ahamiyati, xalq pedagogik tarbiyasida turizm va sayohatning, savdo-sotiq va tijoratning o‘rni, jismoniy tarbiya va sport ko‘nikmalarida xalq qiziqarli tomosha san'ati, axloq-odob va ta'limning uyg‘unligi va o‘ziga xosligi, xalq sport va jismoniy tarbiyasida jinsiy tafovutlarga ahamiyat berishning axloqiy-aqliy ahamiyati; xalq an'anaviy pedagogikasida tabiat va inson uyg‘unlashuvi muammolari, tabiat va tarixni e'zozlash, saqlash va qadrlashning ahamiyati, hayvonlar dunyosi, qushlar olami hamda dov-daraxtlar, o‘simliklar va giyohlarga ruxsat, suv, borliq-atrofga insoniy munosabat - xalq pedagogikasining ekologik tarbiyasi asoslaridan biri ekanligi, odatlar, udumlar, rasm-rusumlar, marosimlar, irim-sirimlar, qarg‘ish va olqish-duolar, tabiat, diniy bayramlarning ta'lim-tarbiyaviy ahamiyati, xalq ommaviy bayram-sayllari “Navro‘z”, “Mehrjon”, “Hayit-ro‘za”, “Hayit bayrami” va boshqalarning, tarbiyalanuvchining dunyoga kelishi, qulog‘iga azon aytish, tish chiqishi, ilk qadami, beshikka solish, birinchi kiyim-bosh kiydirish, besh, yetti kun, o‘n bir kunligi, bir yilligi, uch, to‘rt, besh yilligining alohida bayram qilinishi, o‘quv muassasasiga borishi, sunnat qilinishi, kokil qo‘yish, kokil oldirish, mo‘ylov oshi, uylanish-nikoh to‘yi, birinchi farzand ko‘rish, qirq, ellik, oltmish yoshlar tantanalari, payg‘ambar yoshi, yetmish, sakson, to‘qson yillik yubileylari, kumush to‘y, oltin to‘y, marvarid to‘y va boshqa bayram-sayllar, to‘y-tomoshalar, odatlar, udumlar, marosimlar va an'analarning ta'lim-tarbiyaviy, pedagogik yo‘nalishi, ahamiyati va shu kabilar.</p>
+<p>Shuni alohida ta'kidlash kerakki, xalq nazdida, inson ona qornidan yaxshi yo yomon bo‘lib tug‘ilmaydi – u birday tug‘iladi. Yaxshi-yomonga aylanishi tarbiyadan, dastavval ota-ona, oila, mahalla-kuy, qishloq-ovul, qolaversa, jamiyat va tuzumdandir. Bunda ajdodlar qoldirgan ota meros-oilaviy pedagogika, xalq pedagogikasi, shuningdek udumshunoslik, qadrshunoslik, elshunoslik an'analari, jamiyatning bu sohadagi sa'y-harakatlari hal qiluvchi o‘rin tutadi. Xalq ta'kidlashicha, bola boshdan to‘g‘ri, haqqoniy tarbiyalansa – u kelgusida yaxshi inson bo‘lib yetishadi, egri yo‘lda tarbiyalansa – yomon kishiga aylanadi. Zero, “ko‘chat boshdan, bola yoshdan” maqoliga amal qilish xalq an'anaviy pedagogikasining bosh yo‘nalishidir.</p>
+<p>El-yurt uchun har tomonlama mukammal insonni tarbiyalashga qaratilgan “O‘zbek xalq pedagogikasi” ham ayrim shaxslar yoxud bir-ikki jamoa – ular qanchalik iqtidorli-iste'dodli bo‘lishmasin, uni xalqimiz asrlar bilan o‘lchanuvchi hayotida o‘zining boy hayotiy tajribalari, farzandlar kamoloti borasida tutgan tutimlari, sa'y-harakatlari, yo‘l-yo‘riqlari, aql-zakovatlari bilan yaratilgan.</p>
+<p>Hamisha safarlarda bo‘lib, o‘zga yurt kishilari bilan muloqotlarda bo‘lish, izlanishlar olib borishdan toliqmaslik kabi hislatlar o‘zbek xalqi xarakteriga xos fazilatlardandir. Insonparvarlik, baynalmilallik, hushyorlik, zukkolik, topqirlik, bilimdonlik, uquvlikni o‘ziga e'tiqod qilib olgan o‘zbek xalq pedagogikasi ayni choqda Sharq odobnomasi, ibratnomasidan doimiy ravishda bahramand bo‘lgan, sharqona xalq pedagogikasi boyliklaridan oziqlangan va uning eng go‘zal namunalarini o‘ziga qabul qilib olgan.</p>
+<p>O‘zbek xalq pedagogikasining asosiy manbasi. O‘zbek xalq pedagogikasining manbalarini asosan uch turga bo‘lib o‘rganish mumkin. Bular quyidagilar:</p>
+<p>Xalqimizning buyuk mutafakkirlari tomonidan meros qilib qoldirilgan nasriy va nazmiy asarlar, odobnoma va pandnomalar;</p>
+<p>Xalqimiz tomonidan yaratilgan xalq og‘zaki ijodi va folklori namunalari, xalqimizning qadriyatlari, urf-odatlari va turli xil marosimlari;</p>
+<p>Islom dinining muqaddas kitobi “Qur'oni karim”, Payg‘ambarimizdan meros qilib qoldirilgan hadis namunalari va buyuk islomiy ta'limotlarning namunalari.</p>
+<p>Endi biz shular xususida o‘zimizning fikr-mulohazalarimizni bildirib o‘tmoqchimiz. Xalqimizning buyuk mutafakkirlari bo‘lmish Imom al-Buxoriy, Abu Ali Ibn Sino, Abu Rayhon Beruniy, Abu Nasr Forobiy, Bahouddin Naqshbandiy, Alisher Navoiy, Mirzo Ulug‘bek, Mirzo Bobur, Abdurauf Fitrat, Abdulla Qodiriy, Botu, Mahmudxo‘ja Behbudiy va boshqa shu kabi ko‘plab buyuk ajdodlarimiz tomonidan yaratilgan ma'naviyat sarchashmalari o‘zining tarbiyaviy ahamiyatga, ma'rifatni targ‘ib etish xususiyatlariga va ibratlilik xususiyatlariga ega ekanligi tufayli hozirgi kunga qadar o‘z qadr-qimmatini yo‘qotmay kelmoqda. Bular jumlasiga Navoiyning mashhur “Xamsa” sini, Imom al-Buxoriyning</p>
+<p>“As-sahih” hadislar to‘plamini, Abdulla Avloniyning “Turkiy guliston yoxud axloq” kabi ko‘plab yuksak qadr-qimmatga ega asarlarni kiritishimiz mumkin. Xalqimiz tomonidan yaratilgan qadriyatlar va urf-odatlar hamda xalq og‘zaki ijodi namunalari bevosita xalqimiz ruhiyati asosida shakllangan bo‘lib, ular ma'naviy barkamol insonni tarbiyalashda eng muhim ahamiyatga egadir. Ushbu qadriyatlar o‘z navbatida yuqorida sanab o‘tilgan buyuk mutafakkirlarimizni ham tarbiyalab voyaga yetkazgandir. Shunday ekan biz buyuk xalqimiz tomonidan yaratilgan milliy qadriyatlarimiz bilan har qancha faxrlansak arziydi. Bizning burchimiz bunday qadriyatlarni asrab-avaylash va ularni izchil ravishda takomillashtirib borishdir.</p>
+<p>Ma'lumki, xalqimizning salkam ming yillik tarixi Islom dini bilan chambarchas bog‘langandir. Shuning uchun xalqimiz tomonidan yaratilgan milliy qadriyatlarning aksariyati ham va mutafakkirlarimiz tomonidan yaratilgan ma'naviyat sarchashmalari ham aynan ana shu din asosida shakllanib, rivoj topib kelgan. Shunday ekan, biz bu dinning urf-odatlariga oqilona yondashib, ularni to‘g‘ri anglab olishga harakat qilishimiz kerak. Chunki, islom dini yuksak tarbiyaviy ahamiyatga ega bo‘lib, doimo millatlar o‘rtasidagi tinchlik-totuvlikni va insoniyatga nisbatan qilinadigan har qanday zo‘ravonlikka qarshi g‘oyalarni targ‘ib etib kelgan.</p>
+<p>Har bir ijtimoiy tuzum kelajagi insoniyat istiqboli, kishilarning hayot va turmush darajasi fan va madaniyat taraqqiyoti bilan bevosita bog‘liqdir.</p>
+<p>O‘zbekiston mustaqillikka erishgandan keyin ta’lim-tarbiya sohasida, milliy odob-axloqni qayta tiklash borasida, milliy urf-odatlar, turli-tuman an’analarni joy-joyiga qo`yish, milliy qadriyatlarni yanada rivojlantirish xususida juda keskin va buyuk burilishlar bo`lgani barchaga ayondir. Davlatning buyuk kelajagi, albatta, yoshlarni chuqur bilimli va pokiza axloq-odobli qilib tarbiyalash bilan bevosita bog‘liq ekanini yoddan chiqarmaslik lozim.</p>
+<p>O‘zbek xalq pedagogikasi ta’lim-tarbiya sohasida o`ziga xos dorilfunun yaratgan. O`zbek madaniyati, sharqona milliy tarbiya nazariyasi va amaliyoti moziygacha borib etgan tarixiy ildizlar orqali oziqlanadi.</p>
+<p>Allomalarimiz «Agar kishiga hayotning o`zi berolmasa ta’lim, unga o`rgata olmas hech bir muallim» deya nasihat qiladilar, bu inson o`z tafakkuri yordamida ta’lim-tarbiya olishi, odob-axloq normalarini egallashi, o`zi yashayotgan jamiyat, insongarchilik xulq-atvoriga xos, ma’naviy-axloqiy ko`nikma va malakalarni o`zida mujassamlashtirish lozimligini taqozo etadi.</p>
+<p>Respublikamizda «Xalq pedagogikasi» fanini o`rganishga katta e’tibor bermoqda. Ayniqsa, bu fan pedagoglar, umumiy ta’lim maktablarining milliy sinflari o`qituvchilari uchun, oliy o`quv yurti talabalari uchun, aspirant va magistrlar uchun zarurdir.</p>
+<p>Xalq pedagogikasi tarbiyada oilaning muhim qirralarini ochib beradi. Oilada ota-onaning o`rni, ularga nisbatan farzandlar munosabatlari, bolalarni otalarining qudratiga ishonch ruhida tarbiyalash, onaning beqiyos mehnatlarini qadrlashga o`rgatish, tarbiyada hamma vaqt samara berib kelgan.</p>
+<p>Shu o`rinda Xalq pedagogikasi tarixiga nazar tashlab o`tish o`rinli. Buyuk pedagoglar ko`proq xalqning pedagogik tajribalariga e’tibor qaratgan. Chunki xalq pedagogikasi tarbiya haqidagi fanni boyitadi va unga tayanch bo`lib xizmat qiladi.</p>
+<p>Buyuk pedagog Ya.A.Komenskiy ham o`zining faoliyatini xalq og‘zaki ijodi, uning urf-odatlari, qadriyatlari to`g‘risida material to`plashdan boshlagan.</p>
+<p>H.H.Niyoziy «Xalq pedagogikasi zamirida pedagogika fani shakllangan, rivojlangan» - deb ta’rif beradi. U yana o`zbek xalqi tarbiya sohasida o`ziga xos tizimga ega ekanini aytib o`tadi. H.H.Niyoziy fikricha xalqni tarixiy tarkib topishida xalq tarbiyasi muhim ahamiyatga ega bo`ladi. Hamzaning hikoyalarida, dramalarida, pyesa va povestlarida xalq pedagogikasi o`z ifodasini topgan. Xalq pedagogikasining asrlar davomida shakllanib, rivojlanib boyib borishining fuqaro, Vatan taqdirida hal qiluvchi rolining boisi, birinchidan uning hayotiyligi, ta’sirchanligi serqirra, serma’noligida bo`lsa, ikkinchidan uning bevosita xalq tomonidan mavjud hayot jarayonida jonli an’analarda yaratilishi, yashashi, hayot inson muammolarini qamrab olishi tarbiyaning eng dolzarb masalalari echimini hal qilishga qaratilgani uchinchidan, umuminsoniy yo`nalishga, umumbashariy g‘oya – maqsadlarga qaratilgan bo`lganligidir.</p>
+<p>Xalq pedagogikasi fanining maqsadi-bo‘lajak komil shaxs ongida milliy va xalqchil tushunchalarni shakllantirish, baynalmilallik tuyg‘ularini tarbiyalash, xalq orzusidagi komil shaxsni tarbiyalab voyaga etkazishdan iboratdir. Fanning vazifasi esa-mazkur tarbiyaviy sifatlarni shkllantiruvchi pedagogik jarayonga ijobiy ta’sir etish, uning samaradorligini oshirishdan iborat.</p>
+<p>Xalq pedagogikasi tarixan xalqning o‘zi, uning ijtimoiy ongi, tafakkuri, turmush tarzi bilan qorishiq ravishda shakllangan. U hozirgi zamon pedagogikasi ilmining ibtidosi hisoblanadi. Xalqning o‘zi hayot ekan uning pedagogik fikri, o‘z milliy pedagogik qarashlari ham yashayveradi.</p>
+<p>Xalq pedagogikasi fani orqali, mutafakkir olimlar o`gitlaridan baxra olish va tarbiya jarayoniga tadbiq etish, qadriyatlar, udumlar urf-odatlarga sodiqlik, ilm olish, ustozlar qadriga etish, oila mustahkamligiga erishish, xalqqa muhabbat, hayotni sevish, milliy odob-axloq ma’yorlariga itoat qilish kabi jihatlarni tarbiyalash amalga oshiriladi.</p>
+<p>O`zbek xalqi bugungi mustaqillikni qo`lga kiritgan bir davrda ota-bobolar, ajdodlar erishgan yutuqlardan faxrlangan holda ularning boy tajribalarini chuqur tahlil va tadqiq etish puxta o`rganish zarur. Bu esa yoshlarda bobolar ishlaridan, nasl-nasabidan faxrlanish tuyg‘ularini vujudga keltiradi va ular o`tmish an’analariga sodiq bo`lishga harakat qiladilar.</p>
+<p>Tarbiya – doimiy va izchil takrorlash, ishontirish mevasidir. Boshqacha aytganda doimiy va izchil takrorlash, dalillar asosida tushuntirish ishonch tuyg‘ulari hosil qilinadi.</p>
+<p>Shunday qilib, oliy o`quv yurtlarida ta’lim olayotgan talabalar o`zbek xalq pedagogikasini quyidagi maqsadlarda o`rganish imkoniyatiga ega bo`ladi. birinchidan O`zbekiston Respublikasi fuqarosi sifatida milliy mafkura tamoyillarini egallaydi. Ikkinchidan, mutaxassis sifatida yosh avlodga milliy g‘oya va milliy mafkura mohiyatini tushuntira olish ko`nikmasini hosil qiladi. Prezidentimiz aytganlaridek, biz kelajagimizni bugungi yoshlarga ishonib yashayapmiz. Bugungi talaba ertangi rahbardir. U qanchalik ma’naviy barkamol, qo`li, dili, vijdoni pok bo`lsa, kelajagimiz shu qadar buyuk bo`ladi. bu esa Siz bilan bizga, bo`lg‘usi rahbarlarning tarbiyachilariga ko`p jihatdan bog‘liq.</p>
+<p>Har bir shaxs, xalq va millatning o`ziga xos orzu-umidlari va ma’naviy qarashlari bo`ladi. Ular orasida ta’lim va tarbiyaga bo`lgan ehtiyoj alohida o`rinni egallaydi. Chunki har bir sog‘lom insonda tinmay bilim olib turish ehtiyoji mavjud. Aslida fikr doirasi keng va tarbiyali insongina o`zini erkin va baxtli his qiladi.</p>
+<p>Har qanday davlat o`z xalqining taraqqiyot bosqichiga mos ijtimoiy tuzumni tanlab oladi. Davlatning ma’rifat tizimi jamiyat tanlab olgan tuzumning ijtimoiy buyurtmasini bajarishga yo`naltirilgan bo`ladi.</p>
+<p>Bizning bugungi maorif tizimimiz demoqratik davlat va bozor munosabatlariga asoslangan bo`lishi zarur.</p>
+<p>O`zbekiston Respublikasi birinchi Prezidenti I.A.Karimov birinchi chaqiriq Respublika Oliy Majlisining birinchi sesiyasida qilgan ma’ruzasida hur O`zbekistonda Demokratik tuzumni barpo eta borish bilan birga, amalga oshirilayotgan ulkan o`zgarishlarning asosiy ishtirokchilari bo`lgan jamiyatimiz a’zolarining ma’naviyatini butunlay yangicha qaror toptirish lozimligini aytgan edi. Bu fikrlarni birinchi Prezidentimiz keyingi chiqishlarida ham bir necha bor ta’kidladi. O`zbekiston Respublikasi Oliy Majlisining tarixiy o`n to`rtinchi sessiyasida so`zlagan nutqida jamiyat ma’naviyatini yanada yuksaltirish va qadrlar masalasini O`zbekistonning XXI asrda rivojlanishining eng ustivor yo`nalishlardan biri sifatida olg‘a suradi.</p>
+<p>Kelajagi buyuk davlatni qurayotganlar tafakkuri, axloqi yangi iqtisodiy munosabatlarni tarkib toptirishga va moddiy ne’matlar yaratishga astoydil yo`naltirilgan bo`lishi lozim. Mana shunday ijobiy hislatlarga ega bo`lgan insonni tarbiyalash ta’lim-tarbiya tizimi zimmasiga yuklatilgan.</p>
+<p>Yaqin o`tmishimizdagi «sovet pedagogikasi»ning ta’lim-tarbiya berish usullari barcha odamlar bir xil qobiliyatga, bir xil dunyoqarashga, bir xil ehtiyojga ega, degan ijtimoiy hayot qonuniyatiga zid, «taqlid qilish» usuliga asoslangan edi. Shu bilan birgalikda, o`qishga hammani jalb qilish maqsadida didaktikaning oltin qoidasi bo`lgan diqqat qildirish tamoyiliga zid holda o`qitishga harakat qilindi. Vaholanki, pedagogika ilmi va amaliyotining ma’lumotiga qaraganda, o`qituvchi talabalar diqqatini o`ziga qaratib, uni dars oxirigacha saqlab turish uchun sinfdagi bolalar soni 15-20 dan oshmasligi kerak ekan. Aks holda, darslarni ijro bo`lmasligiga, yosh avlodni esa, «maktabga borib keluvchilar», «bitiruvchilar» va «hech narsani bilmaydigan» kishilar toifasiga aylantira boradi.</p>
+<p>Undan tashqari, «kommunizm kishisi» andozasidan kelib chiqib, hammani birday tezkorlik bilan bilimdon qilib tarbiyalash maqsadida o`qishning har bir bosqichida haddan tashqari ko`p fanlar kiritilib, hatto o`rtacha qobiliyatga ega bo`lgan bola ham bilimini qabo‘l qilish imkoniyatidan mahrum bo`ldi. Natijada o`quvchi va talabalar me’yoridan ancha ko`p axborotni ongiga sig‘dira olmasdan, bora-bora o`qishga loqayd munosabatda bo`la boshlaganlar. Berilayotgan bilimni to`liq egallayman, degan tirishqoq bolalar bu bilimlarni faqat taqlid usuli orqali yod olib ulgurishgan, xolos. Mexanik ravishda yod olingan bilim turg‘un bo`lmay, bola xotirasidan tez o`chib ketadi.</p>
+<p>Shu bilan birgalikda «sovet pedagogikasi» o`ta mafkuralashtirilgan bo`lib, faqat materialistik dunyoqarash, sinfiy qarama qarshilik, milliy va hududidy xususiyatlarni hisobga olmaslik va hokazolar barcha fanlar, shu jumladan pedagogika fani mag‘iz-mag‘ziga singdirilgan edi. Bunday jonsiz nazariy pedagogik adabiyotlarni tubdan qayta ko`rib chiqib, milliy istiqlol mafkurasi va XXI asrdagi O`zbekiston taraqqiyotining ustuvor yo‘nalishlaridan kelib chiqqan holda, jahon ilg‘or pedagogik fikrlari asosida milliy pedagogika dastur va darsliklarini yaratish zarur bo‘ldi.</p>
+<p>Milliy pedagogika deganda davlat konstitutsiyasi, ta’lim to`g‘risidagi qonun hamda istiqbol rivojlanish dasturlari, jamiyatning tarixiy taraqqiyot qonuniyatlari va jahondagi ilg‘or pedagogik texnologiyalar asosida to‘zilgan ta’lim-tarbiya nazariyasi, usul va uslublar majmui tushiniladi.</p>
+<p>O`zbekiston xalqi asriy orzusi – mustaqillikka erishib, barqaror taraqqiyot yo`lidan bormoqda. Endilikda xalqimiz o`z taqdirining haqiqiy egasi, o`z tarixining ijodkori, milliy ma’naviyat va qadriyatlarning chinakam sohibiga aylanmoqda. Milliy ana’nalar, dinimiz, tariximiz qaytadan tiklanmoqda, o`zligimizni tobora chuqur anglab etmoqdamiz.</p>
+<h3 id="b-1-2">1.2. Xalq pedagogikasining tarixiy taraqqiyot bosqichlari</h3>
+<p>Xalq pedagogikasi – xalq ma’naviy madaniyatining tarkibiy qismidir. Shunday ekan Markaziy Osiyoda ilk pedagogik tasavvurlarning vujudga kelishi va taraqqiyoti ham mahalliy xalq ma’naviy madaniyatining o‘sishi bilan bog‘liqdir. Xalq pedagogikasining rivoji esa nazariy pedagogika ilmi taraqqiyoti bilan bevosita bog‘liq. Biz ushbu holni Markaziy osiyoda pedagogik fikr taraqqiyoti misolida ko‘rishimiz mumkin.</p>
+<p>Ibn Sino, Beruniy, Jomiy, Xorazmiy, Dehlaviy, Xayyom, Navoiy, Forobiy, Sa’diy, Nosir Hisrav va boshqa mutafakkirlar ilmiy merosi tahlili shuni ko‘rsatadiki, ularning pedagogik qarashlari bevosita xalq pedagogikasi manbalari tizimi: maqollar, matallar, ertaklar, afsona va rivoyatlar mantiqiga mos keladi. Ayni paytda ko‘plab rivoyatlar va ertaklar mazkur mutafakkirlarning hayoti va faoliyati bilan bevosita bog‘liq holda vujudga kelgan. Demak, Markaziy Osiyoda ham xalq pedagogikasining ijodkori, yaratuvchisi xalq ommasidir. Uning paydo bo‘lishida mehnat hal qiluvchi ahamiyat kasb etdi.</p>
+<p>Mehnat jarayonida odamlar samaradorlikni g‘oyat oshiruvchi g‘aroyib mashinalar haqida orzu qilganlar: “uchar gilam” lar, “uchar ot” lar, “oynai jahon” lar, “chopqir etik” lar, “sehrli dasturxon”, “ur to‘qmoq” larni orzu qilganlar. Chunki, ibtidoiy ishlab chiqarish usullari, darajasi kishilarni qoniqtirmagan. Ular bir kechada ko‘plab mato to‘qishni, bir lahzada uzoqlarga borishni orzu qilib, otga minishni, qayiqda suzishni, himoyaga bardoshli qasrlar qurishni, kamon otishni, to‘quv dastgohlari, charx yasashni o‘rganganlar.</p>
+<p>Mehnat turli tarmoqlarga bo‘lina borib, so‘z san’ati xilma – xil harakter kasb eta borgan. Og‘zaki so‘z paydo bo‘lganida ibtidoiy odam so‘zning magik (ilohiy) qudratiga sig‘inar va o‘z mehnati samarasini unga bog‘lar edi. Oqibatda so‘z bilan marosim bog‘lana borib, so‘zda u yoki bu marosim mohiyati ifoda etila boshlandi.</p>
+<p>Jamiyat taraqqiy etgani sari ommani itoatkorlikka chorlovchi, diniy ruhdagi asarlar paydo bo‘la boshladi. Ko‘pincha, etnopedagogik asarlarda zulm va yovo‘z kuchlar ustidan g‘alaba qiluvchi, komil shaxs darajasiga ko‘tarilgan qahramonlarni tasvirlash kuchaydi. Ularda eng oliy insoniy (tarbiyaviy) sifatlar: ilm egallash, kasb-hunar o‘rganishga undaydi. Adolatli jamiyat va odil hukmdorlar orzu qilindi. Vatanparvarlik, ma’naviy va jismoniy komillik, halollik va adolat, insonparvarlik, do‘stlik g‘oyalari targ‘ib etildi.</p>
+<p>Xalq pedagogikasi asarlarida xalq ideal darajadagi fazilatlar sohibi bo‘lib, barcha yaxshi va yomon tarbiyaviy sifatlarni ko‘ra biladi. Shuning uchun u eng barkamol, ommani ergashtira oluvchi qahramonlarnigina tan oladi. Shuning uchun ularda ijobiy qahramonlar tipiklashtiriladi. Masalan, Alpomish, Go‘ro‘g‘li, Avaz, Ravshanxon, Nasriddin afandi, Aldar ko‘sa va boshqalarda yuksak tarbiyaviy sifatlar mujassamlashgan. Dostonlarda qahramon va uning dushmani, ertaklarda dono dehqon va zolim boy, o‘gay ona va jafokash qiz kabi obrazlarda xalqona kamtarlik va hukmrona takabburlik zuhr etilgan.</p>
+<p>Xalqning yuqorida qayd etilgan azaliy orzu-umidlari aks etgan etnopedagogika manbalari vositasida buyuk mutafakkirlar pedagogik qarashlari ham shakllangan. Chunonchi, Ibn Sino o‘zining “Tadbiri manozil” asaridagi “Maktabda bolalarni o‘qitish va tarbiyalash” deb nomlangan bobida umumta’lim g‘oyasi olg‘a suradi. Ta’limda suhbat metodini qo‘llashni, aqliy mashg‘ulotni jismoniy mashg‘ulotlar bilan almashib turishni tavsiya etadi. Jamoada o‘qitish afzalliklarini uqtiradi. Bunday ilg‘or pedagogik fikrlarni Beruniy, Forobiy, Rudakiy, Nosir Hisrav, Sa’diy, Yusuf Xos Hojib, Umar Hayyom, Burxoniddin Zarnudjiy, Ahmad Yugnakiy asarlarida ham ko‘rish mumkin. Buyuk mutafakkirlarning pedagogik qarashlari shakl va mazmuniga ko‘ra xalqning pedagogik donishmandligi bilan uyg‘unlashib ketgan. Ular Markaziy Osiyo xalqlari pedagogik madaniyatining shakllanishiga katta ta’sir ko‘rsatgan.</p>
+<p>Demak, xalq pedagogik g‘oyalari buyuk mutafakkirlar pedagogik qarashlari bilan hamohang shakllanib, ular bir-birini takomillashtirib, boyitib borgan. Donishmandlar asarlarida xalqning amaliy pedagogikaga doir fikrlari ilmiy pedagogik tusga kira borgan. Shu taxlitda pedagogika ilmi takomillasha borgan.</p>
+<p>Porloq kelajakka umid ko‘zi bilan boqqan ajdodlarimiz inson qobiliyati va qudratini ideallashtiruvchi mifologik obrazlarni yaratgan. Mifologik obazlarning ilk namunalari qadimiy mif va afsonalarda o‘z aksini topgan.</p>
+<p>Mif grekcha “myfhos”-so‘z, rivoyat so‘zidan olingan bo‘lib, dunyoning paydo bo‘lishi, tabiat hodisalari, xudolar, afsonaviy pahlavonlar; goh inson, goh jonzod qiyofasidagi zulmkor dushmanlar haqidagi to‘qima afsonalardir. Mifologiya - miflarni o‘rganuvchi fan bo‘lib, u ibtidoiy insonning tabiat sirlarini bilishga intilishi tufayli vujudga kelgan.</p>
+<p>Insonning tabiat stixiyalariga qarshi kurashdagi ojizligi (bo‘ron, sel, zilzila, dovul...) tufayli ularga qarshi kurasha oluvchi g‘ayritabiiy obrazlar yaratishga ehtiyoj tugilgan. Natijada yaxshilik va yomonlik haqidagi mifologik tasavvurlar paydo bo‘lgan. Olam haqidagi bunday ibtidoiy miflar ta’sirida osmon, oy, quyosh va turli hayvonlar, xudolar, g‘ayritabiiy pahlavonlar haqidagi miflar vujudga keldi. Hayvonlar va tabiat stixiyalariga qarshi kurashga qaratilgan (so‘z kuchi, afsun “avrash” vositasida ularga ta’sir etish tufayli, yovo‘z kuchlarga teng keladigan qurol inson ixtiyorida bo‘lmagan bir paytda) miflar yaratildi. Ko‘rinib turibdiki, miflar insonga osoyishta yashash, yovuz kuchlarni yengishga ko‘maklashuvchi orzular ifodasidir.</p>
+<p>Miflarda yaxshilik va yomonlik, go‘zallik va xudbinlik, yorug‘lik va zulmat orasidagi kurash jarayoni tasvirlanadi. Komil insonlar hamisha yaxshilik, go‘zallik, yorug‘likning tantana qilishi ko‘maklashadi. Aniqroq aytilganda, miflarni o‘qigan o‘quvchi ijobiy qahramonlarning tarafdoriga aylanadi. “Avesto” da yaxshilik – Axura Mazda, yomonlik – Axriman qiyofasida namoyon bo‘ladi. Kitob g‘oyasiga ko‘ra barcha hodisalar (tabiat va jamiyatdagi) ana shu ikki yaratuvchining o‘zaro kurashidan kelib chiqadi.</p>
+<p>Mitra – quyosh va yorug‘lik xudosi, Noxit – obodonlik, farovonlik xudosi, Xumo – baxt, tole xudosi va boshqa yaxshilik tantanasiga ko‘maklashadi. Yomonlik kuchlari: ajdar, dev, jin, yalmog‘iz va boshqa mifologik obrazlarda tasvirlangan. Shuningdek, Kayumars va Jamshid haqidagi miflar ham O‘rta Osiyoda qadimdan tarqalgan. Uning turli variantlari mavjud (“Avesto” da, “Qadim xalqlardan qolgan yodgorliklar” da, “Shohnoma” da va b.) Kayumars “G‘iyosul lug‘at” da Govmard (inson - buqa) deb ta’riflanib, Amudaryo bo‘yida yashagan, bo‘yi daryoning narigi betiga etgan va hokazo ....</p>
+<p>Miflardagi ijobiy obrazlar xalq manfaati uchun, adolat, go‘zallik uchun kurashadi. Kishilarga hayotda, kurashda yordam beradi. Ularga oliy insoniy sifatlarda o‘rnak ko‘rsatadi, kasb-kor o‘rgatadi. Demak, miflarda xalq ommasining ilk pedagogik tafakkuri o‘z ifodasini topgan, deyish mumkin.</p>
+<p>Jamshid haqidagi mif O‘rta Osiyo va eronda keng tarqalgan bo‘lib, unda Jamshid najotkor qahramon sifatida ko‘rsatilgan (“Avesto” da).</p>
+<p>Jamshid adolatli podsho bo‘lib, uning ming yillik shohlik davrida qahraton sovuq, jazirama issiq, kasalliklar va o‘lim kamaya borgan. Uning erida mollar va odamlar ko‘paya borgach, u erni uch marta ko‘paytiradi, chorva va qushlarni ham ko‘paytiradi. Ammo, to‘satdan qahraton qish, toshqin boshlanadi. Odamlarni qutqarish uchun Jamshid (yima) ariqlar ochadi. Bu afsona A. Navoiyning “Mulki Ajam”, Firdavsiyning “Shohnoma” asarlarida tasvirlangan. Bunday mifologik obrazlar keyinchalik ertak va dostonlarda rivojlantirildi.</p>
+<p>“Odami Od” hikoyasida Nuh payg‘ambar bo‘yi bulutga yetadigan usta yordamida chinordan kema yasatib, odamlarni kemaga o‘tqazib, o‘zi kemani torta ketibdi (“Od” – fors-tojikcha “ulkan odam”). “Er Xubbi” mifi ham insonga g‘amxo‘rlik timsolidagi etnopedagogik asardir. U Xorazm va Farg‘onada keng tarqalgan. Xubbi insonparvar, daryoning hokimi, Amudaryoda 700 yil yashagan va bu davrda daryoga jinlar yaqinlasha olmagan. Jamshid taxtga o‘tirishi bilan u dom-daraksiz g‘oyib bo‘lgan. Bundan Xubbining opasi aza tutgan, u bilan birga daryo, tog‘u-toshlar, qushlar, hayvonlar, odamlar, osmonda farishtalar, er ostida devlar yig‘lagan. Ular Xubbi tirik, qiyomatgacha yashaydi, deb tasavvur qilganlar.</p>
+<p>“To‘maris”, “Shiroq” rivoyatlari, Rustam haqidagi epos, qadimgi qo‘shiqlarda ham yuksak tarbiyaviy sifatlar targ‘ib etilgan. Ularda kishilar yaxshilik qilishga, xushxulq bo‘lishga, yomon odatlardan xalos bo‘lishga chorlangan.</p>
+<p>Biz oldingi bandda turkiy etnopedagogika manbalari jumlasiga kiruvchi qadimgi miflarda pedagogik fikrlar qay tarzda targ‘ib etilganligini yoritishga harakat qildik. Garchi, mazkur miflarda g‘ayriinsoniy qiyofalar timsolidagi qahramonlar tarbiyaviy sifatlariga doir fikrlar ushbu bandga ham aloqador bo‘lsada, biz bu bandda yoritish ko‘zda tutilgan muammoni etnopedagogikaning boshqa janrlari – dostonlar, maqol va matallar, hikmatli so‘zlar misolida buyuk ajdodlarimiz pedagogik qarashlariga tayangan holda yoritamiz.</p>
+<p>Xalq pedagogikasining bosh ob’ekti – yosh avlodga ta’lim-tarbiya berish jarayonidir. Shuning uchun xalq tarbiyaning mohiyatini qanday tushunishi, tarbiya jarayonida qanday metod va usullardan foydalanishi, tarbiyaning asosiy yo‘nalishlarini qanday talqin etishi haqidagi masalalar qiziqarlidir. Shuningdek, xalq asrlar davomida to‘plangan, ilmiy-pedagogik tushunchalar bilan boyib borgan bilimlarni oilaviy tarbiyaga qanday tadbiq etganligini ham tahlil etish zarur.</p>
+<p>Xalq hamisha yosh avlod tarbiyasi mohiyatini to‘g‘ri talqin etgan. Bu yo‘ldagi qiyinchiliklar va quvonchlarni, uning bebaho ish ekanligini to‘g‘ri anglab etgan. Shuning uchun: “Tarbiya – bebaho boylik” deganlar. Turkmanlar: “Bola-aziz, odobi undan aziz” desalar, o‘zbeklar: “Aql bahosiz, tarbiya esa chegarasiz” deb bejiz aytmagan. Chunki tarbiya jarayoni tarkibiga ko‘plab yo‘nalishlar kiradi. Ammo, bunda eng muhim yo‘nalishni aqliy tarbiya tashqil etadi. Shuningdek, tarbiya jarayoni g‘oyat murakkab ish, u alohida e’tibor, bilim va malakani talab etadi. Xalq inson tarbiyasini ona qornidayoq boshlash zarurligini allaqachon anglab etgan. Agar bola tarbiyasida vaqt o‘tkazib qo‘yilgan bo‘lsa, yoki tarbiya noto‘g‘ri olib borilgan bo‘lsa, qayta tarbiyalash zarurligi xalq pedagogikasi manbalarida alohida ta’kidlangan.</p>
+<p>Xalq pedagogikasi manbalarida bola tarbiyaviy sifatlarining shakllanishi bevosita ota-onaga bog‘liq ekanligi alohida ta’kidlangan. Chunonchi: “Bolaning qadami oiladan boshlanadi”, “Yomon o‘g‘il uchun ona, yomon nabira uchun buvi javobgar”, “Sababi otada, natijasi bolada”, kabi maqollar shular jumlasidandir.</p>
+<p>Buyuk mutafakkir Ibn Sino ham bola tarbiyasida ota-onaning tutgan o‘rnini yuqori baholab, “Tadbiri manozil” asarida: “Agar oila tarbiya metodlaridan to‘g‘ri foydalansa, u hayotda baxtga erishadi. Oilada bosh tarbiyachi – otadir, onaning yumshoq ko‘ngilliligi bola harakterini buzadi”, - deydi.</p>
+<p>Xalq bola tarbiyasida ijtimoiy muhitning ahamiyatini ham hayratlanarli darajada to‘g‘ri tushunadi. Shuning uchun yomon hislatli bolalar muhiti bola tarbiyasini buzib qo‘yishi mumkinligi quyidagiga ta’kidlanadi: “Qovun-qovundan rang oladi”, “Oriyatsiz odamdan qoch!” “Yomon bilan yursang qolarsan uyatga, yaxshi bilan yursang yetarsan murodga”, “Qozonga yaqinlashsang qorasi yuqar” kabilar. Shuning uchun Ibn Sino pedagogik jarayonni yaxshi xulqli bolalar jamoasida olib borishni tavsiya etib: “Barcha turdagi o‘quv mashg‘ulotlarini jamoada olib borish zarur. Chunki bolalar jamoa muhitida do‘stlashadilar, bir-birlarini hurmat qilishni o‘rganadilar, yaxshi hislatlarni ham bir-birlaridan o‘rgandilar”-degan edi. (“Tadbiri manozil” asaridan).</p>
+<p>Bola tarbiyasida yomon tomonga og‘ish yuz berishi ham mumkinligini to‘g‘ri his etgan xalq, ularni qayta tarbiyalashga oid qator metodlarni tavsiya etadi: “Buyumni suv bilan, insonni o‘rgatish bilan tozalashadi”. Lekin, Rudakiy ta’kidlaydiki: “Agar kim olmasa hayotdan ta’lim, unga o‘rgatolmas hech bir muallim”. Yoki: “Tarbiyasizlikning davosi bor, axmoqlikning davosi yo‘q.”, “Toptalgan o‘tloqda ham gul unadi” va boshqalar shular jumlasidandir.</p>
+<p>Muslihiddin Shayx Sa’diy bolani oilada yoshlikdan tarbiyalash zarurligini ta’kidlaydi. Uning fikricha, bolani yoshligida istalgan maqsad yo‘nalishida tarbiyalash mumkin. Chunki, bola yoshligida ho‘l novda singari tarbiyaviy ta’sirga tez beriladi. Shuning uchun: “Ho‘l novda egilar qay holda egsang, qurigach to‘g‘rilar uni o‘t-otash,”-deydi Shuningdek, u hatto: “Temirchining bolasi o‘qisa bo‘lur olim”-deb ta’kidlaydi.Xalq pedagogikasi manbalarida ta’kidlanganidek: “Bir otaning bolalari ham har xil bo‘ladi”, “Beshta barmoq teng emas” kabi maqollar mazmuniga tayanab ish ko‘rgan.</p>
+<p>Xalq pedagogikasida tarbiya jarayonida uning mezonlariga amal qilish lozimligi ko‘rsatib o‘tilgan, kattalarning o‘rnak bo‘lishi, o‘z-o‘zini tarbiyalash singari metodlar ham e’tibordan chetda qolmagan. Shuningdek, tarbiyada bolaning ruhiy va yosh xususiyatlari ham inobatga olingan: jumladan: “Bola tarbiyasini beshikdaligidan, buzoqnikini qoziqdaligidan boshla!,-” maqoli ushbu fikrning isboti bo‘la oladi.</p>
+<p>Jamiyatning ma’naviy yetukligi, ijtimoiy ong teranligi, inson kamolotini ta’minlashda etnopedagogika asarlarning ahamiyati beqiyosdir. SHuning uchun o‘zbek xalq pedagogikasining tarixiy taraqqiyot yo‘lini o‘rganish muhim ahamiyat kasb etadi.</p>
+<p>Qadim zamonlaridayoq tarixiy, badiiy, ilmiy asarlar mualliflari turli maqsadlarda folklar asarlariga murojaat etib, ularni yozib olganlar. Jumladan, Mahmud Qoshg‘ariyning (XI asr) “Devoni lug‘otit turk” asari shular jumlasidandir. Mazkur manbalarda pedagogik g‘oyalar targ‘ib etilgan. Jamiyatning tarixiy taraqqiyoti jarayonida etnopedagogika asarlari takomil topib, bizgacha etib keldi. Mehnat jarayonida va ongning rivojlanishi tufayli ilk etnopedagogika asarlari namunalari badiiy jihatdan mukammallashib borgan. Dastlab, kichik hajmli naql va miflar, mehnatni yengillashtiruvchi, ruhni tetiklashtiruvchi ertak va afsonalar yaratilgan, qo‘shiqlar paydo bo‘lgan.</p>
+<p>Demak, o‘zbek xalq pedagogikasi manbalari yozuv yuzaga kelishidan ancha oldin paydo bo‘lib, yozma adabiyotning vujudga kelishiga asos bo‘lgan. Qadimiy etnopedagogik manbalar bizgacha asl holida etib kelmagan. Chunki ular ijtimoiy taraqqiyot bosqichlarida o‘zgarib, sayqal topib borgan. Eng qadimgi etnopedagogik manbalar miflar, jangnomalar, rivoyat, ertak, naqllar, qo‘shiqlardan iborat bo‘lgan.</p>
+<p>O‘rta Osiyoda feodalizm davri (XI-XX asr boshigacha) g‘oyat ziddiyatli taraqqiyot bosqichi bo‘lib, bu davr xususiyatlari etnopedagogika manbalariga kuchli ta’sir ko‘rsatgan. Ammo bu davrga xos ma’lumotlar bizgacha to‘la etib kelmagan. Mavjud taraqiqotlarda ko‘rsatilishicha, eng qadimgi davrlarda miflar, rivoyatlar, aytimlar, mehnat va marosim qo‘shiqlarida pedagogik fikrlar targ‘ib etilgan. Ayniqsa, dostonchilik vujudga kelgach, kishilar ularda madh etiluvchi qahramonlarning tarbiyaviy sifatlaridan ruhiy madad, zavq olganlar. YOshlar halollik, ma’naviy va jismoniy yetuklik timsolini his etganlar. Etnopedagogika manbalarining ilk yozma nusxasi O‘rta Osiyoda XII asrda (“Abu Muslim” kitobi) yozilgan. XIV asrda Amir Temur o‘z g‘olibona yurishlarini baxshilarga doston qilib kuylashni topshirgan.</p>
+<p>Manbalarda o‘zbek dostonchiligining ilk bo‘g‘ini Ergash Jumanbulbul o‘g‘lining yetti ota-bobosi (XVI asr) aytgan dostonlarga borib taqalishi ta’kidlangan.</p>
+<p>XVII-XVIII asrlar dostonchilik taraqqiyotida gullagan davr bo‘ldi. Bu davrda “Chambil qamali”, “Rayhon arab”, “Tulumbiy”, “Shayboniyxon”, “To‘lg‘anoy” singari vatanparvarlik, mardlik, halollik, insonparvarlik, aqliy va jismoniy komillikni madh etuvchi asarlar, shu ruhdagi maqollar, matallar, xalq qo‘shiqlari yuzaga keldi.</p>
+<p>Ko‘rinib turibdiki, XX asr arafasida tarixiy qo‘shiqlarga ijtimoiy adolatsizlikka qarshi kurash ruhi kirib kela boshlagan. Bosqinchilik va zulmga nisbatan nafrat ruhi targ‘ib etilgan, milliy ozodlik orzusi vatanparvarlik, insonparvarlik g‘oyalari kuchaya borgan.</p>
+<p>Sho‘rolar tuzumi davrida etnopedagogika manbalarini to‘plash, yozib olish, nashr etishga etibor kuchaygan bo‘lsada, mavjud tuzum ruhiga mos kelmagan manbalarni o‘qish, ulardan foydalanish o‘tmish va din sarqiti nomi bilan taqiqlab qo‘yildi.</p>
+<p>Faqat milliy istiqlol tufayli xalq pedagogikasi manbalaridan keng miqyosda foydalanish imkoniyati tug‘ildi. Xalqning madaniy merosini, tarixiy haqiqatni qayta tiklash davlat siyosati darajasiga ko‘tarildi.</p>
+<p>Biroq, etnopedagogika Respublikamizda alohida fan sifatida endigina shakllanish arafasidadir. Uning manbalarga g‘oyat boy tarixiy taraqqiyot yo‘lini ilmiy pedagogik jihatdan puxta o‘rganish va tizimga solish ishlari o‘z tadqiqotchilarini kutib turibdi.</p>
+<p>Sharq “Uyg’onish davri”, Arab musulmonlar olami, fiqh, notiqlik, geodeziya, farmakologiya.Sharqda ilm-fanning taraqqiy etishini ijtimoiy-siyosiy, iqtisodiy omillari. Arab xalifaligida yuz bergan ijtimoiy-siyosiy o’zgarishlar, yagona islom dinining tarkib topishi, ma’naviy hayotga ham ta’sir etdi. Unda katta ko’tarinkilik ruhini paydo qildi.</p>
+<p>Bu ko’tarinkilik butun arab xalifaligini, Yaqin va O’rta sharqni qamrab olganligi uchun Sharq Uyg’onish davri xalifalikning Bog’dod, Damashq, Xalob shaharlarida boshlanib, XV-XVI asrlargacha davom etdi.</p>
+<p>Arab xalifaligida IX asrda vujudga kelgan Uyg’onish davri xalifalikning Bog’dod, Damashq, Xalob shaharlarida boshlanib, barcha boshqa xalqlar madaniy hayotiga tarqalgan, bu esa u davlatlarning ham madaniy rivojlanishiga zamin tayyorlaydi. Halifalikni yemirilishi natijasida tashkil topgan mustaqil davlatlardagi madaniy rivojlanish xalifalik davridagi madaniy rivojlanishning davomi bo’ldi.</p>
+<p>Xalifalik Xorun ar – Rashid (786-833) va uning o’g’li Ma’mun davrida Bog’dodda “Baytul hikma” (“Donishmandlik uyi” hozirgi Akademiya ma’nosi) tashkil etiladi. Mazkur Akademiya barcha ilm sohiblari to’plangan markazga aylandi. Uning qoshida jahon kutubxonasi tashkil etilgan, rasadxona ham bo’lgan, keyinchalik yangi kutubxona qurilgan. Bog’doddagi mazkur ilm markazi, o’z navbatida Sharq va G’arbda ilm – fanning taraqqiy etishiga, ma’naviy hayotni yuksalishiga ta’sir etgan. Bu o’rinda xalifa al-Ma’mun ilm-fan ravnaqida ko’rsatgan homiyligini alohida ta’kidlash joiz.</p>
+<p>Zero, xalifa al-Ma’mun ilm-fanni juda qadrlagan. U IX asr boshlarida xalifalikni Xurosondagi noibi bo’lgan vaqtida ham Movoraunnahr va Xurosondagi olimlarni to’plab, ularning ilmiy ijodiga sharoit yaratib bergan. Bular orasida al Xorazmiy, al-Xuttaliy, al-Javhariy, al-Farg’oniy, al-Marvaziy kabi vatandosh olimlarimiz ham bo’lgan, al-Ma’mun xalifalik taxtiga o’tirgach, u olimlarning barchasini chaqirib oladi.</p>
+<p>Shuningdek, qadimgi yaratilgan madaniy yodgorliklar, ular xoh yunon, xoh arab, xoh Movaraunnahr va Xuroson xalqlarining eng qadimgi antic davrlar madaniyati bo’lsin, uyg’onish davri madaniyatining yaratilish va rivojlanishiga asos bo’lib xizmat qiladi.</p>
+<p>Yaqin va O’qta Sharqda, jumladan, Eron, Kavkaz orti va O’rta Osiyoda savdo aloqalarining rivojlanganligi, hunarmandchilikning taraqqiy etishi, iqtisodiy va madaniy aloqalarning barchasi umumiy rivojlanishiga ta’sir etdi.</p>
+<p>M. Xayrullayev ta’kidlaganidek, “Yaqin va O’rta Sharq mamlakatlaridagi madaniy yuksalishga olib kelgan asosiy sabab feudal munosabatlar yangi bosqichi bo’ldi. Bu davr madaniy taraqqiyotida arab xalifaligiga bo’ysungan mamlakatlarning xo’jalik-iqtisodiy aloqalarining kuchayishi va buning oqibatida turli madaniyatlar – hind, O’rta Osiyo, Eron, arab, yunon, rim madaniyatlarining yaqindan o’zaro aloqasi va bir-biriga ta’sir etib borishi katta rol o’ynaydi”.</p>
+<p>X asrdan boshlab Movaraunnahr va Xurosonda mustaqil feodal davlatlar – Tohiriylar, Somoniylar, Qoraxoniylar, G’aznaviylar, Saljuqiylar, Xorazmshohlar davlatlarining paydo bo’lishi ham madaniy hayotning yanada ravnaq topishiga olib keldi.</p>
+<p>Bu davrda pul muomalasi rivojlandi. Jamiyat, siyosiy, ijtimoiy, iqtisodiy hayotdagi o’zgarishlar, albatta madaniy hayotga ham o’z ta’sirini ko’rsatmay qolmadi.</p>
+<p>Somoniylar davlatida Marv, Buxoro, Samarqand va Urganch o’sha davrning madaniy markazlaridan sanalardi.</p>
+<p>Bu davrda arab tili ilmiy va aloqa tili edi, maktablarda darslar arab tilida olib borilar edi. Rasmiy xujjatlar, sharoit qoidalari arab tilida yuritilar edi. Ilmiy asarlar ham arab tilida yozilar edi. X asr o’rtalariga kelib, fors-tojik tilida ham ish yuritila boshladi, ammo yoziladigan hujjatlar, ishlar fors-tojik tilida bo’lsa ham, arab imlosida yozilar edi.</p>
+<p>O’sha davrda Buxoroda katta kitob bozori bo’lgan, kitob do’konlarida olim va fozil kishilar uchrashib, ilmiy baxs, munozaralar o’tkazganlar.</p>
+<p>XI asr Xorazmda ilm-fan ayniqsa taraqqiy etadi. Xorazm shohi Ma’mun o’z saroyiga eng zabardast shoirlarni taklif etadi. U tashkil etgan “Baytul hikma” – “Donishmandlik uyi”da qomusiy olimlar – Abu Rayxon Beruniy, Abu Ali ibn Sino, tarixchi Miskavayx, riyoziyotchi Abu Nasr ibn Iroq, faylasuf Abu Saxl al-Masihiy, tabib Abdulhayr Hammor kabi olimlar ilmiy ijod bilan shug’ullanganlar, lekin toju-taxt uchun kurash natijasida bu ilm dargohi o’z faoliyatini to’xtatadi.</p>
+<p>Sharq “Uyg’onish davrida” uch yo’nalishda o’rganilgan.</p>
+<p>Birinchi yo’nalish – matematika-tibbiyot yo’nalishi bo’lib, bularga tibbiyot farmakologiya va boshqa shularga turdosh fanlar kiritilib, Muhammad Muso Xorazmiy, Ahmad Farg’oniylar matematikaga oid, Zakariyo ar-Roziy kimyo va tibbiyotga oid, Ibn Sino, Jurjoniy tibbiyot va falsafa, Abu Rayhon Beruniy Jurjoniy tibbiyot va falsafa, Abu Rayhon Beruniy tibbiyotga oid yirik asarlar yaratdilar.</p>
+<p>Ikkinchi yo’nalish – Ijtimoiy-falsafiy yo’nalish bo’lib, bunda falsafa, tarix, mantiq, fiqh, ruhshunoslik, notiqlik va boshqa fanlar bo’lib, bu sohada Farobiy, al-Kindiy, Ibn Sino, Zahiriddin Bayhaqiy, Muhammad Narshahiy va boshqalar faoliyat ko’rsatganlar.</p>
+<p>Mutafakkirlarning o’z ishlarida o’qitish va ta’lim-tarbiyaga e’tibor natijasida, pedagogika va didaktika masalalariga qiziqish orta bordi. Aniq fanlarni o’qitishning usuli masalalariga ayniqsa e’tibor kuchaydi. Pedagogika sohasida inson va uni kamolga yetkazish bilan bog’liq muammo asosiy o’rinni egalladi.</p>
+<p>Mutafakkirlar ta’lim-tarbiyaga oid fikrlarida inson kamoloti majmuasini baxt-saodatga erishish uchun sharoit yaratish degan g’oyani ilgari surish bilan bog’lab talqin etdilar. “Farobiy, Nizomiy, Jomiy, Navoiy asarlarida odob-axloq, ma’rifatga, ma’naviy erkinlikka erishuv baxt-saodat, deb talqin etildi va bu baxt-saodat adolatli, zulmdan holi, ideal yetuk jamoa va ideal rahbar, hokim bilan bog’liq holda tasavvur etildi. Yetuk jamoa haqidagi utopiya Sharq uyg’onish davri satsial-yetuk fikri taraqqiyotining eng katta yutuqlaridan biri bo’ldi”, - Farobiyshunos olim M.Xayrullayev.</p>
+<p>Sharq uyg’onish davri ta’limiy-didaktik asarlarida inson shaxsining kamol topishi yo’llari, usullari bayon etildi. Haqiqiy yuksak axloqli inson hislatlari haqida fikr yuritilganda birinchi o’rinda adolatparvarlik g’oyasi yotadi. Masalan, adolatli hukmdor haqida so’z yuritilar ekan, agar hukmdor adolatli bo’lsa, uning qo’l ostidagi fuqorolar ham baxt-saodatli hayot kechiradi, deyiladi.</p>
+<p>Bundan tashqari, insonni kamolatga yetkazuvchi axloqiy hislatlar sifatida do’stlik, saodat va vafo, sevgi va muhabbat, vatanparvarlik, samimiylik, saxovat, muruvvat, erkinlik, irodalilik, jasurlik kabilar ilgari suriladi. Salbiy hislatlar sifatida rashk, riyokorlik, hudbinlik, ochko’zlik, xirs, sotqinlik kabilar qoralanadi.</p>
+<p>Uyg’onish davri pedagogikasida kasb-hunar o’rganish ilm o’rganish bilan bab-barobar talab etiladi. Har bir yosh yigit, u qaysi tabaqa farzandi bo’lmasin, kasb-hunar o’rganishi zarurligi alohida ta’kidlanadi. Har bir hunarmand mehnat madaniyatini, o’z kasbiga e’tiqod va hurmatni tarkib toptirish, tejamkorlikka rioya etish, o’z ishini sifatli bajarishga yo’llangan.</p>
+<p>Arab musulmon olami. Asr boshlarida islom g’oyasiga asoslangan Arab xalifaligi tashkil topib, bu davlat o’z mavqeini mustahkamlash uchun boshqa mamlakatlarni ham zabt etishni boshladi. Butun Arabiston yarim oroli shuningdek, Eron, Kavkaz oroli, Suriya, Shimoliy Afrika, Janubiy Ispaniya xalifalik tarkibiga kiritildi. VII asr o`rtalaridan boshlab arablar Movaraunnahrga ham hujum qilish rejasini tuza boshladilar.</p>
+<p>Arab iste`lochilariningg birinchi yurishi 651 – yilda Ubaydulloh ibn Ziyod boshchiligida amalga oshirildi. 676 – yilda esa Said ibn Usmon rahbarligida Buxoro, So`g`duyona, Kesh, Nasaf shaharlariga hujum qilinadi.</p>
+<p>VIII asrning o`rtalariga kelibgina arablar Movaraunnahrni zabt etishga to`la erishdilar.</p>
+<p>Arab istelochilari bosib olingan yerlarda xalqni islom diniga kirita bohladilar. Tarixchi at – Tabariyning “At – tabariy tarixi”, Narshaxiyning “Buxoro tarixi”, B.B.Bartoldning tarixiy asarlarida keltirilishicha, arab istelochilarining Movaraunnahr xalqini islom diniga kiritish jarayoni qiyin kechgan va bir necha yillarga cho`zilgan. Chunki, Movaraunnahr arab istelochilariga ham ma`naviy, ham iqtisodiy taraqqiy etgan mamlakat bo`lib, uning aholisi arab bosinchilariga tezda bo`ysuna qolmadi. Aholining istelochilariga bo`ysunishni istamaganlarining asosiy sabablaridan biri biri istebdod va qatag`onlar bilan bir qatorda , bosqinchilarning mahalliy xalqning yillar davomida tarkib topgan boy ma`naviy merosi – san`ati, adabiyoti, yozuvini, asori – atiqalarini poymol etishga harakat qilganlari ham bo`ldi. Shuning uchun ham arab istelochilari xalqni bo`ysundirish harbiylar bilan bir qatorda , islom dini targ`ibotchilaridan ham foydalanadilar va asta – sekin ma`lum natijalarga erisha boshladilar. Chinki, Movaraunnahrda aholi islomga qadar har xil hudolarga, Quyoshga, Ko`k dinga (shaman), muqaddas narsalarga topinar, ma`lum bir g`oyaviy e`tiqod butun bir o`lkada tarkib topmagan edi. Shuning uchun ham islom dinining yoyilish va u bilan birga shariat qonun qoidalari, aqidalariga rioya etish, yagona allohga sig`inish va Allohning rasuli Muhammad Alayhissalom ko`rsatmalariga amal qilish xalqning ongiga ta`sir etib, ularning bu dinni qabul eta boshlashiga olib keldi va islomiy qadryatlar tarkib topishiga yo`l ochdi.</p>
+<p>Arablar islom dinini tarqatishda turli usullardan foydalandilar, jumladan, islom dinini qabul qilganlar soliqlardan ozod etildi.</p>
+<p>Narshaxiy arab istelochilarining aholini islomlashtirishga oid xatti – harakatlarni quyidagicha bayon etdi: “Buxoro aholisi har safar (islom lashkarlari kelganda) musulmon bo`lar, arablar qaytib ketganida esa ular yana dindan qaytar edilar. Qutayba ibn Muslim ularni uch marta musulmon qilgan, ular esa yana dindan qaytib, yana kofir bo`lgan edilar. Bu to`rtinchi marta (kelganida) Qutayba jang qilib, Buxoro shahrini oldi, ko`p qiyinchilikdan keyin (bu yerda) islom dinini yuzaga chiqardi va har turli yo`llar bilan ulkarga qiyinchilik tug`dirib dillariga musulmonchilikni o`rnashtirdi. Ular esa islom dinini yuzakigina qabul etib, haqiqatda butparastlik qilar edi. Qutayba arablar buxoroliklar bilan birga turib, ularning xatti – harakatlaridan xabardor bo`lib tursalar, ular zaruratdan musulmon bo`ladilar, degan maqsadda Buxoro aholisiga o`z uylarining yarmini arablarga berishgq undab buyruq chiqarishni to`g`ri deb topib va shu yo`l bilan u musulmonchilikni o`rnatdi hamda sharoit hukmlarini bajarishga majbur qildi. Qutayba masjidlar bino qildi, kofirlik va otashparastlikga oid kitoblarni yo`qotdi. U ko`p jiddu jahd qilib, kimda shariat hukmlarini bajarishda kamchilik sodir bo`lsa, uni jazolar edi. U masjide jome bino qildi va odamlarga juma namozini o`qishga buyruq berdi”.</p>
+<p>Islom dini ana shunday g`oyaviy – siyosiy kurash jarayonida shakllandi va rivojlandi.</p>
+<p>Islomshunoslar tomonidan shu paytgacha Arabiston madaniy jihatdan istelo qilgan mamlakatlardan orqada edi, talqin etilishi o`laroq, hozirgi davr olimlari masalaga bir muncha boshqacha yondashmoqdalar.</p>
+<p>Xalifalar istelochilik siyosatini o`tkazar ekanlar, barcha xalqlar ustidan madaniy ustunlikni o`rnatishga harakat qildilar. Chunki arab xalqi VII asr boshlarida o`ziga xos madaniyati, adabiy tilini yaratgan bo`lib, unda notiqlik va she`riyat yuqori darajada qadrlangan. Qur`onning o`zi ajoyib adabiy fazilatlarga ega bo`lib, u o`rta asr arab adabiyotining eng nodir adabiy yodgorliklari orasidan o`rin olgan. IX asrda tarkib topgan “Ming bir kecha ertaklari” esa jahon mamalakatlari durdonalaridan biri sanaladi.</p>
+<p>Arab tili ham, o`z navbatida yangi madaniy tili bo`lib maydonga chiqdi. Bu madaniyat ham qadimgi arab madaniyat, shuningdek, arab davla hududida yashagan boshqa xalqlar madaniyatining majmuasi edi. Arablar yunon fanining yutuqlaridan amaliy foydalandilar, ularning faylasuf olim, yozuvchilarning asarlarini tarjima qildilar. Astranomiya, tibbiyot, kimyoga oid barcha yirik asarlar arab tiliga tarjima qildilar. Xatto arab olimlari sun`iy oltin tayyorlash vositasi “Falsafa toshini” izlaganlar (kimyo fani alkimyodan boshlaib, oltin izlovchilar “alkimyogarlar” deb atalgan).</p>
+<p>Arablar ulkan davlat barpo etib geografiya rivojiga ham ta`sir ko`rsatdilar. Masalan, arab mulklarining dastlabki xaritalari IX asrda tuzilgan bo`lib, ularda daryolar oqimi to`g`risida mufassal ma`lumotlar bo`lgan. Ispaniyadan Markaziy Osiyo va Hind daryosigacha cho`zilgan musulmon dunyosi bu xaritada batafsil ko`rsatiladi. Ko`p hududlarga arabcha nomlar berildi. Xususan, Movaraunnahr ham arabcha bo`lib, “daryo orti” ma`nosini bildiradi.</p>
+<p>Musulmon maktablarida arab tili muhim fan sifatida o`qitilardi, bilim shu tilde o`rganilar edi. Arabistondagi kabi Movaraunnahrda ham barcha masjidlar huzurida maktablar ochildi va o`g`il bolalarga shu maktablarda Qur`on o`qitishga farmon beriladi. Bolalarni shu masjid imomi o`qitar edi.</p>
+<p>Islom aqidalarining, uning axloqiy – huquqiy tamoyillarining asosiy manbai “Qur`on”dir.</p>
+<p>Islomning shar`iy ma`nosi – bu Alloh yagona deb e`tiqod qilib , unga bo`ysunmoqlik va butun qalb bilan unga ixlos qilmoqlik va Alloh buyurgan diniy e`tiqodga imon keltirmolik demakdir.</p>
+<p>Allohga itoat qilgan va Alloh buyurgan payg`ambarlarga ergashgan kishi musulmon deyiladi.</p>
+<p>Ilohiyotda islom dini imon, islom va exsondan iborat, deb e`tirof etilgan. Imon talablari va Allohga e`tiqod, farishtalarga, muqaddas kitob va payg`ambarlarga, oxirat kuniga, taqdir – u azalga va o`lgandan keyin tirilishga ishonishdir.</p>
+<p>Sharq mutafakkirlarining pedagogik qarashlaridagi yetakchi tendentsiyalar va ularning ahamiyati. Sharq “Uyg`onish davri” ta`lim – tarbiya muammolarini hal etishda bir qancha qomusiy olimlar ijodiy merosida sof ta`limiy – axloqiy asarlarda ko`rib o`rganib chiqilgan. Qomusiy olimlar: Muhammad ibn al – Xorazmiy, Ahmad al – Farg`oniy, Abu Nasr Farobiy, Abu Rayhon Beruniy, Abu Ali ibn Sino, Mahmud Qoshg`ariy, Rudakiy, Firdavsiy va boshqalardir. Bularning ijodlarida bola tarbiyasiga oid bo`lgan turli muhim vazifalarni ko`rish mumkin. Xususan, Firdavsiy “Shohnoma ” asarida didaktik nasihatlar berilganligi bilan taqsinga sazovordir. “Insonni hayru sahovati bo`lishga yetaklovchi kuch ilm va hunardir, - deydi shoir. – Ilmni insonga singdiruvchi narsa esa aqldir”.</p>
+<p>Mehnat va hunarni yuksak baholagan, uni gavhardan ham yuqori qo`ygan shoir hunar va mehnatni chiroyi insonni aqli va axloqida deb hisooblaydi va doimo aql bilan ish qilish zarurligini uqtiradi.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="1">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>1. “T-jadval” metodi bo‘yicha quyidagi ish qog‘ozi yordamida xalq pedagogikasi fanlarining umumiy jihatlari va o‘ziga xosliklarini yoriting.</p>
+<p>Ish qog‘ozi</p>
+<div class="jadval-o"><table><thead><tr><th>Xalq pedagogikasining umumiy jihatlari va o‘ziga xosliklari</th><th></th></tr></thead><tbody><tr><td>Umumiy jihatlari</td><td>O‘ziga xosliklari</td></tr><tr><td>1.2.3....</td><td>1.2.3....</td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Markaziy Osiyoda ilk pedagogik tasavvurlarning vujudga kelishi va taraqqiyoti haqida nimalarni bilasiz?</li><li>Ilk etnopedagogika manbalarining paydo bo‘lishi.</li><li>Xalq pedagogikasida yosh avlod tarbiyasi talqini.</li><li>O‘zbek xalq pedagogikasining tarixiy taraqqiyot yo‘li.</li><li>O‘zbek xalq pedagogikasi manbalari yozuvning yuzaga kelishi.</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="1">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>Boynazarov F. O’rta Osiyo" antik, davri.Toshkent. O’qituvchi 1991 yil.</li><li>Mirtursunov Z.F, Xalq, pedagogikasi, Toshkent. O’qituvchi 1968 yil. 4.Ajdodlar o’giti. xikoyalar, xikmatlar, timsoyalar. T. CHo’lpon 1990 yil.</li><li>Xasanov S. Mutafakkirlar mehnat tarbiyasi haqida.</li><li>Donishmandlar axloq haqida. Toshkent. O’qituvchi 1986 yil.</li><li>O’zbek pedagogikasi tarixi // A.Zunnunov tah.ostida. – T.: O’qituvchi, 1997. – 272 b.</li><li>O’rta Osiyoda pedagogik fikr taraqqiyotidan lavhalar // Zunnunov A., Xayrullaev M., Hotamov N., SHodiev D. - T.: Fan, 1996. – 243 b.</li><li>O’zbek pedagogikasi antalogiyasi . T. 1-jild. 1995y, 2-jild1999 y.</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modullar.html"><span class="yon">← Ro‘yxat</span><span class="nom">Barcha modullar</span></a><a class="keyingi" href="modul-2.html"><span class="yon">2-modul →</span><span class="nom">Xalq pedagogikasining didaktik imkoniyatlarini o‘quv-tarbiyaviy jarayonga tadbiq etish</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-<script>
-const links=document.querySelectorAll('.sidebar a');
-const blocks=document.querySelectorAll('.block');
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
+  </div>
+</footer>
 
-links.forEach(link=>{
-  link.addEventListener('click',()=>{
-    const id=link.dataset.target;
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
-    links.forEach(l=>l.classList.remove('active'));
-    link.classList.add('active');
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
 
-    blocks.forEach(b=>{
-      b.classList.add('dim');
-      b.classList.remove('active');
-    });
-
-    const active=document.getElementById(id);
-    if(active){
-      active.classList.remove('dim');
-      active.classList.add('active');
-    }
-  });
-});
-</script>
-
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

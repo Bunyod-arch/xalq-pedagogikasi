@@ -2,288 +2,241 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>3-modul — Xalq pedagogikasi manbalari</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:radial-gradient(circle at top,#0f172a,#020617);
-  color:#e5e7eb;
-  padding-bottom:190px;
-}
-
-/* HERO */
-.hero{
-  padding:96px 24px 72px;
-  text-align:center;
-}
-.hero h1{
-  font-size:clamp(34px,5vw,58px);
-  font-weight:900;
-  letter-spacing:.12em;
-  background:linear-gradient(90deg,#f8fafc,#38bdf8,#a855f7,#f8fafc);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{margin-top:14px;opacity:.8}
-
-/* LAYOUT */
-.layout{
-  max-width:1400px;
-  margin:auto;
-  padding:0 40px;
-  display:grid;
-  grid-template-columns:240px 1fr;
-  gap:56px;
-}
-
-/* SIDE NAV (ICHKI) */
-.side-nav{
-  position:sticky;
-  top:32px;
-  align-self:start;
-  padding:22px;
-  border-radius:24px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(18px);
-}
-.side-nav h3{
-  margin-bottom:16px;
-  letter-spacing:.18em;
-  font-size:14px;
-  color:#38bdf8;
-}
-.side-nav a{
-  display:block;
-  padding:12px 14px;
-  margin-bottom:10px;
-  border-radius:14px;
-  text-decoration:none;
-  color:#e5e7eb;
-  background:rgba(255,255,255,.05);
-}
-.side-nav a:hover{
-  background:rgba(56,189,248,.25);
-}
-
-/* CONTENT */
-.content{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:36px;
-}
-
-/* CARD */
-.card{
-  padding:36px;
-  border-radius:30px;
-  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02));
-  backdrop-filter:blur(24px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 40px 120px rgba(0,0,0,.85);
-}
-.card h2{
-  font-size:22px;
-  margin-bottom:16px;
-  background:linear-gradient(90deg,#fff,#38bdf8,#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.card p{
-  font-size:15.5px;
-  line-height:1.85;
-}
-
-/* BOTTOM NAV — TO‘LIQ */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  padding:20px 24px;
-  backdrop-filter:blur(18px);
-  background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.4),transparent);
-}
-.bottom-nav-inner{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1.2fr 1fr;
-  gap:20px;
-}
-.bottom-nav a{
-  padding:20px;
-  border-radius:24px;
-  text-align:center;
-  text-decoration:none;
-  color:#e5e7eb;
-  background:rgba(255,255,255,.08);
-  font-weight:500;
-}
-.bottom-nav a.center{
-  font-weight:700;
-  letter-spacing:.08em;
-  background:linear-gradient(145deg,rgba(56,189,248,.25),rgba(255,255,255,.08));
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-  .side-nav{display:none}
-  .bottom-nav-inner{
-    grid-template-columns:1fr;
-  }
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3-modul. Xalq pedagogikasida oila va oilaviy tarbiyaning aks etishi | Xalq pedagogikasi</title>
+<meta name="description" content="Oila — birinchi maktab. Sharq mutafakkirlarining oila haqidagi qarashlari.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<section class="hero">
-  <h1>3-MODUL</h1>
-  <p>Xalq pedagogikasining asosiy manbalari</p>
-</section>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="layout">
-
-<aside class="side-nav">
-  <h3>Bo‘limlar</h3>
-  <a href="#b1">Xalq og‘zaki ijodi</a>
-  <a href="#b2">Urf-odat va an’analar</a>
-  <a href="#b3">Diniy manbalar</a>
-  <a href="#b4">Mutafakkirlar merosi</a>
-</aside>
-
-<main class="content">
-
-<section id="b1" class="card">
-<h2>Xalq og‘zaki ijodi</h2>
-<p>
-Xalq og‘zaki ijodi — xalq pedagogikasining eng qadimiy va eng boy manbasi bo‘lib,
-unda asrlar davomida shakllangan tarbiyaviy tajriba, axloqiy qarashlar va hayotiy
-xulosalar mujassamlangan. Maqollar, matallar, ertaklar, dostonlar, rivoyatlar,
-afsonalar va topishmoqlar xalqning yosh avlodni tarbiyalashdagi asosiy vositalari
-hisoblangan.
-</p>
-
-<p>
-Masalan, maqollar orqali qisqa va lo‘nda shaklda katta hayotiy haqiqatlar yetkazilgan:
-“Ko‘chat boshdan, bola yoshdan”, “Yaxshi so‘z – jon ozig‘i” kabi maqollar
-tarbiyaning erta boshlanishi va so‘zning kuchini ifodalaydi.
-</p>
-
-<p>
-Ertaklar va dostonlar esa yoshlarni jasorat, vatanparvarlik, halollik va adolat
-ruhida tarbiyalashda muhim rol o‘ynagan. Ularda ijobiy va salbiy obrazlar qarama-qarshi
-qo‘yilib, bolalarda yaxshilik va yomonlikni farqlash ko‘nikmasi shakllantirilgan.
-</p>
-
-<p>
-Xalq og‘zaki ijodi nafaqat bilim berish, balki tasavvur, tafakkur va mustaqil fikrlashni
-rivojlantirishda ham kuchli pedagogik ahamiyatga ega bo‘lgan.
-</p>
-
-</section>
-
-<section id="b2" class="card">
-<h2>Urf-odat va an’analar</h2>
-<p>
-Urf-odat va an’analar xalq pedagogikasining amaliy manbasi bo‘lib, ular orqali
-yosh avlod kundalik hayot jarayonida tarbiyalangan. Har bir marosim, udum yoki
-rasm-rusumning o‘ziga xos tarbiyaviy mazmuni mavjud.
-</p>
-
-<p>
-Masalan, beshikka solish, sunnat to‘yi, nikoh marosimlari orqali bolaga hurmat,
-mas’uliyat, kattaga itoat, kichikka g‘amxo‘rlik kabi fazilatlar singdirilgan.
-Navro‘z, Mehrjon kabi umumxalq bayramlari esa jamoaviylik, mehr-oqibat va
-mehnatsevarlik g‘oyalarini mustahkamlagan.
-</p>
-
-<p>
-Urf-odatlar orqali yoshlar jamiyat qoidalarini amalda o‘rganib, ijtimoiy hayotga
-tayyorlangan. Bu jarayon tarbiyaning eng samarali shakli sifatida avloddan-avlodga
-uzatilgan.
-</p>
-
-<p>
-Shu bois urf-odat va an’analar xalq pedagogikasining hayot bilan uzviy bog‘langan,
-doimiy harakatdagi manbasi hisoblanadi.
-</p>
-
-</section>
-
-<section id="b3" class="card">
-<h2>Diniy manbalar</h2>
-<p>
-Urf-odat va an’analar xalq pedagogikasining amaliy manbasi bo‘lib, ular orqali
-yosh avlod kundalik hayot jarayonida tarbiyalangan. Har bir marosim, udum yoki
-rasm-rusumning o‘ziga xos tarbiyaviy mazmuni mavjud.
-</p>
-
-<p>
-Masalan, beshikka solish, sunnat to‘yi, nikoh marosimlari orqali bolaga hurmat,
-mas’uliyat, kattaga itoat, kichikka g‘amxo‘rlik kabi fazilatlar singdirilgan.
-Navro‘z, Mehrjon kabi umumxalq bayramlari esa jamoaviylik, mehr-oqibat va
-mehnatsevarlik g‘oyalarini mustahkamlagan.
-</p>
-
-<p>
-Urf-odatlar orqali yoshlar jamiyat qoidalarini amalda o‘rganib, ijtimoiy hayotga
-tayyorlangan. Bu jarayon tarbiyaning eng samarali shakli sifatida avloddan-avlodga
-uzatilgan.
-</p>
-
-<p>
-Shu bois urf-odat va an’analar xalq pedagogikasining hayot bilan uzviy bog‘langan,
-doimiy harakatdagi manbasi hisoblanadi.
-</p>
-
-</section>
-
-<section id="b4" class="card">
-<h2>Mutafakkirlar merosi</h2>
-<p>
-Diniy manbalar xalq pedagogikasida axloqiy va ma’naviy tarbiyaning asosiy tayanchi
-hisoblanadi. Qur’oni karim va hadislar orqali halollik, adolat, sabr-toqat,
-insonparvarlik va mehr-shafqat kabi yuksak fazilatlar targ‘ib etilgan.
-</p>
-
-<p>
-Islomiy ta’limotlarda ilm olish eng oliy qadriyat sifatida e’tirof etilib,
-“Ilm izlash har bir musulmon uchun farzdir” degan g‘oya yoshlarni bilimga,
-tafakkurga va o‘z ustida ishlashga undagan.
-</p>
-
-<p>
-Diniy manbalar orqali nafaqat shaxsiy axloq, balki jamiyatdagi munosabatlar,
-ota-ona va farzand o‘rtasidagi mas’uliyat, halol mehnatga munosabat kabi
-pedagogik tamoyillar shakllangan.
-</p>
-
-<p>
-Shu jihatdan diniy manbalar xalq pedagogikasida ma’naviy kamolotning
-asosiy ustunlaridan biri bo‘lib kelgan.
-</p>
-
-</section>
-
-</main>
-</div>
-
-<!-- TO‘LIQ NAVIGATOR -->
-<div class="bottom-nav">
-  <div class="bottom-nav-inner">
-    <a href="modul-2.html">← Modul 2</a>
-    <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-4.html">Modul 4 →</a>
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
-</div>
+</header>
 
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#165C5C;--rang-b:#10403F">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">3-modul</span>
+    <h1>Xalq pedagogikasida oila va oilaviy tarbiyaning aks etishi</h1>
+    <p class="ost">Oila — birinchi maktab. Sharq mutafakkirlarining oila haqidagi qarashlari.</p>
+    <div class="meta">
+      <span>📖 3,130 so‘z</span>
+      <span>🎮 Saralash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
+  </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html" class="faol">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq pedagogikasida oila va oilaviy tarbiyaning aks aks etishi</li><li>Sharq mutafakkirlari oila haqida</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>Oila</li><li>oila tarbiyasi</li><li>tarixiy tajriba</li><li>hamkorlik</li><li>ma’naviy-axloqiy tarbiya</li><li>insoniy fazilatlar</li><li>milliy xususiyatlar</li><li>oilaviy an’analar</li><li>urf-odatlar</li><li>xalqning ruhiyati</li><li>turmush tarzidir</li><li>xalq donishmandligi</li><li>ijtimoiy rivojlanish</li><li>ijtimoiy institut</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/y-78q0y6tOw"
+    title="«Beshik to‘yi» — oilaviy marosimlar (Qamashi tumani)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">«Beshik to‘yi» — oilaviy marosimlar (Qamashi tumani) · <span>ALPOMISH MEDIA</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>O`zbek oilalari asrlar davomida mustahkam, ahil jamoa ma’naviyat va tarbiya o`chog‘i bo`lib kelgan. Oiladagi muhit turmush qurish borasidagi an’analar sog‘lom ma’naviyatli avlodni tarbiyalashga xizmat qilgan.</p>
+<p>Ma’naviy, barkamol jismoniy sog‘lom farzandlarni voyaga etkazishda oilada amalga oshiriladigan axloq odob tarbiyasining ham o`rni benihoya katta. Oila jamiyatning eng kichik o`chog‘idir. Bu muqaddas dargohda kelajak kishisi kamolga etadi. Keksalar ko`pincha «Bug‘doy eksang bug‘doy olasan, arpa eksang, arpa olasan» deyiladi. Shuning uchun ham kelajagimiz bolalarga qanday tarbiya berayotganimizga, ular qalbini qanday tuyg‘ular, qanday orzular bilan to`ldirayotganimizga bog‘liq.</p>
+<p>Kelajakni qanday bo`lishi hozirgi kunda biz tarbiyalayotgan yoshlarga bog‘liq. Bunday ulkan vazifani amalga oshiruvchi, moddiy va ma’naviy boyliklarini yaratuvchi asos oiladir. Oila jamiyatning boshlang‘ich ijtimoiy bo`g‘ini sifatida murakkab tarkibiga ega bo`lib, u o`z faoliyatida oila a’zolarining ehtiyoji va qobiliyati, turli faoliyatning maqsad va vazifalarigina emas, balki tarbiyaviy faoliyatni ham aks ettiradi.</p>
+<p>Oilaviy tarbiya metodikasi uchun eng muhimi uning aloqador tomonlarini, ya’ni tarbiyaviy vazifalarini bir maromga solish, oilani o`ziga xos xususiyatlarini va mavjud imkoniyatlarini aniqlash katta ahamiyat kasb etadi.</p>
+<p>Prezidentimiz Sh. Mirziyoyev bu borada shunday deydi: “Har qaysi millatning o‘ziga xos ma’naviyatini shakllantirish va yuksaltirishda, hech shubhasiz, oilaning o‘rni va ta’siri beqiyosdir. Chunki insonning eng sof va pokiza tuyg‘ulari, ilk hayotiy tushuncha va tasavvurlari birinchi galda oila bag‘rida shakllanadi. Bolaning harakterini, tabiat va dunyoqarashini belgilaydigan ma’naviy mezon va qarashlar – yaxshilik va ezgulik, oliyjanoblik va me’hr-oqibat, or-nomus va andisha kabi muqaddas tushunchalarning poydevori oila sharoitida qaror topishi tabiiydir”<sup class="izoh-ref"><a href="#izoh-2" id="ref-2" aria-label="2-izoh">2</a></sup>.</p>
+<p>Oilaviy tarbiyaning o`ziga xosligi shundaki, u bolalarga ota-onalarning ota-onalik, qon-qarindoshlik hislatlarini o‘zatib, shaxsning umumiy va hissiy rivojlanishnigina ta’minlab qolmay, balki shaxsning mavjud imkoniyatlarini va axloqiy kamolotini o`stiradi.</p>
+<p>Xalq pedagogikasida asosiy e’tibor oila tarbiyasida ota-onalarning, ustoz-murabbiylarning faol darajasiga qaratilgan.</p>
+<p>Bola tarbiyasi oilaning insonni bunyod etuvchi tabiiy va ijtimoiy mohiyati bilan o‘zviy bog‘liqdir.</p>
+<p>Bola oilada, maktabda, ota-onalar bilan munosabatda, jamoat joylarida, katta yoshdagilar, o`rtoqlari bilan muloqotda tajriba orttirib boradi.</p>
+<p>O`zbek oilalarida bolalarga tarbiya berishda ota-onaning namunasi, ularning mehnatsevarligi oilaviy ishlarga javobgarligi, ish yuritishi, o`g‘il bolalarga nisbatan otaning, qizlarga esa onaning ustozlik, rahnamolik ishlari asosiy o`rinni egallaydi.</p>
+<p>Oilada bolalarni tarbiyalash o`zining bir qancha milliy xususiyatlariga ega. Ular xalqning shakllangan oilaviy an’analari, urf-odatlari, xalqning ruhiyati, hayoti va turmush tarzidir.</p>
+<p>Barkamol inson tarbiyasida oila jamiyat bilan yaxlit birlikni tashqil etadi, bu esa hozirgi kunimiz uchun xos xususiyatlardan biridir. Ayniqsa, ota-onalar va jamiyat a’zolarining mehnat faoliyatlari harakteri, er va ayolning teng huquqligi, o`zaro hurmat farzandlarni e’zozlash, hurmatlash, ijtimoiy va fuqarolik e’tiqodi, oilaviy madaniy hayotning mavjudligi va o`sayotganligi o`zbek oilalariga xos fazilat sifatida qadrlanmoqda.</p>
+<p>Oilaviy tarbiyada xalq pedagogikasi an’analari, ertak, maqol, topishmoqlar shaklida o`z ifodasini topgan va u tarbiyaviy ta’sir ko`rsatish vositasi sanalib, tarbiyaning barcha qirralarini qamrab olgan. Ayniqsa, inson va uning tarbiyasi, o`z-o`zini tarbiyalash, bolalikning yosh davrlari, ularning dangasalik va injiqliklari, o`yinlari, qizlar tarbiyasi haqida ajoyib matal maqol, aforizmlar yaratilgan bo`lib, ular xalq pedagogikasi sabog‘ining yorqin namunasidir.</p>
+<p>Xalq donishmandligida ota-onalar haqida ularning bolalari bilan munosabatlari, onaning madaniy, tarbiyaviy ta’siri atroflicha yoritilgan.</p>
+<p>Masalan, oilada hamma kishi bir kishiga otaga itoat etgan. Otaning yoki onaning gapi ikki qilinmagan. Otaning izidan chiqish, u kishining buyrug‘ini bajarmaslik, otaga gap qaytarish, unga tik boqish gunoh hisoblangan.</p>
+<p>Xalqchil iboralar hammavaqt tarbiyada muhim o`rin egallagan. Masalan, musulmon farzandi quyosh chiqquncha uxlasa, «yomon bo`ladi», erta saharda eshik ochilmasa, «yomon bo`ladi», kunlik rizqimizdan «benasib qolamiz» bolalarni erta turishga undagan.</p>
+<p>Xalqimizda faqat o`zining bolasinigina emas, umuman o`ziga yaqin hamma bolalarni sevish, ehtiyotlash, ularning tarbiyasi bilan shug‘ullanish an’analari avloddan-avlodga o`tib kelgan. «Bir bolaga butun mahalla ota-ona» degan maqol shundan.</p>
+<p>Odam ijtimoiy rivojlanishini harakatga keltiruvchi kuch deb, kishi ehtiyojlari ta’sirida yuz beradigan ob’ektiv omillarni, odamlarning oddiy, biologik va jismoniy (moddiy) ehtiyojlaridan boshlab, oliy (ma’naviy va ruhiy) ehtiyojlariga qadar bo‘lgan ehtiyojlar majmui hamda ularni qondirish imkoniyatlari orasidagi munosabatlarga aytiladi.</p>
+<p>Ehtiyojlar u yoki bu faoliyatning sabablarini vujudga keltiradi. O‘zining ehtiyojlarini qondirish uchun kishi vosita va manbalar qidiradi. Ehtiyojni qondirish imkoniyatlari mavjud bo‘lganda, kishi o‘zini baxtiyor his etadi. Aks holda, o‘zini baxtsiz deb bilib, unda harakatlantiruvchi kuch paydo bo‘ladi.</p>
+<p>Agar odamning axloqiy tarbiyasi to‘g‘ri bo‘lsa, u ijtimoiy rivojlanadi. Axloqiy tarbiyasi nosoz odamning ijtimoiy sifatlari nuray boshlaydi va ijtimoiy illat (o‘g‘rilik, nashavandlik, yolg‘on so‘z, firibgarlik va hokazo) larga duchor bo‘ladi. Axloqiy tarbiyasi yaxshi odam ehtiyojini qondirishning to‘g‘ri yo‘llarini izlaydi hamda odamlar bilan muloqotda bo‘lib, yaxshi ijtimoiy sifatlari takomillashib boradi.</p>
+<p>Oila - hayotiy mazmuniga hamda jamiyat tomonidan ma’kullanadigan xususiyatlarga ega bo‘lgan ijtimoiy xodisa. Unda ijtimoiy hayotning barcha asosiy qirralari, vazifalari hamda xususiyatlari, sinkretik tarzda bo‘lsada , mujassamlashgan .</p>
+<p>Inson umri mobaynida oila ta’sirini sezib turadi, dastlab ota-onasining oilasida, so‘ng o‘zi qurgan oilasida hayot kechiradi . Har ikki holda ham oila insonning shaxs sifatida qaror topishiga muhim tarbiyaviy ta’sir ko‘rsatadi. Inson oilada nidividual va ijtimoiy hayot ko‘nikmalarini xosil qilibgina qolmay, balki unda o‘zaro munosabatlarni yo‘lga qo‘yish bo‘yicha ota-ona maqomini ham oladi . Aksariyat tadqiqotlarda oilaning ijtimoiy institut sifatidagi to‘rt asosiy vazifasi ajratib ko‘rsatiladi .</p>
+<p>Birinchi vazifa – farzandlar tug‘ilishi bilan bog‘lik.</p>
+<p>Ikkinchi vazifa – Yangi avlodni Ushbu jamiyat madaniyatidan baxramand etish .</p>
+<p>Uchinchi vazifa – shaxsning o‘zini-o‘zi kamol toptirish , uning kobiliyatini yuzaga chikarish uchun sharoit yaratish</p>
+<p>Turtinchi vazifa - shaxsning muomala-muloqotga , hissiy kulaylikka bo‘lgan psixologik extiyojini kondirish .</p>
+<p>Shaxs ijtimoiy faolligini shakllantirishda yaxlit jarayonning bu qirrasiga ko‘plab omillar, jumlada , oilaning moddiy farovonlig , ota-onaning saviyasi, oilaviy qadriyatlar tizimi, bolaning ta’lim olish jarayonida ota-onaning ishtiroki singari jixatlar ta’sir ko‘rsatadi .</p>
+<p>Oilaning farovonligi shunchaki emas, balki farzandni kamol toptirish uchun moddiy va ma’naviy mablaglar, shuningdek, ishlab chikarish faoliyatidan bush vakt ajratish imkonini beradigan zarur shart sifatida muximdir .</p>
+<p>Bunday moddiy shart-sharoitlarda bolaga o‘yinchoklarni, o‘quv-qurollarni, asbob-uskunalarni, kitob-daftarlarni qo‘ya oladigan alohida xona ajratish, oila byudjetidan bolaga boshqa shaharlar va mintaqalarga ekskursiya va sayohatlar qilish uchun, turli sport seksiyalari hamda to‘garaklarga qatnashish uchun hamda maktabdan tashqari qo‘shimcha bilim olish uchun mablag‘ ajratish imkoni kiradi .</p>
+<p>Bolada eng katta ishonchni oila a’zolari xosil qilishi, tabiiy. Bolaning atrofdagi odamlarga munosabati, oila a’zolari o‘rtasidagi munosabat axloqiy jihatdan qanchalik yuksakligiga bog‘lik . Ota-ona mehridan , g‘amxurligidan baxramand bo‘lmagan ,oilaning har tomonlama ximoyasini his etmagan bola o‘z atrofidagi odamlardan havotirda, hadiksirab yashaydi. Oila muxitidan hayrixoxlik es , aksincha bolada atrofdagilarga nisbatan xurmatni kupaytiradi, uning ijtimoiy faolligini oshiradi .</p>
+<p>Inson o‘zi tug‘ilib o‘sgan oilada ilk bor tarbiya oladi. Uning tarbiyasi o‘z oilasidagi oila a’zolari bilan muloqotda va o‘zaro munosabatlar orqali shakllanadi. Bolaning kelajakda shaxs sifatida shakllanib, komil inson bo‘lib etishuvida kanday oilada tarbiyalanganligi , oilada kanday iklim xukm surganligi , o‘z ota-onasi bilan bo‘lgan o‘zaro munosabatlarning kay tarzda kechganligi muxim ahamiyat kasb etadi . Shuning uchun ham insoniyat madaniyati tarixining ilk davrlaridanoq oilada farzand tarbiyasiga alohida e’tibor berib kelingan .</p>
+<p>Ming yillik tarixga ega bo‘lgan xalqimizning buyuk dostonlari «Alpomish», « Gurugli», shuningdek Sharq mamlakatlari xalqlari uchun katta ma’naviy manba bo‘lmish xind xalq dostonlari «Maxobharat», «Ramayana» kabilarda mazkur masala yorqin tasvirlangan .</p>
+<p>Pedagog, psixolog olimlar izlanishlaridagi jamiyatimiz taraqqiyotining ijtimoiy-siyosiy jixatlari, milliy istiqlol mafkurasining tarixiy negizlari, o‘tmishda utgan allomalarning goyaviy qarashlari, oila va oilaviy tarbiya masalalariga bag‘ishlangan , fikr-muloxazalar, inson va jamiyat rivojini boyitadi, soglom ma’naviy axloqiy ruxini saqlash va mustaxkamlashga xizmat qiladi .</p>
+<p>Qadimgi madaniy merosimiz hisoblangan « Avesto»da naslning pokligi, tozaligiga aloxida e’tibor berilgan, qarindosh-urug‘ , aka-ukalarni quda bo‘lishi qoralangan .</p>
+<p>Shu ma’noda boshqa manbalar qatori «Avesto»ning mafkuraviy manba sifatidagi qimmatli pedagogika fani uchun ilmiy asosdir .</p>
+<p>Ota-onaning farzandlariga va farzandlarning ota-onasiga mexr-okibatli bo‘lishlar, ularning ota-onalik va farzandlik burchini, mas’uliyatini his qilish masalalari xalqimizning milliy qadriyatlarining shakllanishida muxim ma’naviy manba bo‘lib xizmat qilganligi shubxasiz. Shariat qonunlarida Islom ta’limotida Kur’oni Karim va Xadisi Shariflarda oilaviy munosabat qoidalari asosiy o‘rin egallaydi. Zotan, ota-ona farzandni dunyoga keltiruvchi, tarbiyalovchi, hamfikr, dust, hayotda yo‘lboshchi, oilaning moddiy va ma’naviy ta’minotchisi tarzida ulug‘lanadi. Shuning uchun ham Kur’on ta’limotiga ko‘ra oilada ota-ona eng muqaddas zot .</p>
+<p>Ibn Sinoning « Donishnoma», «Risolai ishk», «Uy xujaligi» kabi asarlarida ham tarbiya pedagogikasi va tabobat masalalariga oid qimmatli muloxazalar keltirib o‘tilgan .</p>
+<p>«Ota-ona, - deb yozadi u, - ham nazariy, ham amaliy jixatdan oilada tarbiya masalalari mukammal o‘zlashtirmog‘i lozim. Agar ular tajribasiz bo‘lsa, o‘z farzandlarini yaxshi tarbiyalay olmaydi. Yomon tarbiya ko‘rgan bola nafakat ushbu oila, balki kushnilarga, maxalla-ko‘yga ham yomon zarar keltirishi mumkin .</p>
+<p>SHu sababli ham oiladagi bola tarbiyasi ota-onaning jamiyatda tutgan mavqeidan kat’i nazar, ularning birlamchi vazifasidir, deb hisoblaydi.</p>
+<p>XI asrning buyuk mutafakkirlari Yusuf Xos Xojibning fikricha, farzand ko‘rish va unga tarbiya berish har bir inson uchun buyuk baxtdir, ularsiz hayotning ma’nosi yo‘q. Lekin bu narsa ota-onaga katta mas’uliyat yuklaydi, uning uddasidan chiqmoq, har bir ota-ona uchun ham farz, ham qarzdir. SHuning uchun ham oilaviy tarbiyani Yusuf Xos Xojib bola axloqiy taraqqiyotining asosi, deb hisoblagan. «Agar bolaning xulqi yomon bo‘lsa, bunda bolaning aybi yuk, hamma ayb-otasida». SHuning uchun ham ota-ona ayniqsa, ota bunga katta e’tibor bermog‘i lozim.</p>
+<p>« Qutadg‘u bilig»da oilada muomala odobiga katta e’tibor berilgan. Undagi asosiy tamoyil til bilan dil birligi ekanligi o‘rtaga tashlangan va bo‘larning barchasida bilimning ahamiyati ta’kidlangan.</p>
+<p>Kaykovus Unsurulmaoniyning oilaviy tarbiya haqidagi qarashlari « Qobusnoma» asarining «Ota-ona haqqini bilmoq zikrida» bobida atroflicha bayon etilgan. Olim va alloma Kaykovus ota-ona o‘z farzandi uchun xatto «ulimga ham tayyor» ekanligini ta’kidlab, o‘z navbatida, ularni aslo ranjitmasliklari, aksincha, shirinsuxanlik bilan munosabatda bo‘lish lozimligini aloxida uk-</p>
+<p>tiradi: « Xar bir farzandki, oqil va dono bo‘lsa, ota-ona mexr-muxabbatini ado etmakdin bosh tortmagay» .</p>
+<p>Dunyoda necha millat, necha xalq bo‘lsa, hammasining o‘ziga xos turmush tarzi, o‘tmish hayoti va kelajagi bilan chambarchas bog‘lik an’analari mavjuddir. O‘zbek xalqining ham urf-odatlari, turmush tarzi, oilaviy marosimlari, ta’lim-tarbiya, madaniyat an’analari moziyning uzoq-uzoq asrlariga borib taqaladi . Barg ildizdan quvvat oladi deganlaridek , hozirgi va kelajak avlod kishilarining ularni chuqur bilishi ma’naviyatning mag‘zi to‘qligi omilidir. Bu hamisha, hamma avlod tomonidan e’tirof etilgan haqikatdir .</p>
+<p>Kaykovusning « Qobusnoma»sidan tortib , Al-Xorazmiy , Abu Nasr al-Farobi , Abu Rayxon Beruniy, Ibn Sinolarning nazmiy va nasriy asarlarida, Yusuf Xos Xojibning «Kutadg‘u bilig» («Baxt keltiruvchi bilim»), Axmad Yugnakiyning « Xibatul haqoyik» , ( «Haqiqat sovg’alari») kabi jaxonga mashxur asarlarida Navoiyning o‘lmas she’riyatida, Munis Xorazmiyning «Savdita’lim», Qori Niyoziyning «Hayot maktabi», Abdulla Avloniy «Turkiy guliston yoxud axloq» asarida sharq xalqlari, xususan, o‘zbek xalqiga xos ibratli tomonlar ochib berilganki, ular qalami orqali xalqimizga xos bo‘lgan ota-onani xurmatlash, insoniylik, mexr-oqibat, mexmondustlik, ma’rifatga chanqoqlik, onani ulug‘lash , farzandga mehrli va fidoyi bo‘lishlik kabi fazilatlar dunyoga tanilgan bo‘lsa, ajab emas .</p>
+<p>Har bir xalq o‘zining milliy an’analariga asoslangan tarixiy madaniyati va turmush tarziga egadir. An’ana xalqimizning asrlar osha to‘plagan milliy boyligi bilan, shuningdek, uning yangi sharoitda yangi mazmun bilan boyitilishi, yangidan-yangi an’analarning vujudga kelishi bilan qimmatli va hayotbaxshdir .</p>
+<p>An’analarning vujudga kelishi va shakllanishi murakkab ijtimoiy jarayondir.</p>
+<p>Unda xalqning donno fikrlari, axloq mezonlari, insonni xurmatlash va qadrlash o‘z ifodasini topgan.</p>
+<p>Oilaviy an’analarga bolalarning tugilishlari Bilan bog‘lik bo‘lgan marosimlar , urf-odatlar bolalar tarbiyasiga taalukli bo‘lgan va umuminsoniyat tomonidan kabo‘l qilingan Amaliy maslaxatlar , koidalar , metodik usullar va vositalar kiradi .</p>
+<p>Har davrning yangi an’anasida yangi avlod vakillarining xususiyatlari, shuningdek ularning o‘tmish haqidagi yorqin xotiralari, mehnatkashlar ommasining kelajak uchun intilish o‘z aksini topib boradi. Boshqa xalq an’analari kabi oilaviy an’analarda ham shu xalqning tarixi, uning turmush sharoiti va hayot tarzi bilan bog‘lik o‘tmishi va kelajagi aks etdi .</p>
+<p>Shu ma’noda o‘zbek xalqining oilaviy an’analari qimmatli va azizdir .</p>
+<p>Xalq donishmandligida ota-onalar haqida ularning bolalari bilan munosabatlari, onaning madaniy, tarbiyaviy ta’siri, donoligi va atroflicha yoritilgan. Masalan, oilada hamma kishi bir kishiga – otaga itoat etgan. Otaning yoki onaning gapi ikki qilinmagan. Otaning izmidan chiqish, u kishining buyrug‘ini bajarmaslik, otaga gap qaytarish, unga tik boqish gunox bo‘lgan. Xadisda yozilganidek « Otaga itoat qilish – Tangriga itoat qilishdir. Uning oldida gunox qilish Tangri oldida gunoxkor bo‘lish bilan barobardir».</p>
+<p>Xalq donishmandligi an’analari avloddan-avlodga o‘tish jarayonida shakl jixatidan o‘zgarishlarga uchraydi, lekin o‘z mazmuni, tarbiyaviy ta’sirini yo‘qotmasdan xozirgi va kelgusi avlodlarga xizmat qiladi. SHu ma’noda xalq pedagogikasini ilg‘or tarbiya g‘oyalari bilan uyg‘unlashtirish, oilaviy tarbiyada ko‘llanilgan an’analarni yildan-yilga shakllanib borayotgan yangilari bilan boyiti, tuzumimiz uchun sadoqatli yoshlarni voyaga etkazish davrimizning eng muxim muammolaridan biridir</p>
+<p>«Bola - aziz, odobi undan aziz». Bu maqolda o‘zbek xalqining tarbiyaga oid qarashlari o‘z ifodasini topgan. Bu e’tikod yillar davomida ular ongiga singib ketgan. Ota-onalar farzand ko‘rish, ularni sog‘lom o‘stirish bilan birga, ularning odobli bo‘lishlarini ham orzu qilishgan. Bola tilga kirishi bilanoq axloqiy tarbiyaning alifbosi bo‘lgan salomlashishni o‘rgatishgan. Bolalar uyga kirishda, o‘zidan kattalar bilan uchrashganda, yo‘lda ketayotganda o‘ng ko‘llarini ko‘ksiga qo‘ygan xolda «Assalomu alaykum» deb so‘rashadilar. Bu ham tarbiyaning o‘lmas sabog‘i bo‘lib, o‘zbek xonadonida mustaxkam o‘rin olgan .</p>
+<p>Masalan , musulmon farzandi quyosh chiqquncha uxlasa , «yomon bo‘ladi», erta saharda eshik ochilmasa «yomon bo‘ladi», kunlik rizqimizdan benasib qolamiz iboralari bolalarni erta turishga undagan. Kechki payt quyosh botish arafasida uxlasa «yomon bo‘ladi» deb uqtirishgan.</p>
+<p>Saranjom-sarishtalik uyning bezagi, tejamkorlik farovonlik kaliti, to‘g‘rilik, xalollik-ko‘ngil xotirjamligi ekanligini mehnatkash xalqimiz unutmagan va oilada bolalarni ana shunday fazilatlar asosida tarbiyalashga doimo vaqt topisha olgan .</p>
+<p>Xalq madaniyatining eng muxim belgilaridan xushmuomalalikka, xozirjavoblikka aloxida e’tibor berilgan. Sharq xalqlari o‘z bolalariga soxtalik, yasamalikdan nari yurishni singdirib kelgan, samimiy munosabatni ulug‘lagan, o‘rgatgan .</p>
+<p>Xalq pedagogikasini chuqur o‘rganar ekansiz, mutaffakirlarning ta’lim-tarbiyaga oid, odob-axloqqa oid asarlarini ko‘zdan kechirar ekansiz, o‘zbek xalqi bolalarni tarbiyalashda tarbiyaviy ishning eng ta’sirchan uslubi - o‘yin shaklidan juda oqilona foydalanganini ko‘rasiz. O‘g‘il bolalarni uddaburon, chaqqon, topqir qilib, qizlarni mehr-shafqatli, uy ishlariga kirishimli qilib tarbiyalaydigan shunday an’anaviy o‘yin shakllari bo‘lganki, ularni xalq etnografiyasini o‘rganish yo‘li bilan tiklash, xozirgi ishlarimizda ham qo‘llash kerak. N.Krupskaya xalq tarbiyasi tajribasidagi eng yaxshi uslub va usullarni olishni targ‘ib qilib, o‘zbek bolalari o‘yinlarining o‘ziga xos xususiyatlarini ijobiy baxolab, ularning tabiat bilan yaqin munosabatda yashashlarini juda ko‘p qiziqarli o‘yinlarga egaligini, jismonan rus bolalariga nisbatan chiniqqan , chaqqon ekanliklarini qayd qilgan edi .</p>
+<p>Xalq pedagogikasida farzandni jismonan baquvvat, aqlan barkamol qilib tarbiyalash bilan birga ularni hayotga turmushning og‘ir-engil sinovlariga tayyorlab borishga ham qattiq e’tibor berilgan. Bunda ta’lim-tarbiyaning ugi, nasixat, namuna bo‘lish, mehnatda chiniqtirish shakllaridan unumli foydalanilgan.</p>
+<p>Yoz kunlaridan birida bog‘da ko‘maklashayotgan bola otasidan so‘rabdi:</p>
+<p>-Nima uchun mana bu daraxt qiyshiq , manna bunisi esa tug‘ri ?</p>
+<p>- O‘g‘lim,- deb javob beribdi ota, - bu daraxtning qiyshiq o‘sgan joylarini kesib, parvarish qilib turilgan , ikkinchi daraxt esa o‘z xolicha o‘sgan , shuning uchun qiyshiq</p>
+<p>- Unday bo‘lsa, daraxtlarni doimo parvarish qilish kerak ekanda, - xulosa chikaribdi o‘g‘il .</p>
+<p>-Tuppa – to‘g‘ri, deb javob beribdi ot, - o‘g‘lim daraxtlarni parvarish qilish ko‘p foyda keltiradi . Sen ham xudi yosh nixolga o‘xshaysan . Sening hatolaringni tuzatib tursam, yaxshi narsalarga urgatsam sen esa mening so‘zlarimdan chikmasan, yaxshi odam bo‘lib voyaga etasan . Agar sen mening gaplarimga quloq solmasang, xuddi mana shu ikkinchi daraxt kabi egri o‘sib voyaga etasa , debdi .</p>
+<blockquote>Ota-onalar farzand fidoyilaridir .<br>Bu Sharq xalqlari, xususan o‘zbek millatiga xos bo‘lgan fazilatdir.<br>Oila – xalq namunasi</blockquote>
+<p>Oila va oilaviy munosabatlar pedagogikasi – murakkab jarayondir. Agarda zamonaviy terminalogiyadan foydalanadigan bo’lsak, unda allanimalarni bajarish kerakligiga xalq o’z shaxsiy tajribasida ishonch hosil qilgan deb aytish mumkin.</p>
+<p>Bolalarga tarbiyaviy ta’sir ko’rsatish odatlari, an’analari, metodlarini aniqlab konstruktiv metodini;</p>
+<p>Bolalarning dam olishlari, mehnat qilish va o’quv mashg’ulotlari tartibini o’rnatib tashkilotchilik vazifasini;</p>
+<p>Ota-onalar, ota-onalar va bolalar, bolalarning o’zlari o’rtasidagi yaqinlari, qarindoshlar va qo’shnilar va shu kabilar bilan to’g’ri o’zaro munosabatlar qoidalarini ishlab chiqib kommunikativ vazifasini;</p>
+<p>Bular hammasi asta-sekinlik bilan oilaviy munosabatlar sistemasini yaratadi. Oila eng intim (yaqin) jamoadir. O’zining ko’nglidagi firklarini bola faqat ota-onalariga aytishi mumkin, ayniqsa sirlarini onasiga aytadi. Oiladagi o’zaro munosabatlar juda nozik va qaltis ishdir, chunki u qarindoshlik iplari bilan bog’langan jamiyatning birinchi jamoasi bilan bog’liq bo’ladi. Bu yerda oila ichidagi o’zaro munosabatlar amalga oshiriladi, ota va onaning tarbiyachilik vazifalari aniqlanadi. Uning bolalarga pozitiv ta’sirini kuchaytirish uchun sharoitlar yaratiladi. Oilaning va oilaviy tarbiyaning ana shu hamda boshqa xususiyatlari har doim xalqning diqqat markazida bo’lgan.</p>
+<p>Bular hammasi Markaziy Osiyo xalqlari xalq pedagogikasi meroslarida o’z aksini topgan.</p>
+<p>Xalq ko’plab avlodlar tajribasi asosida oilaning asosini – o’zaro muhabbat tashkil etishiga ishonch hosil qilgan. Shuning uchun shunday umumiy hayotiy fikr paydo bo’lgan: “Sevgisiz oila – bu ildizsiz daraxtdir.” Sevgi muammosi oilaviy tarbiya pedagogikasi uchun har doim muhim bo’lgan. Yigit va qizlar o’rtasidagi yorqin va sof do’stlik odatda oliy, insoniy hissiyot-sevgiga aylanadi. Xalq donishmandligi sevgini har qanday ko’rinishiga katta odob bilan o’z munosabatini bildiradi.</p>
+<p>Sevgiga avaylab munosabatga bo’lish - xalq pedagogikasining muhim maslahatidir: “Muhabbatni ko’z qorachig’idek asra”. Insonni faqatgina uning tabiiy, tashqi chiroyi uchungina, balki uning ko’ngli go’zalligi uchun ham sevish kerak. “Sevgining chiroyinimi yoki chiroylilarni sevasanmi.” – degan savolga qozoq moqoli shunday javob beradi: “Shunchaki go’zal bolgan chiroyni emas, balki sen sevgan chiroylidir”. Sevish uchun odamni ko’rish va uni bilish, uni tushunish kerak. “Ko’z ko’rmaganni, yurak sevmagan” deb bekorga aytmaganlar. Tojiklar esa “avval ko’zga yoqishi kerak, keyin esa yurakka” deb hisoblaydilar.</p>
+<p>Xalq sevishganlar xulqlari madaniyati masalasini ham gapirib o’tgan. Bunda sevganining yaqinlari va ota-onalariga hurmat yuzasidan, bo’lajak turmush o’rtog’ining tanloviga munosabatni bildirish uchun ular bilan tanishish ko’zda tutilgan. Ko’pincha maqollarda kuyovga to’g’ri maslahatlar beriladi: hamma ishni ota-onalardan boshlash kerak, ayniqsa qizning onasidan, u qiz bolaning tarbiyasiga, uning dunyoqarashiga, ishonchi, didi, odatlari shakllanishiga katta ta’sir ko’rsatadi. Shuning uchun xalqdashunday maqollar bo: “Onasiga qarab, qiziga uylan”, “Bir qizga uylanmoqchi bo’lsang avval uning onasi bilan tanishgin”. Shuni aytish muhimki, xalq odatda teng nikohga sevgi bo’yicha nikoh tarafdorlari bo’ladi. Markaziy Osiyoda ko’p davrlar davomida kelin uchun qalin puli to’lash odat bo’lib kelganligiga qaramasdan, odamlar xalq donishmandligiga amal qilishga intilganlar. Teng kuyov topilgan bo’lsa qizni qalin puli talab qilmay berib yubor (qoraqalpoqlar): Agar teng kuyov topilsa qizingni bepul berib yubor (qirg’izlar): xalq manfaatini ko’zlab boshlangan nikohni rad etadi. Boylik uchun turmushga chiqqandan ko’ra o’tgan yaxshiroqdir – deb aytadilar. (o’zbeklar).</p>
+<p>Oila jamiyatning boshlang’ch jamoasi bo’lib, hayotning eng murakkab va turli xil xodisalaridan ta’sirlanadi. Turmushda janjallar kelib chiqadi. Xalq oilaviy janjallar haqida nima deb o’ylaydi va oilaviy tarbiya tajribalari bilan qanday oldini olish choralari ishlab chiqilgan. Hikmatli so’zlarga oilaviy janjallar ajoyib bir fikrlik bilan tabiiy, qonuniy hodisa deb qaraladi. O’zbek maqoli to’g’ridan-to’g’ri ta’kidlaydi: “Yeguliksiz uy bo’ladi, lekin janjalsiz uy bo’lmaydi”. Xalq oddiy odamlarga “Hatto podshohning uyida ham janjallar bo’ladi” deb o’zini ham va boshqalarni ham tinchlantiradi. Ba’zi ota-onalari va qo’shnilari er va xotin o’rtasidagi tortishuvga aralashishga urinib ko’radilar. Bu deyarli hech qachon yaxshi natijaga olib kelmaydi, shuning uchun o’zbek maqollarida “Er va xotinni orasiga faqatgina axmoq aralashadi” deb aytishadi. Ko’pchilik haqiqatni so’zlar afsuslanib yomon xotinlarning hislatlarini ko’rsatib beradi. Yomon xotinlar haqida o’zbeklar shunday deydilar: “Ot yomon bo’lsa xohishing ketadi, bolalaring yomon bo’lsa kuning ketadi, xotining yomon bo’lsa-mehmon ketadi”. Ko’pchilik haqiqatli so’zlar ayolning eng yomon hislati deb uning ming’ir- ming’irlarini quloqni tinchitmasligi, mijg’ovligi va janjalkashligini ko’rsatadilar: “Janjalkash xotinning eri tez qariydi”, “Janjalkash xotinga uylangandan ko’ra bo’ydoq yurgan yaxshi”.</p>
+<p>Oilaning asosiy vazifasi – katta avlod uchun munosib bolalarni tarbiyalash hisoblanadi. Bu yerda ham hal qiluvchi ish ota-onalarga bog’liq bo’ladi.</p>
+<p>Ota va ona birinchi tarbiyachilar.</p>
+<p>Xalq pedagogisida onalik oliy ijtimoy qadriyat sifatida, inson avlodini davom ettirishdagi tabiiy talab sifatida qaraladi. Hamma xalqlar xaqli ravishda onani – ayolni yuksaklikka ko’taradilar, “O’g’il agarda kaftida onasi uchun tuxum pishirib berganida ham uning oldida qarzdorligicha qoladi” deb hamma tan olgan.</p>
+<p>Bolalarga muhabbat – bu juda muhim muammo hisoblanadi. Chunki, ona muhabbati sababli ota-onalar ko’plab tuzatib bo’lmas xatolarga yo’l qo’yadilar. Hamma xalq haqiqatli so’zlarida bolalarga cheksiz muhabbat hissi ifoda etilgan. “Uyning bezagi-bu bekadir, dasturxonning bezagi-mehmon”.</p>
+<p>Bolaning tarbiyaliligi ham juda qadrlanadi. M: o’zbek maqollarida shunday deyiladi: “Bola qimmatbahodir, lekin yanada ham qimmatlisi uning tarbiyasi”. (“Bola aziz, uning odobi undan aziz”).</p>
+<p>Xalq otalarning shaxsiy ibrat ko’rsatishlariga ko’p e’tibor qaratgan. Onaning yomon odati albatta bolaga ta’sir ko’rsatadi, shuning uchun “janjalkash otaning o’g’li urushqoq bo’ladi”, deb aytadilar Ota va onadan tashqari oilada tarbiyachilik vazifani buva va buvisi va boshqa qarindoshlari ham bajaradilar. Amalda ular no’malum halq pedagoglari hisoblanadilar. Xalq donishmandlari opoqilar (buvalar) va buvilar haqida maxsus ertaklar to’qiganlar.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="3">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>1. Quyidagi ish qog‘ozi yordamida “Kontseptual jadval” metodi bo‘yicha oilaviy tarbiyaning darajalarini yoriting.</p>
+<p>Ish qog‘ozi</p>
+<div class="jadval-o"><table><thead><tr><th>Oilaviy tarbiyaning darajalari</th><th>Muhim belgi (tavsif)lar</th><th></th></tr></thead><tbody><tr><td>1-belgi (tavsif)</td><td>2-belgi (tavsif)</td><td>3-belgi (tavsif)</td></tr><tr><td>1-darajasi (A I)</td><td></td><td></td></tr><tr><td>2-darajasi (A II)</td><td></td><td></td></tr><tr><td>3-darajasi (A III)</td><td></td><td></td></tr><tr><td>4-darajasi (A IV)</td><td></td><td></td></tr></tbody></table></div>
+<p>Quyidagi ish qog‘ozi (sxema) orqali sharq mutafakkirlari oila haqidagi fikrlarini oydinlashtirish imkoniyatini beradigan yo’llarni yoriting.</p>
+<h3 id="b-3-2">3.2 Sharq mutafakkirlari oila haqida</h3>
+<p>Ish qog‘ozi</p></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Xalq pedagogikasida oilaviy muhit talqini.</li><li>Tarixiy davrlarda oila va unda farzand tarbiyasi.</li><li>Oilaviy tarbiyada qo‘llanilgan qanday tarbiya metodlarini bilasiz?</li><li>Mutafakkirlar oila tarbiyasi haqida fikrlaridan keltiring.</li><li>Oilaning ijtimoiy institut sifatida necha asosiy vazifasi mavjud?</li><li>SHaxs ijtimoiy faolligini shakllantirishda oilaning o‘rni qanday?</li><li>Oila an’analari deganda nimani tushunasiz?</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="3">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="izohlar">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <ol class="izoh-royxat"><li id="izoh-2"><a href="#ref-2" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> —</li></ol>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>Boynazarov F. O’rta Osiyo" antik, davri.Toshkent. O’qituvchi 1991 yil.</li><li>Mirtursunov Z.F, Xalq, pedagogikasi, Toshkent. O’qituvchi 1968 yil.</li><li>Xasanov S. Mutafakkirlar mehnat tarbiyasi haqida.</li><li>Donishmandlar axloq haqida. Toshkent. O’qituvchi 1986 yil.</li><li>O’zbek pedagogikasi tarixi // A.Zunnunov tah.ostida. – T.: O’qituvchi, 1997. – 272 b.</li><li>O’rta Osiyoda pedagogik fikr taraqqiyotidan lavhalar // Zunnunov A., Xayrullaev M., Hotamov N., SHodiev D. - T.: Fan, 1996. – 243 b.</li><li>O’zbek pedagogikasi antalogiyasi . T. 1-jild. 1995y, 2-jild1999 y.</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-2.html"><span class="yon">← 2-modul</span><span class="nom">Xalq pedagogikasining didaktik imkoniyatlarini o‘quv-tarbiyaviy jarayonga tadbiq etish</span></a><a class="keyingi" href="modul-4.html"><span class="yon">4-modul →</span><span class="nom">Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
+
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
+
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
+
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<section id="write" class="section"></section>

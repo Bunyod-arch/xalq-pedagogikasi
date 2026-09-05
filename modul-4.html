@@ -2,300 +2,306 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>4-modul — Tarbiya turlari</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:linear-gradient(120deg,#020617,#0b1220,#020617);
-  color:#e5e7eb;
-  padding-bottom:190px;
-}
-
-/* HERO */
-.hero{
-  padding:100px 24px 70px;
-  text-align:center;
-}
-.hero h1{
-  font-size:clamp(38px,5.5vw,66px);
-  font-weight:900;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  background:
-    linear-gradient(120deg,#fff,#22c55e,#38bdf8,#a855f7,#fff);
-  background-size:300% 300%;
-  animation:shine 8s linear infinite;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 0 40px rgba(56,189,248,.35);
-}
-@keyframes shine{
-  0%{background-position:0%}
-  100%{background-position:300%}
-}
-.hero p{
-  margin-top:18px;
-  font-size:18px;
-  opacity:.9;
-}
-
-/* LAYOUT */
-.layout{
-  max-width:1500px;
-  margin:auto;
-  padding:0 40px;
-  display:grid;
-  grid-template-columns:360px 1fr;
-  gap:56px;
-}
-
-/* LEFT PANEL */
-.panel{
-  position:sticky;
-  top:32px;
-  align-self:start;
-  padding:30px;
-  border-radius:34px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(22px);
-  box-shadow:0 30px 120px rgba(0,0,0,.85);
-}
-.panel h3{
-  margin-bottom:22px;
-  letter-spacing:.22em;
-  font-size:14px;
-  color:#22c55e;
-}
-.panel button{
-  width:100%;
-  padding:18px 20px;
-  margin-bottom:16px;
-  border-radius:20px;
-  border:none;
-  background:rgba(255,255,255,.05);
-  color:#e5e7eb;
-  font-size:16px;
-  text-align:left;
-  cursor:pointer;
-  transition:.35s;
-}
-.panel button:hover{
-  background:rgba(34,197,94,.22);
-}
-.panel button.active{
-  background:linear-gradient(135deg,rgba(34,197,94,.45),rgba(56,189,248,.28));
-  box-shadow:
-    inset 0 0 0 1px rgba(34,197,94,.6),
-    0 0 40px rgba(34,197,94,.35);
-}
-
-/* CONTENT */
-.content{
-  display:flex;
-  flex-direction:column;
-  gap:54px;
-}
-
-/* BLOCK */
-.block{
-  display:none;
-  padding:54px;
-  border-radius:40px;
-  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.03));
-  backdrop-filter:blur(28px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.16),
-    0 70px 180px rgba(0,0,0,.95);
-}
-.block.active{display:block}
-
-/* MAGIC TITLE */
-.block h2{
-  font-size:34px;
-  margin-bottom:30px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  background:
-    linear-gradient(120deg,#fff,#22c55e,#38bdf8,#fff);
-  background-size:200% 200%;
-  animation:shine 6s linear infinite;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 0 30px rgba(56,189,248,.35);
-}
-
-/* TEXT */
-.block p{
-  font-size:17px;
-  line-height:2.05;
-  margin-bottom:22px;
-  opacity:.96;
-}
-
-/* NAV */
-.nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  padding:20px 24px;
-  backdrop-filter:blur(18px);
-  background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.4),transparent);
-}
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1.4fr 1fr;
-  gap:22px;
-}
-.nav a{
-  padding:20px;
-  border-radius:26px;
-  text-align:center;
-  text-decoration:none;
-  color:#e5e7eb;
-  background:rgba(255,255,255,.08);
-  font-weight:500;
-}
-.nav a.center{
-  background:linear-gradient(135deg,rgba(34,197,94,.4),rgba(56,189,248,.3));
-  font-weight:800;
-  letter-spacing:.1em;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-  .panel{position:relative}
-  .nav-inner{grid-template-columns:1fr}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4-modul. Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari | Xalq pedagogikasi</title>
+<meta name="description" content="Ibrat, o‘git, rag‘bat, jazo. Aqliy, axloqiy, jismoniy va mehnat tarbiyasi.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<section class="hero">
-  <h1>4-MODUL</h1>
-  <p>Xalq pedagogikasida tarbiya turlari va ularning pedagogik ahamiyati</p>
-</section>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="layout">
-
-<aside class="panel">
-  <h3>Tarbiya yo‘nalishlari</h3>
-  <button class="active" data-target="b1">Axloqiy tarbiya</button>
-  <button data-target="b2">Aqliy tarbiya</button>
-  <button data-target="b3">Mehnat tarbiyasi</button>
-  <button data-target="b4">Jismoniy tarbiya</button>
-  <button data-target="b5">Estetik tarbiya</button>
-</aside>
-
-<main class="content">
-
-<section id="b1" class="block active">
-<h2>Axloqiy tarbiya</h2>
-<p>
-Axloqiy tarbiya xalq pedagogikasining eng muhim va markaziy yo‘nalishi hisoblanadi.
-U orqali halollik, vijdon, adolat, kattaga hurmat, kichikka izzat, mas’uliyat
-va insonparvarlik kabi yuksak fazilatlar shakllantiriladi.
-</p>
-<p>
-Xalq maqollari, nasihatlar, pand-nasihatli hikoyalar axloqiy tarbiyaning asosiy
-vositalari bo‘lib, ular orqali yoshlar hayotda to‘g‘ri yo‘l tanlashga o‘rgatiladi.
-“Yaxshi so‘z – jon ozig‘i”, “Halol bo‘l – elga manzur bo‘l” kabi maqollar
-axloqiy tarbiyaning mazmunini ifodalaydi.
-</p>
-<p>
-Axloqiy tarbiya nafaqat oilada, balki maktab va jamiyat muhitida ham
-uzluksiz olib borilishi zarur.
-</p>
-</section>
-
-<section id="b2" class="block">
-<h2>Aqliy tarbiya</h2>
-<p>
-Aqliy tarbiya insonning tafakkurini, bilimga chanqoqligini va mustaqil fikrlash
-qobiliyatini rivojlantirishga qaratilgan. Xalq pedagogikasida bu jarayon
-topishmoqlar, savol-javoblar, kuzatishlar va hayotiy misollar orqali amalga oshirilgan.
-</p>
-<p>
-Topishmoqlar bolalarning mantiqiy fikrlashini kuchaytirib, tez va aniq xulosa
-chiqarishga o‘rgatgan. Xalq orasida “O‘ylab gapir, o‘ylab ish qil” degan
-tushuncha aqliy tarbiyaning mohiyatini ifodalaydi.
-</p>
-</section>
-
-<section id="b3" class="block">
-<h2>Mehnat tarbiyasi</h2>
-<p>
-Mehnat tarbiyasi yoshlarni hayotga tayyorlash, kasb-hunar egallash va jamiyatda
-foydali shaxs bo‘lib yetishishida muhim ahamiyatga ega. Xalq pedagogikasida
-bolani yoshligidan mehnatga o‘rgatish asosiy tamoyil bo‘lgan.
-</p>
-<p>
-“Mehnat qilgan to‘yadi”, “Ter to‘kkan — rohat ko‘radi” kabi maqollar
-mehnatsevarlik g‘oyasini mustahkamlaydi. Amaliy ishlar orqali
-bolada mas’uliyat va sabr shakllantirilgan.
-</p>
-</section>
-
-<section id="b4" class="block">
-<h2>Jismoniy tarbiya</h2>
-<p>
-Jismoniy tarbiya sog‘lom tanani shakllantirishga xizmat qiladi.
-Xalq pedagogikasida milliy o‘yinlar, kurash, ot chopish va harakatli
-mashg‘ulotlar jismoniy tarbiyaning asosiy vositalari bo‘lgan.
-</p>
-<p>
-“Sog‘lom tanada — sog‘lom aql” degan xalq hikmati jismoniy tarbiyaning
-aqliy va axloqiy tarbiya bilan uzviy bog‘liqligini ko‘rsatadi.
-</p>
-</section>
-
-<section id="b5" class="block">
-<h2>Estetik tarbiya</h2>
-<p>
-Estetik tarbiya insonda go‘zallikni his qilish, san’atni qadrlash va
-didni shakllantirishga qaratilgan. Xalq qo‘shiqlari, raqslar,
-naqshlar va amaliy san’at namunalari estetik tarbiyaning manbalari hisoblanadi.
-</p>
-<p>
-Estetik tarbiya orqali insonning ruhiy olami boyiydi, hayotga
-ijodiy va nozik did bilan qarash shakllanadi.
-</p>
-</section>
-
-</main>
-</div>
-
-<div class="nav">
-  <div class="nav-inner">
-    <a href="modul-3.html">← Modul 3</a>
-    <a href="dars.html" class="center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-5.html">Modul 5 →</a>
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
+</header>
+
+<main id="asosiy">
+
+<section class="modul-bosh" style="--rang-a:#5B2E63;--rang-b:#3E1F45">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">4-modul</span>
+    <h1>Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</h1>
+    <p class="ost">Ibrat, o‘git, rag‘bat, jazo. Aqliy, axloqiy, jismoniy va mehnat tarbiyasi.</p>
+    <div class="meta">
+      <span>📖 5,775 so‘z</span>
+      <span>🎮 Saralash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
+  </div>
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html" class="faol">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>.1. Xalq pedagogikasida yoshlarni tarbiyalashning metod, usul va vositalari</li><li>.2. Tarbiyalash metodlaridan yoshlarni tarbiyalashda foydalanish yo’llari</li><li>Xalq pedagogikasida aqliy va axloqiy tarbiya masalalari</li><li>Xalq pedagogikasida jismoniy va mehnat tarbiyasi</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>tarbiya metodlari</li><li>ta’sir ko‘rsatish</li><li>na’muna ko‘rsatish</li><li>ibrat ko‘rsatish</li><li>rag‘batlantirish</li><li>jazolash metodi</li><li>o‘z-o‘zini tarbiyalash</li><li>insoniy fazilatlar</li><li>o‘git-nasihat</li><li>xalq donishmandligi</li><li>o‘zbekona axloq</li><li>tarbiya vositalari jismoniy tarbiya</li><li>barkamollik</li><li>mehnat tarbiyasi</li><li>mehnatsevarlik</li><li>mehnat qurollari</li><li>mehnat ahli</li><li>mehnat vositasi</li><li>mehnatsevarlikning ulug‘lanishi</li><li>hayoliy mehnat</li><li>mehnat qurollari</li><li>mehnat ahli</li><li>ijtimoiy taraqqiyot</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/OJpWJerFYn4"
+    title="Tohir Malik. «Odamiylik mulki» — axloq kitobi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
+<p class="media-izoh">Tohir Malik. «Odamiylik mulki» — axloq kitobi · <span>O‘zbek tilida audiokitoblar</span></p>
+  
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>Sharq xalqlari jumladan o`zbek bolalari tarbiyasiga befarq qaramaganlar. Hayotdagi har qanday hatti-harakatning ham oqibati to`g‘ri baholangan. Yoshga monand ta’sir ko`rsatish yo`l va vositalari yaratilgan. Kerak bo`lganda rag‘batlantirish turlaridan foydalanilgan, lozim bo`lsa jazolangan. Noaxloqiy hatti-harakatlarni qisqa va lekin o`ta tarbiyaviy ahamiyatga ega bo`lgan «yomon bo`ladi» iborasi bilan tavsiflangan.</p>
+<p>Prezidentimiz SH.Mirziyoyev "Bizni hamisha o‘ylantirib keladiga muhim masala – bu yoshlarimizning odob-axloqi, yurish-turishi, bir so‘z bilan aytganda, dunyoqarashi bilan bog‘liq. Bugun zamon shiddat bilan o‘zgaryapti. Bu o‘zgarishlarni hammadan ham ko‘proq his etadigan kim – yoshlar. Mayli, yoshlar o‘z davrining talablari bilan uyg‘un bo‘lsin. Lekin ayni paytda o‘zligini ham unutmasin. Biz kimmiz, qanday ulug‘ zotlarning avlodimiz, degan da’vat ularning qalbida doimo aks-sado berib, o‘zligiga sodiq qolishga undab tursin. Bunga nimaning hisobidan erishamiz? Tarbiya, tarbiya va faqat tarbiya hisobidan"<sup class="izoh-ref"><a href="#izoh-3" id="ref-3" aria-label="3-izoh">3</a></sup>, deya ta’kidlaydi.</p>
+<p>Xalqimizning qadimdan amal qilib kelayotgan odob-axloq qoidalariga nonga hurmat ulug‘langan va non ushog‘i bexosdan erga tushib ketsa, «yomon bo`ladi» deb uni qo`lga olib ko`zga surtib, o`pib og‘izga solingan.</p>
+<p>Birgina «yomon bo`ladi» iborasi juda katta va ta’sirchan tarbiya vositasi bo`lib xizmat qilgan. «YOmon bo` ladi» iborasi orqali kattalarga xurmat, kichiklarga g‘amxo`rlik, tarbiyalangan, etim bolalarga, boshiga tushgan oilalarga ozor etkazilmagan. Otaga ters javob berish, xotin-qizlarga behayolik qilish «yomon bo`lishi»ni yoshlikdan tushuntirilgan. Bunda bolalarni yoshi xatti-harakatlari o`ziga xos xususiyatlari hisobga olingan. Ayrimlariga noaxloqiy xatti-harakatlarining yomonligi qur’oni Karim hadislardan misollar keltirish, xikoyalar aytib berish orqali ifodalansa, ayrim yoshdagi bolalar ota-ona; aka-uka, opa-singil, qo`ni-qo`shnilarning ijobiy xatti-harakatlari namunasida tarbiyalangan.</p>
+<p>O`zbek xalqida bolalar bilan bog‘liq juda ko`p an’analar mavjud. Xalq pedagogikasi bolalarga mehr-muhabbat, ularni sevish, erkalash, parvarish qilish, ta’lim-tarbiya berish, extiyotlash kabi insoniy qarashlarni targ‘ib qilib kelgan.</p>
+<p>Xalqimizning o`zining tarbiya usullarida bolalardan kattalarga birinchi bo`lib salom berishni kattalar suhbatiga aralashmaslikni, ularni hadeb savollar bilan charchatmaslikni, kattalar o`z joylariga o`tirgunga qadar o`tirmaslikni, uyga mehmonlardan so`ng kirishni, lekin eshikni birinchi bo`lib ochib, ushlab turish, ularga yordam berish kabi odob qoidalariga rioya etishni har doim talab qilgan.</p>
+<p>Ota-ona dasturxondagi taomga qo`l o‘zatmaguncha hech kim qo`l o‘zatmagan. Yuqoridagi odob qoidalari deyarli o`z ahamiyatini yo`qotgan, ular milliy hulq-atvorimiz bezaklaridir.</p>
+<p>Xalq madaniyatining eng muxim belgilaridan xushmuomilalikka hozir javoblikkka alohida e’tibor berilgan. Sharq xalqlari o`z bolalariga soxtalik yasamalikdan nari yurishni singdirib kelgan samimiy munosabatni ulug‘lagan, o`rgatgan.</p>
+<p>Yuqorida aytib o`tilganidek, xalq ijodi ham shu orqali xalq pedagogikasida qo`llaniladigan: tushuntirish, namuna ko`rsatish, odatlantirish, iltimos qilish, istak bildirish, maslahat berish, yolvorish-iltijo, duo qilish, la’natlash, kaltaklash kabi metodlari bo`lsa-da, yoshlarning insoniy fazilatlarini tarbiyalashda asosan o`git-nasihat, ibrat ko`rsatish, maqtash, qarg‘ash kabi metodlaridan foydalangani ko`zga tashlanadi.</p>
+<p>O`git-nasihat xalq og‘zaki ijodida bolalarda insoniy fazilatlarni tarbiyalab etishtirishda eng ko`p qo`llanadigan metodlaridan biridir. Avvalo, kishilarni kishi tomonidan va rostgo`y bo`lish, yaxshilik haqida teran fikr yuritilgan xalq maqollari asosan pand-nasihat formasida tinglovchiga nisbatan maslahat, nasihat, istak va buyruq formasida ishlatiladi. Masalan:</p>
+<blockquote>Yomonnnig yaxshisi bo`lguncha<br>Yaxshining yomoni bo`l!<br>Birovga o`lim tilaguncha,<br>O`zinga umr tila!<br>qadrlasang qadring oshar,<br>qadrsizdan hamma qochar<br>kabi maqollar tinglovchilarga nisbatan o`git-nasihat formasida aytilgandir.</blockquote>
+<p>Bolalarni insoniylik ruhida tarbiyalashda qo`llaniladigan eng harakterli shakllardan biri, xalq donishmandliklarining axloq va odob yuzasidan aytiladigan hikmatli so`zlari-maqollarini u yoki bu ertak orqali hal qilinishi kerak bo`lgan muammo sifatida ishlatilishidir, ya’ni axloq va odob masalalariga bag‘ishlangan xalq maqollarining naqadar haqiqat ekanligini (Har kimsa etsa-o`ziga) ertagi mazmuni orqali ochib berilishidir.</p>
+<p>Xalq pedagogikasida tarbiya metodlari. Xalq pedagogikasi o‘zbekona axloq, odob va tarbiyaning barcha qirralarini o‘zida mujassamlashtirgan. Xalq pedagogikasida turlicha tarbiya metodlari hamda vositalaridan foydalaniladi. Bu metod va vositalar nihoyatda rang-barang bo‘lib, ko‘p jihatlari bilan ilmiy pedagogikadan ustunlik qiladi. Binobarin, ushbu metodlar ilmiy pedagogikaning shakllanishiga ham o‘z ta’sirini o‘tkazgan. Xalq pedagogikasida qo‘llanilgan xilma-xil tarbiya metodlarini quyidagi tarzda umumlashtirish mumkin:</p>
+<blockquote>1. Tushuntirish (hikoya qilish, o‘rgatish).<br>2. Mashqlantirish (odatlantirish, mashq qildirish).<br>3. Namuna (maslahat berish, o‘zr so‘rash, o‘rnak bo‘lish).</blockquote>
+<p>4. Nasihat qilish, o‘git (undash, ko‘ndirish, iltimos qilish, yolvorish, tilak-istak bildirish, ma’qullash, rahmat aytish, duo qilish, oq yo‘l tilash va hokazolar).</p>
+<p>5. Qoralash va jazo (ta’kidlash, ta’na, gina, tanbeh berish, majbur qilish, koyish, ayblash, uyaltirish, qo‘rqitish, nafratlanish, ont-qasam ichirish, urish, kaltaklash va hokazolar).</p>
+<p>Xalq pedagogikasi namunalari, tarbiya metodlari va tarbiyaviy ta’sirlar muayyan vositalar yordamida qo‘llanilgan. Mehmon kutish, mehmonga borish, turli mehnat jarayonlari, hasharlar, turli gurunglar (choyxona, to‘y marosimlari), sayillar, oilaviy an’analar (tug‘ilgan kun, fuqarolik pasporti, umumiy o‘rta, o‘rta maxsus va oliy ma’lumotga egalik to‘g‘risidagi attestat va diplom, davlat mukofotlarini olish kabi holatlarni nishonlash) va musobaqalar o‘ziga xos tarbiya vositasi sanaladi</p>
+<p>Insoniy fazilatlarni tarbiyalashda namuna ko`rsatish metodi ustida gap yuritilar ekan, avvalo shuni aytib o`tish kerakki, insoniylik mavzusida aytilgan ertak va dostonlarning o`zi katta tarbiya vositasi sifatida xizmat qiladi.</p>
+<p>O`zbek xalq ijodida insoniylikni tarbiyalash yuzasidan qo`llaniladigan namuna ko`rsatish metodi juda ko`p shakllarda uchraydi. Ertak va dostonlarda uchraydigan namuna ko`rsatish metodining harakterli tomoni-uning asosan ikki yo`nalishida ko`zga tashlanishidir. Bir tomondan, ijobiy fe’l-atvorga ega bo`lgan kishilarning hatti-harakatlarini ko`rsatish orqali undan ibrat olishga undalsa, ikkinchi tomondan salbiy fe’l-atvorga ega bo`lgan kishilarning nojo`ya hatti-harakatlarini ko`rsatish bilan undan nafratlanishga, yaramas urinishlardan qochishga targ‘ib qilinadi. Masalan, «Erali va SHerali» dostonida aka-ukaning ustozi bolalarga odob-axloq haqida juda ko`p pand-nasihatlar aytadi.</p>
+<p>Xalq ijodi materiallarida bolalarning odob va axloqiy tarbiyalash yuzasidan xilma-xil tarbiya vositalaridan foydalangani ham ko`rsatiladi.</p>
+<p>Folklor materiallarida uchraydigan axloqiy tarbiya vositalari juda ko`p tur va shakllarga ega bo`lsa ham, asosiy vosita sifatida:</p>
+<blockquote>Bolalar o`yinlari.<br>Choyxo`rlik – choyxona gurungi.<br>Bolalar gapi – gap eyish.<br>To`y marosimlari.<br>Sayillar va hokazolar.</blockquote>
+<p>Shubhasiz, bunday davra yoki yig‘inlarning tarbiyaviy ta’siri katta bo`lgan va hozir ham u juda muhim tarbiyaviy ahamiyatga egadir.</p>
+<p>Madaniyat deganda inson xulq-atvorining go`zalligi, sahovat va himatliligi, olijanobligi, va’dasiga vafodorligi, o`ziga xosligi bilim olishi, donoligi, bag‘ri kengligi, odobliligi, ozoda va pokizaligi, qalbining beg‘uborligi va shu singari yoqimli urf-odatlar tushuniladi.</p>
+<p>Ma’rifatning insonga ko`rsatadigan ta’sirlaridan biri shuki, u odam dunyoqarashini kengaytiradi, unga notanish uning hayotiga begona hodisalarning asl ma’nolarini tushunishga yordam beradi. Ma’rifat ilm va madaniyat nuridir.</p>
+<p>Aqliy tarbiya barkamol inson tarbiyasining etakchi tarkibiy qismi bo`lib o`quvchi yoshlarni tabiat va jamiyat, kishi tafakkuri haqidagi bilimlar tizimini ilg‘ab olishi, ularda ilmiy dunyoqarash, yuqori onglilik hislatlarini parvarishlash, fan asoslaridan xabardor qilish, tafakkur va nutq qobiliyatlarini o`stirishni maqsad qilib qo`yadi.</p>
+<p>Aqliy tarbiyani shunday tashqil etish lozimki toki o`quvchilar aql-zakovatli, ob’ektiv dunyoni yaxlit idrok etadigan, o`zligini tushunadigan, hayotda tutgan o`rnini anglab etadigan, o`z oldida turgan vazifalarni ongli bajara oladigan, insoniy qadr-qimmatni ulug‘laydigan bo`lishsin. Inson kamolotida bilim egallash ulkan fazilatlardan biri hisoblanadi.</p>
+<p>Hadis kitoblarida har bir mo`min-musulmon uchun ilmning naqadar zarurligi bayon etilgan. «Beshikdan to qabrgacha ilm izla» - degan nurma’no hadisi shariflar so`zimiz isbotidir.</p>
+<p>Muhammad alayhissalom o`z hadislarida – «Ilm sahroda do`st, hayot yo`llarida tayanch, yolg‘iz damlarda yo`ldosh, baxtli daqiqalarda rahbar, qayg‘uli onlarda madadkor, odamlar orasida zebu-ziynat, dushmanlarga qarshi kurashda qurol» deganlar.</p>
+<p>Xalq pedagogikasida ham hadislarda ham, xalq og‘zaki ijodida ham ilmli bo`lishga, ilmga intilishga yuksak darajada shariat berilgan, ular bugungi kunda ta’lim-tarbiya jarayonida o`z ahamiyatiga ega.</p>
+<p>Yusuf Xos Xojib o`z asarlarida bilimdon bo`lish tarbiya bilan chambarchas bog‘liqligi, bola qanchalik erta tarbiya qilinsa, shuncha yaxshiligi haqida yozadi:</p>
+<blockquote>«Agar kimda bo`lsa aql, ilm zehn,<br>Uni madh etib sen, tugal er degin,<br>Ziyod bo`lsa kimda o`quv, uquv, aql, bilim,<br>YOmon va kichik bo`lsa ham maqtagin».</blockquote>
+<p>Alisher Navoiy «Farhod va SHirin» dostonida ilm orqali Farhodning aql-idrokli bilimdon, hunarmand, kamtar insonparvar, irodali va e’tiqodli inson bo`lganligi ko`rsatadi.</p>
+<p>Demak yuqorida ta’kidlaganidek, yoshlar aqlini o`stirish uchun birinchi galda vazifa ilm olish, ilmiy dunyoqarashni kengaytirishga da’vat etishdir.</p>
+<p>Aqliy tarbiya fikrlash, his qilish, tasavvur, hayol va xotira qobiliyatini o`stirish, ichki dunyosini ma’naviy jihatdan boyitish, yosh avlodni mehnat qilish qobiliyatini o`stirish, ularni ijtimoiy hayotga tayyorlashga qaratilgan.</p>
+<p>Tarixiy an’ana va tajribalardan ma’lumki, ta’lim-tarbiya doimo muayyan va tuzum yuritgan siyosat o`z oldiga qo`ygan vazifa va maqsadlar asosiga qurilgan.</p>
+<p>O`zbek xalqi ota-bobolaridan qolgan buyuk madaniy merosga ega. Bu boyliklar jamiyatda fan va madaniyat adabiyot va san’at, mustaqilligimiz ravnaqiga, ma’naviyatimizni yuksaltirishga, milliy g‘urur iftixorimizni mustahkamlashga xizmat qilib kelgan va bundan keyin ham xizmat qiladi. Bunday ma’naviyatning bo‘log‘idan yosh avlodni baxramand etish, tarbiya jarayonida ulardan mohirlik bilan foydalanish biz pedagoglarni asosiy burchimizdir. Bunday meros xalqni o`zligini anglash, ajdodlar bilan faxrlanish, xalq mentalitetiga mos ravishda shakllanishga ulkan hissa qo`shadi.</p>
+<p>Xalq pedagogikasida xalqning milliy – tarixiy turmush va tafakkur tarzi, xalq an’analari va urf – odatlariga sodiqlik hissini tarbiyalash g‘oyalari ilgari surilgan.</p>
+<p>Hamma zamonlarda ham inson, uning ma’naviy-axloqiy kamoloti, bosh masala bo`lib kelgan.</p>
+<p>Insonda ana shunday jihatlarni rivojlantirishda quyidagi milliy aqidalar muhim ahamiyat kasb etadi.</p>
+<blockquote>O`zaro hamjamiyat va jamoa bo`lib yashash hamda mehnat qilish<br>Kattalarga hurmat kichiklarga shafqat, el-yurtga muhabbat<br>Ota-onani qadrlash, farzandlik burchini to`la ado etish<br>Oilaga va farzandlarga g‘amxo`rlik qilish<br>Millat ayirmaslik<br>Boshqalar qayg‘usiga sherik bo`lish<br>Xasharchilik an’analarini tiklash va yordam berish<br>Vatanga muhabbat tuyg‘usini yanada rivojlantirish<br>Ota-bobolarimizga xos mehnatsevarlik odobiga sodiq qolish<br>Islom diniga e’tiqod tuyg‘ularini tarbiyalash<br>Milliy madaniyatni tobora rivojlantira borish<br>Bilim olishga ahamiyat berish<br>Ustoz-ziyolilarga, ma’rifatparvar kishilarga hurmat-ehtiromda bo`lish<br>Milliy odob-axloq me’yorlariga to`la rioya qilish</blockquote>
+<p>Ko`rsatilgan shu ma’naviy-axloqiy aqidalarga amal qilish hamda o`tmishdagi olimu fuzalolaru shoirlarning benazir merosi qanchadan-qancha avlodlarning ma’naviy ruhiy ongini va turmush tarzini shakllantirgan va u hamon o`z ta’sir kuchiga ega ekanini yodda tutgan holda amalga tadbiq etish zarur. Bu tarbiyada natijaga erishishning muhim shartlaridan biridir.</p>
+<p>O`zbek Xalq pedagogikasi xalqni maqsadli yo`nalishga yoppasiga safarbar qilishda milliy qadriyatlarga tayangan holda, talaba yoshlar qalbiga kirib boradi, ularni ijtimoiy ongini o`stirishda etakchi o`rin tutadi.</p>
+<p>Komil inson tushunchasi, insonning dunyoqarashi, jumladan diniy e’tiqodi, ruhiyati va xulq-atvor normalari, qolaversa, axloq-odobi bilan bevosita aloqadordir.</p>
+<p>Barkamol insonlar xalq taqdiri va farovonligi, Vatan taqdiri va uning ravnaqini o`ylaydilar. Bunday insonlar mutelikda qaramlikda yashashni istamaydilar. Barkamol inson o`zida insoniylik fazilatlarini mujassam etgan, odob-axloq me’yorlariga amal qiluvchi, o`z shaxsiy fikriga, g‘oyasiga, mukammal bilimga ega bo`lgan jihatlarni qamrab olgan bo`lishi kerak.</p>
+<p>Ana shunday maqsadli, e’tiqodli insonlarga jamiyat ishonadi, tayanadi, ular hamma vaqt xalq, millat iftixori bo`ladi</p>
+<p>Keksa avlod, ota-ona o`z farzandlarini uzoq zamonlar mobaynida to`plangan va takror-takror sinovdan o`tgan ajoyib insoniy fazilat qoidalari hamda uni amalga oshirish metod va vositalarini yaratganlar va shu asosda zamona yoshlarini o`sha ijtimoiy hayot talablariga muvofiq kishilar qilib tarbiyalab kelganlar.</p>
+<p>Xalq ijodi materiallarining ko`rsatilishicha, bolalarda insoniy his-tuyg‘ularni tarbiyalashning mazmuni kishilarga mehr-muhabbat qo`yish, izzat-hurmat bilan muomala qilish, insoniy huquqlarni himoya qilish, qadrlash, kishilar oldidagi o`z burchini anglash, odamlarga nisbatan samimiy, halol va rostgo`y bo`lish kabi dastlabki elementar odob va axloq qoidalarini o`z ichiga oladi.</p>
+<p>O`zbek xalq pedagogikasi yoshlarda yuqoridagi kabi ma’naviy fazilatlarni tarkib toptirmoq uchun, birinchi navbatda bolalarni o`ziga yaqin kishilarga ota-ona, aka-uka va oiladagi kattalarga bo`lgan tabiiy muhabbat tuyg‘ularini tarbiyalab voyaga etkazish zarurligiga amal qilingani ko`rinadi.</p>
+<p>O`zbek xalq og‘zaki ijodida insoniylikni tarbiyalash yuzasidan qo`llaniladigan rag‘batlantirish va qoralash bir necha formada ko`zga tashlanadi. Ko`pchilik ertak va dostonlarda rag‘batlantirish metodi: 1) ma’qullash va maqtash, 2) alqash, 3) mukofotlash shakllarida, jazolash metodi esa: 1) qarg‘ash, 2) jismoniy jazo berish shakllarida uchraydi.</p>
+<p>Rag‘batlantirish metodi axloqiy tarbiya yuzasidan eng ko`p qo`llaniladigan metodlardan biri, xalq og‘zaki ijodida u turli shaklda ishlatiladi. Ularni shartli ravishda quyidagi guruhga ajratgan holda talqin qilish mumkin.</p>
+<p>Ma’qullash va maqtash. Xalq og‘zaki ijodiyoti asarlarida bolalarni insoniylik yuzasidan amalga oshirgan ibratli ishlarini kattalar tomonidan ma’qullash, taqdirlash, rahmat aytish va maqtov bilan bir o`rinda tasvirlanadi. Masalan: «Erali va SHerali» dostonida, erali bilan SHeralini insoniylik yuzasidan el-yurt, oshna-og‘ayni o`rtasidagi munosabatlari usta Odilni juda quvontiradi, ularning fe’l-atvoriga qoyil bo`ladi.</p>
+<p>Usta Odil ikkalasining yuziga qarab: «Barakalla aka-ukalikda o`zgalar sizlardan ta’lim olishlari kerak. Ta’lim bergan ustozingga ming rahmat, ustozdan ibrat olgan aqllaringga rahmat, ikkinchi padaringga rahmat!» deydi.</p>
+<p>«Suxrob va Mo‘zrob» ertagida tasvirlanishicha, Suxrob bilan Mo‘zrob ikkisi katta bir mamlakat xalqiga taxlika solib turgan devlarni o`ldiradi. Shunda saroyga yig‘ilgan kishilar Suxrob va Mo‘zrobning baxodirlarcha qilgan xizmatlariga ofarinlar aytib qoyil qolishibdi.</p>
+<p>Yuqorida keltirilgan asarda bolalar o`zlarining odobi, insonpavarliklari bilan ota-ona, ustoz ham xalq ommasining olqishlariga sazovor bo`ladilar. Ba’zan ertak va dostonlarda bolalarning taqdirlanish sabablari ko`rsatiladi, ularning kelajakda ham shunday bo`lishiga da’vat etiladi. Masalan: «Chambil mudofaasi» dostonida shunday voqeani ko`ramiz: Go`ro`g‘libekning o`g‘li Avaz Holdornikiga to`yga boradi. To`y davomida Holdorxonning dushmanligini sezib keladi va bo`lgan voqeani otasiga aytib beradi. Shunda Go`ro`g‘libek: Avazning bu so`zlarini eshitib, sherday hayqirib, yo`lbarsday cherpinib, qoplonday chopinib, ko`zlari o`tday yonib «Barakalla, o`g‘lim, yaxshi ish qilibsan! Indamay kela berganingda mening o`g‘lim bo`lmas eding, men sendan xush vaqt bo`lmas edim». «O`g‘lim, barakalla, har ish vaqti – soati bilan bo`ladi, dedi».</p>
+<p>Ko`rinib turibdiki, Go`ro`g‘libekning o`z farzandi Avazning faoliyatidan minnatdor bo`lib uni rag‘batlantirdi.</p>
+<p>Olqish. Olqish xalqimiz o`rtasida qadim zamonlardan beri davom etib kelayotgan rag‘batlantirish shakllaridan biridir. Olqish xalq og‘zaki ijodida rag‘batlantirishning boshqa shakllariga qaraganda ko`proq uchraydi.</p>
+<p>Odatda olqish va qarg‘ish ma’lum sotsial guruh va alohida shaxslarning o`zaro munosabatlarida, bir-birlarining ijobiy yoki salbiy hatti-harakatlariga nisbatan minnatdorchilik yoki g‘araz, norozichiliklarini izhor qilishlarida qo`llangan.</p>
+<p>Asosan ota-ona, keksalar va umuman ayrim shaxslar o`zgalarning ijobiy harakatlariga minnatdorchilik izhor qilishga qodir bo`la olmasalar taqdirlash, mukofotlash, armug‘on in’om o`rnida o`zlarining chuqur ichki istak va armonlarini izhor qilganlar. Keyinchalik o`zgalar uchun bag‘ishlanadigan istak va orzular o`ziga nisbatan qudratli va qodir bo`lgan tashqi kuch – Ollohdan so`raydigan bo`lganlar.</p>
+<p>O`z navbatida olqish duo ham bir necha yo`nalishda ko`rinadi.</p>
+<p>Birinchidan – o`z fe’l-atvori va hatti-harakati bilan kattalarni manzur qilgan bolalarning sog‘-salomat bo`lishlariga ishlatiladigan olqish: umringdan baraka top, dard ko`rma, tani-joning sog‘ bo`lsin ilohim va hokazolar.</p>
+<p>Ikkinchidan – bolalarning kelajagi haqida: baxtiyor bo`l, niyatingga et, tuproq olsang oltin bo`lsin, ilohim.</p>
+<p>Uchinchidan – tashqi ta’siriga nisbatan: do`stga zor, dushmanga xor bo`lma, qasd qilganlar past bo`lsin, ilohim va hokazolar.</p>
+<p>Mukofot. Xalq ijodida rag‘batlantirishning mukofot shakli ham uchraydi. Lekin, xalq og‘zaki adabiyoti namunalarida ba’zi obrazlar – xalq orzu qilgan – adolatli va xalq sevar podsholar, qurbi etgan keksalar, o`z fe’l-atvori va hatti-harakati, donishmandligi bilan ko`pchilikka manzur bo`lgan, keksalarni shuningdek, el-yurt va hukmdorlarni ma’lum bir topshiriq va niyatlarini mardlik va matonat bilan ado etgan yoshlarni mukofotlaganliklari, ularning mehnatini qadrlaganliklari ifodalanadi.</p>
+<p>Qoralash metodi. Xalqimiz o`rtasida bolalarning axloqiy tarbiyasi yuzasidan qo`llaniladigan qoralash metodi turli shaklda – uyaltirish, koyish, urishish, so`kish, qarg‘ash, oq qilish va jismoniy jazo berish shakllarida qo`llanilishi ma’lum. Biroq xalq og‘zaki ijodida asosan qoralashning qarg‘ish va jismoniy jazo berish kabi ayrim shakllarigina uchraydi.</p>
+<p>Qarg‘ish ham ma’lum sotsial guruh yoki ayrim kishilar o`zaro shaxsiy adovatda bo`lganlarida, raqibi qarshisida o`zi kuchsiz ekanligini anglab, o`ziga nisbatan qudratli bo`lgan ikkinchi bir kuchning ko`magidan madad tilab murojaat qilish, ya’ni o`sha kuch orqali o`z raqibiga ko`ngilsizlik, baxtsizlik, qayg‘uli hollar, hatto o`lim tilaganlar.</p>
+<p>Qarg‘ish ota-ona va umuman kattalarning o`z bolalari yoki begona bolalarga nisbatan qo`llanilib, u ham o`z navbati bilan shaxsi – jismoniy va fe’l-atvoridagi xususiyatlarga ko`ra turlicha ishlatiladi.</p>
+<p>Odatda qarg‘ish bola tarbiyasida eng ko`p qo`llaniladigan shu bilan birga eng zararli jazo shakllaridandir. Bunday jazo orqali bolalarda ruhiy azob, tushkunlik va alam ortadi. Ota-ona va kattalarning tarbiyasi sifatidagi ta’siri yo`qoladi, kattalar bilan bolalar o`rtasidagi mehribonlikka putur etadi, ahillik va obro` yo`qoladi. SHuning uchun ham xalqimiz:</p>
+<p>Ura bersang, eti qotar,</p>
+<p>qarg‘ay bersang, beti qotar deydi.</p>
+<p>Jismoniy jazo – o`zbek xalq pedagogikasi tarixida bolalarga jismoniy jazo berish, juda uzoq zamonlardan beri davom etib kelayotgan shakllaridan biridir.</p>
+<p>Tarixda bolalarga nisbatan qo`llaniladigan juda og‘ir jismoniy jazo shakllari bo`lgan. SHuningdek, oilada ota-ona va umuman kattalar tomonidan, tarbiya nuqtai nazaridan qo`llaniladigan jismoniy jazo – tarsaki, quloq cho`zish, xivchin yoki qamchi bilan urish, mushtlash, tepish kabilar bo`lganligi ma’lum. Biroq, xalq og‘zaki ijodida tarbiya yuzasidan faqat shapaloq (tarsaki) urish shakligina uchraydi.</p>
+<p>Umuman xalq og‘zaki ijodida jismoniy jazo tarbiyaviy ta’sir ko`rsatuvchi vosita sifatida aslo uchramaydi.</p>
+<p>Tarbiya vositalari. Xalq ijodi materiallarida bolalarning odob-axloqiy tarbiyasi yuzasidan qo`llaniladigan metodlar bilan birga xilma-xil tarbiya vositalaridan ham foydalanilgani ko`rsatiladi. Bo‘lar asosan quyidagilardan iborat bolalar o`yinlari, choyxo`rlik, gap eyish, kattalar bilan birgalikda to`y-marosimlarida ishtiroki, sayillar, safar sayohatlarga borish va hokazolar.</p>
+<p>Xalq pedagogikasini chuqur o`rganar ekanmiz, o`zbek xalqi bolalarini tarbiyalashda tarbiyaviy ishning eng ta’sirchan usuli – o`yin shaklidan oqilona foydalanganliklarini ko`ramiz.</p>
+<p>O`g‘il bolalarni uddaburon, chaqqon, topqir qilib, qizlarni mehr-shafqatli, uy ishlariga kirishimli qilib tarbiyalaydigan shunday o`yin shakllari bo`lganki, ularni bugungi kunda qayta tiklash va tarbiya jarayoniga qo`llash lozim.</p>
+<p>Xalq pedagogikasida farzandni jismonan baquvvat, aqlan barkamol qilib tarbiyalash bilan birga ularni hayotga, turmushning og‘ir-engil sinovlariga tayyorlab borishga ham qattiq e’tibor berilgan.</p>
+<p>Ota-onalar farzand fidoiylaridir. Bu sharq xalqlariga xususan o`zbek millatiga xos fazilat. SHunday ekan farzandlarning ota-onalari oldidagi burchlari beqiyosdir.</p>
+<blockquote>Fikrlarimizni Navoiyning quyidagi misralari bilan yakunlasak maqsadga muvofiq bo`ladi:<br>Boshni fido qilg‘il ota boshiga,<br>Jismni qil sadaqa ano qoshig‘a.<br>Tun-kuningga aylagil nurposh,<br>Birisin oy ayla, birisin quyosh.<br>Farzand tarbiyasining ijtimoiy ahamiyati haqidagi etnopedagogika fikrlari</blockquote>
+<p>Farzand inson hayotining davomchisi, orzu-umidlarining ro‘yobga chiqaruvchisidir. U faqat oila uchun emas, balki millat, elat, xalq, jamiyat uchun ham qadrlidir. SHuning uchun etnopedagogikada bola tarbiyasi faqat oilaningemas, balki jamiyatning ham vazifasi sifatidatalqin etiladi. SHuning uchun “Bir bolaga etti maxalla ota-ona” ekanligi talqin etiladi.ayni paytda bola tarbiyasida jamiyatdagi muhitning ahamiyati aks etishi ota-onaning, qo‘shnilarning qarindosh-urug‘larning axloqiy sifatlariga bog‘lab tushuntiriladi. Jumladan, “Onasini ko‘rib, qizini ol”, “Odobli bola elga manzur”, “YOshdan xato, kattadan o‘zr”, “Kattaga hurmatda bo‘l, kichikka izzatda bo‘l!”singari maqollar shunday sifatga ega.</p>
+<p>Yomon axloqiy sifatlar bola tarbiyasining oilada noto‘g‘ri yo‘lga qo‘yilishi tufayli yuzaga kelishi “Erkalatsa onasi, taltayadi bolasi”, “Qush uyasida ko‘rganini qiladi” singari maqollarda ifodalangan. Odamlarga, ota-onaga qarata: “Bolani yoshdan o‘rgat, xotinni boshdan o‘rgat!”,-deb maslahat beriladi. Aks holda: “Buyursa-bola, Buyurmasa-balo” bo‘lishi mumkinligi alohida ta’kidlanadi. Agar bola yaxshi inson bo‘lib tarkib topsa, u xalq uchun, mamlakat uchun foydali inson bo‘lishi mumkinligi ta’kidlanadi:</p>
+<blockquote>“Bir kishi ariq qaziydi, ming kishi suv ichadi”<br>Do‘st tanlashda adashmaslik uqtiriladi:<br>“Ishonmagin”do‘sting”ga<br>Somon tiqar po‘stinga!”<br>“Ota dushmani do‘st bo‘lmas!”<br>“Yo‘ling bilib yo‘ldosh qil<br>Tiling bilib tengdosh qil” va b..</blockquote>
+<p>“Alpomish” dostonida Hakimbek, “Tumaris”, “Shiroq”rivoyatlarida To’maris, Shiroq singari el-yurt uchun o‘z hayotini qurbon qilishgacha borib etgan Jaloliddin manguberdi, Temur Malik, Sohibqiron Amir Temur singari vatanparvar, xalqparvar tarixiy shaxslar etishib chiqdi. Ularning jasoratli hayot yo‘lini o‘rganish hozirgi paytda yoshlar tarbiyasida muhim ahamiyatga egadir. Hozir maxhalla, hashar, to‘y, sayil va boshqalar ijtimoiy tarbiya manbaidir. Ijobiy axloqiy sifatlarga erishish va salbiy axloqiy sifatlarni bartaraf etish usullari haqida</p>
+<p>Xalq pedagogikasida shaxsning ijobiy va salbiy axloqiy sifatlarining shakllanishi sabablari ob’ektiv ravishda ko‘rsatib berilgan. Xalq bola tarbiyasining murakkab va sharafli ish ekanligi to‘g‘ri anglaydi. Shuning uchun xalqda “Bola-aziz, bola tarbiyasi undan ham aziz” deyiladi. Bu fikr g‘oyatda to‘g‘ri. Chunki gap kelajak avlod tarbiyasi haqida borayotir. Xalq tarbiyani umr bo‘yi davom etuvchi jarayon deb hisoblab, bola tarbiyasini bir lahza ham e’tiborsiz qoldirmaslikka chakiradi. Aks holda bolani qayta tarbiyalash zarur bo‘ladi. Ammo, qayta tarbiyalash jarayoni ancha murakkab ish ekanligi ta’kidlanadi: “O‘ttiz yil egri o‘sgan daraxni bir yilda to‘g‘rilab bo‘lmaydi”.</p>
+<p>Etnopedagogikada ko‘rsatilishiga, barcha ijobiy sifatlar bolaga yoshligida singdirilishi lozim. Bunda oilaning ahamiyatga g‘oyat katta. Ayniqsa, otaning yumshoq ko‘ngilli, onaning erkalatishlari bola tarbiyasiga salbiy ta’sir etishi alohida ta’kidlanadi:</p>
+<blockquote>“Erkalatsa, onasi, taltayadi bolasi”<br>yoki:<br>“Egri mo‘ridan tutun egri chiqadi”.</blockquote>
+<p>Tarbiya jarayonida ijobiy axloqiy sifatlarni shakllantirishda hamkorlik pedagogikasidan foydalanish, bola shaxsini hurmat qilishi zarurligi ta’kidlanadi. Xalq ham hamisha: “Bolani kim erkalatsa, u o‘shanga yaqin keladi,-” deydi.</p>
+<p>Xalq pedagogikasida ijobiy axloqiy sifatlarni shakllantirishda katta yoshli bolalardan foydalanish taklif etiladi. Amaliy hayotda ham oiladagi kichik yoshli bolalar katta yoshli akasi yoki opalaridan ko‘proq tarbiya oladilar. Katta bolalar o‘z ukalariga g‘amxo‘r bo‘ladilar. Ular ukalariga tarbiya bera turib, o‘zlarini kattalardek his qiladilar. Ularga mehnat qilish, axloqiy madaniyat ko‘nikmalarini singdiradilar. Shuning uchun bosh farzand tarbiyasiga ko‘proq, e’tibor berilsa, kichiklarini tarbiyalash oson kechishi ta’kidlanadi: “Kattasini tarbiya qil, kichigining o‘zi o‘rganadi” deyiladi.</p>
+<p>Bolani yutuqlari uchun ortiqcha maqtash uni o‘zbilarmonlikka olib kelishi ta’kidlanadi: “O‘zini maqtagan axmoq, bolasini maqtagan undan ham axmoq”.</p>
+<p>Bolalikda paydo bo‘lgan salbiy axloqiy sifatlarni tuzatish mumkinligi va bu uncha qiyin kechmasligi ta’kidlanadi. SHuningdek, yomon hislatlar tug‘ma emas, balki o‘zlashtirilgan sifatlar, noto‘g‘ri tarbiya oqibati ekanligi ta’kidlanadi.</p>
+<p>Boladagi salbiy sifatlar oiladagi yoki atrof-muhitdagi salbiy omillar tufayli paydo bo‘lgan bo‘lsa, yomon odatni vujudga keltirgan manbalardan bolani uzoqlashtirish, manbani bartaraf etish taklif etiladi. Oilada osoyishta muhit yaratish, yaxshi do‘stlar topishga ko‘maklashish tavsiya etiladi: “Do‘stingning kimligini ayt, sening kimligingni aytaman”, “Yaxshi bilan yursang yetarsan murodga, Emon bilan yursang qolarsan uyatga” maqollari fikrimizning dalilidir.</p>
+<p>O‘z-o‘zini tarbiyalash inson shaxsining shakllanishida katta ahamiyatga ega.Xalq bu borada tarbiyalashning o‘ziga xos dasturini taklif etib: “Yaxshilarga yondosh, yomonlardan uzoqlash”-deb ta’kidlaydi. “Etti o‘lchab bir kes”, “Avval o‘yla, keyin so‘zla”, “YAxshilikni yomondan o‘rgan” kabi maqollarda mustaqil hayotda odamlar yordamida yaxshi sifatlarni egallash, yomon sifatlarni tuzatish mumkinligi ta’kidlanadi.</p>
+<p>Etnopedagogika manbalarida yoshlar o‘z-o‘zini tarbiyalash va qayta tarbiyalash vositasida eng oliy insoniy sifatlar - izzat-hurmat, kamtarlik, odillik, halollik, mehnatsevarlik, to‘g‘riso‘zlik singari odatlarini egallashi mumkinligi ta’kidlanadi.</p>
+<p>Bolalarda aqliy va ijobiy axloqiy sifatlarning shakllanishida o‘yinlarning ahamiyati ham katta. O‘yin jarayonida bolaning bunday sifatlari rivojlanadi. Bola 3-5 yoshda predmetlar bilan, 5-7 yoshda esa bolalar va kattalar bilan o‘ynashga, rollarni bajarishga intiladi. O‘yin jarayonida u ota, ona rolini bajarishi, qo‘g‘irchoqni kiyintirish, yuvintirish, uxlatishni o‘rganadi, hayvonlar va qushlarga taqlid qilib ovoz chiqaradi, Vrach, o‘qituvchi, shofyor, sotuvchi obrazlariga kiradi. SHuning uchun o‘yin ham etnopedagogika manbasi sifatida katta tarbiyaviy kuchga ega.</p>
+<p>Ertaklarni obrazli qilib so‘zlab berish vositasida yaxshi axloqiy sifatlarga havas, yomonlariga nisbatan esa nafrat uyg‘otiladi.</p>
+<p>Xalq pedagogikasida jismoniy va mehnat tarbiyasi</p>
+<p>O‘tmishda insonning tabiat stixiyalariga qarshi kurashdagi ojizligi noma’lum tuyulgan hodisalarga javob topishga undagan. Bo‘ron, sel, toshqin, zilzila kabi g‘ayri tabiiy ko‘ringan kuchlarga qarshi kurasha oluvchi qahramonlar yaratishga olib kelgan. Shuning uchun “Avesto” da Anaxita xushqomat, zabardast, kamtarin, to‘g‘riso‘z go‘zal qiz sifatida namoyon bo‘ladi. U kishilarga kuch-qudrat baxsh etuvchi, suvning mo‘l bo‘lishini ta’minlovchi ma’buda. “Avesto” yovo‘zlikka qarshi kurashuvchi pahlavonlar g‘olib bo‘lishida Allohdan madad so‘raydi.</p>
+<p>“Odami Od” hikoyasida Odami Od obrazi ham jismoniy barkamollikda tengsiz qahramon sifatida tasvirlanadi. Uning bo‘yi bo‘lutga etadi, kuchli, dengizda baliqni qo‘li bilan tutib, quyosh taftida pishirib eydi. U Nuh payg‘ambarni elkasiga mindirib, toqqa olib chiqibdi. Tog‘da to‘rtta bahaybat chinorni tomiri bilan sug‘urib, ustiga Nuh payg‘ambarni o‘tirg‘izib, dengiz bo‘ylab ravona bo‘libdi. Nonushtaga bir hovo‘z suvga non to‘g‘rab er ekan, chinordan kema yasab, hamma odamlarni kemaga solib, dengizga tushib, o‘zi kemani tortib ketibdi.</p>
+<p>“Avesto” dagi adolatli shoh Jamshid ham shunday qudratli qahramon sifatida tasvirlangan. Etti yuz yil Amudaryoda hukmronlik qilgan er Xubbi, qahramonlik rivoyatlaridagi To‘maris, Shiroq, Zarina, Rustam, Siyovush, Alpomish singari qahramonlar ham o‘z jismoniy barkamolligi tufayli yovo‘zlikka qarshi kurashganlar.</p>
+<p>Hozirgi paytda unumdor erlar, tabiiy boyliklar, suv resurslarining kamayishi, alkogolizm, narkomaniyaning kuchayishi singari salbiy omillar insonning jismoniy barkamolligi, sog‘lig‘i, yoshlar salomatligini asrashni taqoza etmoqda. Komil shaxs tarbiyasida jismoniy tarbiya muhim yo‘nalishga aylandi. Xalq hamisha jismoniy tarbiya – salomatlik garovi ekanligini tushungan. Shuning uchun yoshlarga o‘yinlar, milliy kurash turlari, sport musobaqalariga, toza havodan foydalanishga alohida e’tibor bergan. Quyosh nuri va suvdan foydalanib, sog‘liqni saqlash mumkinligini qadimdayoq tushunib etgan. Ba’zan o‘z sog‘lig‘iga e’tiborsiz qaragan yoshlarga qarata aytiluvchi o‘gitlar shular jumlasidandir:</p>
+<p>“Ikki narsa yo‘qotilganidan so‘ng qadrlanadi – sog‘liq va yoshlik”, “Tan sihatlik – tuman boylik”, qozoqlar: “Kambag‘alning boyligi - sog‘lig‘i”, - desa, turkmanlar: “Sog‘liq bo‘lsa, erkinlik bo‘ladi” deyishadi. Shuningdek, xalq sog‘liqni saqolash uchun “Boshingni salqin, oyog‘ingni issiq tut” deb pand beradi. Sog‘liqni saqlashda ovqatlanish madaniyatiga amal qilishga chaqiradi: “Qorning og‘risa – og‘zingni, ko‘zing og‘risa – qo‘lingni tiy” va b.</p>
+<p>Zararli odatlar oqibati achchiq ekanligi ta’kidlanadi: “Chekuvchining ichi ham, puli ham kuyadi”.</p>
+<p>O‘z avlodlarini sog‘lom, baquvvat, botir bo‘lishini orzu qilgan xalq farzandlariga Quvvat, Polvon, Arslon, Botir, Qahramon, Bahodir, Murod, Komil singari ismlar qo‘yishni taomilga kiritgan. Dostonlar va ertaklar qahramonlari qahramonlar darajasida tasvirlangan. Ular vositasida yoshlar jasoratiga, mardlik va insonparvarlikka undalgan.</p>
+<p>Jismoniy tarbiyada “Ko‘pkari”, “Qiz quvdi”, “Olomon poyga”, “Uloq tortish”, “Kurash” singari milliy o‘yinlarning ahamiyati katta bo‘lgan. Ular hozir ham muhim ahamiyatga ega.</p>
+<p>Mehnat tarbiyasi ham jismoniy barkamol qiluvchi, ham moddiy to‘kin – sochinlikni ta’minlovchi vosita sifatida talqin etilgan. Mehnatsevar yoshlarni tarbiyalash xalqning bosh maqsadi sifatida qo‘yilgan: “Mehnat – mehnatning tagi rohat”, “Mehnatdan kelsa boylik, turmush bo‘lar chiroylik”.</p>
+<p>Mehnatning ijtimoiy ahamiyati va mehnatsevarlikning ulug‘lanishi haqida.</p>
+<p>O‘rta Osiyo va Qozog‘iston sharoitida mehnat tarbiyasi yoshlar tarbiyasining ajralmas qismi sifatida qaralgan. Uni amalga oshirishda avvalo oila, so‘ngra jamoatchilik mas’ul hisoblangan. Mehnat vositasida madaniyat, san’at, axloqiy sifatlar, ona Erga muhabbat hissi tarbiyalangan. Chorvachilik, dehqonchilik, bog‘dorchilik, pillachilik turkigo‘y xalqlarda qadimdan asosiy mehnat turi hisoblanib, bolalar ularni amaliy hayot jarayonida o‘rganganlar.</p>
+<p>Xalq pedagogikasi shuni ta’kidlaydiki, inson faqat mehnati bilan aziz. SHuning uchun “Ko‘mirchi yuzi qora bo‘lsa ham uyalmaydi”, yoki: “Gap bilguncha, ish bil!”, “Bugungi ishni ertaga qo‘yma!” deb o‘git beradi xalq. Xalq hamisha yosh avlod mehnatsevar bo‘lishi bilan birga u hunarli ham bo‘lishini, hunarni quruq o‘rganish emas, balki “qo‘li gul usta” bo‘lishni targ‘ib etadi. SHuningdek: “Ortiqcha kasb boshni aylantirmaydi”, yoki: “Bir yigitga qirq hunar oz” deydi xalq. Ayni paytda o‘z ishining ustasi bo‘lish insonga darhol nasib etmasligi eslatiladi. Buning uchun irodali, sabr-toqatli bo‘lishga chaqiriladi. Mehnatni sifatli qilish (ishning o‘zini bilguncha, ko‘zini bilish) kelajakda pan berishning oldini olishi alohida ta’kidlanadi.</p>
+<p>Xalq engil ish ortidan quvuvchilar, ishyoqmaslar ustidan kuladi, yoshlarni ulardan ibrat olmaslikka chaqiradi; ularni “oqbilak”, “tannoz” deb ataydi. “Dangasaning kosasi oqarmas” ligi, “Ishyoqmasga it boqmas” ligini ta’kidlaydi. SHunday qilib, xalq vijdonan, muntazam, aql bilan ijtimoiy foydali mehnat qilish lozim deb hisoblaydi: “Yomg‘ir bilan er ko‘karar, mehnat bilan el ko‘karar”, “Er yuzini er ochar, er yuzini er ochar”, “Obro‘ osmondan tushmas, mehnatdan kelar”, “Tekinning minnati ko‘p, mehnatning ziynati ko‘p” va boshqalar.</p>
+<p>Xalq ertaklarida, afsona va rivoyatlarda, dostonlardagi qahramonlar o‘z mehnatsevarligi, mehnatda toblanganligi, bir necha kasb-hunar sohibi bo‘lganligidan hayot qiyinchiliklarini, og‘ir sinovlarni engib, o‘z maqsadlariga erishadi, keng xalq ommasining baxti, manfaati uchun kurashadilar. Chunonchi, A. Navoiyning “Farhod va Shirin” dostonidagi Farhodning mehnati o‘z ijtimoiy harakteri bilan, xalq ertagi “Zumrad va Qimmat” dagi Zumrad mehnatsevarligi va ijobiy axloqiy sifatlari bilan o‘quvchini o‘ziga tortadi.</p>
+<p>Markaziy Osiyoda mehnat tarbiyasi berish bilan bolalarni yoshligidan mustaqil hayotga tayyorlashgan. Jumladan, hatto A. Vamberi ham, bizda qiz bolalarga to‘qish, bichish, tikish, sut mahsulotlari tayyorlash, 7-8 yoshdan dehqonchilik, chorvachilik ishlarida qatnashishga o‘rgatilishini ta’kidlagan. Chunki xalq: “Terga botgan rohatga botar”, “Ter to‘ksang, dur terasan”, “Uyqu – g‘adolat, mehnat - rohat”, “Xotin chiroyi erdan, hosil chiroyi erdan”, “Qolgan ishga qor yog‘ar”, “Quldek ishlasang, bekdek yotib eysan”, “Qo‘rada ko‘rsam – qornim to‘q”, “Hunar - birlikda, rizq - tiriklikda”, “Ko‘pning rizqi mo‘l bo‘lur”, “Baraka - ko‘pchilikda”, “Ko‘pdan quyon qochib qutulmas”, “Maslahatsiz bo‘lgan ish, boshga keltirar tashvish” va boshqalar.</p>
+<p>Xayoliy mehnat qurollari va mehnat ahlining e’zozlanishi</p>
+<p>Ma’lumki, ibtidoiy odamlar o‘ziga noma’lum bo‘lib ko‘ringan tabiat kuchlaridan talvasaga tushar ekan, ayni paytda ularni engishga harakat qilgan. Ba’zan buning uddasidan chiqa olmay, g‘ayri tabiiy hodisalarga sig‘ingan, ularni totemistik tasavvurga aylantirgan.</p>
+<p>Jonsiz narsalarga jonli deb qarashdan iborat ibtidoiy qarashlar animizm nomini, g‘ayritabiiy jonzodlar (qirq boshli ilon, ikki boshli odamsifat shoxli hayvon ...) totemizm nomini olgan. Totemizm ibtidoiy jamiyatda paydo bo‘lib, unda odamning hayvon, o‘simlik yoki tabiat hodisalari bilan aloqasi borligiga ishonishga undaladi. “YOriltosh” da tosh yorilib, qizni ofatlardan saqlash uchun o‘z bag‘riga olsa, “Qilich botir” da qahramonning joni qilichida deb uqtiriladi. SHuningdek, o‘tmishda turkiy xalqlar ot, xo‘kiz, ilon, bo‘ri, it kabi hayvonlarga e’tiqod qo‘yganlar, og‘ir kunlarda bo‘ri va otlardan najot kutganlar. O‘zbek xalq dostonlarida G‘irot, Boychibor, Jiyronqush, Majnunko‘k singari otlar obrazlari mavjud. Hatto sohibqiron Amir Temurning “Kuno‘g‘lon” deb atalgan oti ham g‘ayri tabiiy hisoblangan.</p>
+<p>Qadimgi etnopedagogika manbalarida hayvonlarda mavjud bo‘lmagan xususiyatlar haqida ham fikr yuritiladi. Jumladan, otning qulog‘ini burash bilan ko‘kka parvoz qilish, suvda so‘zish, dunyoning narigi chetiga, baland tog‘lar osha “uchar gilam” da borish samolyotlarning kashf etilishiga, suv ostida so‘zuvchi qayiqlar – suv osti kemalarining yaratilishiga, “sehrli etikcha” lar ega mashinalarning yaratilishini orzu qilish tufayli vujudga kelgan. “Sehrli oyna” haqidagi afsona va orzu televizor misolida ro‘yobga chiqqan bo‘lsa, sehrli dastgoh sehrli dasturxon haqidagi orzular ish unumi juda yuqori bo‘lgan dastgohlarning ishlab-chiqarish uskunalarining yaratilishiga olib kelgan. Chunki, har bir yangilik dastlab orzularda, hayol (fantaziya) da tug‘iladi. So‘ngra inson uni amalga oshirishga harakat qiladi. Chunki, ijtimoiy taraqqiyotning ma’lum bosqichida mavjud bo‘lgan ish qurollari, asboblar, mehnat unumini jamiyat talabi darajasida qondirmagach, yangi qurollar haqida o‘ylanadi. Hind badiiy filmi “Ramayana” dagi yoy paykonlarining uchishi, boshqarilishi raketalar haqidagi eng ibtidoiy tasavvurga o‘xshaydi.</p>
+<p>Etnopedagogikada mehnat ahli g‘oyat ulug‘lanadi. Mehnatning tarbiyaviy ahamiyatiga ham yuqori baho beriladi.</p>
+<blockquote>Donoga ish – shonu shuhrat,<br>Nodonga ish – g‘amu kulfat.<br>Hosiling kam bo‘lsa, havodan ko‘rma!<br>Qolgan ishga qor yog‘ar.<br>Qarasang, qand ersan,<br>Qaramasang, pand ersan.<br>Qo‘li qimirlaganning og‘zi qimirlar.<br>CHo‘pchak degan – cho‘p bo‘lar,<br>Teraversang, ko‘p bo‘lar.<br>Ertalabki ish – ko‘ngilni qilar xush.<br>To‘qilsa, manglay tering,<br>Unumli bo‘lar ering<br>va shu kabilar.<br>Mol boqqanning barmog‘idan moy tomar.<br>Molga bersang soz emish, boqar seni yozu qish.<br>Moling zotli bo‘lsa, emishing totli bo‘ladi ...</blockquote>
+<p>Hozirgi zamon pedagogikasida mehnat tarbiyasini tadqiq etgan buyuk pedagoglar tadqiqotlarini o‘rganish shunday xulosaga olib keladiki, ular o‘z pedagogik fikrlarini xalq pedagogikasiga tayanib yaratganlar.</p>
+<p>Hozirgi paytda yoshlarning mehnat tarbiyasini takomillashtira borish xalq xo‘jaligi ehtiyojini qondirishga qaratilgan bo‘lib, ayni paytda bu jarayon komil inson shaxsini shakllantirish vositasi hamdir. Chunki, mehnatning mohiyatini, uning inson hayoti uchun zarur omil ekanligini tushunishgina, mehnatni, mehnat ahlini, moddiy ne’matlarni, tabiatni, madaniy yodgorliklarni asrashga, hurmat qilishga o‘rgatadi. Xalq pedagogikasida ta’kidlangan bu boradagi fikrlar mazkur muammoni hal qilishga yordam beradi:</p>
+<blockquote>Ko‘p yurganga ergashma, ko‘p bilganga ergash!<br>Mullaning qilganini qilma, aytganini qil.<br>Otang ta’zirini emay desang, otang ta’sirini ol!<br>Oldingdan oqqan suvning qadri yo‘q.<br>O‘z qadrini bilmagan, kishi qadrini bilmas.<br>Aytuvchi nodon bo‘lsa, tinglovchi dono kerak.<br>Ustoz otangdan ulug‘. Ish ustasidan qo‘rqar.<br>Asil aynimas, sariyog‘ sasimas.<br>Bir kattaning gapiga kir, bir kichikning ..</blockquote>
+<p>Xalq pedagogikasi bolalarning qo‘llaridan keladigan mehnatda qatnashuvini ularni kompleks tarbiyalashning samarali vositalaridan biri deb hisoblagan. Mehnatning jamoa turlari yosh avlodni tarbiyalashda alohida ahamiyatga ega bo‘lib, o‘zbek xalqida jamoa bo‘lib bajariladigan ishlarning ko‘maklashish, hashar kabi bir kancha shakllari bo‘lgan.</p>
+<p>O‘zbek xalqining mehnat an’analari ichida hashar muxim rol o‘ynaydi.</p>
+<p>U xalqimizning avloddan-avlodga o‘tib kelayotgan ajoyib an’analaridan biridir. Hashar yaqin kishilarining, tanish-bilish, oshna-og‘ayni, qadindosh-urug‘, hamkasblarning imorat qurish, to‘y va ma’rakalar uyushtirish, qishloq xo‘jalik ekinlarini tez yig‘ib olishda o‘zaro bir-birlariga yordam berishidir.</p>
+<p>Bunday ishlar jarayonida yoshlar mehnat qilishgagina o‘rganib qolmay, balki jamoaga uyushish, umumiy ishdan manfaatdorlik, o‘zaro yordam zaruratini anglash kabi yuksak axloqiy sifatlarni egallaydilar.</p>
+<p>Shuni ta’kidlash kerakki, qadim zamonlardan buyon zarur, mas’uliyatli hamda ko‘p kuch va mablag‘ sarflab bajariladigan ishlarda qo‘llanadigan xolisona jamoaviy o‘zaro yordamning umuman e’tirof etilgan va ishonchli shakllari bo‘lib, xalqning hayotida juda muhim rol o‘ynagan. Ular mehnatkashlar hamkorligining yorqin ko‘rinishini, xalqning jamoachilik, do‘stlik, o‘rtoklik, bir-biriga tayanish va o‘zaro hamjihatlik haqidagi g‘oyalarini ifodalagan va shunga ko‘ra katta tarbiyaviy ahamiyat kasb etgan.<sup class="izoh-ref"><a href="#izoh-4" id="ref-4" aria-label="4-izoh">4</a></sup></p>
+<p>Qadimda donishmand xalqimiz aqliy va mehnat tarbiyasida chorvachilik, bog‘bonchilik, suvchilik sirlari haqida bolalarda tasavvur hosil qilish va ma’lum bilimga ega bo‘lishlari umuman, inson qo‘li va aqli yaratuvchilik qudratiga egaligini bilishga qiziqish tuyg‘usini o‘stirish maqsadida, o‘zlari yaratgan maqollardan mohirona foydalanganliklarini ko‘ramiz:</p>
+<blockquote>Bog‘bon bo‘lsang, sahar qil,<br>Dehqon bo‘lsang, shudgor qil.<br>Dehqon – er sultoni,<br>Cho‘pon – yaylov sultoni.<br>Chorva to‘q – tashvish yo‘q.<br>Molli uy – moyli uy.<br>Qo‘yni boqsang, qo‘zilar,<br>Molni boqsang, buzoqlar.<br>Suv qatrasi – dur qatrosi.<br>Qor – erning ko‘rpasi.<br>YOmg‘ir-erning sho‘rvasi.<br>Barvaqt qilingan harakat,<br>Hosilga berar barakat.<br>Vaqt ketdi – baxt ketdi,<br>Vaqt g‘animat, o‘tsa – nadomat.</blockquote>
+<p>Xalq pedagogikasida yigit-qizlarni yoshligidan mehnatsevarlik va kasb-hunarga havas hissini tarbiyalashga alohida e’tibor berildi. Turli kasb egasi bo‘lgan ota-onalari, buva va buvilari bilim va tajribalarini bolalariga qunt bilan o‘rgatdilar, ularni ustoz-shogird sifatida dehqonchilik, chorvachilik, bog‘dor-chilik, ovchilik, temirchilik, misgarlik, durodgorlik, o‘ymakorlik, zargarlik, to‘qimachilik, tikuvchilik, tabiblik va boshqa sohada kasbkor bo‘lib etishishiga ko‘maklashdilar. Bunda “Mehnatingni halol qilsang, ho‘zurini ko‘rasan”, “Mushkulliklardan hayot emas, faqat tadbir va mehnat qutqazadi”, “Baxtli bo‘lish-mehnatni sevish va rohatni mehnatda ko‘rishdir”, “Mehnating - ziynating”, “Ota kasbi – davlat kasbi”, “Ustoz ko‘rmagan shogird, har maqomga yo‘rg‘alar”, “Avval o‘rgan, keyin o‘rgat”, “Aql qo‘lga etka-zar, hunar-ko‘kka”, “Ustozsiz shogird-jonsiz kesak” kabi xalq maqollari yoshlar uchun asosiy tarbiya vositasi bo‘lib xizmat qildi.</p>
+<p>“Vafodorlik” ertagida shunday deyiladi: “CHol asta-sekin Gulshodni tabiblikka o‘rgatibdi, giyohlardan har xil dorilar tayyorlashni va bemorlarning kasalini aniqlash yo‘llarini o‘rgatibdi. Bir yildan so‘ng, Gulshod choldan ko‘p narsani o‘rganib olibdi...</p>
+<p>Asta-sekin butun yurtga Gulshodning tabiblik hunari ma’lum bo‘libdi, har tomondan uning oldiga bemorlar kelibdi...” <sup class="izoh-ref"><a href="#izoh-5" id="ref-5" aria-label="5-izoh">5</a></sup></p>
+<p>“Oygul bilan Baxtiyor” ertagida: “Qadim zamonda bir podshoh bo‘lgan ekan, uning bir qizi bor ekan. U qiz juda aqlli, dono ekan. Soz chertar ekan, qo‘shiq aytar ekan, gilam to‘qir ekan, surat solar ekan. Qisqasi, qirq hunari bor ekan...”,<sup class="izoh-ref"><a href="#izoh-6" id="ref-6" aria-label="6-izoh">6</a></sup> - deyilgan.</p>
+<p>“Makkar usta bilan ayyor kal” ertagida keltirilishicha, charx yigirib kun ko‘ruvchi qashshoq kampirning o‘g‘li onasini qo‘yarda-qo‘ymay podshohning qiziga sovchi qilib yuboribdi. Podshoh yigitning onasiga: “Bolangga ayt, qiriq turli hunar o‘rgansin, o‘rgangan hunarining hammasi boshqa-boshqa bo‘lsin, bir-biriga o‘xshamasin debdi”.<sup class="izoh-ref"><a href="#izoh-7" id="ref-7" aria-label="7-izoh">7</a></sup> Yigit qirqta hunarni qunt bilan o‘rganib, podshohning qiziga uylanibdi.</p>
+<p>SHorasul Zunnunning mashhur “Oz-oz o‘rganib dono bo‘lur” kitobida kasb-hunarning sharofati xususida shunday hikoya (hikoyat) keltiriladi. “Qadimgi arab hukmdorlaridan xalifa Xorun ar-Rashidga tobe bir shahar boshlig‘i shunday hikoya qiladi:</p>
+<p>- Otam har vaqt meni hunar o‘rgatishga da’vat qilib: “o‘g‘lim yoshligingni g‘animat bilib, hunar o‘rgan, mansab va davlatingga ishonma, bir kun bo‘larning hammasi qo‘ldan ketishi mumkin, ammo hunar doimo sen bilan birga bo‘ladi, seni hech bir muhtojlikka tushirmaydi”, - deb nasihat qilardi.</p>
+<p>Men otamning nasihatini jonu dilim bilan qabo‘l qilib, hunar o‘rganishga bel bog‘ladim. Hunarlar orasida gilam to‘qish hunari menga juda ham ma’qul bo‘lib tushdi. Gilam to‘qiydigan eng mohir ustaga shogird bo‘lib, shu hunarni o‘rganishga g‘ayrat bilan kirishdim. Nihoyat, gilam to‘qishda mohir usta bo‘lib etishdim.</p>
+<p>Xalifa Xorun ar-Rashid otam vafot etgandan keyin uning o‘rniga meni shahar boshlig‘i etib tayin qildi. Oradan bir necha vaqt o‘tgandan keyin xalifa Xorun ar-Rashidni ziyorat qilish maqsadida ikki yo‘ldoshim bilan paytaxt – Bag‘dodga jo‘nadik. Bir necha kun safar ranjini tortib, Bog‘dod shahriga dahil bo‘ldik. Qornimiz och edi. Juda ziynatlangan va ozoda bir oshxonaga kirdik. Oshxona egasi bizni ko‘rgan zamoi darhol yonimizga kelib, hol-ahvol so‘rashib aytdi:</p>
+<p>- Sizlar boshqa shahardan kelgan obro‘li kishilarga o‘xshaysizlar, bozorda ovqatlanish sizlar uchun aybdor. Oshxonaga yaqin bir ozoda joyim bor, o‘sha erda ovqatlaning.</p>
+<p>Biz uning taklifini qabo‘l qildik. U bir xizmatchisiga bizni o‘sha joyga olib borishni buyurdi. Xizmatchi bizni juda bezatilgan bir uyga olib bordi va uyning eshigini ochib:</p>
+<p>- Shu uyda dam olib turing, men hozir borib ovqat keltiraman,-dedi.</p>
+<p>Biz uyga kirgan edik, xizmatchi eshikni berkitib jo‘nab ketdi. Oradan ozgina fursat ham o‘tmagan edi, biz turgan er ikkiga ajralib, hammamiz pastga, bir erto‘ladagi uyga tushib ketdik. YUqoridagi uyning ikkiga ajralgan eri yana avvalgidek bir-biriga jipslashdi. Biz hayron bo‘lib qo‘rqib turgan edik, oshxona egasining bir necha xizmatchilari qo‘llariga pichoq ushlaganlari holda yonimizga keldilar, ularni ko‘rgach, hammamiz jonimizdan umid o‘zdik. Oshxona egasi musofirlarni shunday hiyla bilan o‘ldirib, ularning go‘shtlarini ovqatga solib, pishirib, sotar ekan. SHu topda mening miyamga bir fikr kelib, ularga:</p>
+<p>- Biz yaxshi gilam to‘qishni bilamiz, bizni o‘ldirishdan nima foyda ko‘rasiz? Borib, boshlig‘ingizga ayting, bizga gilam to‘qish uchun kerakli narsalarni yuborsin,tayyor bo‘lgan gilamlarni sotib juda katta foyda ko‘radi, - degan edim, ularga taklifim ma’qul bo‘lib, chiqib ketdilar.</p>
+<p>Taklifim oshxona egasiga ma’qul bo‘libdi. Ertasiga bizni boshlab kelgan xizmatchi gilam to‘qishga kerak bo‘lgan asbob va boshqa narsalarni keltirib berdi. Biz gilam to‘qishga kirishdik. Tayyor bo‘lgan gilamni xizmatchi kelib olib ketardi. Bir necha vaqt shu xilda umr kechirdik. Bir kun juda ham chiryli, guldor gilam to‘qidim, uning bir chetiga otim yozilgan muhrimni bosdim. Oshxona egasini chaqirtirib:</p>
+<p>- Ko‘rdingmi, bu gilam qanday chiroyli to‘qilgan, podshohlarga maxsus bir gilam, buni bozorga sotmasdan, xalifa Xorun ar-Rashidga olib boring, u sizga ko‘p in’om qiladi, -dedim.</p>
+<p>Oshxona egasiga bu so‘zim ma’qul bo‘lib, ertasiga gilamni Xorun ar-Rashidga olib borgan. Xorun gilamning chiroyligiga zavqlanib, uning u yoq bu yog‘ini ko‘rar ekan, ko‘zi gilamning bir chetilgan bosilgan muhrimga tushib qolgan, bundan shubhalanib, oshxona egasidan bu gilamni qaerdan olganini so‘ratgan ekan, u bir savdogardan sotib olganini aytgan. Xorun ar-Rashid muhrimni ko‘rsatib, uni qamoqqa olgan, bir necha vaqt qiynagandan keyin oshxona egasi aybiga iqror bo‘lgan.</p>
+<p>O‘sha kuni Xorun ar-Rashidning yuborgan odamlari kelib bizni ozod etib, xalifaning ho‘zuriga keltirdilar. Oshxona xizmatchilarini qamadilar Xorun ar-Rashid bizga ko‘p iltifotlar qildi. Oshxona egasi va uning xizmatchilarini dorga ostirdi. Xalifa Xorun ar-Rashid yonida bir necha kun turib, keyin o‘z shahrimizga qaytdik. SHunday qilib, hunarimning sharofatidan men ham, ikki yo‘ldoshim ham o‘limdan qutuldik”.<sup class="izoh-ref"><a href="#izoh-8" id="ref-8" aria-label="8-izoh">8</a></sup></p>
+<p>Ushbu hikoyatda har bir inson uchun kasb-hunar o‘rganish zarurligi g‘oyasi va yigit to‘qigan gilamda uning aql-idroki, zakovati, kasbga bo‘lgan muhabbati o‘z ifodasini topgan.</p>
+<p>O‘zbek xalq pedagogikasida bolalarni mehnat tarbiyasida o‘z-o‘ziga xizmat qildirish, ishontirish, qiziqtirish, nasihat qilish, maslahat berish, amalda ko‘rsatish va rag‘batlantirish usullaridan samarali foydalanish yaxshi natija bergan. Bu usullar, namunali ishlar qilgan yigit-qizlarga nisbatan qo‘llangan: “Barakalla”, “Juda soz”, “Rahmat”, “Umringdan baraka top”, “Baxtli bo‘lgin” so‘zlari bilan yigit-qizlarning ko‘ngli ko‘tarilgan, kulib-erkalab boshi silangan va h.k.</p>
+<p>Shuningdek, mehnat tarbiyasida ijtimoiy foydali mehnat qilishni istamagan, topshiriqni bajarmagan, dangasa-ishyoqmaslarga nisbatan esa jazolash usuli qo‘llangan.</p>
+<p>O‘zbek xalq pedagogikasida iqtisodiy tafakkur bilan tijorat faoliyati o‘zviy birlikni tashqil etshgan. Xalq iqtisodiy tarbiyaning zarurligi va mohiyatini bilgan holda, bolalarni yoshligidan tijorat (savdo-sotiq) ishlariga jalb etadi. Bolalar ota-bobolarining yonlarida bo‘lib, hisob-kitobni, tarozida narsalarning og‘irligini aniqlashni, haridorlar bilan qay tarzda muloqotda, muamalada bo‘lishni o‘rganadilar, shu zaylda ular o‘zlari ham mustaqil suratda tijorat (savdo-sotiq) ishlarini bilib oladilar. Natijada bolalarning yoshligidan savdo-sotiq ishiga jalb ettirilishi ularning iqtisodiy tarbiyasiga yordam beradi: bolalar mollarning sifatini aniqlash, bir molning boshqa moldan farqini ajratish malakasini egallaydilar.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="4">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>I. Quyidagi ish qog‘ozi yordamida “Venn diagrammasi” metodi bo‘yicha ta’limning og‘zaki, ko‘rgazmali va amaliy metodlarini sintezlang.</p>
+<blockquote>Ish qog‘ozi<br>Og‘zaki metodlar:<br>Amaliy metodlar:<br>Ko‘rgazmali metodlar:<br>Umumiy jihatlari:</blockquote>
+<p>II. Quyidagi ish qog‘ozi yordamida “Venn diagrammasi” metodi bo‘yicha ta’limning og‘zaki, ko‘rgazmali va amaliy metodlarini sintezlang.</p></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Xalq tajribalarida qo‘llanilgan tarbiya metodlari qaysilar?</li><li>Tarixiy tajribalardan pedagogik jarayonda qanday maqsadlarda foydalaniladi?</li><li>Tushuntirish metodi kanday metod?</li><li>Na’muna, ibrat ko‘rsatish metodlari haqida gapirib bering.</li><li>Rag‘bat metodidan tarbiya jarayonida foydalanish yo‘llarini tushuntiring.</li><li>Jazolash metodidan qanday maqsadda foydalaniladi?</li><li>Etnopedagogika manbalarida yoshlar o‘z-o‘zini tarbiyalash va qayta tarbiyalashining qanday usullari mavjud?</li><li>Tarbiya tajribalarida jismoniy barkamollikning ijtimoiy ahamiyati qanday ifodalangan?</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="4">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="izohlar">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">§</span> Izohlar</h2>
+  <ol class="izoh-royxat"><li id="izoh-3"><a href="#ref-3" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Шавкат Мирзиёев"Ижтимоий барқарорликни таъминлаш, муқаддас динимизнинг софлигини асраш – давр талаби"нутқи 15.06.2017й</li><li id="izoh-4"><a href="#ref-4" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Қодирова М. Халқ педагогикаси ёш авлодни тарбиялаш манбаидир. // Педагогика таълим, 2007 йил 1-сон, 20-22-бетлар</li><li id="izoh-5"><a href="#ref-5" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Хоразм эртаклари. –Т.: Ўз давнашир, 1961, 29-бет</li><li id="izoh-6"><a href="#ref-6" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Хоразм эртаклари. –Т.: Ўз давнашир, 1961, 38-бет</li><li id="izoh-7"><a href="#ref-7" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Хоразм эртаклари. –Т.: Ўз давнашир, 1961, 121-бет</li><li id="izoh-8"><a href="#ref-8" class="izoh-qaytish" aria-label="Matnga qaytish">↑</a> Ш.Зуннун. Оз-оз ўрганиб доно бўлур. Ғафур Ғулом номидаги адабиёт ва санъат нашриёти, -Т.: 1988, 191-193-бетлар</li></ol>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>M.Ochilov «O’qituvchi odobi», Toshkent. O’qituvchi 1975-yil</li><li>Mirtursunov «Xalq pedagogikasi» Toshkent 1968-yil</li><li>4,A.K.Munavvarov «Oila pedagogikasi» Toshkent 1994-yil</li><li>O’.Asqarova,M.Xayitboev,” Ta’lim tarixi”T;Talqin 2014 y</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-3.html"><span class="yon">← 3-modul</span><span class="nom">Xalq pedagogikasida oila va oilaviy tarbiyaning aks etishi</span></a><a class="keyingi" href="modul-5.html"><span class="yon">5-modul →</span><span class="nom">Xalq pedagogikasi va o‘zbek xalq og‘zaki ijodi</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-<script>
-const buttons=document.querySelectorAll('.panel button');
-const blocks=document.querySelectorAll('.block');
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
+  </div>
+</footer>
 
-buttons.forEach(btn=>{
-  btn.onclick=()=>{
-    buttons.forEach(b=>b.classList.remove('active'));
-    blocks.forEach(bl=>bl.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.target).classList.add('active');
-  }
-});
-</script>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
+
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">

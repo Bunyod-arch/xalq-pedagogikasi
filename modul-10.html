@@ -2,283 +2,173 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<title>10-modul — Xalq pedagogikasi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(1200px 600px at 50% -200px,#1e293b,#020617);
-  color:#e5e7eb;
-  padding:120px 20px 180px;
-}
-
-/* ===== HEADER ===== */
-.header{
-  max-width:900px;
-  margin:0 auto 90px;
-  text-align:center;
-}
-.header h1{
-  font-size:clamp(34px,5vw,60px);
-  font-weight:900;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#f8fafc,#60a5fa,#a7f3d0,#f8fafc);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.header p{
-  margin-top:24px;
-  font-size:17px;
-  line-height:1.9;
-  opacity:.85;
-}
-
-/* ===== STREAM ===== */
-.stream{
-  max-width:820px;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:120px;
-}
-
-/* ===== SECTION ===== */
-.section{
-  position:relative;
-  padding-left:42px;
-}
-.section::before{
-  content:"";
-  position:absolute;
-  left:0;top:6px;
-  width:6px;
-  height:100%;
-  border-radius:6px;
-  background:linear-gradient(
-    to bottom,
-    #60a5fa,
-    rgba(96,165,250,.2),
-    transparent
-  );
-}
-
-.section h2{
-  font-size:28px;
-  margin-bottom:22px;
-  letter-spacing:.08em;
-}
-.section p{
-  font-size:17px;
-  line-height:2;
-  margin-bottom:18px;
-  opacity:.96;
-}
-
-/* ===== QUOTE ===== */
-.quote{
-  padding:36px 42px;
-  border-radius:28px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(18px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 40px 120px rgba(0,0,0,.85);
-  font-size:18px;
-  line-height:2;
-  font-style:italic;
-}
-
-/* ===== TASK ===== */
-.task{
-  padding:42px;
-  border-radius:32px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.12),
-    rgba(255,255,255,.04)
-  );
-  backdrop-filter:blur(26px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.18),
-    0 60px 160px rgba(0,0,0,.9);
-}
-.task h3{
-  font-size:24px;
-  margin-bottom:18px;
-}
-textarea{
-  width:100%;
-  min-height:180px;
-  border-radius:22px;
-  padding:18px;
-  border:none;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-  font-size:16px;
-}
-
-/* ===== CHECK ===== */
-button{
-  margin-top:28px;
-  padding:18px 40px;
-  border:none;
-  border-radius:28px;
-  background:linear-gradient(90deg,#60a5fa,#34d399);
-  color:#020617;
-  font-size:16px;
-  font-weight:900;
-  cursor:pointer;
-}
-.result{
-  margin-top:22px;
-  font-size:22px;
-  font-weight:900;
-}
-
-/* ===== BOTTOM NAV (STANDART) ===== */
-.nav{
-  position:fixed;
-  bottom:0;left:0;
-  width:100%;
-  z-index:999;
-  padding:18px 24px;
-  background:linear-gradient(
-    to top,
-    rgba(2,6,23,.95),
-    rgba(2,6,23,.6),
-    rgba(2,6,23,0)
-  );
-  backdrop-filter:blur(18px);
-}
-.nav-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:26px;
-}
-.nav-btn{
-  text-decoration:none;
-  color:#e5e7eb;
-  padding:20px 28px;
-  border-radius:26px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.14),
-    rgba(255,255,255,.04)
-  );
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    0 30px 90px rgba(0,0,0,.85);
-  letter-spacing:.14em;
-  font-size:14px;
-  transition:.35s;
-}
-.nav-btn:hover{
-  transform:translateY(-4px);
-}
-.nav-center{
-  font-weight:900;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#60a5fa,#34d399,#60a5fa);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  box-shadow:none;
-}
-.nav-prev{justify-self:start}
-.nav-next{justify-self:end}
-
-@media(max-width:900px){
-  .nav-inner{grid-template-columns:1fr;text-align:center}
-  .nav-prev,.nav-next{justify-self:center}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10-modul. Xalq pedagogikasida xalq amaliy san’ati va madaniyatining o‘rni | Xalq pedagogikasi</title>
+<meta name="description" content="Hunarmandchilik maktablari, usta-shogird an’anasi va amaliy san’at turlari.">
+<meta name="author" content="M. Usmonova">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<div class="header">
-  <h1>10-MODUL</h1>
-  <p>
-    Xalq pedagogikasida shaxs kamoloti, mas’uliyat va hayotiy tajribaning
-    uyg‘unlashuvi ushbu modul markazida turadi.
-  </p>
-</div>
+<a class="skip-link" href="#asosiy">Asosiy mazmunga o‘tish</a>
 
-<div class="stream">
-
-  <section class="section">
-    <h2>Shaxs kamoloti tushunchasi</h2>
-    <p>
-      Xalq pedagogikasida shaxs kamoloti — bu faqat bilim emas,
-      balki hayotda to‘g‘ri yo‘l tanlay olish, mas’uliyatni his qilish
-      va jamiyatga foyda keltira olish qobiliyatidir.
-    </p>
-    <p>
-      Shaxsning kamol topishi uzoq davom etadigan jarayon bo‘lib,
-      unda oila, muhit va an’analar hal qiluvchi rol o‘ynaydi.
-    </p>
-  </section>
-
-  <div class="quote">
-    “Insonni tarbiya qilmasdan jamiyatni o‘zgartirib bo‘lmaydi.”
+<header class="panel" id="panel">
+  <div class="panel-ich">
+    <a href="index.html" class="logo"><span class="gul">❋</span> Xalq pedagogikasi</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="bosh-menyu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="bosh-menyu" aria-label="Asosiy menyu">
+      <a href="index.html">Bosh sahifa</a>
+      <a href="modullar.html" aria-current="page">Modullar</a>
+      <a href="glossariy.html">Glossariy</a>
+      <a href="adabiyotlar.html">Adabiyotlar</a>
+    </nav>
   </div>
+</header>
 
-  <section class="section">
-    <h2>Hayotiy tajriba va tarbiya</h2>
-    <p>
-      Xalq pedagogikasi tajribaga tayanadi. Hayotda ko‘rgan,
-      boshdan kechirgan holatlar tarbiyaning eng kuchli vositasi hisoblanadi.
-    </p>
-    <p>
-      Shu sababli xalq donishmandligi yoshlarni faqat eshitishga emas,
-      ko‘rishga, his qilishga va xulosa chiqarishga o‘rgatadi.
-    </p>
-  </section>
+<main id="asosiy">
 
-  <div class="task">
-    <h3>Yozma topshiriq</h3>
-    <p>
-      Xalq pedagogikasida shaxs kamoloti qanday shakllanadi?
-      O‘z fikringiz va misollar bilan tushuntiring.
-    </p>
-    <textarea id="answer"></textarea>
-    <button onclick="check()">Baholash</button>
-    <div class="result" id="result"></div>
+<section class="modul-bosh" style="--rang-a:#7A5A21;--rang-b:#574015">
+  <div class="naqsh-fon" aria-hidden="true"></div>
+  <div class="qobiq">
+    <span class="yorliq">10-modul</span>
+    <h1>Xalq pedagogikasida xalq amaliy san’ati va madaniyatining o‘rni</h1>
+    <p class="ost">Hunarmandchilik maktablari, usta-shogird an’anasi va amaliy san’at turlari.</p>
+    <div class="meta">
+      <span>📖 859 so‘z</span>
+      <span>🎮 Juftlash</span>
+      <span>📝 Test</span>
+      <span>🎬 Video dars</span>
+    </div>
   </div>
-
+</section>
+<div class="modul-tartib">
+<aside class="yon-chap" aria-label="Modullar ro‘yxati">
+  <p class="yon-sarl">Modullar</p>
+  <ul class="yon-royxat"><li><a href="modul-1.html">1. Xalq pedagogikasi fanining maqsad va vazifal…</a></li><li><a href="modul-2.html">2. Xalq pedagogikasining didaktik imkoniyatlari…</a></li><li><a href="modul-3.html">3. Xalq pedagogikasida oila va oilaviy tarbiyan…</a></li><li><a href="modul-4.html">4. Xalq pedagogikasida yoshlarni tarbiyalashnin…</a></li><li><a href="modul-5.html">5. Xalq pedagogikasi va o‘zbek xalq og‘zaki ijo…</a></li><li><a href="modul-6.html">6. Xalq pedagogikasi va xalq og‘zaki ijodida do…</a></li><li><a href="modul-7.html">7. Xalq pedagogikasida milliy urf-odatlar, an’a…</a></li><li><a href="modul-8.html">8. Xalq pedagogikasida milliy o‘yinlarning mazm…</a></li><li><a href="modul-9.html">9. Xalq pedagogikasida diniy ta’limotlar</a></li><li><a href="modul-10.html" class="faol">10. Xalq pedagogikasida xalq amaliy san’ati va m…</a></li><li><a href="modul-11.html">11. O‘zbek xalqining muomala madaniyati, axloqiy…</a></li><li><a href="modul-12.html">12. Milliy musiqa, qo‘shiqchilik va milliy teatr…</a></li><li><a href="modul-13.html">13. Xalq pedagogikasi manbalarida ustoz-o‘qituvc…</a></li><li><a href="modul-14.html">14. Xalq tarbiya nazariyasida tabiatni muhofaza …</a></li></ul>
+</aside>
+<div class="modul-ozak">
+<section class="quti quti-reja kir" id="reja">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📋</span> Reja</h2>
+  <ol class="reja-royxat"><li>Xalq amaliy san’ati va hunarmandchiligi.</li></ol>
+</section>
+<section class="quti kir" id="tayanch">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🔑</span> Tayanch so‘zlar</h2>
+  <ul class="tayanch"><li>maqollar</li><li>topishmoqlar</li><li>olqish va qarg‘ishlar</li><li>marosim folklori</li><li>qo‘shiqlar</li><li>dostonlar</li><li>og‘zaki drama va askiyalar</li><li>pedagogik tafakkur</li><li>tarixiy taraqqiyot</li><li>jamoaviy ijod</li><li>vorisiylik-etnopedagogika manbalari</li><li>geneseologik tuzilish</li><li>tarixiy tuzilish</li><li>mantiqiy tuzilishi</li></ul>
+</section>
+<section class="quti kir" id="video">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">🎬</span> Video dars</h2>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/_BGB3g2FEdU"
+    title="O‘zbek milliy hunarmandchiligi namunalari" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>
+<p class="media-izoh">O‘zbek milliy hunarmandchiligi namunalari · <span>Sayohat Kundaligi</span></p>
+  <div class="video-ramka">
+  <iframe src="https://www.youtube-nocookie.com/embed/dSXTHNv6M2Q"
+    title="O‘zbek milliy liboslari (hududiy viloyatlar misolida)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+<p class="media-izoh">O‘zbek milliy liboslari (hududiy viloyatlar misolida) · <span>Milliy meros akademiyasi</span></p>
+</section>
+<section class="maqola kir" id="matn">
+  <h2 class="maqola-sarl">Ma’ruza matni</h2>
+  <p>O`zbekistonning mustaqilligi milliy madaniyatimiz, ayniqsa xalq amaliy san'ati va hunarmandchiligi taraqqiyotiga keng yo`l ochib berdi. Qadimdan rivoj topib kelayotgan naqqoshlik, ganchkorlik, yog'och o`ymakorligi, badiiy kulolchilik, misgarlik, kashtachilik turlari yana gurkirab o’sa boshladi, uning milliy badiiy an'analari yanada rivojlanmoqda. San'atning unutilib ketgan ayrim turlari hisoblangan matoga gul bosish, suyak va tosh o`ymakorligi, zargarlik, pichoqchilik, gilamchilik turlari qayta tiklandi. Amaliy san'at va xalq hunarmandchiligining yangi turlari chinni haykaltoroshligi, charmda miniatyura ishlash, inkrustasiya, qovoq shakliga naqshlar bilan ishlov berish kabi turlari paydo bo`ldi va bu yo`nalishlarda ustalar yuksak ko`taringilik va mahorat bilan mehnat qilmoqdalar.</p>
+<p>O`zbekistonda milliy amaliy san'at va hunarmandchilikni rivojlantirishda Respublika Vazirlar Mahkamasining 10 iyul 346 sonli qarorida 1997 yilgi "Xalq badiiy hunarmandchiligi va amaliy san'atini yanada rivojlantirishni davlat yo`li bilan qo`llab quvvatlash chora tadbirlari to`g'risida" gi qarori alohida ahamiyat kasb etdi. Ana shu qaror asosida "Musavvir" ilmiy ishlab chiqarish Markazi tashkil etilib, uning qoshida "Hunarmand" uyushmasi faoliyat ko`rsata boshladi. Bu uyushma o`z saflariga minglab tajribali, shuningdek, yosh ustalarni birlashtirdi. Ularning ijodiy ishlari uchun har tomonlama shart sharoitlar yaratib bsrilmoqda, ma'naviy va moddiy yordam ko`rsatilmoqda. Uyushmaning deyarli barcha viloyatlarda bo`linmalari ochilgan bo`lib, u yerdagi ustalar mahalliy amaliy san'atni milliy badiiy an'analarini rivojlantirib yuksak badiiy saviyali asarlar yaratmoqsalar. hozirgi zamon xalq ustalaridan A. Akbarov, A. Abdullayev, A Umarov, S. Rahmatullayev, A.Karimov, M. Murodov, B. Rahmonberdiyev, N. Oblaqulov va boshqa ustalar xorijiy mamalakatlarda o`tkazilgan qator ko`rgazmalarda o`z asarlari bilan qatnashib kelmoqdalar. Jumladan, Fransiyaning Parij shahrida, Olmoniyaning Berlin shahrida, Malaziyaning Kuala Lumpur shahrida, Yaponiyaning Tokio shahrida, Hindistoning Dehli shahrida, Moskva va Olmaota shaharlarida o`tkazilgan ko`rgazmalar shular jumlasidandir.</p>
+<p>Mustaqillik yillarida sobiq Ittifoq davridagi ko`plab ta’ziq ostida bo`lgan milliy amaliy san'at turlaridan, naqqoshlik, ganchkorlik, misgarlik, yog'och o`imakorligi, badiiy kulolchilik, kashtachilik kabi turlarining badiiy an'analarini tajribali ustalardan 0. Fayzullayev, S. Rahmatullayev, A. Azlarov, M. Rahimov, S. Otajonov, A. Nazrullayev, 3. Obloberdiyeva, A. Raximov, I. Komilov, M. husainov, A. Sultonov, M. Usmonov, X. Nuraliyevlar davom ettirmoqdalar.</p>
+<p>Yosh iqtidorli ustalardan A. Rahimov (Toshkent), M. Rahimov (Rishton), N. Obloqulov (Urgut), A. Nazrullayev (G'ijduvon), M. Alimbayev (Buxoro), X. Xaqberdiyev (Samarqand) kabilar bediiy kulolchilik yo`nalishida samarali mehnat qilmoqdalar.</p>
+<p>Naqqoshlik sohasida esa M. To`rayev, A. Ilhomov, B. Rahmonberdiyev, S. Shukurov, X. Nuraliyev, A. Karimov (Toshkent), A. Akbarov, M. Husainov (Namangan), J. Jamolov, Sh. Mahmudov, S. Mahmudov (qo`qon), 0. Ergashev, S. Akbarjonova (Andijon), M. Boboyev (Farg'ona), Respublikamizda shuxrat qozondilar.</p>
+<p>Hozirda ganch o`ymakorligi Toshkentda tez rivoj topib poytaxtimizning turli jamoat binolarini bezatishda keng qo`llanilmoqda. Uning vakillari qatoriga A. Sultonov, A. Po`latov, M. Sultonov, M. Usmonov, M. Murodov, 3. Yusupov, U. Tohirov, A. Umarov (Toshkent), B.Davlatov (Xorazm), A. Abdurahmonov (qo`qon) kabi ustalarni kiratish mumkin.</p>
+<p>Yog'och o`ymakorligi san'ati qadimdan Xorazm, Buxoro va Samarqandda rivoj topgan bo`lsada, hozirga kelib Toshkentlik ustalar bu yo`nalishda karvonboshilik qilmoqdalar. O. Fayzullayev, S. Raxmatullayev, A. Abduraxmonov, A. Azlarov, X. Odilovlar shular jumlasidandir. Xorazmlik X. Bog'ibekov, Andijonlik Y. O`taganov, qo`qonlik X. Umarov, A. Abdullayevlar ham yog'och o`ymakorligi bo`yicha yuksak badiiy saviyali asarlar yaratmoqdalar.</p>
+<p>O`zbek kashtachilik san'atining asosini tashkil etadigan so`zana, joynamoz, do`ppi, nimcha, zarchopon kabilar tikish sobiq Ittifoq davrida tanazzulga yuz tutgan bo`lsa, horzirda bu sohada keskin burilish ro`y berdi. Kashtachi ustalardan X. g'ulomova (Samarqand), 3. Obloberdiyeva (Shofirkon), S. Rahmatullayev (Surxondaryo), M. Atayeva ( Sirdaryo), Sh. Obloqulova (Urgut), N. Xonto`rayeva (Toshkent), S. Shomurodova (qo`qon), G. Yekabergenova (qoraqalpog'iston) kabilar amaliy san'atning bu turini oyoqqa turg'azishda jonbozlik ko`rsatmoqdalar. Kashtachilik sohasida bir qator viloyatlarda xususiy ustaxonalar ochilgan bo`lib, ularda ko`plab yoshlar san'at sirlarini o`rganmoqdalar va yuksak badiiy saviyali asarlar yaratmoqdalar.</p>
+<p>Zargarlik san'ati ham yo`qolib borayotgan san'at turlaridan edi. Uni tiklash va rivojlantirishda hozirda Toshkentlik ustalardan F. Dadamuhamedov, N. Xolmatov, G. Toshevalar jonbozlik ko`rsatmoqdalar.</p>
+<p>O`zbek xalq amaliy san'atida yangidan paydo bo`lgan yo`nalishlar hisoblangan chinnidan haykalchalar ishlash, inkrustatsiya, qovoqdan ishlangan idishlarni naqshlash, charm materiallarga miniatyura ishlash, gazmolga gul bosish, tosh o`ymakorligi kabi san'at turlari bo`yicha olib borilayotgan ishlar ham diqqatga sazovordir. Ayniqsa, pichoqchilik bo`yicha Andijonlik A. Muhiddinov, Namanganlik A. Abdullayev, tosh o`ymakorligi bo`yicha Nurotaning g'ozg'onidan E. Abdullayev, X. Yo`ldoshev, A. Haitovlar, charmda miniatyura ishlash bo`yicha Toshkentlik S. Po`latov, B. Yo`ldashevlar, qovoqdan ishlangan idishlarga minatyura ishlash bo`yicha Toshkentlik S. Ziyomov, B. Hojimetov, Sh. Rixsiyevlar, gazmoga gul bosish bo`yicha Toshkentlik A. Rahimov, chinni haykaltoroshligi bo`yicha toshkentlik Sh. Mo`minova, misgarlik san'ati bo`yicha M. Madaliyevlarning milliy amaliy san'atni bu turlarini tiklash va rivojlantirishdagi xizmatlari katta bo`lmoqda.</p>
+<p>Shuni ham alohida qayd qilish lozimki, xalq amaliy san'atini rivojlantirish maqsadida Milliy rassomchilik va dizayn institutida Nukus, Buxoro, Namangan, Toshkent davlat pedagogika universitetlarida amaliy san'atdan malakali ustalar tayyorlaydigan guruhlar tashkil etilgan. Bu o`quv yurtlarini bitirganlar Respublikamizda amaliy san'at turini rivojlantirishda katta rol o`ynaydi.</p>
+<p>Amaliy san'atdan yuqori malakali ustalar yetkazib chiqaradigan o`rta maxsus o`quv yurtlari san'at litsey va kolledjlari Toshkent, Buxoro Navoiy, Samarqandda ochilgan.</p>
+<p>Xullas, O`zbekistonning mustaqillik yillarida o`zbek xalq amaliy san'ati o`zining yangi taraqqiyot bosqichiga kirmoqda. Azaldan mamlakatimizning madaniy markazlaridan hisoblangan Samarqand, Buxoro Toshkent, G'ijduvon, Marg'ilon, Xiva, Rishton, Shofirkon, Urgut, Xo`jayli, Qo`qon, Nurota, G’'urumsaroy, Asaka, Chimboy, Sho`rchi, Termiz, Urganch, Boysun, Denov, G'allaorol, Jizzax, Zomin, Namangan, Kosonsoy, Shaxrisabz, Kitob, Sherobod, Beshkent, Xonqa, Nukus kabi shahar va qishloqlarimiz ustalari o`zlarining qadimiy shuhratlarini tiklash maqsadida samarali mehnat qilmoqdalar.</p>
+<p>Mazkur mazmundagi suhbat darsida o`qituvchi mavzuga doir amaliy san'at namunalarini slayd, diapozitiv yoki diafilmlar yordamida namoyish etadi. Ular bo`lmagani taqdirda amaliy san'at namunalarining reproduksiyalari, foto nusxalari bolalarga ko`rsatiladi. Namoyish savol javob tarzida o`tkazilishi darsda bolalarni faol bo`lishlariga yordam beradi.</p>
+<p>Shuningdek, darsda mashhur amaliy san'at ustalarining foto portretlarining ko`rsatilishi ham foydadan xoli emas.</p>
+</section>
+<section class="oyin kir" id="oyin" data-oyin="10">
+  <p class="oyin-yuklanmoqda">O‘yin yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="topshiriq">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">✍️</span> Topshiriq</h2>
+  <div class="maqola maqola-ichki"><p>1.“T-jadval” metodi yordamida tizimlashtiring. San’at metodlari va vositalarini tizimlashtirishda quyidagi jadvaldan foydalaning:</p>
+<div class="jadval-o"><table><thead><tr><th>San’at metodlari va vositalari</th><th></th></tr></thead><tbody><tr><td>San’at metodlari</td><td>San’at vositalari</td></tr></tbody></table></div></div>
+</section>
+<section class="quti quti-nazorat kir" id="nazorat">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">❓</span> Nazorat savollari</h2>
+  <ol class="savol-royxat"><li>Mustaqillik yillarida o`zbek amaliy san'atida ro`y bergan asosiy o`zgarishlar nimalardan iborat ?</li><li>Avvallari yetarlicha e'tibor berilmagan amaliy san'atning qaysi turlari qayta tiklandi va gurkirab o`sa boshladi?</li><li>Sobiq ittifoq davrida unitilgan amaliy san'atning qaysi turlari paydo bo`ldi?</li><li>Xalq amaliy san'ati rivoj topgan markazlar Respublikamizni qaysi shahar va qishloqlarida bor ?</li><li>Uyda Mustaqillik yillarida ijod qilgan xalq ustalarining hayoti va ijodi hamda ularning asarlari yuzasidan materiallar to`plash va albomga yopishtirish vazifa qilib topshiriladi.</li><li>Milliy istiqlol tufayli xalqimizning o‘z milliy, madaniy, tarixiy merosini o‘rganish imkoniyatlari haqida gapirib bering.</li></ol>
+</section>
+<section class="quti kir" id="test" data-test="10">
+  <p class="test-yuklanmoqda">Test yuklanmoqda…</p>
+</section>
+<section class="quti kir" id="adabiyot">
+  <h2 class="quti-sarl"><span class="nishon" aria-hidden="true">📚</span> Mavzuga oid adabiyotlar</h2>
+  <ol class="adab-royxat"><li>Xalq pedagogikasi-inson kamolotining asosi. T. 1-5 kitoblar 1992 y.</li><li>Boynazarov F. O’rta Osiyo" antik, davri.Toshkent. O’qituvchi 1991 yil.</li><li>Mirtursunov Z.F, Xalq, pedagogikasi, Toshkent. O’qituvchi 1968 yil.</li><li>Ajdodlar o’giti. xikoyalar, xikmatlar, timsoyalar. T. Cho’lpon 1990 yil.</li><li>Xasanov S. Mutafakkirlar mehnat tarbiyasi xaqida.</li><li>Donishmandlar axloq xaqida. Toshkent. O’qituvchi 1986 yil.</li></ol>
+</section>
+<nav class="mod-nav" aria-label="Modullar orasida yurish"><a href="modul-9.html"><span class="yon">← 9-modul</span><span class="nom">Xalq pedagogikasida diniy ta’limotlar</span></a><a class="keyingi" href="modul-11.html"><span class="yon">11-modul →</span><span class="nom">O‘zbek xalqining muomala madaniyati, axloqiy me’yorlari, turmush kechirish tartib-qoidalarining tarbiyaviy ahamiyati</span></a></nav>
+</div>
+<aside class="yon-ong" aria-label="Sahifa bo‘limlari">
+  <p class="yon-sarl">Sahifada</p>
+  <ul class="yon-royxat"><li><a href="#reja">Reja</a></li><li><a href="#tayanch">Tayanch so‘zlar</a></li><li><a href="#video">Video dars</a></li><li><a href="#matn">Ma’ruza matni</a></li><li><a href="#oyin">Interaktiv o‘yin</a></li><li><a href="#topshiriq">Topshiriq</a></li><li><a href="#nazorat">Nazorat savollari</a></li><li><a href="#test">Test</a></li><li><a href="#adabiyot">Adabiyotlar</a></li></ul>
+</aside>
+</div>
+</main>
 
-<!-- BOTTOM NAV -->
-<div class="nav">
-  <div class="nav-inner">
-    <a href="modul-9.html" class="nav-btn nav-prev">← Modul 9</a>
-    <a href="dars.html" class="nav-btn nav-center">⬤ MODULLAR RO‘YXATI ⬤</a>
-    <a href="modul-11.html" class="nav-btn nav-next">Modul 11 →</a>
+<footer class="oyoq-panel">
+  <div class="qobiq">
+    <div class="tur">
+      <div>
+        <h4>Darslik</h4>
+        <ul>
+          <li><a href="modullar.html">Barcha modullar</a></li>
+          <li><a href="yakuniy.html">Yakuniy nazorat savollari</a></li>
+          <li><a href="glossariy.html">Glossariy</a></li>
+          <li><a href="adabiyotlar.html">Foydalanilgan adabiyotlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Muallif</h4>
+        <ul>
+          <li>M. Usmonova</li>
+          <li>Namangan davlat pedagogika instituti</li>
+          <li>Kreativ pedagogika va psixologiya kafedrasi</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yo‘nalish</h4>
+        <ul>
+          <li>60110100 — Pedagogika</li>
+          <li>Tarbiya fani o‘qituvchisi</li>
+          <li>Namangan — 2025</li>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <span>© 2025 M. Usmonova. «Xalq pedagogikasi» darsligi.</span>
+      <span>Namangan davlat pedagogika instituti</span>
+    </div>
   </div>
-</div>
+</footer>
 
-<script>
-function check(){
-  let text=document.getElementById("answer").value.toLowerCase();
-  let keys=["shaxs","tarbiya","tajriba","jamiyat","mas’uliyat","hayot"];
-  let match=0;
-  keys.forEach(k=>{ if(text.includes(k)) match++; });
-  let percent=Math.min(100, match*15);
-  document.getElementById("result").innerHTML =
-    "Baholash natijasi: <strong>"+percent+"%</strong>";
-}
-</script>
+<button class="yuqoriga" id="yuqoriga" aria-label="Sahifa boshiga qaytish">↑</button>
 
+<script src="assets/data/modullar.js"></script>
+<script src="assets/js/app.js"></script>
+
+<script src="assets/data/oyinlar.js"></script>
+<script src="assets/data/testlar.js"></script>
+<script src="assets/js/oyin.js"></script>
+<script src="assets/js/test.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="uz">
