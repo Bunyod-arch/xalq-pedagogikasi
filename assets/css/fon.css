@@ -1,0 +1,248 @@
+/* =========================================================
+   JONLI FON — butun sayt bo‘ylab skrollga bog‘langan naqsh
+   Har sahifa/modul o‘z variantiga ega: data-fon="1".."8"
+   Ranglar: --fa (asosiy urg‘u), --fb (ikkinchi urg‘u)
+
+   MUHIM: bu qatlam matnning ORQASIDA turadi va hech qachon
+   uning ko‘rinishiga ta’sir qilmaydi — opacity juda past.
+   ========================================================= */
+
+@property --sp {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+html{ --sp:0; }
+
+.jonli-fon{
+  position:fixed; inset:0; z-index:0;
+  pointer-events:none; overflow:hidden;
+  --fa:#C1502E;          /* terrakota */
+  --fb:#1B3B6F;          /* indigo   */
+}
+
+/* Sahifa mazmuni fon ustida turadi */
+main, .panel, .oyoq-panel, .yuqoriga{ position:relative; z-index:1; }
+.panel{ z-index:60; }
+.yuqoriga{ z-index:70; }
+
+.fon-qatlam{
+  position:absolute; inset:-25%;
+  display:block; will-change:transform;
+  transform-origin:50% 50%;
+}
+
+/* ---------------------------------------------------------
+   1 — SUZANI NUQTALARI (asosiy, bosh sahifa oilasi)
+   --------------------------------------------------------- */
+[data-fon="1"] .fon-q1{
+  background-image:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--fa) 100%, transparent) 0 2px, transparent 2.6px);
+  background-size:46px 46px;
+  opacity:.075;
+  transform:rotate(calc(var(--sp) * 16deg)) scale(calc(1 + var(--sp) * .22));
+}
+[data-fon="1"] .fon-q2{
+  background-image:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--fb) 100%, transparent) 0 1.6px, transparent 2.2px);
+  background-size:78px 78px;
+  opacity:.06;
+  transform:rotate(calc(var(--sp) * -22deg)) translate3d(0, calc(var(--sp) * -60px), 0);
+}
+[data-fon="1"] .fon-q3{
+  background:radial-gradient(46% 40% at 22% 24%, color-mix(in srgb, var(--fa) 26%, transparent), transparent 68%),
+             radial-gradient(42% 38% at 78% 72%, color-mix(in srgb, var(--fb) 22%, transparent), transparent 70%);
+  opacity:.5;
+  transform:translate3d(calc(var(--sp) * 40px), calc(var(--sp) * -70px), 0) scale(calc(1 + var(--sp) * .12));
+}
+
+/* ---------------------------------------------------------
+   2 — KONSENTRIK HALQALAR
+   --------------------------------------------------------- */
+[data-fon="2"] .fon-q1{
+  background-image:repeating-radial-gradient(circle at 50% 45%,
+    transparent 0 54px,
+    color-mix(in srgb, var(--fb) 100%, transparent) 54px 55.4px);
+  opacity:.07;
+  transform:scale(calc(1 + var(--sp) * .55));
+}
+[data-fon="2"] .fon-q2{
+  background-image:repeating-radial-gradient(circle at 50% 45%,
+    transparent 0 128px,
+    color-mix(in srgb, var(--fa) 100%, transparent) 128px 130px);
+  opacity:.075;
+  transform:scale(calc(1.1 - var(--sp) * .3)) rotate(calc(var(--sp) * 10deg));
+}
+[data-fon="2"] .fon-q3{
+  background:radial-gradient(50% 44% at 50% 42%, color-mix(in srgb, var(--fa) 24%, transparent), transparent 72%);
+  opacity:.45;
+  transform:translate3d(0, calc(var(--sp) * -60px), 0);
+}
+
+/* ---------------------------------------------------------
+   3 — GIRIH (kesishuvchi qiya panjara)
+   --------------------------------------------------------- */
+[data-fon="3"] .fon-q1{
+  background-image:
+    repeating-linear-gradient(45deg,  color-mix(in srgb, var(--fb) 100%, transparent) 0 1.2px, transparent 1.2px 52px),
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--fb) 100%, transparent) 0 1.2px, transparent 1.2px 52px);
+  opacity:.075;
+  transform:translate3d(calc(var(--sp) * -70px), calc(var(--sp) * 44px), 0) scale(calc(1 + var(--sp) * .16));
+}
+[data-fon="3"] .fon-q2{
+  background-image:
+    repeating-linear-gradient(45deg,  color-mix(in srgb, var(--fa) 100%, transparent) 0 1px, transparent 1px 156px),
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--fa) 100%, transparent) 0 1px, transparent 1px 156px);
+  opacity:.085;
+  transform:translate3d(calc(var(--sp) * 56px), calc(var(--sp) * -36px), 0);
+}
+[data-fon="3"] .fon-q3{
+  background:radial-gradient(44% 40% at 76% 26%, color-mix(in srgb, var(--fa) 24%, transparent), transparent 70%);
+  opacity:.5;
+  transform:translate3d(calc(var(--sp) * -50px), 0, 0);
+}
+
+/* ---------------------------------------------------------
+   4 — TO‘LQIN (yumshoq to‘lqinli yo‘llar)
+   --------------------------------------------------------- */
+[data-fon="4"] .fon-q1{
+  background-image:repeating-linear-gradient(
+    calc(8deg + var(--sp) * 14deg),
+    color-mix(in srgb, var(--fb) 100%, transparent) 0 1.4px,
+    transparent 1.4px 40px);
+  opacity:.07;
+  transform:translate3d(0, calc(var(--sp) * -90px), 0);
+}
+[data-fon="4"] .fon-q2{
+  background-image:repeating-linear-gradient(
+    calc(-6deg - var(--sp) * 12deg),
+    color-mix(in srgb, var(--fa) 100%, transparent) 0 1.2px,
+    transparent 1.2px 96px);
+  opacity:.085;
+  transform:translate3d(0, calc(var(--sp) * 66px), 0);
+}
+[data-fon="4"] .fon-q3{
+  background:radial-gradient(52% 34% at 30% 74%, color-mix(in srgb, var(--fb) 26%, transparent), transparent 72%);
+  opacity:.5;
+  transform:translate3d(calc(var(--sp) * 60px), 0, 0) scale(calc(1 + var(--sp) * .14));
+}
+
+/* ---------------------------------------------------------
+   5 — SAKKIZ QIRRALI YULDUZ (milliy motiv)
+   --------------------------------------------------------- */
+[data-fon="5"] .fon-q1{
+  background-image:
+    repeating-linear-gradient(0deg,  color-mix(in srgb, var(--fa) 100%, transparent) 0 1.3px, transparent 1.3px 64px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--fa) 100%, transparent) 0 1.3px, transparent 1.3px 64px);
+  opacity:.06;
+  transform:rotate(calc(var(--sp) * 45deg)) scale(calc(1 + var(--sp) * .3));
+}
+[data-fon="5"] .fon-q2{
+  background-image:
+    repeating-linear-gradient(45deg,  color-mix(in srgb, var(--fb) 100%, transparent) 0 1.3px, transparent 1.3px 64px),
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--fb) 100%, transparent) 0 1.3px, transparent 1.3px 64px);
+  opacity:.06;
+  transform:rotate(calc(var(--sp) * -45deg)) scale(calc(1 + var(--sp) * .3));
+}
+[data-fon="5"] .fon-q3{
+  background:radial-gradient(40% 36% at 50% 30%, color-mix(in srgb, var(--fa) 26%, transparent), transparent 70%);
+  opacity:.5;
+  transform:translate3d(0, calc(var(--sp) * -50px), 0);
+}
+
+/* ---------------------------------------------------------
+   6 — OQIM (qiya yo‘l-yo‘l harakat)
+   --------------------------------------------------------- */
+[data-fon="6"] .fon-q1{
+  background-image:repeating-linear-gradient(115deg,
+    color-mix(in srgb, var(--fb) 100%, transparent) 0 2px,
+    transparent 2px 58px);
+  opacity:.06;
+  transform:translate3d(calc(var(--sp) * -120px), 0, 0);
+}
+[data-fon="6"] .fon-q2{
+  background-image:repeating-linear-gradient(115deg,
+    color-mix(in srgb, var(--fa) 100%, transparent) 0 1px,
+    transparent 1px 174px);
+  opacity:.09;
+  transform:translate3d(calc(var(--sp) * 96px), 0, 0);
+}
+[data-fon="6"] .fon-q3{
+  background:radial-gradient(46% 42% at 18% 60%, color-mix(in srgb, var(--fa) 24%, transparent), transparent 70%),
+             radial-gradient(40% 36% at 84% 30%, color-mix(in srgb, var(--fb) 22%, transparent), transparent 72%);
+  opacity:.5;
+  transform:translate3d(0, calc(var(--sp) * -64px), 0);
+}
+
+/* ---------------------------------------------------------
+   7 — GUL (rozetka nurlari)
+   --------------------------------------------------------- */
+[data-fon="7"] .fon-q1{
+  background-image:repeating-conic-gradient(from 0deg at 50% 46%,
+    color-mix(in srgb, var(--fa) 100%, transparent) 0deg 0.7deg,
+    transparent 0.7deg 15deg);
+  opacity:.05;
+  transform:rotate(calc(var(--sp) * 30deg)) scale(calc(1 + var(--sp) * .2));
+}
+[data-fon="7"] .fon-q2{
+  background-image:repeating-radial-gradient(circle at 50% 46%,
+    transparent 0 88px,
+    color-mix(in srgb, var(--fb) 100%, transparent) 88px 89.4px);
+  opacity:.07;
+  transform:scale(calc(1 + var(--sp) * .38));
+}
+[data-fon="7"] .fon-q3{
+  background:radial-gradient(42% 38% at 50% 44%, color-mix(in srgb, var(--fa) 26%, transparent), transparent 70%);
+  opacity:.5;
+  transform:translate3d(0, calc(var(--sp) * -46px), 0);
+}
+
+/* ---------------------------------------------------------
+   8 — PANJARA (kvadrat to‘r + burchak belgilari)
+   --------------------------------------------------------- */
+[data-fon="8"] .fon-q1{
+  background-image:
+    repeating-linear-gradient(0deg,  color-mix(in srgb, var(--fb) 100%, transparent) 0 1.2px, transparent 1.2px 72px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--fb) 100%, transparent) 0 1.2px, transparent 1.2px 72px);
+  opacity:.065;
+  transform:translate3d(calc(var(--sp) * 36px), calc(var(--sp) * -52px), 0);
+}
+[data-fon="8"] .fon-q2{
+  background-image:radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--fa) 100%, transparent) 0 2.4px, transparent 3px);
+  background-size:72px 72px;
+  background-position:36px 36px;
+  opacity:.09;
+  transform:translate3d(calc(var(--sp) * -30px), calc(var(--sp) * 44px), 0) scale(calc(1 + var(--sp) * .1));
+}
+[data-fon="8"] .fon-q3{
+  background:radial-gradient(44% 40% at 68% 74%, color-mix(in srgb, var(--fb) 24%, transparent), transparent 70%);
+  opacity:.5;
+  transform:translate3d(0, calc(var(--sp) * -58px), 0);
+}
+
+/* ---------------------------------------------------------
+   SARLAVHA PANELLARIDA PARALLAKS
+   --------------------------------------------------------- */
+.jonli-bosh .naqsh-fon{
+  transform:translate3d(0, calc(var(--sp) * 90px), 0) scale(calc(1 + var(--sp) * .18));
+}
+.jonli-bosh .nur-fon{
+  transform:translate3d(calc(var(--sp) * -60px), calc(var(--sp) * 50px), 0);
+}
+
+/* ---------------------------------------------------------
+   TELEFON: yengilroq (kamroq qatlam, kichikroq harakat)
+   --------------------------------------------------------- */
+@media (max-width:820px){
+  .fon-q2{ display:none; }
+  .fon-qatlam{ inset:-15%; }
+}
+
+/* ---------------------------------------------------------
+   HARAKATNI KAMAYTIRISH
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .fon-qatlam{ transform:none !important; }
+  .jonli-bosh .naqsh-fon,.jonli-bosh .nur-fon{ transform:none !important; }
+}
