@@ -241,8 +241,9 @@ class Telegram {
       const forma = new FormData();
       forma.append("chat_id", String(chatId));
       if (izoh) forma.append("caption", izoh);
-      // ﻿ — Excel lotin harflarni to'g'ri ko'rsatishi uchun (BOM).
-      const blob = new Blob([`\\uFEFF${mazmun}`], { type: "text/csv;charset=utf-8" });
+      // Boshiga BOM qo'yiladi — Excel lotin harflarni to'g'ri ko'rsatishi uchun.
+      const bom = String.fromCharCode(0xfeff);
+      const blob = new Blob([bom + mazmun], { type: "text/csv;charset=utf-8" });
       forma.append("document", blob, faylNomi);
       const javob = await fetch(`${this.asos}/sendDocument`, { method: "POST", body: forma });
       return await javob.json();
