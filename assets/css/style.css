@@ -898,3 +898,100 @@ sup.izoh-ref a:hover{ background:var(--krem-2); }
 @media (prefers-reduced-motion: reduce){
   .tor-chizigi.tebranmoqda,.parda.chalindi{ animation:none; }
 }
+
+/* ---------- 26. QO'SHIMCHA O'YINLAR ---------- */
+.oyin2{
+  background:linear-gradient(180deg,#FFFDF8,#F3F1E9);
+  border:1px solid var(--chegara); border-radius:var(--r-l);
+  padding:26px 28px; margin:32px 0; box-shadow:var(--soya-1);
+}
+.oyin2 .oyin-bosh .nishon{ background:var(--indigo); }
+
+/* --- Topishmoq --- */
+.topishmoq-karta{
+  background:#fff; border:1.5px solid var(--chegara); border-radius:var(--r-m);
+  padding:18px 20px; margin:0 0 12px;
+}
+.tm-matn{
+  margin:0 0 14px; font-family:var(--oq); font-size:18px;
+  line-height:1.6; font-style:italic; color:var(--siyoh);
+}
+.topishmoq-karta .dona{ font-family:var(--ui); cursor:pointer; }
+.topishmoq-karta .dona:disabled{ cursor:default; }
+.tm-izoh{
+  display:none; margin:12px 0 0; padding:10px 14px; border-radius:var(--r-s);
+  font-size:14.5px; line-height:1.6; background:var(--krem-2); color:var(--siyoh-2);
+}
+.tm-izoh.korin{ display:block; animation:kotaril .3s ease; }
+.tm-izoh.yaxshi{ background:#EDF7F0; color:#1E5C39; }
+.tm-izoh.past  { background:#FBEFEE; color:#8C2B21; }
+
+/* --- «O'rta qo'lini top» --- */
+.topish-maslahat{
+  margin:0 0 16px; font-size:15.5px; font-weight:600; color:var(--siyoh-2);
+  min-height:24px; text-align:center;
+}
+.doppi-qator{
+  display:flex; justify-content:center; gap:14px; flex-wrap:nowrap;
+  padding:14px 0 6px; overflow:hidden;
+}
+.doppi{
+  position:relative; width:96px; height:96px; flex:0 0 auto;
+  background:none; border:0; padding:0; cursor:pointer;
+  display:grid; place-items:end center;
+}
+.doppi-rasm{ width:90px; height:62px; display:block; transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
+.doppi:hover .doppi-rasm{ transform:translateY(-5px); }
+.doppi .olma{
+  position:absolute; left:50%; bottom:8px; translate:-50% 0;
+  font-size:30px; opacity:0; transition:opacity .3s, transform .35s;
+  transform:translateY(6px); z-index:0;
+}
+.doppi.ochiq .doppi-rasm{ transform:translateY(-46px) rotate(-10deg); }
+.doppi.ochiq .olma{ opacity:1; transform:translateY(0); }
+.doppi.togri .olma{ animation:sakra .5s cubic-bezier(.34,1.56,.64,1) 2; }
+.doppi.xato .doppi-rasm{ animation:silkin .4s ease; }
+@media (max-width:560px){
+  .doppi{ width:70px; height:74px; }
+  .doppi-rasm{ width:66px; height:46px; }
+  .doppi .olma{ font-size:22px; }
+  .doppi.ochiq .doppi-rasm{ transform:translateY(-34px) rotate(-10deg); }
+  .doppi-qator{ gap:8px; }
+}
+
+/* --- Qo'g'irchoq teatri --- */
+.sahna-guruh{ margin:0 0 18px; }
+.sahna-guruh h4{
+  font-family:var(--ui); font-size:12px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--siyoh-3);
+  margin:0 0 10px;
+}
+.sahna-tanlov{ display:flex; flex-wrap:wrap; gap:9px; }
+.sahna-dona{
+  display:flex; align-items:center; gap:8px; cursor:pointer;
+  background:#fff; border:1.5px solid var(--chegara); border-radius:999px;
+  padding:9px 16px; font-family:var(--ui); font-size:14.5px; color:var(--siyoh);
+  transition:transform .18s cubic-bezier(.34,1.56,.64,1), border-color .18s, background .18s;
+}
+.sahna-dona:hover{ transform:translateY(-2px); border-color:rgba(26,22,20,.3); }
+.sahna-dona.tanlangan{ border-color:var(--indigo); background:#EEF3FB; font-weight:600; }
+.sahna-dona .sd-nishon{ font-size:17px; }
+
+.sahna-natija{ margin-top:20px; }
+.sahna-bosh{ margin:0; font-size:14.5px; color:var(--siyoh-3); text-align:center; padding:18px 0; }
+.sahna-parda{
+  background:linear-gradient(180deg,#1B3B6F,#16305A); color:#fff;
+  border-radius:var(--r-l); padding:26px 28px;
+  animation:kotaril .45s cubic-bezier(.22,1,.36,1);
+}
+.sahna-qahramon{ font-size:44px; line-height:1; display:flex; gap:14px; margin-bottom:12px; }
+.sahna-parda h4{ font-family:var(--ust); font-size:22px; color:#fff; margin:0 0 14px; }
+.sahna-parda p{ margin:0 0 10px; font-size:15.5px; line-height:1.7; color:rgba(255,255,255,.88); }
+.sahna-parda p b{ color:var(--oltin); }
+.sahna-xulosa{
+  margin-top:16px !important; padding:12px 16px;
+  background:rgba(255,255,255,.10); border-left:3px solid var(--oltin);
+  border-radius:0 var(--r-s) var(--r-s) 0;
+  font-family:var(--oq); font-style:italic;
+}
+.sahna-maslahat{ font-size:13.5px !important; color:rgba(255,255,255,.6) !important; margin-top:14px !important; }
