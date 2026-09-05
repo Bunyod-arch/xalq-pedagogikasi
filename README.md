@@ -51,7 +51,7 @@ Statik sayt — server, ma’lumotlar bazasi va build talab qilinmaydi.
 Faylni brauzerda ochish yoki GitHub Pages orqali ishlatish kifoya.
 
 ```
-index.html            Skroll-hikoya: bezori boladan komil insongacha
+index.html            Skroll-hikoya: o‘quvchining bosqichma-bosqich o‘zgarishi
 modullar.html         14 modul ro‘yxati
 modul-1..14.html      Modul sahifalari (generatsiya qilingan)
 dastur.html           Maxsus kurs dasturi (treninglar, metodlar)
@@ -62,11 +62,12 @@ yakuniy.html          Yakuniy nazorat savollari
 
 assets/css/style.css       Yagona dizayn tizimi
 assets/css/animatsiya.css  Animatsiyalar va ikonkalar
-assets/css/hikoya.css      Bosh sahifadagi skroll-hikoya
+assets/css/hikoya.css      Bosh sahifadagi skroll-hikoya (12 qatlam, --p bo‘yicha)
 assets/css/tailwind.css    Tailwind (oldindan build qilingan, ~4 KB)
 assets/js/app.js           Menyu, progress, localStorage
 assets/js/animatsiya.js    Bo‘limga o‘tish, ikonkalar, raqam sanash
-assets/js/hikoya.js        Skroll-hikoya boshqaruvi
+assets/js/hikoya.js        Skroll-hikoya boshqaruvi (GSAP ScrollTrigger + zaxira)
+assets/vendor/             GSAP 3.15 va ScrollTrigger (lokal, CDN‘siz)
 assets/js/oyin.js          O‘yin dvigateli (5 tur)
 assets/js/test.js          Test dvigateli
 assets/js/qidiruv.js       Glossariy/adabiyot qidiruvi
@@ -75,6 +76,17 @@ assets/data/*.js           Modullar, o‘yinlar va testlar ma’lumoti
 
 Modul kartochkalari va barcha matn HTML ichida tayyor turadi — JavaScript
 o‘chirilgan bo‘lsa ham sahifalar bo‘sh qolmaydi.
+
+### Bosh sahifadagi transformatsiya
+
+Bitta qahramon 12 ta mustaqil qatlamdan iborat (kiyim, soch, do‘ppi, chopon,
+daftar, qalam, kitob, ryukzak, qosh, og‘iz, qovoq, yonoq). Har bir qatlamning
+ko‘rinishi `--p` (0…1 skroll foizi) dan CSS `clamp()` bilan hisoblanadi —
+`assets/css/hikoya.css` ichidagi jadval. Vaqtlarni o‘zgartirish uchun faqat
+shu sonlarni tahrirlash kifoya, JavaScript‘ga tegilmaydi.
+
+GSAP ScrollTrigger `scrub` bilan qiymatni yumshatadi; GSAP yuklanmasa
+`requestAnimationFrame` zaxirasi ishlaydi. O‘lchangan tezlik: ~60 FPS.
 
 ### Tailwind'ni qayta qurish
 

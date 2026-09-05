@@ -1,0 +1,24 @@
+{
+  "name": "xalq-pedagogikasi",
+  "version": "1.0.0",
+  "description": "**M. Usmonova** · Namangan davlat pedagogika instituti · 2025 60110100 — Pedagogika. Tarbiya fani o‘qituvchisi",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bunyod-arch/xalq-pedagogikasi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Bunyod-arch/xalq-pedagogikasi/issues"
+  },
+  "homepage": "https://github.com/Bunyod-arch/xalq-pedagogikasi#readme",
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}
