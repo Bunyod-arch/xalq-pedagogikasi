@@ -1,0 +1,57 @@
+# =========================================================
+#  SAYTNI MUZLATISH / YOQISH — bir tugma bilan
+#
+#  Ishlatish: GitHub -> Actions -> «Saytni muzlatish yoki yoqish»
+#             -> Run workflow -> holatni tanlang -> Run
+#  Telefondan ham ishlaydi (GitHub mobil ilovasi).
+#  Hech qanday server, bot yoki token kerak emas.
+# =========================================================
+name: Saytni muzlatish yoki yoqish
+
+on:
+  workflow_dispatch:
+    inputs:
+      holat:
+        description: "Sayt holati"
+        required: true
+        default: "muzlat"
+        type: choice
+        options:
+          - muzlat
+          - yoq
+      xabar:
+        description: "Tashrifchilarga ko‘rinadigan xabar (ixtiyoriy)"
+        required: false
+        default: "Texnik ishlar olib borilmoqda. Iltimos, keyinroq urinib ko‘ring."
+
+permissions:
+  contents: write
+
+jobs:
+  ozgartir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: holat.json faylini yangilash
+        run: |
+          if [ "${{ inputs.holat }}" = "muzlat" ]; then FAOL=false; else FAOL=true; fi
+          cat > holat.json <<JSON
+          {
+            "faol": $FAOL,
+            "sarlavha": "Sayt vaqtincha to‘xtatilgan",
+            "xabar": "${{ inputs.xabar }}",
+            "aloqa": "",
+            "yangilangan": "$(date -u +%Y-%m-%d\ %H:%M) UTC"
+          }
+          JSON
+          cat holat.json
+
+      - name: O‘zgarishni saqlash
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add holat.json
+          git diff --staged --quiet && echo "O‘zgarish yo‘q" && exit 0
+          git commit -m "Sayt holati: ${{ inputs.holat }}"
+          git push

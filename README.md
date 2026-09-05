@@ -105,6 +105,20 @@ Ikkalasi ham oddiy JavaScript obyekti, HTML'ga tegmasdan tahrirlash mumkin.
 Har modulning video bloki `modul-N.html` ichidagi `<iframe src="…/embed/VIDEO_ID">`
 qatorida. `VIDEO_ID` ni almashtirish kifoya.
 
+## Saytni muzlatish va yoqish
+
+Saytni istalgan vaqt yopib, keyin qayta ochish mumkin. Uch yo‘l bor —
+batafsil qo‘llanma: [bot/README.md](bot/README.md)
+
+| Yo‘l | Qanday | Nima kerak |
+|---|---|---|
+| **GitHub tugmasi** (tavsiya) | Actions → «Saytni muzlatish yoki yoqish» → Run workflow | hech narsa |
+| **Faylni tahrirlash** | `holat.json` da `"faol": true` ↔ `false` | hech narsa |
+| **Telegram bot** | 🔒 / 🔓 tugmalari | bot tokeni + GitHub tokeni + bot ishlaydigan joy |
+
+Muzlatilganda tashrifchi «Sayt vaqtincha to‘xtatilgan» oynasini ko‘radi.
+Qat‘iy o‘chirish kerak bo‘lsa: Settings → Pages → Source → **None**.
+
 ## Talablar
 
 - Zamonaviy brauzer (Chrome, Safari, Firefox, Edge)
