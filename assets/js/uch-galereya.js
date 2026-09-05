@@ -73,7 +73,7 @@ import * as THREE from '../vendor/three.module.min.js';
      ========================================================= */
   idish.innerHTML =
     '<div class="gal-sahna"><canvas class="gal-canvas"></canvas>' +
-      '<p class="gal-ishora">Sichqoncha bilan sudrab aylantiring · g‘ildirak bilan yaqinlashtiring</p>' +
+      '<p class="gal-ishora" id="gal-ishora">Sudrab aylantiring · g‘ildirak bilan yaqinlashtiring</p>' +
     '</div>' +
     '<div class="gal-malumot">' +
       '<h4 id="gal-nom"></h4><p id="gal-izoh"></p>' +
@@ -112,14 +112,14 @@ import * as THREE from '../vendor/three.module.min.js';
 
   // Poydevor — milliy naqshli disk
   const poydevor = new THREE.Mesh(
-    new THREE.CylinderGeometry(1.35, 1.45, 0.12, 40),
+    new THREE.CylinderGeometry(1.02, 1.12, 0.10, 40),
     new THREE.MeshStandardMaterial({ color: 0xC9A87A, roughness: 0.85 })
   );
   poydevor.position.y = -0.06;
   poydevor.receiveShadow = true;
   sahna.add(poydevor);
 
-  [1.16, 0.95].forEach((r, i) => {
+  [0.88, 0.72].forEach((r, i) => {
     const h = new THREE.Mesh(
       new THREE.TorusGeometry(r, 0.012, 6, 48),
       new THREE.MeshStandardMaterial({ color: 0xD4A24C, roughness: 0.5, metalness: 0.3 })
@@ -157,7 +157,7 @@ import * as THREE from '../vendor/three.module.min.js';
     const quti = new THREE.Box3().setFromObject(joriy);
     const olcham = quti.getSize(new THREE.Vector3());
     const eng = Math.max(olcham.x, olcham.y, olcham.z) || 1;
-    const k = 1.55 / eng;
+    const k = 1.7 / eng;
     joriy.scale.setScalar(k);
 
     // Pastki nuqtasini poydevorga qo‘yamiz, markazini o‘qqa keltiramiz
@@ -168,6 +168,14 @@ import * as THREE from '../vendor/three.module.min.js';
     joriy.position.y -= q2.min.y;
 
     guruh.add(joriy);
+
+    // Kamerani model o‘lchamiga qarab sozlaymiz — har buyum kadrni to‘ldirsin
+    const q3 = new THREE.Box3().setFromObject(joriy);
+    const o3 = q3.getSize(new THREE.Vector3());
+    const radius = Math.max(Math.hypot(o3.x, o3.z) * 0.5, o3.y * 0.5) || 1;
+    masofa = Math.max(2.2, Math.min(6.0, radius * 2.75 + 0.9));
+    nishonY = q3.min.y + o3.y * 0.5;
+    kameraniJoyla();
 
     nomEl.textContent = b.nom + (b.hunar ? ' — ' + b.hunar : b.oyin ? ' — ' + b.oyin : '');
     izohEl.textContent = b.izoh || '';
@@ -191,7 +199,7 @@ import * as THREE from '../vendor/three.module.min.js';
   /* =========================================================
      Boshqaruv — sudrab aylantirish, g‘ildirak bilan yaqinlashtirish
      ========================================================= */
-  let burchakY = 0.6, burchakX = 0.42, masofa = 4.2;
+  let burchakY = 0.6, burchakX = 0.36, masofa = 4.2, nishonY = 0.62;
   let sudralmoqda = false, oxirgiX = 0, oxirgiY = 0;
 
   function kameraniJoyla() {
@@ -199,10 +207,10 @@ import * as THREE from '../vendor/three.module.min.js';
     masofa = Math.max(2.4, Math.min(7.5, masofa));
     kamera.position.set(
       Math.sin(burchakY) * Math.cos(burchakX) * masofa,
-      Math.sin(burchakX) * masofa + 0.55,
+      Math.sin(burchakX) * masofa + nishonY,
       Math.cos(burchakY) * Math.cos(burchakX) * masofa
     );
-    kamera.lookAt(0, 0.62, 0);
+    kamera.lookAt(0, nishonY, 0);
   }
 
   canvas.addEventListener('pointerdown', e => {
@@ -255,6 +263,10 @@ import * as THREE from '../vendor/three.module.min.js';
 
   kameraniJoyla();
   korsat(kalitlar[0]);
+
+  // Ishora bir necha soniyadan keyin so‘nadi va modelni to‘smaydi
+  const ishoraEl = idish.querySelector('#gal-ishora');
+  if (ishoraEl) setTimeout(() => ishoraEl.classList.add('sondi'), 5000);
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(y => { y[0].isIntersecting ? yoq() : ochir(); },

@@ -1075,7 +1075,8 @@ sup.izoh-ref a:hover{ background:var(--krem-2); }
 .gal-canvas{ display:block; width:100%; height:auto; cursor:grab; touch-action:none; }
 .gal-canvas:active{ cursor:grabbing; }
 .gal-ishora{
-  position:absolute; left:50%; bottom:10px; translate:-50% 0; margin:0;
+  position:absolute; left:50%; top:10px; translate:-50% 0; margin:0;
+  transition:opacity .8s ease;
   padding:6px 14px; border-radius:999px;
   background:rgba(255,253,248,.9); color:var(--siyoh-3);
   font-family:var(--ui); font-size:12px; pointer-events:none;
@@ -1091,6 +1092,7 @@ sup.izoh-ref a:hover{ background:var(--krem-2); }
 .gal-malumot p{
   margin:0; font-family:var(--oq); font-size:15.5px; line-height:1.65; color:var(--siyoh-2);
 }
+.gal-ishora.sondi{ opacity:0; }
 .gal-royxat{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
 .gal-tugma{
   cursor:pointer; font-family:var(--ui); font-size:14px;
