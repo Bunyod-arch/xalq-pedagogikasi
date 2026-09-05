@@ -1060,3 +1060,47 @@ sup.izoh-ref a:hover{ background:var(--krem-2); }
   .uch-ust span{ font-size:11px; padding:5px 10px; }
   .uch-maslahat{ font-size:12.5px; padding:7px 13px; bottom:9px; }
 }
+
+/* ---------- 29. 3D GALEREYA ---------- */
+.galereya-quti{
+  background:linear-gradient(180deg,#FFFDF8,#F5EEE0);
+  border:1px solid var(--chegara); border-radius:var(--r-l);
+  padding:26px 28px; margin:32px 0; box-shadow:var(--soya-1);
+}
+.galereya-quti .oyin-bosh .nishon{ background:#7A5A21; }
+.gal-sahna{
+  position:relative; margin-top:16px; border-radius:var(--r-m); overflow:hidden;
+  background:#F7EFE1; box-shadow:inset 0 2px 14px rgba(0,0,0,.12), var(--soya-1);
+}
+.gal-canvas{ display:block; width:100%; height:auto; cursor:grab; touch-action:none; }
+.gal-canvas:active{ cursor:grabbing; }
+.gal-ishora{
+  position:absolute; left:50%; bottom:10px; translate:-50% 0; margin:0;
+  padding:6px 14px; border-radius:999px;
+  background:rgba(255,253,248,.9); color:var(--siyoh-3);
+  font-family:var(--ui); font-size:12px; pointer-events:none;
+  box-shadow:var(--soya-1); max-width:92%; text-align:center;
+}
+.gal-malumot{
+  margin-top:16px; padding:14px 18px;
+  background:#fff; border:1px solid var(--chegara); border-radius:var(--r-m);
+}
+.gal-malumot h4{
+  margin:0 0 6px; font-family:var(--ust); font-size:19px; color:var(--indigo);
+}
+.gal-malumot p{
+  margin:0; font-family:var(--oq); font-size:15.5px; line-height:1.65; color:var(--siyoh-2);
+}
+.gal-royxat{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.gal-tugma{
+  cursor:pointer; font-family:var(--ui); font-size:14px;
+  background:#fff; color:var(--siyoh);
+  border:1.5px solid var(--chegara); border-radius:999px; padding:8px 15px;
+  transition:transform .18s cubic-bezier(.34,1.56,.64,1), border-color .18s, background .18s;
+}
+.gal-tugma:hover{ transform:translateY(-2px); border-color:rgba(26,22,20,.3); }
+.gal-tugma.faol{ background:var(--indigo); color:#fff; border-color:var(--indigo); font-weight:600; }
+@media (max-width:560px){
+  .gal-ishora{ font-size:10.5px; padding:5px 10px; }
+  .gal-tugma{ font-size:13px; padding:7px 12px; }
+}
