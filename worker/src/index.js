@@ -1118,6 +1118,62 @@ async function buyruqStart(tg, env, xabar) {
     `<b>Assalomu alaykum, ${qalqon(foydalanuvchi.first_name)}!</b>\n\n` +
     "«Xalq pedagogikasi» elektron darsligi botiga xush kelibsiz.\n";
 
+  // ── ROLNI AVTOMATIK ANIQLASH ──────────────────────────────────
+  // Super admin va muallif ro'yxatdan O'TMAYDI — ular talaba emas.
+  if (adminMi(env, foydalanuvchi.id)) {
+    await holatOchir(env, foydalanuvchi.id);
+    const soni = await oqRoyxatSoni(env);
+    const oqFaol = await oqRoyxatFaolmi(env);
+    await tg.yubor(
+      chatId,
+      `${salom}\n` +
+        "🛡 Siz <b>SUPER ADMIN</b> sifatida tanildingiz.\n" +
+        `🆔 <code>${foydalanuvchi.id}</code>\n\n` +
+        "Sizga ro'yxatdan o'tish kerak emas.\n\n" +
+        "<b>Boshqaruv</b>\n" +
+        "/toxtat — botni to'xtatish · /boshla — yoqish\n" +
+        "/muzlat — saytni muzlatish · /yoq — qayta ochish\n" +
+        "/sozla — menyularni o'rnatish\n\n" +
+        "<b>Nazorat</b>\n" +
+        "/statistika · /natijalar · /talabalar · /hisobot · /eksport\n\n" +
+        "<b>Kirish nazorati</b>: " +
+        (oqFaol ? "🟢 yoqilgan" : "⚪ o'chirilgan") +
+        ` (telefon ${soni.telefon}, ism ${soni.ism})\n` +
+        "/royxat — boshqarish\n\n" +
+        "Darslikni ko'rish uchun pastdagi tugmani bosing.",
+      { reply_markup: darslikTugmasi(env) }
+    );
+    return;
+  }
+
+  if (muallifMi(env, foydalanuvchi.id)) {
+    await holatOchir(env, foydalanuvchi.id);
+    const soni = await oqRoyxatSoni(env);
+    const oqFaol = await oqRoyxatFaolmi(env);
+    await tg.yubor(
+      chatId,
+      `${salom}\n` +
+        "✍️ Siz <b>MUALLIF</b> sifatida tanildingiz.\n" +
+        `🆔 <code>${foydalanuvchi.id}</code>\n\n` +
+        "Sizga ro'yxatdan o'tish kerak emas — talabalarning barcha " +
+        "test va o'yin natijalari sizga avtomatik kelib turadi.\n\n" +
+        "<b>Natijalar</b>\n" +
+        "/natijalar — oxirgi natijalar\n" +
+        "/talabalar — talabalar ro'yxati\n" +
+        "/hisobot — modullar bo'yicha o'zlashtirish\n" +
+        "/qidir &lt;ism&gt; — talabani qidirish\n" +
+        "/statistika · /eksport (CSV)\n\n" +
+        "<b>Kim kira olsin?</b> " +
+        (oqFaol ? "🟢 nazorat yoqilgan" : "⚪ nazorat o'chirilgan") +
+        ` (telefon ${soni.telefon}, ism ${soni.ism})\n` +
+        "/royxat_qosh — talabalar ro'yxatini yuklash\n" +
+        "/royxat — to'liq qo'llanma\n\n" +
+        "Darslikni ko'rish uchun pastdagi tugmani bosing.",
+      { reply_markup: darslikTugmasi(env) }
+    );
+    return;
+  }
+
   // Allaqachon ro'yxatdan o'tgan bo'lsa — darhol Mini App tugmasi.
   if (talaba) {
     await holatOchir(env, foydalanuvchi.id);
@@ -1146,6 +1202,18 @@ async function buyruqStart(tg, env, xabar) {
 }
 
 async function buyruqYangila(tg, env, xabar) {
+  // Rolli foydalanuvchilar talaba emas — ular uchun ro'yxat yo'q.
+  if (muallifMi(env, xabar.from.id)) {
+    await tg.yubor(
+      xabar.chat.id,
+      "Siz " +
+        (adminMi(env, xabar.from.id) ? "super admin" : "muallif") +
+        " sifatida tanilgansiz — ro'yxatdan o'tish kerak emas.\n" +
+        "Buyruqlar ro'yxati: /start",
+      { reply_markup: darslikTugmasi(env) }
+    );
+    return;
+  }
   await royxatniBoshla(
     tg,
     env,
