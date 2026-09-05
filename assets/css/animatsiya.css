@@ -43,16 +43,18 @@ body.chiqmoqda{ opacity:0; transition:opacity .22s ease; }
 @keyframes chiziq-osish{ to{ width:100% } }
 
 /* ---------- 3. KIRISH (skroll bilan paydo bo'lish) ---------- */
-.kir{ opacity:0; transform:translateY(20px); }
-.kir.korin{
+/* Yashirish FAQAT JavaScript ishlaganda qo'llanadi (html.js).
+   JS o'chiq bo'lsa yoki xato bersa — matn baribir ko'rinib turadi. */
+html.js .kir{ opacity:0; transform:translateY(20px); }
+html.js .kir.korin{
   opacity:1; transform:none;
   transition:opacity .65s ease, transform .65s cubic-bezier(.22,1,.36,1);
+  /* Ketma-ket kechikish — ro'yxatlar bir-biriga ergashib chiqadi */
+  transition-delay:calc(var(--kechik, 0) * 55ms);
 }
-/* Ketma-ket kechikish — ro'yxatlar bir-biriga ergashib chiqadi */
-.kir.korin{ transition-delay:calc(var(--kechik, 0) * 55ms); }
 
 /* Sarlavhadagi bloklar sahifa ochilishi bilanoq chiqadi */
-.jonli-bosh .kir{ opacity:0; transform:translateY(16px); animation:bosh-kir .7s cubic-bezier(.22,1,.36,1) forwards; }
+html.js .jonli-bosh .kir{ opacity:0; transform:translateY(16px); animation:bosh-kir .7s cubic-bezier(.22,1,.36,1) forwards; }
 .jonli-bosh .yorliq.kir{ animation-delay:.10s }
 .jonli-bosh h1.kir   { animation-delay:.20s }
 .jonli-bosh p.kir    { animation-delay:.30s }
@@ -261,6 +263,6 @@ body.chiqmoqda{ opacity:0; transition:opacity .22s ease; }
   .jonli-bosh .kir,.chaqnadi,.tug.bosildi::after,.mod-karta:hover::before{
     animation:none !important;
   }
-  .kir{ opacity:1 !important; transform:none !important; }
+  html.js .kir{ opacity:1 !important; transform:none !important; }
   .jonli-bosh::after{ width:100%; }
 }

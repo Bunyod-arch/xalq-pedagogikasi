@@ -87,16 +87,27 @@
   skrollda();
 
   /* ---------- Skrollda paydo bo'lish ---------- */
+  /* MUHIM: threshold 0 bo'lishi shart. Ma'ruza matni 25 000 px dan baland
+     bo'lgani uchun uning ko'rinadigan ulushi hech qachon 12 % ga yetmaydi —
+     eski qiymatda matn butunlay ochilmay qolgan edi. */
   var kirEl = document.querySelectorAll('.kir');
+
+  function hammasiniOch() {
+    kirEl.forEach(function (el) { el.classList.add('korin'); });
+  }
+
   if (kirEl.length && 'IntersectionObserver' in window) {
     var ko = new IntersectionObserver(function (yozuvlar) {
       yozuvlar.forEach(function (y) {
         if (y.isIntersecting) { y.target.classList.add('korin'); ko.unobserve(y.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     kirEl.forEach(function (el) { ko.observe(el); });
+
+    // Zaxira: nima bo'lganda ham matn yashirin qolmasin
+    setTimeout(hammasiniOch, 2500);
   } else {
-    kirEl.forEach(function (el) { el.classList.add('korin'); });
+    hammasiniOch();
   }
 
   /* ---------- Modullar ro'yxati ---------- */
