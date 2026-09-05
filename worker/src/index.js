@@ -1570,6 +1570,43 @@ function holatSahifasi(env) {
 export default {
   async fetch(request, env, ctx) {
     try {
+      const manzil = new URL(request.url);
+
+      // Webhook'ni o'rnatish/tekshirish — faqat sir bilan.
+      // Bot tokeni Cloudflare ichidan tashqariga chiqmaydi.
+      if (manzil.pathname === "/webhook-ornat") {
+        if (!env.SECRET || !sirTeng(manzil.searchParams.get("sir"), env.SECRET)) {
+          return new Response("Ruxsat yo'q", { status: 401 });
+        }
+        if (!env.TG_TOKEN) {
+          return new Response("TG_TOKEN qo'yilmagan", { status: 500 });
+        }
+        const tayin = {
+          url: manzil.origin,
+          secret_token: env.SECRET,
+          drop_pending_updates: true,
+          allowed_updates: ["message", "edited_message", "callback_query"],
+        };
+        const j1 = await fetch(
+          "https://api.telegram.org/bot" + env.TG_TOKEN + "/setWebhook",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(tayin),
+          }
+        ).then((r) => r.json());
+        const j2 = await fetch(
+          "https://api.telegram.org/bot" + env.TG_TOKEN + "/getWebhookInfo"
+        ).then((r) => r.json());
+        const j3 = await fetch(
+          "https://api.telegram.org/bot" + env.TG_TOKEN + "/getMe"
+        ).then((r) => r.json());
+        return new Response(
+          JSON.stringify({ setWebhook: j1, webhookInfo: j2, bot: j3 }, null, 2),
+          { headers: { "Content-Type": "application/json; charset=utf-8" } }
+        );
+      }
+
       // GET — qisqa holat sahifasi.
       if (request.method === "GET" || request.method === "HEAD") {
         return holatSahifasi(env);
