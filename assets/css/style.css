@@ -1018,3 +1018,45 @@ sup.izoh-ref a:hover{ background:var(--krem-2); }
   margin-top:24px !important; padding-top:18px; border-top:1px solid var(--chegara);
   font-family:var(--ui) !important; font-size:13px !important; color:var(--siyoh-3) !important;
 }
+
+/* ---------- 28. HAQIQIY 3D O'YIN (Three.js) ---------- */
+.oyin3d{
+  background:linear-gradient(180deg,#FFFDF8,#F4EADA);
+  border:1px solid var(--chegara); border-radius:var(--r-l);
+  padding:26px 28px; margin:32px 0; box-shadow:var(--soya-1);
+}
+.oyin3d .oyin-bosh .nishon{ background:#2F6B45; }
+.uch-sahna{
+  position:relative; border-radius:var(--r-m); overflow:hidden;
+  box-shadow:inset 0 2px 14px rgba(0,0,0,.14), var(--soya-1);
+  background:#F3E6CE; margin-top:16px;
+}
+.uch-canvas{ display:block; width:100%; height:auto; touch-action:manipulation; cursor:pointer; }
+.uch-ust{
+  position:absolute; left:14px; top:14px; display:flex; gap:9px; flex-wrap:wrap;
+  pointer-events:none;
+}
+.uch-ust span{
+  background:rgba(27,59,111,.88); color:#fff;
+  font-family:var(--ui); font-size:12.5px; font-weight:600;
+  padding:6px 13px; border-radius:999px; backdrop-filter:blur(4px);
+}
+.uch-ust b{ font-size:14px; }
+.uch-maslahat{
+  position:absolute; left:50%; bottom:14px; translate:-50% 0;
+  margin:0; padding:8px 18px; border-radius:999px;
+  background:rgba(255,253,248,.94); color:var(--siyoh);
+  font-family:var(--ui); font-size:14px; font-weight:600;
+  box-shadow:var(--soya-1); max-width:90%; text-align:center;
+  pointer-events:none;
+}
+.uch-xato{
+  margin:0; padding:18px; text-align:center;
+  background:var(--krem-2); border-radius:var(--r-m);
+  font-size:14.5px; color:var(--siyoh-2);
+}
+@media (max-width:560px){
+  .uch-ust{ left:9px; top:9px; }
+  .uch-ust span{ font-size:11px; padding:5px 10px; }
+  .uch-maslahat{ font-size:12.5px; padding:7px 13px; bottom:9px; }
+}

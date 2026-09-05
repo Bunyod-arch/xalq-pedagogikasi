@@ -91,15 +91,7 @@
 .cholgu{
   perspective: 1100px;
   perspective-origin: 50% 28%;
-  box-shadow: var(--uo-yer-2);
-}
-
-/* O'yin blokining o'zi ham qalin «laganda» bo'lib ko'rinsin */
-.oyin,
-.oyin2{
-  box-shadow: var(--uo-yer-2), var(--uo-yorug);
-}
-.cholgu{
+  /* Blokning o'zi ham qalin «laganda» bo'lib ko'rinadi */
   box-shadow: var(--uo-yer-2), var(--uo-yorug);
 }
 
