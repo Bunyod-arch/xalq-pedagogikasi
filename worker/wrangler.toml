@@ -45,3 +45,10 @@ GH_SHOX = "main"
 
 # Darslik manzili — Telegram Mini App shu manzilni ochadi.
 WEBAPP_URL = "https://bunyod-arch.github.io/xalq-pedagogikasi/"
+
+# ---------------------------------------------------------------------
+#  Cloudflare Workers AI — ro'yxatdan o'tishda yuborilgan suratda
+#  haqiqatan odam bor-yo'qligini aniqlash uchun (DETR-ResNet-50).
+# ---------------------------------------------------------------------
+[ai]
+binding = "AI"

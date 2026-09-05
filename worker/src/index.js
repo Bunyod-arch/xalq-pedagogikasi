@@ -298,7 +298,10 @@ function darslikTugmasi(env) {
   const manzil = String(env.WEBAPP_URL || "").trim();
   if (!manzil.startsWith("https://")) return TUGMANI_OCHIR;
   return {
-    keyboard: [[{ text: "📚 Darslikni ochish", web_app: { url: manzil } }]],
+    keyboard: [
+      [{ text: "📚 Darslikni ochish", web_app: { url: manzil } }],
+      [{ text: "📊 Natijalarim" }, { text: "ℹ️ Yordam" }],
+    ],
     resize_keyboard: true,
     is_persistent: true,
   };
@@ -533,6 +536,90 @@ function qadamSavoli(qadam) {
  * Qadamga kelgan javobni tekshiradi.
  * Natija: { qiymat } yoki { xato: "sabab" }.
  */
+/* ---------- Suratda odam bor-yo'qligini tekshirish ---------- */
+
+/**
+ * COCO yorliqlarining o'zbekcha nomlari — foydalanuvchiga tushunarli
+ * xabar berish uchun (masalan: "suratda mushuk ko'rindi").
+ */
+const YORLIQ_UZBEKCHA = {
+  cat: "mushuk", dog: "it", bird: "qush", horse: "ot", sheep: "qo'y",
+  cow: "sigir", elephant: "fil", bear: "ayiq", zebra: "zebra",
+  giraffe: "jirafa", car: "mashina", truck: "yuk mashinasi",
+  bus: "avtobus", motorcycle: "mototsikl", bicycle: "velosiped",
+  airplane: "samolyot", boat: "qayiq", train: "poyezd",
+  "potted plant": "gul", "teddy bear": "qo'g'irchoq", book: "kitob",
+  chair: "stul", couch: "divan", bed: "karavot", tv: "televizor",
+  laptop: "noutbuk", "cell phone": "telefon", clock: "soat",
+  bottle: "shisha", cup: "piyola", "dining table": "stol",
+  pizza: "pitsa", cake: "tort", apple: "olma", banana: "banan",
+  flower: "gul", vase: "vaza", umbrella: "soyabon",
+};
+
+/** Yorliqni o'zbekchaga o'giradi; tarjimasi bo'lmasa o'zini qaytaradi. */
+function yorliqTarjima(yorliq) {
+  const kalit = String(yorliq || "").toLowerCase();
+  return YORLIQ_UZBEKCHA[kalit] || kalit;
+}
+
+/**
+ * Telegram suratini yuklab olib, Cloudflare Workers AI (DETR-ResNet-50)
+ * yordamida unda ODAM bor-yo'qligini aniqlaydi.
+ *
+ * Qaytadi:
+ *   { odam: true }                    — suratda odam bor
+ *   { odam: false, topilgan: [...] }  — odam yo'q, boshqa narsa ko'rindi
+ *   { nomalum: true }                 — tekshirib bo'lmadi (ruxsat beriladi)
+ *
+ * MUHIM: tekshiruv ishlamay qolsa ro'yxatdan o'tish TO'XTAMAYDI —
+ * surat qabul qilinadi, chunki xizmatning uzilishi talabaning aybi emas.
+ */
+async function suratdaOdamBormi(env, fileId) {
+  if (!env.AI || !env.TG_TOKEN) return { nomalum: true };
+  try {
+    const fayl = await fetch(
+      "https://api.telegram.org/bot" + env.TG_TOKEN +
+        "/getFile?file_id=" + encodeURIComponent(fileId)
+    ).then((r) => r.json());
+    const yol = fayl && fayl.result && fayl.result.file_path;
+    if (!yol) return { nomalum: true };
+
+    const javob = await fetch(
+      "https://api.telegram.org/file/bot" + env.TG_TOKEN + "/" + yol
+    );
+    if (!javob.ok) return { nomalum: true };
+
+    const bufer = await javob.arrayBuffer();
+    if (bufer.byteLength === 0 || bufer.byteLength > 5 * 1024 * 1024) {
+      return { nomalum: true };
+    }
+    const bayt = [...new Uint8Array(bufer)];
+
+    const natija = await env.AI.run("@cf/facebook/detr-resnet-50", { image: bayt });
+    const topilganlar = Array.isArray(natija)
+      ? natija
+      : (natija && natija.result) || [];
+    if (!Array.isArray(topilganlar) || topilganlar.length === 0) {
+      return { odam: false, topilgan: [] };
+    }
+
+    let odamBalli = 0;
+    const boshqalar = [];
+    for (const t of topilganlar) {
+      const ball = Number(t && t.score) || 0;
+      if (ball < 0.55) continue;
+      const yorliq = String((t && t.label) || "").toLowerCase();
+      if (yorliq === "person") odamBalli = Math.max(odamBalli, ball);
+      else boshqalar.push(yorliq);
+    }
+    if (odamBalli >= 0.55) return { odam: true };
+    return { odam: false, topilgan: [...new Set(boshqalar)].slice(0, 3) };
+  } catch (xato) {
+    console.error("Rasm tekshiruvi xatosi:", xato && xato.message);
+    return { nomalum: true };
+  }
+}
+
 function qadamniTekshir(qadam, xabar) {
   const matn = (xabar.text || "").trim();
 
@@ -611,6 +698,32 @@ async function royxatQadami(tg, env, xabar, holat) {
   if (javob.xato) {
     await tg.yubor(chatId, javob.xato, { reply_markup: javob.tugma || undefined });
     return;
+  }
+
+  // Surat bo'lsa — unda haqiqatan odam bor-yo'qligi tekshiriladi.
+  if (qadam === "rasm") {
+    await tg.yubor(chatId, "🔍 Rasm tekshirilmoqda, biroz kuting…");
+    const tekshiruv = await suratdaOdamBormi(env, javob.qiymat);
+    if (tekshiruv.odam === false) {
+      const nima =
+        tekshiruv.topilgan && tekshiruv.topilgan.length
+          ? " Suratda ko'ringani: <b>" +
+            qalqon(tekshiruv.topilgan.map(yorliqTarjima).join(", ")) +
+            "</b>."
+          : "";
+      await tg.yubor(
+        chatId,
+        "❌ Bu suratda <b>odam</b> ko'rinmadi." + nima + "\n\n" +
+          "Iltimos, <b>o'zingizning</b> suratingizni yuboring — " +
+          "yuzingiz aniq ko'rinib tursin. Hayvon, uy, manzara yoki " +
+          "boshqa rasm qabul qilinmaydi.",
+        { reply_markup: TUGMANI_OCHIR }
+      );
+      return;
+    }
+    if (tekshiruv.odam === true) {
+      await tg.yubor(chatId, "✅ Rasm qabul qilindi.");
+    }
   }
 
   const malumot = { ...(holat.malumot || {}) };
@@ -921,6 +1034,25 @@ async function buyruqBekor(tg, env, xabar) {
   );
 }
 
+/** Foizga qarab o'zlashtirish darajasi. */
+function ozlashtirishDarajasi(foiz) {
+  if (foiz >= 90) return { belgi: "🟢", nom: "A'lo" };
+  if (foiz >= 75) return { belgi: "🔵", nom: "Yaxshi" };
+  if (foiz >= 60) return { belgi: "🟡", nom: "Qoniqarli" };
+  if (foiz > 0) return { belgi: "🔴", nom: "Takrorlash kerak" };
+  return { belgi: "⚪", nom: "Boshlanmagan" };
+}
+
+/** Foizni 10 bo'lakli ustun ko'rinishida chizadi. */
+function ustunChiz(foiz) {
+  const toliq = Math.round((Math.max(0, Math.min(100, foiz)) / 100) * 10);
+  return "▰".repeat(toliq) + "▱".repeat(10 - toliq);
+}
+
+/**
+ * «📊 Natijalarim» — har bir modul bo'yicha o'zlashtirish hisoboti.
+ * Modulning eng yuqori natijasi o'zlashtirish deb olinadi.
+ */
 async function buyruqNatijam(tg, env, xabar) {
   const tgId = xabar.from.id;
   const talaba = await talabaOq(env, tgId);
@@ -930,24 +1062,108 @@ async function buyruqNatijam(tg, env, xabar) {
   }
 
   const kalitlar = await kalitlarniOl(env, `n:${tgId}:`);
-  if (kalitlar.length === 0) {
+
+  // Modul raqami bo'yicha yig'ish.
+  const modullar = {};
+  for (const kalit of kalitlar) {
+    const n = kalit.metadata || {};
+    const raqam = Number(n.modul);
+    if (!raqam || !MODUL_NOMLARI[raqam]) continue;
+    const foiz = Number(n.foiz) || 0;
+    if (!modullar[raqam]) {
+      modullar[raqam] = { eng_yuqori: 0, yigindi: 0, soni: 0, oxirgi: "", turlar: new Set() };
+    }
+    const m = modullar[raqam];
+    m.eng_yuqori = Math.max(m.eng_yuqori, foiz);
+    m.yigindi += foiz;
+    m.soni += 1;
+    m.turlar.add(n.tur === "oyin" ? "o'yin" : "test");
+    if (!m.oxirgi || String(n.sana || "") > m.oxirgi) m.oxirgi = String(n.sana || "");
+  }
+
+  const jamiModul = Object.keys(MODUL_NOMLARI).length;
+  const ishlangan = Object.keys(modullar).length;
+
+  if (ishlangan === 0) {
     await tg.yubor(
       xabar.chat.id,
-      "Sizda hali natija yo'q. Darslikdagi testlarni yechib ko'ring."
+      "📊 <b>Natijalaringiz</b>\n\n" +
+        "Sizda hali natija yo'q.\n\n" +
+        `Darslikda <b>${jamiModul} ta modul</b> bor. «📚 Darslikni ochish» ` +
+        "tugmasini bosing, mavzuni o'qing va test yoki o'yinni yakunlang — " +
+        "natija shu yerda avtomatik ko'rinadi.",
+      { reply_markup: darslikTugmasi(env) }
     );
     return;
   }
-  kalitlar.sort((a, b) => kalitVaqti(b.name) - kalitVaqti(a.name));
 
-  const satrlar = ["📊 <b>Sizning oxirgi natijalaringiz</b>\n"];
-  for (const kalit of kalitlar.slice(0, 20)) {
-    const n = kalit.metadata || {};
+  // Umumiy o'zlashtirish — BARCHA modullar bo'yicha (ishlanmagani 0 ball).
+  let umumiyYigindi = 0;
+  for (let r = 1; r <= jamiModul; r += 1) {
+    umumiyYigindi += modullar[r] ? modullar[r].eng_yuqori : 0;
+  }
+  const umumiy = Math.round(umumiyYigindi / jamiModul);
+  const jamiUrinish = Object.values(modullar).reduce((y, m) => y + m.soni, 0);
+  const daraja = ozlashtirishDarajasi(umumiy);
+
+  const satrlar = [
+    `📊 <b>Natijalaringiz</b> — ${qalqon(talaba.ism)} ${qalqon(talaba.familiya)}\n`,
+    `${daraja.belgi} Umumiy o'zlashtirish: <b>${umumiy}%</b> — ${daraja.nom}`,
+    `${ustunChiz(umumiy)}`,
+    `📘 Boshlangan modul: <b>${ishlangan}</b> / ${jamiModul} · ` +
+      `urinishlar: <b>${jamiUrinish}</b>`,
+    "\n━━━━━━━━━━━━━━━━━━",
+  ];
+
+  for (let r = 1; r <= jamiModul; r += 1) {
+    const nomi = MODUL_NOMLARI[r] || "";
+    const m = modullar[r];
+    if (!m) {
+      satrlar.push(
+        `\n⚪ <b>${r}-modul</b> — hali boshlanmagan\n` +
+          `<i>${qalqon(nomi.slice(0, 58))}</i>`
+      );
+      continue;
+    }
+    const d = ozlashtirishDarajasi(m.eng_yuqori);
+    const ortacha = Math.round(m.yigindi / m.soni);
     satrlar.push(
-      `📘 ${n.modul}-modul — <b>${n.foiz}%</b> ` +
-        `(${n.tur === "oyin" ? "o'yin" : "test"}) · ${qalqon(n.sana)}`
+      `\n${d.belgi} <b>${r}-modul</b> — <b>${m.eng_yuqori}%</b> · ${d.nom}\n` +
+        `<i>${qalqon(nomi.slice(0, 58))}</i>\n` +
+        `${ustunChiz(m.eng_yuqori)}  ${m.soni} urinish · o'rtacha ${ortacha}%` +
+        (m.turlar.size ? ` · ${[...m.turlar].join(", ")}` : "")
     );
   }
+
+  // Maslahat — nimani takrorlash kerak.
+  const zaif = Object.entries(modullar)
+    .filter(([, m]) => m.eng_yuqori < 75)
+    .sort((a, b) => a[1].eng_yuqori - b[1].eng_yuqori)
+    .slice(0, 3)
+    .map(([r]) => `${r}-modul`);
+  const boshlanmagan = [];
+  for (let r = 1; r <= jamiModul; r += 1) if (!modullar[r]) boshlanmagan.push(r);
+
+  satrlar.push("\n━━━━━━━━━━━━━━━━━━\n");
+  if (zaif.length) {
+    satrlar.push(`🔁 <b>Takrorlash tavsiya etiladi:</b> ${zaif.join(", ")}`);
+  }
+  if (boshlanmagan.length) {
+    satrlar.push(
+      `▶️ <b>Keyingi qadam:</b> ${boshlanmagan[0]}-modulni boshlang ` +
+        `(yana ${boshlanmagan.length} ta modul kutmoqda).`
+    );
+  }
+  if (!zaif.length && !boshlanmagan.length) {
+    satrlar.push("🏆 Barcha modullar yaxshi o'zlashtirilgan. Tabriklaymiz!");
+  }
+
   await tg.uzunYubor(xabar.chat.id, satrlar.join("\n"));
+  await tg.yubor(
+    xabar.chat.id,
+    "Davom etish uchun pastdagi tugmalardan foydalaning.",
+    { reply_markup: darslikTugmasi(env) }
+  );
 }
 
 async function buyruqYordam(tg, env, xabar) {
@@ -1473,6 +1689,16 @@ async function xabarniQaytaIshla(tg, env, xabar) {
     return;
   }
 
+  // 2b) Doimiy klaviatura tugmalari.
+  if (matn === "📊 Natijalarim") {
+    await buyruqNatijam(tg, env, xabar);
+    return;
+  }
+  if (matn === "ℹ️ Yordam") {
+    await buyruqYordam(tg, env, xabar);
+    return;
+  }
+
   // 3) Ro'yxatdan o'tish suhbati davom etayotgan bo'lsa.
   const holat = await holatOq(env, tgId);
   if (holat && QADAMLAR.includes(holat.qadam)) {
@@ -1603,6 +1829,30 @@ export default {
         ).then((r) => r.json());
         return new Response(
           JSON.stringify({ setWebhook: j1, webhookInfo: j2, bot: j3 }, null, 2),
+          { headers: { "Content-Type": "application/json; charset=utf-8" } }
+        );
+      }
+
+      // Rasm tanish modelini sinash — faqat sir bilan (diagnostika).
+      if (manzil.pathname === "/rasm-sinov") {
+        if (!env.SECRET || !sirTeng(manzil.searchParams.get("sir"), env.SECRET)) {
+          return new Response("Ruxsat yo'q", { status: 401 });
+        }
+        if (!env.AI) return new Response("AI ulanmagan", { status: 500 });
+        const rasmManzil = manzil.searchParams.get("rasm");
+        if (!rasmManzil) return new Response("rasm=... kerak", { status: 400 });
+        const r = await fetch(rasmManzil, {
+          headers: { "User-Agent": "xalq-pedagogikasi-bot/1.0 (diagnostika)" },
+        });
+        if (!r.ok) return new Response("Rasm yuklanmadi: " + r.status, { status: 502 });
+        const bayt = [...new Uint8Array(await r.arrayBuffer())];
+        const natija = await env.AI.run("@cf/facebook/detr-resnet-50", { image: bayt });
+        const royxat = Array.isArray(natija) ? natija : (natija && natija.result) || [];
+        const muhim = royxat
+          .filter((t) => (Number(t && t.score) || 0) >= 0.55)
+          .map((t) => ({ yorliq: t.label, ball: Math.round(t.score * 100) / 100 }));
+        return new Response(
+          JSON.stringify({ bayt: bayt.length, topilgan: muhim }, null, 2),
           { headers: { "Content-Type": "application/json; charset=utf-8" } }
         );
       }
