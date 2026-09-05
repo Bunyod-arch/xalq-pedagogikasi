@@ -536,6 +536,116 @@ function qadamSavoli(qadam) {
  * Qadamga kelgan javobni tekshiradi.
  * Natija: { qiymat } yoki { xato: "sabab" }.
  */
+/* =====================================================================
+ *  OQ RO'YXAT — faqat muallif kiritgan talabalar ro'yxatdan o'ta oladi.
+ *
+ *  Kalitlar:
+ *    oq:t:<telefon>     — telefon bo'yicha ruxsat
+ *    oq:i:<ism-familya> — ism-familiya bo'yicha ruxsat
+ *    sozlama:oq         — "1" yoqilgan, "0" o'chirilgan
+ * ===================================================================== */
+
+/** Telefon raqamdan faqat oxirgi 9 raqamni oladi (O'zbekiston raqamlari). */
+function telefonKalit(xom) {
+  const raqamlar = String(xom || "").replace(/\D+/g, "");
+  if (raqamlar.length < 7) return "";
+  return raqamlar.slice(-9);
+}
+
+/** Ismni solishtirish uchun soddalashtiradi: kichik harf, apostroflarsiz. */
+function ismKalit(xom) {
+  return String(xom || "")
+    .toLowerCase()
+    .replace(/[\u2018\u2019\u02bb\u02bc'`\u00b4]/g, "")
+    .replace(/[^a-z\u0400-\u04ff0-9 ]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Ism va familiyani tartibdan qat'i nazar bir xil kalitga keltiradi. */
+function juftKalit(birinchi, ikkinchi) {
+  const sozlar = (ismKalit(birinchi) + " " + ismKalit(ikkinchi)).split(" ").filter(Boolean);
+  if (sozlar.length === 0) return "";
+  return sozlar.sort().join(" ");
+}
+
+/** Oq ro'yxat yoqilganmi? */
+async function oqRoyxatFaolmi(env) {
+  try {
+    const q = await env.BAZA.get("sozlama:oq");
+    if (q === "0") return false;
+    if (q === "1") return true;
+  } catch (xato) {
+    console.error("Oq ro'yxat sozlamasi o'qilmadi:", xato && xato.message);
+  }
+  // Sozlama qo'yilmagan bo'lsa — ro'yxatda yozuv bo'lsa faol hisoblanadi.
+  const bor = await kalitlarniOl(env, "oq:", 1);
+  return bor.length > 0;
+}
+
+/** Ro'yxatdagi yozuvlar sonini qaytaradi. */
+async function oqRoyxatSoni(env) {
+  const kalitlar = await kalitlarniOl(env, "oq:t:");
+  const ismlar = await kalitlarniOl(env, "oq:i:");
+  return { telefon: kalitlar.length, ism: ismlar.length };
+}
+
+/**
+ * Talaba ro'yxatda bormi? Telefon YOKI ism-familiya mos kelsa — ha.
+ * Ro'yxat o'chirilgan bo'lsa hamma uchun ruxsat.
+ */
+async function oqRoyxatdaBormi(env, malumot) {
+  if (!(await oqRoyxatFaolmi(env))) return true;
+  try {
+    const tk = telefonKalit(malumot.telefon);
+    if (tk && (await env.BAZA.get("oq:t:" + tk)) !== null) return true;
+    const ik = juftKalit(malumot.ism, malumot.familiya);
+    if (ik && (await env.BAZA.get("oq:i:" + ik)) !== null) return true;
+  } catch (xato) {
+    console.error("Oq ro'yxat tekshiruvi xatosi:", xato && xato.message);
+    return true; // xizmat uzilsa talabani to'sib qo'ymaymiz
+  }
+  return false;
+}
+
+/**
+ * Matndagi satrlardan ro'yxat yasaydi.
+ * Har bir satr: «Familiya Ism +998901234567» yoki «Familiya;Ism;+998…»
+ * Telefon ham, ism ham bo'lishi shart emas — bittasi yetadi.
+ */
+function royxatSatrlariniTahlil(matn) {
+  const natija = [];
+  for (const xomSatr of String(matn || "").split(/\r?\n/)) {
+    const satr = xomSatr.replace(/[;,\t|]+/g, " ").trim();
+    if (!satr || satr.startsWith("#")) continue;
+    const telMoslik = satr.match(/[+]?\d[\d\s()-]{6,}\d/);
+    const telefon = telMoslik ? telefonKalit(telMoslik[0]) : "";
+    const ismQismi = telMoslik ? satr.replace(telMoslik[0], " ") : satr;
+    const sozlar = ismKalit(ismQismi).split(" ").filter(Boolean);
+    const ism = sozlar.length >= 2 ? sozlar.sort().join(" ") : "";
+    if (!telefon && !ism) continue;
+    natija.push({ satr: satr.slice(0, 120), telefon, ism });
+  }
+  return natija;
+}
+
+/** Tahlil qilingan yozuvlarni bazaga yozadi. */
+async function oqRoyxatgaQosh(env, yozuvlar) {
+  let telefon = 0;
+  let ism = 0;
+  for (const y of yozuvlar) {
+    if (y.telefon) {
+      await env.BAZA.put("oq:t:" + y.telefon, y.satr);
+      telefon += 1;
+    }
+    if (y.ism) {
+      await env.BAZA.put("oq:i:" + y.ism, y.satr);
+      ism += 1;
+    }
+  }
+  return { telefon, ism };
+}
+
 /* ---------- Suratda odam bor-yo'qligini tekshirish ---------- */
 
 /**
@@ -698,6 +808,31 @@ async function royxatQadami(tg, env, xabar, holat) {
   if (javob.xato) {
     await tg.yubor(chatId, javob.xato, { reply_markup: javob.tugma || undefined });
     return;
+  }
+
+  // Telefon kiritilgach — talaba muallif ro'yxatida bormi, tekshiriladi.
+  if (qadam === "telefon") {
+    const nomzod = {
+      ism: (holat.malumot || {}).ism,
+      familiya: (holat.malumot || {}).familiya,
+      telefon: javob.qiymat,
+    };
+    if (!(await oqRoyxatdaBormi(env, nomzod))) {
+      await holatOchir(env, tgId);
+      await tg.yubor(
+        chatId,
+        "🚫 <b>Kirish cheklangan</b>\n\n" +
+          "Sizning ma'lumotlaringiz o'qituvchi kiritgan talabalar " +
+          "ro'yxatida topilmadi.\n\n" +
+          `Kiritilgan: <b>${qalqon(nomzod.familiya)} ${qalqon(nomzod.ism)}</b>, ` +
+          `${qalqon(nomzod.telefon)}\n\n` +
+          "Ism-familiyangizni yoki telefon raqamingizni xato yozgan " +
+          "bo'lishingiz mumkin — /start bosib qaytadan urinib ko'ring. " +
+          "Agar to'g'ri bo'lsa, o'qituvchingizga murojaat qiling.",
+        { reply_markup: TUGMANI_OCHIR }
+      );
+      return;
+    }
   }
 
   // Surat bo'lsa — unda haqiqatan odam bor-yo'qligi tekshiriladi.
@@ -1166,6 +1301,142 @@ async function buyruqNatijam(tg, env, xabar) {
   );
 }
 
+/** Telegram hujjatini yuklab, matn sifatida o'qiydi (.txt / .csv). */
+async function hujjatMatniniOq(env, hujjat) {
+  const olcham = Number(hujjat.file_size) || 0;
+  if (olcham > 2 * 1024 * 1024) {
+    return { xato: "❌ Fayl juda katta (2 MB dan oshmasin)." };
+  }
+  try {
+    const javob = await fetch(
+      "https://api.telegram.org/bot" + env.TG_TOKEN +
+        "/getFile?file_id=" + encodeURIComponent(hujjat.file_id)
+    ).then((r) => r.json());
+    const yol = javob && javob.result && javob.result.file_path;
+    if (!yol) return { xato: "❌ Faylni yuklab bo'lmadi." };
+    const fayl = await fetch(
+      "https://api.telegram.org/file/bot" + env.TG_TOKEN + "/" + yol
+    );
+    if (!fayl.ok) return { xato: "❌ Faylni yuklab bo'lmadi." };
+    return { matn: await fayl.text() };
+  } catch (xato) {
+    console.error("Hujjat o'qilmadi:", xato && xato.message);
+    return { xato: "❌ Faylni o'qishda xatolik yuz berdi." };
+  }
+}
+
+/** /royxat — oq ro'yxat holati va qo'llanmasi (muallif uchun). */
+async function buyruqRoyxat(tg, env, xabar) {
+  const faol = await oqRoyxatFaolmi(env);
+  const soni = await oqRoyxatSoni(env);
+  await tg.yubor(
+    xabar.chat.id,
+    "📋 <b>Talabalar ro'yxati (kirish nazorati)</b>\n\n" +
+      `Holati: ${faol ? "🟢 <b>YOQILGAN</b> — faqat ro'yxatdagilar kira oladi" : "⚪ <b>O'CHIRILGAN</b> — hamma kira oladi"}\n` +
+      `Telefon bo'yicha yozuv: <b>${soni.telefon}</b>\n` +
+      `Ism-familiya bo'yicha yozuv: <b>${soni.ism}</b>\n\n` +
+      "<b>Ro'yxat qo'shish</b>\n" +
+      "1) <code>/royxat_qosh</code> buyrug'ini yuboring, so'ng talabalar " +
+      "ro'yxatini bitta xabarda yuboring — har bir talaba alohida qatorda.\n" +
+      "2) Yoki shu yerga <b>.txt / .csv fayl</b> tashlang.\n\n" +
+      "<b>Qator ko'rinishi</b> (telefon yoki ism — bittasi yetadi):\n" +
+      "<code>Jo'rabekov Bunyodbek +998901234567</code>\n" +
+      "<code>Karimova Nodira</code>\n" +
+      "<code>+998911112233</code>\n\n" +
+      "<b>Boshqa buyruqlar</b>\n" +
+      "<code>/royxat_kor</code> — ro'yxatni ko'rish\n" +
+      "<code>/royxat_yon</code> — nazoratni yoqish\n" +
+      "<code>/royxat_ochir</code> — nazoratni o'chirish (hamma kiradi)\n" +
+      "<code>/royxat_tozala</code> — ro'yxatni butunlay o'chirish"
+  );
+}
+
+/** /royxat_qosh — keyingi xabar ro'yxat sifatida qabul qilinadi. */
+async function buyruqRoyxatQosh(tg, env, xabar) {
+  await holatYoz(env, xabar.from.id, { qadam: "oq_royxat_kutish", malumot: {} });
+  await tg.yubor(
+    xabar.chat.id,
+    "📝 Endi talabalar ro'yxatini <b>bitta xabarda</b> yuboring — " +
+      "har bir talaba alohida qatorda.\n\n" +
+      "Yoki <b>.txt / .csv fayl</b> tashlang.\n\n" +
+      "Bekor qilish: /bekor"
+  );
+}
+
+/** Ro'yxat matnini qabul qilib bazaga yozadi. */
+async function royxatMatniniQabulQil(tg, env, xabar, matn) {
+  const yozuvlar = royxatSatrlariniTahlil(matn);
+  if (yozuvlar.length === 0) {
+    await tg.yubor(
+      xabar.chat.id,
+      "❌ Ro'yxatdan hech qanday yozuv topilmadi.\n\n" +
+        "Har bir qatorda kamida ism-familiya yoki telefon raqam bo'lishi kerak."
+    );
+    return;
+  }
+  const qoshildi = await oqRoyxatgaQosh(env, yozuvlar);
+  await env.BAZA.put("sozlama:oq", "1");
+  await holatOchir(env, xabar.from.id);
+  const soni = await oqRoyxatSoni(env);
+  await tg.yubor(
+    xabar.chat.id,
+    `✅ <b>${yozuvlar.length} ta qator</b> qabul qilindi.\n\n` +
+      `Yangi telefon kalitlari: ${qoshildi.telefon}\n` +
+      `Yangi ism kalitlari: ${qoshildi.ism}\n\n` +
+      `Bazada jami: telefon <b>${soni.telefon}</b>, ism <b>${soni.ism}</b>\n\n` +
+      "🟢 Kirish nazorati <b>yoqildi</b> — endi faqat shu ro'yxatdagi " +
+      "talabalar ro'yxatdan o'ta oladi."
+  );
+}
+
+/** /royxat_kor — ro'yxatni ko'rsatadi. */
+async function buyruqRoyxatKor(tg, env, xabar) {
+  const kalitlar = await kalitlarniOl(env, "oq:");
+  if (kalitlar.length === 0) {
+    await tg.yubor(xabar.chat.id, "Ro'yxat bo'sh. /royxat_qosh bilan to'ldiring.");
+    return;
+  }
+  const korilgan = new Set();
+  const satrlar = ["📋 <b>Ro'yxatdagi talabalar</b>\n"];
+  let raqam = 0;
+  for (const kalit of kalitlar) {
+    const qiymat = await env.BAZA.get(kalit.name);
+    const kalitMatn = String(qiymat || kalit.name);
+    if (korilgan.has(kalitMatn)) continue;
+    korilgan.add(kalitMatn);
+    raqam += 1;
+    if (raqam > 200) break;
+    satrlar.push(`${raqam}. ${qalqon(kalitMatn)}`);
+  }
+  satrlar.push(`\nJami noyob yozuv: <b>${korilgan.size}</b>`);
+  await tg.uzunYubor(xabar.chat.id, satrlar.join("\n"));
+}
+
+/** /royxat_yon va /royxat_ochir — nazoratni yoqadi yoki o'chiradi. */
+async function buyruqRoyxatHolat(tg, env, xabar, yoqilsin) {
+  await env.BAZA.put("sozlama:oq", yoqilsin ? "1" : "0");
+  await tg.yubor(
+    xabar.chat.id,
+    yoqilsin
+      ? "🟢 Kirish nazorati <b>yoqildi</b> — faqat ro'yxatdagi talabalar kira oladi."
+      : "⚪ Kirish nazorati <b>o'chirildi</b> — hamma ro'yxatdan o'ta oladi."
+  );
+}
+
+/** /royxat_tozala — ro'yxatni butunlay o'chiradi. */
+async function buyruqRoyxatTozala(tg, env, xabar) {
+  const kalitlar = await kalitlarniOl(env, "oq:");
+  for (const kalit of kalitlar) {
+    await env.BAZA.delete(kalit.name);
+  }
+  await env.BAZA.put("sozlama:oq", "0");
+  await tg.yubor(
+    xabar.chat.id,
+    `🗑 Ro'yxat tozalandi (${kalitlar.length} ta kalit o'chirildi).\n` +
+      "Kirish nazorati o'chirildi — hozircha hamma kira oladi."
+  );
+}
+
 async function buyruqYordam(tg, env, xabar) {
   const tgId = xabar.from.id;
   const satrlar = [
@@ -1182,7 +1453,16 @@ async function buyruqYordam(tg, env, xabar) {
       "/natijalar — oxirgi 20 ta natija",
       "/talabalar — talabalar ro'yxati",
       "/hisobot — modullar bo'yicha o'rtacha foiz",
-      "/qidir &lt;ism&gt; — talabani qidirish"
+      "/qidir &lt;ism&gt; — talabani qidirish",
+      "/statistika — umumiy statistika",
+      "/eksport — natijalarni CSV'da olish",
+      "\n<b>Kirish nazorati</b>",
+      "/royxat — holat va qo'llanma",
+      "/royxat_qosh — ro'yxat qo'shish (matn yoki .txt/.csv fayl)",
+      "/royxat_kor — ro'yxatni ko'rish",
+      "/royxat_yon — nazoratni yoqish",
+      "/royxat_ochir — nazoratni o'chirish",
+      "/royxat_tozala — ro'yxatni butunlay o'chirish"
     );
   }
   if (adminMi(env, tgId)) {
@@ -1192,9 +1472,8 @@ async function buyruqYordam(tg, env, xabar) {
       "/toxtat — botni to'xtatish",
       "/muzlat — saytni muzlatish",
       "/yoq — saytni qayta ochish",
-      "/statistika — umumiy raqamlar",
-      "/eksport — natijalarni CSV'da olish",
-      "/sozla — buyruq menyularini o'rnatish"
+      "/sozla — buyruq menyularini o'rnatish",
+      "\n<i>Botni va saytni to'xtatish faqat super adminda.</i>"
     );
   }
   await tg.yubor(xabar.chat.id, satrlar.join("\n"));
@@ -1522,15 +1801,23 @@ const MUALLIF_MENYU = ODDIY_MENYU.concat([
   { command: "talabalar", description: "Talabalar ro'yxati" },
   { command: "hisobot", description: "Modullar bo'yicha hisobot" },
   { command: "qidir", description: "Talabani qidirish" },
+  { command: "statistika", description: "Umumiy statistika" },
+  { command: "eksport", description: "CSV eksport" },
+  { command: "royxat", description: "Talabalar ro'yxati (kirish nazorati)" },
+  { command: "royxat_qosh", description: "Ro'yxatga talaba qo'shish" },
+  { command: "royxat_kor", description: "Ro'yxatni ko'rish" },
+  { command: "royxat_yon", description: "Kirish nazoratini yoqish" },
+  { command: "royxat_ochir", description: "Kirish nazoratini o'chirish" },
+  { command: "royxat_tozala", description: "Ro'yxatni tozalash" },
 ]);
 
+// Super admin — muallifning hamma imkoniyati + botni va saytni
+// to'xtatish/yoqish. Bu buyruqlar MUALLIFDA YO'Q.
 const ADMIN_MENYU = MUALLIF_MENYU.concat([
   { command: "boshla", description: "Botni yoqish" },
   { command: "toxtat", description: "Botni to'xtatish" },
   { command: "muzlat", description: "Saytni muzlatish" },
   { command: "yoq", description: "Saytni qayta ochish" },
-  { command: "statistika", description: "Umumiy statistika" },
-  { command: "eksport", description: "CSV eksport" },
   { command: "sozla", description: "Menyularni o'rnatish" },
 ]);
 
@@ -1609,7 +1896,15 @@ async function buyruqniBajar(tg, env, xabar, buyruq, arg) {
     case "natijalar":
     case "talabalar":
     case "hisobot":
-    case "qidir": {
+    case "qidir":
+    case "statistika":
+    case "eksport":
+    case "royxat":
+    case "royxat_qosh":
+    case "royxat_kor":
+    case "royxat_yon":
+    case "royxat_ochir":
+    case "royxat_tozala": {
       if (!muallifMi(env, tgId)) {
         await ruxsatYoq(tg, xabar);
         return true;
@@ -1617,6 +1912,14 @@ async function buyruqniBajar(tg, env, xabar, buyruq, arg) {
       if (buyruq === "natijalar") await buyruqNatijalar(tg, env, xabar, arg);
       else if (buyruq === "talabalar") await buyruqTalabalar(tg, env, xabar);
       else if (buyruq === "hisobot") await buyruqHisobot(tg, env, xabar);
+      else if (buyruq === "statistika") await buyruqStatistika(tg, env, xabar);
+      else if (buyruq === "eksport") await buyruqEksport(tg, env, xabar);
+      else if (buyruq === "royxat") await buyruqRoyxat(tg, env, xabar);
+      else if (buyruq === "royxat_qosh") await buyruqRoyxatQosh(tg, env, xabar);
+      else if (buyruq === "royxat_kor") await buyruqRoyxatKor(tg, env, xabar);
+      else if (buyruq === "royxat_yon") await buyruqRoyxatHolat(tg, env, xabar, true);
+      else if (buyruq === "royxat_ochir") await buyruqRoyxatHolat(tg, env, xabar, false);
+      else if (buyruq === "royxat_tozala") await buyruqRoyxatTozala(tg, env, xabar);
       else await buyruqQidir(tg, env, xabar, arg);
       return true;
     }
@@ -1626,8 +1929,6 @@ async function buyruqniBajar(tg, env, xabar, buyruq, arg) {
     case "toxtat":
     case "muzlat":
     case "yoq":
-    case "statistika":
-    case "eksport":
     case "sozla": {
       if (!adminMi(env, tgId)) {
         await ruxsatYoq(tg, xabar);
@@ -1637,8 +1938,6 @@ async function buyruqniBajar(tg, env, xabar, buyruq, arg) {
       else if (buyruq === "toxtat") await buyruqToxtat(tg, env, xabar);
       else if (buyruq === "muzlat") await buyruqMuzlat(tg, env, xabar);
       else if (buyruq === "yoq") await buyruqYoq(tg, env, xabar);
-      else if (buyruq === "statistika") await buyruqStatistika(tg, env, xabar);
-      else if (buyruq === "eksport") await buyruqEksport(tg, env, xabar);
       else await buyruqSozla(tg, env, xabar);
       return true;
     }
@@ -1687,6 +1986,38 @@ async function xabarniQaytaIshla(tg, env, xabar) {
       "❓ Bunday buyruq yo'q. Buyruqlar ro'yxati: /yordam"
     );
     return;
+  }
+
+  // 2a) Muallif ro'yxat yubormoqda — matn yoki hujjat.
+  const kutish = await holatOq(env, tgId);
+  if (kutish && kutish.qadam === "oq_royxat_kutish" && muallifMi(env, tgId)) {
+    if (xabar.document) {
+      const fayl = await hujjatMatniniOq(env, xabar.document);
+      if (fayl.xato) {
+        await tg.yubor(chatId, fayl.xato);
+        return;
+      }
+      await royxatMatniniQabulQil(tg, env, xabar, fayl.matn);
+      return;
+    }
+    if (matn) {
+      await royxatMatniniQabulQil(tg, env, xabar, matn);
+      return;
+    }
+  }
+
+  // 2a-2) Muallif to'g'ridan-to'g'ri .txt/.csv fayl tashladi.
+  if (xabar.document && muallifMi(env, tgId)) {
+    const nomi = String(xabar.document.file_name || "").toLowerCase();
+    if (nomi.endsWith(".txt") || nomi.endsWith(".csv")) {
+      const fayl = await hujjatMatniniOq(env, xabar.document);
+      if (fayl.xato) {
+        await tg.yubor(chatId, fayl.xato);
+        return;
+      }
+      await royxatMatniniQabulQil(tg, env, xabar, fayl.matn);
+      return;
+    }
   }
 
   // 2b) Doimiy klaviatura tugmalari.
