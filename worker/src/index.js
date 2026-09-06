@@ -326,9 +326,13 @@ const T = {
  * Super adminda botni va saytni to'xtatish/yoqish tugmalari bor,
  * muallifda esa YO'Q — unga faqat talabalar va natijalar tegishli.
  */
-function darslikTugmasi(env, tgId) {
+function darslikTugmasi(env, tgId, muzlat) {
   const manzil = String(env.WEBAPP_URL || "").trim();
-  const ochish = manzil.startsWith("https://")
+  // Sayt muzlatilgan bo'lsa TALABAGA Mini App tugmasi berilmaydi —
+  // darslikka kirish yo'li butunlay yopiladi. Rol egalarida qoladi,
+  // chunki ular qulfni o'zi tekshirishi kerak.
+  const rolli = tgId !== undefined && muallifMi(env, tgId);
+  const ochish = manzil.startsWith("https://") && (rolli || !muzlat)
     ? [{ text: T.DARSLIK, web_app: { url: manzil } }]
     : null;
 
@@ -361,16 +365,18 @@ function darslikTugmasi(env, tgId) {
     return { keyboard: qatorlar, resize_keyboard: true, is_persistent: true };
   }
 
-  // ---- Talaba (avvalgidek) ----
-  if (!ochish) return TUGMANI_OCHIR;
-  return {
-    keyboard: [
-      ochish,
-      [{ text: T.NATIJAM }, { text: T.YORDAM }],
-    ],
-    resize_keyboard: true,
-    is_persistent: true,
-  };
+  // ---- Talaba ----
+  const qatorlar = [];
+  if (ochish) qatorlar.push(ochish);
+  qatorlar.push([{ text: T.NATIJAM }, { text: T.YORDAM }]);
+  return { keyboard: qatorlar, resize_keyboard: true, is_persistent: true };
+}
+
+/** Rolga va sayt holatiga mos klaviatura (muzlatishni o'zi tekshiradi). */
+async function tugmalar(env, tgId) {
+  let muzlat = false;
+  try { muzlat = await muzlatilganmi(env); } catch (e) {}
+  return darslikTugmasi(env, tgId, muzlat);
 }
 
 /** Matn doimiy klaviaturadagi tugmami? */
@@ -992,7 +998,7 @@ async function royxatniYakunla(tg, env, xabar, malumot) {
       "Endi pastdagi «📚 Darslikni ochish» tugmasi orqali darslikni " +
       "oching va testlarni yeching — natijalar avtomatik muallifga yuboriladi.\n" +
       "O'z natijalaringizni ko'rish: /natijam",
-    { reply_markup: darslikTugmasi(env, xabar.from.id) }
+    { reply_markup: await tugmalar(env, xabar.from.id) }
   );
 
   // Muallifga yangi talaba haqida xabar (rasm bilan).
@@ -1210,7 +1216,7 @@ async function buyruqStart(tg, env, xabar) {
         "<b>🗂 Talabalar jadvali</b> — kim kira olishini belgilaydi.\n" +
         "Hozir: " + (oqFaol ? "🟢 nazorat yoqilgan" : "⚪ nazorat o'chirilgan") +
         ` (telefon ${soni.telefon}, ism ${soni.ism})`,
-      { reply_markup: darslikTugmasi(env, xabar.from.id) }
+      { reply_markup: await tugmalar(env, xabar.from.id) }
     );
     return;
   }
@@ -1234,7 +1240,7 @@ async function buyruqStart(tg, env, xabar) {
         "📚 Darslikni ochish — saytni ko'rasiz\n\n" +
         "Hozirgi holat: " + (oqFaol ? "🟢 nazorat yoqilgan" : "⚪ nazorat o'chirilgan") +
         ` (telefon ${soni.telefon}, ism ${soni.ism})`,
-      { reply_markup: darslikTugmasi(env, xabar.from.id) }
+      { reply_markup: await tugmalar(env, xabar.from.id) }
     );
     return;
   }
@@ -1242,6 +1248,20 @@ async function buyruqStart(tg, env, xabar) {
   // Allaqachon ro'yxatdan o'tgan bo'lsa — darhol Mini App tugmasi.
   if (talaba) {
     await holatOchir(env, foydalanuvchi.id);
+
+    // Sayt muzlatilgan bo'lsa darslik ochilmaydi.
+    if (await muzlatilganmi(env)) {
+      await tg.yubor(
+        chatId,
+        `${salom}\n🔒 <b>Darslik vaqtincha yopilgan.</b>\n\n` +
+          "Texnik ishlar olib borilmoqda. Sayt qayta ochilishi bilan " +
+          "«📚 Darslikni ochish» tugmasi yana paydo bo'ladi.\n\n" +
+          "Shu paytgacha to'plagan natijalaringizni ko'rishingiz mumkin.",
+        { reply_markup: await tugmalar(env, foydalanuvchi.id) }
+      );
+      return;
+    }
+
     await tg.yubor(
       chatId,
       `${salom}\nSiz ro'yxatdan o'tgansiz:\n` +
@@ -1250,7 +1270,7 @@ async function buyruqStart(tg, env, xabar) {
         `📚 ${qalqon(talaba.kurs)}, ${qalqon(talaba.yonalish)}\n\n` +
         "Pastdagi «📚 Darslikni ochish» tugmasini bosing.\n" +
         "Ma'lumotlaringizni yangilash: /yangila",
-      { reply_markup: darslikTugmasi(env, xabar.from.id) }
+      { reply_markup: await tugmalar(env, xabar.from.id) }
     );
     return;
   }
@@ -1275,7 +1295,7 @@ async function buyruqYangila(tg, env, xabar) {
         (adminMi(env, xabar.from.id) ? "super admin" : "muallif") +
         " sifatida tanilgansiz — ro'yxatdan o'tish kerak emas.\n" +
         "Buyruqlar ro'yxati: /start",
-      { reply_markup: darslikTugmasi(env, xabar.from.id) }
+      { reply_markup: await tugmalar(env, xabar.from.id) }
     );
     return;
   }
@@ -1298,7 +1318,7 @@ async function buyruqBekor(tg, env, xabar) {
     holat
       ? "🚫 Bekor qilindi. Qaytadan boshlash uchun: /start"
       : "Hozir bekor qiladigan amal yo'q. /start bilan boshlashingiz mumkin.",
-    { reply_markup: talaba ? darslikTugmasi(env, xabar.from.id) : TUGMANI_OCHIR }
+    { reply_markup: talaba ? await tugmalar(env, xabar.from.id) : TUGMANI_OCHIR }
   );
 }
 
@@ -1360,7 +1380,7 @@ async function buyruqNatijam(tg, env, xabar) {
         `Darslikda <b>${jamiModul} ta modul</b> bor. «📚 Darslikni ochish» ` +
         "tugmasini bosing, mavzuni o'qing va test yoki o'yinni yakunlang — " +
         "natija shu yerda avtomatik ko'rinadi.",
-      { reply_markup: darslikTugmasi(env, xabar.from.id) }
+      { reply_markup: await tugmalar(env, xabar.from.id) }
     );
     return;
   }
@@ -1430,7 +1450,7 @@ async function buyruqNatijam(tg, env, xabar) {
   await tg.yubor(
     xabar.chat.id,
     "Davom etish uchun pastdagi tugmalardan foydalaning.",
-    { reply_markup: darslikTugmasi(env, xabar.from.id) }
+    { reply_markup: await tugmalar(env, xabar.from.id) }
   );
 }
 
@@ -2332,7 +2352,7 @@ async function xabarniQaytaIshla(tg, env, xabar) {
       ? "Darslikni ochish uchun pastdagi «📚 Darslikni ochish» " +
           "tugmasini bosing.\nBuyruqlar: /yordam"
       : "Avval ro'yxatdan o'ting — /start buyrug'ini bosing.",
-    { reply_markup: talaba ? darslikTugmasi(env, xabar.from.id) : TUGMANI_OCHIR }
+    { reply_markup: talaba ? await tugmalar(env, xabar.from.id) : TUGMANI_OCHIR }
   );
 }
 
