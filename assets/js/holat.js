@@ -1,24 +1,42 @@
 /* =========================================================
-   SAYT HOLATI — muzlatish qulfi
-   holat.json faylini o'qiydi. "faol": false bo'lsa, sayt ustiga
-   yopiq oyna chiqadi. Fayl o'qilmasa yoki xato bo'lsa — sayt
-   normal ishlaydi (xavfsiz sukut holati).
+   SAYT HOLATI — muzlatish qulfi (ikki manba)
+
+   1) holat.json          — repozitoriydagi fayl (qattiq qulf,
+                            GitHub Actions o'zgartiradi, 1-2 daqiqa)
+   2) bot /holat manzili  — Cloudflare Worker (bir zumda ishlaydi,
+                            hech qanday qo'shimcha token talab qilmaydi)
+
+   Ikkalasidan biri "faol": false desa — sayt ustiga qulf oynasi
+   chiqadi. Ikkalasi ham o'qilmasa yoki xato bo'lsa, sayt NORMAL
+   ishlaydi (xavfsiz sukut holati — tarmoq uzilishi darslikni
+   yopib qo'ymasligi kerak).
    ========================================================= */
 (function () {
   'use strict';
   if (!window.fetch) return;
 
-  var manzil = 'holat.json?v=' + Date.now();   // keshni chetlab o'tish
+  var BOT = 'https://xalq-pedagogikasi-bot.bunyodjorabekov54.workers.dev/holat';
+  var qulflandi = false;
 
-  fetch(manzil, { cache: 'no-store' })
-    .then(function (j) { return j.ok ? j.json() : null; })
-    .then(function (h) {
-      if (!h || h.faol !== false) return;      // faol bo'lsa — hech narsa qilmaymiz
-      qulfla(h);
-    })
-    .catch(function () { /* xato bo'lsa sayt ochiq qoladi */ });
+  function oq(manzil) {
+    return fetch(manzil, { cache: 'no-store' })
+      .then(function (j) { return j.ok ? j.json() : null; })
+      .catch(function () { return null; });
+  }
+
+  Promise.all([
+    oq('holat.json?v=' + Date.now()),
+    oq(BOT + '?v=' + Date.now())
+  ]).then(function (javoblar) {
+    for (var i = 0; i < javoblar.length; i++) {
+      var h = javoblar[i];
+      if (h && h.faol === false) { qulfla(h); return; }
+    }
+  });
 
   function qulfla(h) {
+    if (qulflandi) return;
+    qulflandi = true;
     var o = document.createElement('div');
     o.className = 'muzlatilgan';
     o.setAttribute('role', 'alertdialog');

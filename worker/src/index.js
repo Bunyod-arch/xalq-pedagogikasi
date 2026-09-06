@@ -1826,6 +1826,58 @@ async function buyruqToxtat(tg, env, xabar) {
  * GitHub Actions «muzlat.yml» ish oqimini ishga tushiradi.
  * Natija: { ok, izoh }.
  */
+/* =====================================================================
+ *  SAYT QULFI — ikki qatlamli.
+ *
+ *  1-qatlam (DOIM ISHLAYDI, hech qanday token kerak emas):
+ *     Holat KV'da `sozlama:muzlat` kalitida saqlanadi va bot
+ *     `/holat` manzilida tarqatadi. Sayt shu manzilni o'qib,
+ *     muzlatilgan bo'lsa ustiga qulf oynasini chiqaradi.
+ *     Bir zumda ishlaydi — GitHub Pages qayta qurilishini kutmaydi.
+ *
+ *  2-qatlam (GH_TOKEN bo'lsa qo'shimcha):
+ *     GitHub Actions oqimi `holat.json` ni o'zgartiradi. Bu qattiqroq
+ *     qulf, lekin 1-2 daqiqa vaqt oladi.
+ * ===================================================================== */
+
+/** Sayt muzlatilganmi? */
+async function muzlatilganmi(env) {
+  try {
+    return (await env.BAZA.get("sozlama:muzlat")) === "1";
+  } catch (xato) {
+    console.error("Muzlatish holati o'qilmadi:", xato && xato.message);
+    return false; // xatoda sayt OCHIQ qoladi
+  }
+}
+
+/** Muzlatish holatini yozadi. */
+async function muzlatishniYoz(env, muzlat) {
+  await env.BAZA.put("sozlama:muzlat", muzlat ? "1" : "0");
+  await env.BAZA.put("sozlama:muzlat_vaqti", hozir());
+}
+
+/** Sayt uchun JSON javob (CORS ochiq — statik sayt o'qiy oladi). */
+async function holatJavobi(env) {
+  const muzlat = await muzlatilganmi(env);
+  let vaqt = "";
+  try { vaqt = (await env.BAZA.get("sozlama:muzlat_vaqti")) || ""; } catch (e) {}
+  return new Response(
+    JSON.stringify({
+      faol: !muzlat,
+      sarlavha: "Sayt vaqtincha to'xtatilgan",
+      xabar: "Texnik ishlar olib borilmoqda. Iltimos, keyinroq urinib ko'ring.",
+      yangilangan: vaqt,
+    }),
+    {
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-store, max-age=0",
+      },
+    }
+  );
+}
+
 async function githubOqimi(env, holat) {
   if (!env.GH_TOKEN) return { ok: false, izoh: "GH_TOKEN siri qo'yilmagan." };
   if (!env.GH_REPO) return { ok: false, izoh: "GH_REPO o'zgaruvchisi berilmagan." };
@@ -1856,24 +1908,42 @@ async function githubOqimi(env, holat) {
 }
 
 async function buyruqMuzlat(tg, env, xabar) {
-  await tg.yubor(xabar.chat.id, "⏳ Saytni muzlatish buyrug'i yuborilmoqda…");
-  const javob = await githubOqimi(env, "muzlat");
+  await tg.yubor(xabar.chat.id, "⏳ Sayt muzlatilmoqda…");
+
+  // 1-qatlam — doim ishlaydi.
+  await muzlatishniYoz(env, true);
+
+  // 2-qatlam — GH_TOKEN bo'lsa qo'shimcha (qattiq qulf).
+  const gh = env.GH_TOKEN ? await githubOqimi(env, "muzlat") : null;
+
   await tg.yubor(
     xabar.chat.id,
-    javob.ok
-      ? "🔒 Sayt muzlatildi.\nGitHub Pages 1–2 daqiqada yangilanadi.\nQayta ochish: /yoq"
-      : `⚠️ Bajarilmadi.\n${qalqon(javob.izoh)}`
+    "🔒 <b>Sayt muzlatildi.</b>\n\n" +
+      "Ziyoratchilar sahifani ochsa qulf oynasini ko'radi — " +
+      "<b>bir zumda</b>, kutish shart emas.\n\n" +
+      (gh
+        ? gh.ok
+          ? "🔐 Qo'shimcha qattiq qulf ham yuborildi (GitHub 1–2 daqiqada yangilaydi).\n\n"
+          : `⚠️ Qattiq qulf yuborilmadi: ${qalqon(gh.izoh)}\n(Asosiy qulf baribir ishlayapti.)\n\n`
+        : "") +
+      "Qayta ochish: «🔓 Saytni ochish» tugmasi."
   );
 }
 
 async function buyruqYoq(tg, env, xabar) {
-  await tg.yubor(xabar.chat.id, "⏳ Saytni ochish buyrug'i yuborilmoqda…");
-  const javob = await githubOqimi(env, "yoq");
+  await tg.yubor(xabar.chat.id, "⏳ Sayt ochilmoqda…");
+
+  await muzlatishniYoz(env, false);
+  const gh = env.GH_TOKEN ? await githubOqimi(env, "yoq") : null;
+
   await tg.yubor(
     xabar.chat.id,
-    javob.ok
-      ? "🔓 Sayt qayta ochildi.\nGitHub Pages 1–2 daqiqada yangilanadi."
-      : `⚠️ Bajarilmadi.\n${qalqon(javob.izoh)}`
+    "🔓 <b>Sayt ochildi.</b> Darslik yana ishlayapti.\n\n" +
+      (gh
+        ? gh.ok
+          ? "🔐 Qattiq qulf ham olib tashlandi (GitHub 1–2 daqiqada yangilaydi)."
+          : `⚠️ Qattiq qulfni olishda: ${qalqon(gh.izoh)}`
+        : "")
   );
 }
 
@@ -2397,6 +2467,19 @@ export default {
           JSON.stringify({ bayt: bayt.length, topilgan: muhim }, null, 2),
           { headers: { "Content-Type": "application/json; charset=utf-8" } }
         );
+      }
+
+      // Sayt qulfi holati — ochiq manzil, sayt shuni o'qiydi.
+      if (manzil.pathname === "/holat") {
+        if (request.method === "OPTIONS") {
+          return new Response(null, {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, OPTIONS",
+            },
+          });
+        }
+        return holatJavobi(env);
       }
 
       // GET — qisqa holat sahifasi.
