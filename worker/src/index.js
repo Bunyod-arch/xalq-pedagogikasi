@@ -647,6 +647,12 @@ function juftKalit(birinchi, ikkinchi) {
   return sozlar.sort().join(" ");
 }
 
+/** Ro'yxatda umuman yozuv bormi? */
+async function oqRoyxatBormi(env) {
+  const bor = await kalitlarniOl(env, "oq:", 1);
+  return bor.length > 0;
+}
+
 /** Oq ro'yxat yoqilganmi? */
 async function oqRoyxatFaolmi(env) {
   try {
@@ -673,15 +679,14 @@ async function oqRoyxatSoni(env) {
  * Ro'yxat o'chirilgan bo'lsa hamma uchun ruxsat.
  */
 async function oqRoyxatdaBormi(env, malumot) {
-  if (!(await oqRoyxatFaolmi(env))) return true;
   try {
     const tk = telefonKalit(malumot.telefon);
     if (tk && (await env.BAZA.get("oq:t:" + tk)) !== null) return true;
     const ik = juftKalit(malumot.ism, malumot.familiya);
     if (ik && (await env.BAZA.get("oq:i:" + ik)) !== null) return true;
   } catch (xato) {
-    console.error("Oq ro'yxat tekshiruvi xatosi:", xato && xato.message);
-    return true; // xizmat uzilsa talabani to'sib qo'ymaymiz
+    console.error("Ro'yxat tekshiruvi xatosi:", xato && xato.message);
+    return null; // tekshirib bo'lmadi
   }
   return false;
 }
@@ -888,28 +893,33 @@ async function royxatQadami(tg, env, xabar, holat) {
     return;
   }
 
-  // Telefon kiritilgach — talaba muallif ro'yxatida bormi, tekshiriladi.
+  // Telefon kiritilgach — talaba o'qituvchi ro'yxatida bormi, BIR MARTA
+  // tekshiriladi. Bu FAQAT ogohlantirish: hech kim to'silmaydi, sayt ham,
+  // bot ham to'liq ishlayveradi. Natija talaba yozuviga belgi qilib
+  // qo'yiladi va muallif ko'radi.
+  let royxatBelgisi = null;
   if (qadam === "telefon") {
     const nomzod = {
       ism: (holat.malumot || {}).ism,
       familiya: (holat.malumot || {}).familiya,
       telefon: javob.qiymat,
     };
-    if (!(await oqRoyxatdaBormi(env, nomzod))) {
-      await holatOchir(env, tgId);
-      await tg.yubor(
+    const royxatBor = await oqRoyxatBormi(env);
+    if (royxatBor) {
+      royxatBelgisi = await oqRoyxatdaBormi(env, nomzod);
+      if (royxatBelgisi !== null) await tg.yubor(
         chatId,
-        "🚫 <b>Kirish cheklangan</b>\n\n" +
-          "Sizning ma'lumotlaringiz o'qituvchi kiritgan talabalar " +
-          "ro'yxatida topilmadi.\n\n" +
-          `Kiritilgan: <b>${qalqon(nomzod.familiya)} ${qalqon(nomzod.ism)}</b>, ` +
-          `${qalqon(nomzod.telefon)}\n\n` +
-          "Ism-familiyangizni yoki telefon raqamingizni xato yozgan " +
-          "bo'lishingiz mumkin — /start bosib qaytadan urinib ko'ring. " +
-          "Agar to'g'ri bo'lsa, o'qituvchingizga murojaat qiling.",
-        { reply_markup: TUGMANI_OCHIR }
+        royxatBelgisi
+          ? "✅ <b>Siz o'qituvchi ro'yxatida borsiz.</b>\n" +
+              `${qalqon(nomzod.familiya)} ${qalqon(nomzod.ism)} — topildi.`
+          : "⚠️ <b>Siz o'qituvchi ro'yxatida yo'qsiz.</b>\n\n" +
+              `Kiritilgan: ${qalqon(nomzod.familiya)} ${qalqon(nomzod.ism)}, ` +
+              `${qalqon(nomzod.telefon)}\n\n` +
+              "Bu <b>hech narsani to'smaydi</b> — ro'yxatdan o'tishni davom " +
+              "ettiring, darslik va testlar to'liq ishlaydi. Faqat " +
+              "ism-familiyangizni xato yozgan bo'lsangiz, o'qituvchingizga " +
+              "aytib qo'ying."
       );
-      return;
     }
   }
 
@@ -941,6 +951,7 @@ async function royxatQadami(tg, env, xabar, holat) {
 
   const malumot = { ...(holat.malumot || {}) };
   malumot[qadam === "rasm" ? "rasm_id" : qadam] = javob.qiymat;
+  if (royxatBelgisi !== null) malumot.royxatda = royxatBelgisi;
 
   const keyingiIndeks = QADAMLAR.indexOf(qadam) + 1;
   if (keyingiIndeks < QADAMLAR.length) {
@@ -970,6 +981,8 @@ async function royxatniYakunla(tg, env, xabar, malumot) {
     oqish_joyi: malumot.oqish_joyi,
     kurs: malumot.kurs,
     yonalish: malumot.yonalish,
+    // O'qituvchi ro'yxatida bormi (faqat ma'lumot uchun, hech narsani to'smaydi).
+    royxatda: malumot.royxatda === undefined ? null : malumot.royxatda,
     royxat_sanasi: hozir(),
   };
 
@@ -1010,7 +1023,12 @@ async function royxatniYakunla(tg, env, xabar, malumot) {
     `📚 ${qalqon(talaba.kurs)}\n` +
     `🎓 ${qalqon(talaba.yonalish)}\n` +
     `🔗 ${talaba.username ? `@${qalqon(talaba.username)}` : "—"}\n` +
-    `🕓 ${hozir()}`;
+    `🕓 ${hozir()}\n` +
+    (talaba.royxatda === true
+      ? "\n✅ Sizning ro'yxatingizda BOR"
+      : talaba.royxatda === false
+        ? "\n⚠️ Sizning ro'yxatingizda YO'Q"
+        : "");
   await muallifgaYubor(tg, env, sarlavha, talaba.rasm_id);
 }
 
@@ -1214,7 +1232,7 @@ async function buyruqStart(tg, env, xabar) {
         "<b>📋 📈 👥 📊 📥 🔎 — nazorat</b>\n" +
         "Natijalar, hisobot, talabalar, statistika, CSV eksport va qidiruv.\n\n" +
         "<b>🗂 Talabalar jadvali</b> — kim kira olishini belgilaydi.\n" +
-        "Hozir: " + (oqFaol ? "🟢 nazorat yoqilgan" : "⚪ nazorat o'chirilgan") +
+        "Ro'yxat tekshiruvi: " + (oqFaol ? "🟢 yoqilgan" : "⚪ o'chirilgan") +
         ` (telefon ${soni.telefon}, ism ${soni.ism})`,
       { reply_markup: await tugmalar(env, xabar.from.id) }
     );
@@ -1234,11 +1252,11 @@ async function buyruqStart(tg, env, xabar) {
         "test va o'yin natijalari sizga avtomatik kelib turadi.\n\n" +
         "Pastda <b>tugmalaringiz</b> chiqdi:\n" +
         "🗂 <b>Talabalar jadvali</b> — ro'yxatni yuklaysiz, faqat " +
-        "shu talabalar kira oladi\n" +
+        "ro'yxatda bor-yo'qligi tekshiriladi (hech kim to'silmaydi)\n" +
         "👥 Talabalar · 📋 Natijalar · 📈 Hisobot — ballarni nazorat qilasiz\n" +
         "📊 Statistika · 📥 CSV eksport · 🔎 Talabani qidirish\n" +
         "📚 Darslikni ochish — saytni ko'rasiz\n\n" +
-        "Hozirgi holat: " + (oqFaol ? "🟢 nazorat yoqilgan" : "⚪ nazorat o'chirilgan") +
+        "Ro'yxat tekshiruvi: " + (oqFaol ? "🟢 yoqilgan" : "⚪ o'chirilgan") +
         ` (telefon ${soni.telefon}, ism ${soni.ism})`,
       { reply_markup: await tugmalar(env, xabar.from.id) }
     );
@@ -1490,7 +1508,11 @@ async function tugmaJadval(tg, env, xabar) {
   await tg.yubor(
     xabar.chat.id,
     "🗂 <b>Talabalar jadvali</b>\n\n" +
-      `Holati: ${faol ? "🟢 <b>YOQILGAN</b> — faqat ro'yxatdagilar kira oladi" : "⚪ <b>O'CHIRILGAN</b> — hamma kira oladi"}\n` +
+      "ℹ️ Bu ro'yxat <b>kirishni to'smaydi</b>. Hamma talaba ro'yxatdan " +
+      "o'ta oladi va darslik to'liq ishlaydi. Ro'yxat faqat tekshirish " +
+      "uchun — talabaga «ro'yxatda borsiz/yo'qsiz» deb aytiladi va " +
+      "sizga kelgan xabarda ham shu belgi turadi.\n\n" +
+      `Tekshiruv: ${faol ? "🟢 <b>YOQILGAN</b>" : "⚪ <b>O'CHIRILGAN</b>"}\n` +
       `Bazada: telefon <b>${soni.telefon}</b>, ism <b>${soni.ism}</b>\n\n` +
       "📝 <b>Endi ro'yxatni yuboring</b> — bitta xabarda, har bir talaba " +
       "alohida qatorda. Yoki <b>.txt / .csv fayl</b> tashlang.\n\n" +
@@ -1511,8 +1533,12 @@ async function buyruqRoyxat(tg, env, xabar) {
   const soni = await oqRoyxatSoni(env);
   await tg.yubor(
     xabar.chat.id,
-    "📋 <b>Talabalar ro'yxati (kirish nazorati)</b>\n\n" +
-      `Holati: ${faol ? "🟢 <b>YOQILGAN</b> — faqat ro'yxatdagilar kira oladi" : "⚪ <b>O'CHIRILGAN</b> — hamma kira oladi"}\n` +
+    "📋 <b>Talabalar ro'yxati</b>\n\n" +
+      "ℹ️ Ro'yxat <b>hech kimni to'smaydi</b> — hamma talaba ro'yxatdan " +
+      "o'tadi, sayt va bot to'liq ishlaydi. Ro'yxat faqat tekshirish " +
+      "uchun: ro'yxatdan o'tayotgan talabaga «borsiz» yoki «yo'qsiz» " +
+      "deb aytiladi va sizga ham shu belgi bilan xabar keladi.\n\n" +
+      `Tekshiruv: ${faol ? "🟢 <b>YOQILGAN</b>" : "⚪ <b>O'CHIRILGAN</b>"}\n` +
       `Telefon bo'yicha yozuv: <b>${soni.telefon}</b>\n` +
       `Ism-familiya bo'yicha yozuv: <b>${soni.ism}</b>\n\n` +
       "<b>Ro'yxat qo'shish</b>\n" +
@@ -1564,8 +1590,9 @@ async function royxatMatniniQabulQil(tg, env, xabar, matn) {
       `Yangi telefon kalitlari: ${qoshildi.telefon}\n` +
       `Yangi ism kalitlari: ${qoshildi.ism}\n\n` +
       `Bazada jami: telefon <b>${soni.telefon}</b>, ism <b>${soni.ism}</b>\n\n` +
-      "🟢 Kirish nazorati <b>yoqildi</b> — endi faqat shu ro'yxatdagi " +
-      "talabalar ro'yxatdan o'ta oladi."
+      "🟢 Tekshiruv <b>yoqildi</b> — endi ro'yxatdan o'tayotgan har bir " +
+      "talabaga «ro'yxatda borsiz» yoki «yo'qsiz» deb aytiladi. " +
+      "Hech kim to'silmaydi."
   );
 }
 
@@ -1598,8 +1625,8 @@ async function buyruqRoyxatHolat(tg, env, xabar, yoqilsin) {
   await tg.yubor(
     xabar.chat.id,
     yoqilsin
-      ? "🟢 Kirish nazorati <b>yoqildi</b> — faqat ro'yxatdagi talabalar kira oladi."
-      : "⚪ Kirish nazorati <b>o'chirildi</b> — hamma ro'yxatdan o'ta oladi."
+      ? "🟢 Ro'yxat tekshiruvi <b>yoqildi</b> — talabaga «ro'yxatda borsiz/yo'qsiz» deb aytiladi."
+      : "⚪ Ro'yxat tekshiruvi <b>o'chirildi</b> — hech qanday xabar berilmaydi."
   );
 }
 
@@ -1613,7 +1640,7 @@ async function buyruqRoyxatTozala(tg, env, xabar) {
   await tg.yubor(
     xabar.chat.id,
     `🗑 Ro'yxat tozalandi (${kalitlar.length} ta kalit o'chirildi).\n` +
-      "Kirish nazorati o'chirildi — hozircha hamma kira oladi."
+      "Tekshiruv o'chirildi."
   );
 }
 
@@ -1636,7 +1663,7 @@ async function buyruqYordam(tg, env, xabar) {
       "/qidir &lt;ism&gt; — talabani qidirish",
       "/statistika — umumiy statistika",
       "/eksport — natijalarni CSV'da olish",
-      "\n<b>Kirish nazorati</b>",
+      "\n<b>Talabalar ro'yxati (faqat tekshiruv, to'smaydi)</b>",
       "/royxat — holat va qo'llanma",
       "/royxat_qosh — ro'yxat qo'shish (matn yoki .txt/.csv fayl)",
       "/royxat_kor — ro'yxatni ko'rish",
@@ -1704,15 +1731,26 @@ async function buyruqTalabalar(tg, env, xabar) {
     sanoq[id] = (sanoq[id] || 0) + 1;
   }
 
-  const satrlar = [`👥 <b>Talabalar (${talabalar.length} ta)</b>\n`];
+  const royxatda = talabalar.filter((t) => t.royxatda === true).length;
+  const royxatsiz = talabalar.filter((t) => t.royxatda === false).length;
+
+  const satrlar = [
+    `👥 <b>Talabalar (${talabalar.length} ta)</b>`,
+    royxatda + royxatsiz > 0
+      ? `Ro'yxatingizda: ✅ ${royxatda} ta · ⚠️ ${royxatsiz} ta yo'q\n`
+      : "",
+  ];
   talabalar.forEach((t, indeks) => {
+    const belgi =
+      t.royxatda === true ? " ✅" : t.royxatda === false ? " ⚠️" : "";
     satrlar.push(
-      `${indeks + 1}. <b>${qalqon(t.familiya)} ${qalqon(t.ism)}</b>\n` +
+      `${indeks + 1}. <b>${qalqon(t.familiya)} ${qalqon(t.ism)}</b>${belgi}\n` +
         `   📞 ${qalqon(t.telefon)} · 📚 ${qalqon(t.kurs)}\n` +
         `   🏫 ${qalqon(t.oqish_joyi)}\n` +
         `   🎓 ${qalqon(t.yonalish)} · 📊 ${sanoq[t.tg_id] || 0} ta natija`
     );
   });
+  satrlar.push("\n<i>✅ — ro'yxatingizda bor · ⚠️ — ro'yxatingizda yo'q</i>");
   await tg.uzunYubor(xabar.chat.id, satrlar.join("\n"));
 }
 
@@ -2053,11 +2091,11 @@ const MUALLIF_MENYU = ODDIY_MENYU.concat([
   { command: "qidir", description: "Talabani qidirish" },
   { command: "statistika", description: "Umumiy statistika" },
   { command: "eksport", description: "CSV eksport" },
-  { command: "royxat", description: "Talabalar ro'yxati (kirish nazorati)" },
+  { command: "royxat", description: "Talabalar ro'yxati" },
   { command: "royxat_qosh", description: "Ro'yxatga talaba qo'shish" },
   { command: "royxat_kor", description: "Ro'yxatni ko'rish" },
-  { command: "royxat_yon", description: "Kirish nazoratini yoqish" },
-  { command: "royxat_ochir", description: "Kirish nazoratini o'chirish" },
+  { command: "royxat_yon", description: "Ro'yxat tekshiruvini yoqish" },
+  { command: "royxat_ochir", description: "Ro'yxat tekshiruvini o'chirish" },
   { command: "royxat_tozala", description: "Ro'yxatni tozalash" },
 ]);
 
