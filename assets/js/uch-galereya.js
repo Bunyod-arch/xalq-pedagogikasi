@@ -32,8 +32,37 @@ import * as THREE from '../vendor/three.module.min.js';
     return;
   }
 
-  /* ---------- Kutubxonalarni yuklash (yo‘qi bo‘lsa o‘tkazib yuboriladi) ---------- */
-  const manbalar = [
+  /* ---------- Har modulning O'Z model kutubxonasi ---------- */
+  // Modul -> [[fayl, reyestr nomi], ...]. Reyestrdagi HAMMA model
+  // ko'rgichda ko'rinadi — mavzudagi har bir detalning modeli.
+  const MODUL_KUTUBXONA = {
+    1:  [['./model-manba.js', 'MANBALAR']],
+    2:  [['./model-didaktik.js', 'DIDAKTIK']],
+    3:  [['./model-oila.js', 'OILA'], ['./model-maishiy.js', 'MAISHIY']],
+    4:  [['./model-tarbiya.js', 'TARBIYA']],
+    5:  [['./model-ogzaki.js', 'OGZAKI']],
+    6:  [['./model-doston.js', 'DOSTON'], ['./model-cholgu.js', 'CHOLGULAR']],
+    7:  [['./model-marosim.js', 'MAROSIM']],
+    8:  [['./model-oyin.js', 'OYIN_BUYUMLARI']],
+    9:  [['./model-diniy.js', 'DINIY']],
+    10: [['./model-ustaxona.js', 'USTAXONA_BUYUMLARI'], ['./model-hunar.js', 'HUNARLAR']],
+    11: [['./model-odob.js', 'ODOB_BUYUMLARI'], ['./model-maishiy.js', 'MAISHIY']],
+    12: [['./model-teatr.js', 'TEATR'], ['./model-cholgu.js', 'CHOLGULAR']],
+    13: [['./model-maktab.js', 'MAKTAB'], ['./model-maishiy.js', 'MAISHIY']],
+    14: [['./model-maishiy.js', 'MAISHIY']],
+  };
+
+  // Ba'zi modullarda umumiy kutubxonadan faqat mos buyumlar olinadi.
+  const MODUL_FILTR = {
+    14: ['ketmon', 'oroq', 'qozon', 'non'],
+    13: ['kitob', 'daftar', 'qalam', 'lavh', 'siyohdon', 'qamishQalam',
+         'xattotlikTaxtasi', 'ustoz', 'shogird', 'bolga', 'sandon', 'korpacha'],
+    3:  ['beshik', 'dasturxon', 'non', 'choynak', 'piyola', 'qozon'],
+    11: ['dasturxon', 'non', 'choynak', 'piyola', 'doppi'],
+  };
+
+  /* ---------- Kutubxonalarni yuklash (yo'qi jimgina tashlanadi) ---------- */
+  const manbalar = MODUL_KUTUBXONA[modul] || [
     ['./model-cholgu.js',  'CHOLGULAR'],
     ['./model-hunar.js',   'HUNARLAR'],
     ['./model-oyin.js',    'OYIN_BUYUMLARI'],
@@ -43,29 +72,24 @@ import * as THREE from '../vendor/three.module.min.js';
 
   let hammasi = {};
   natijalar.forEach((n, i) => {
-    if (n.status !== 'fulfilled') return;
+    if (n.status !== 'fulfilled') {
+      console.warn('3D kutubxona yuklanmadi:', manbalar[i][0]);
+      return;
+    }
     const ro = n.value[manbalar[i][1]];
-    if (ro) Object.keys(ro).forEach(k => { hammasi[k] = ro[k]; });
+    if (!ro) return;
+    Object.keys(ro).forEach(k => {
+      // Reyestrda yasa funksiyasi bo'lmagan yozuvlar o'tkazib yuboriladi.
+      if (ro[k] && typeof ro[k].yasa === 'function') hammasi[k] = ro[k];
+    });
   });
 
   /* ---------- Shu modulga tegishli buyumlarni tanlash ---------- */
-  // Modul -> buyum kalitlari. Kutubxonada bo‘lmagan kalit jimgina tashlanadi.
-  const MODUL_BUYUMLARI = {
-    1:  ['kitob', 'qalam', 'daftar'],
-    3:  ['beshik', 'dasturxon', 'non', 'choynak', 'piyola'],
-    4:  ['ketmon', 'oroq', 'kitob'],
-    5:  ['beshik', 'kitob', 'olma'],
-    6:  ['dombra', 'kitob'],
-    7:  ['qozon', 'non', 'dasturxon', 'doppi'],
-    8:  ['doppi', 'olma', 'terak', 'junTop', 'chimTop', 'qilich', 'chavgon', 'arqon', 'ot', 'qoy', 'romol'],
-    10: ['xurmacha', 'sopolLagan', 'suzani', 'qumgon', 'misLagan', 'taqinchoq', 'ganch', 'pichoq', 'gilam'],
-    11: ['dasturxon', 'non', 'choynak', 'piyola', 'doppi'],
-    12: ['dutor', 'rubob', 'dombra', 'doira', 'chang', 'nay'],
-    13: ['kitob', 'daftar', 'qalam'],
-    14: ['ketmon', 'oroq'],
-  };
-
-  const kalitlar = (MODUL_BUYUMLARI[modul] || []).filter(k => hammasi[k]);
+  const filtr = MODUL_FILTR[modul];
+  const kalitlar = filtr
+    ? filtr.filter(k => hammasi[k])
+    : Object.keys(hammasi);
+  if (!kalitlar.length) { idish.remove(); return; }
   if (!kalitlar.length) { idish.remove(); return; }
 
   /* =========================================================
