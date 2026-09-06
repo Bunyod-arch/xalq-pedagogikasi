@@ -662,8 +662,10 @@ import { DINIY } from './model-diniy.js';
       sahnaDiv.classList.toggle('o3md-tor', tor);
       kamera.aspect = w / h;
       kamera.fov = tor ? 54 : 46;
-      kamera.position.set(0, tor ? 6.4 : 5.8, tor ? 10.4 : 9.6);
-      kamera.lookAt(0, 1.35, -1.0);
+      // Kamera bino (z<0) bilan tanlov buyumlari (z=3.55) orasiga qaraydi,
+      // aks holda buyumlar kadr tubida juda kichkina bo'lib qoladi.
+      kamera.position.set(0, tor ? 5.2 : 4.6, tor ? 9.2 : 8.4);
+      kamera.lookAt(0, 0.80, 1.55);
       kamera.updateProjectionMatrix();
     }
     olcham();
